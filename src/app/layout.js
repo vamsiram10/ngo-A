@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
 
       <body
         className={` antialiased relative`}
-        style={{ backgroundColor: "pink" }}
+        style={{ backgroundColor: "black" }}
       >
         <NavBar />
 
