@@ -12,6 +12,7 @@ const Navbar = () => {
       <header className="absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex items-center justify-between px-4 py-2">
           {/* Logo guyzz any chnages make here*/}
+          {/**/}
 
           <div className="flex items-center">
             <Link href="/" className="pl-2">
