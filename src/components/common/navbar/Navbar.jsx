@@ -18,9 +18,9 @@ const Navbar = () => {
               <Image
                 src="/svg/AVASA.svg"
                 alt="logo"
-                width={39}
+                width={38}
                 height={40}
-                className="w-[40px] h-[44px] h-[60px] sm:w-[54px]"
+                className="w-[40px] h-[43px] h-[58.5px] sm:w-[54px]"
                 priority
               />
             </Link>

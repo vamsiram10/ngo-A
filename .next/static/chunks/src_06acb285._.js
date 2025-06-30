@@ -106,9 +106,9 @@ const Navbar = ()=>{
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     src: "/svg/AVASA.svg",
                                     alt: "logo",
-                                    width: 39,
+                                    width: 38,
                                     height: 40,
-                                    className: "w-[40px] h-[44px] h-[60px] sm:w-[54px]",
+                                    className: "w-[40px] h-[43px] h-[58.5px] sm:w-[54px]",
                                     priority: true
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/common/navbar/Navbar.jsx",
