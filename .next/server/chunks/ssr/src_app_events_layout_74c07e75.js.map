@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/rongalivamsi/Desktop/ngo-A/src/app/events/layout.js"],"sourcesContent":["\"use client\";\n// import { ReactLenis } from \"@/lenis/react\";\n\nfunction EventsLayout({ children }) {\n  return (\n    // <ReactLenis root>\n    <main className=\"relative min-h-screen w-screen overflow-x-hidden bg-amber-950\">\n      <h1 className=\"text-white text-6xl font-bold text-center mt-[5.5rem]\">\n        Aneesh Work\n      </h1>\n      {children}\n    </main>\n    // </ReactLenis>\n  );\n}\n\nexport default EventsLayout;\n"],"names":[],"mappings":";;;;AAAA;;AACA,8CAA8C;AAE9C,SAAS,aAAa,EAAE,QAAQ,EAAE;IAChC,OACE,oBAAoB;kBACpB,8OAAC;QAAK,WAAU;;0BACd,8OAAC;gBAAG,WAAU;0BAAwD;;;;;;YAGrE;;;;;;;AAIP;uCAEe","debugId":null}}]
+}

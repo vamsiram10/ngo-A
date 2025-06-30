@@ -18,12 +18,12 @@ const navLinks = {
     {
       id: 3,
       label: "Events",
-      url: "/sponsors",
+      url: "/events",
     },
     {
       id: 4,
       label: "Contact Us",
-      url: "/team",
+      url: "/contactus",
       dialog: [
         { id: 1, title: "Get in touch", path: "/" },
         { id: 2, title: "FAQs", path: "/" },

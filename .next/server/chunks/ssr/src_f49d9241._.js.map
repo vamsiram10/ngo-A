@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/rongalivamsi/Desktop/ngo-A/src/components/section/homesections/hometeam/HomeTeam.jsx"],"sourcesContent":["const HomeTeam = () => {\n  return (\n    <div className=\"min-h-screen w-screen\">\n      <h1></h1>\n    </div>\n  );\n};\nexport default HomeTeam;\n"],"names":[],"mappings":";;;;;AAAA,MAAM,WAAW;IACf,qBACE,8OAAC;QAAI,WAAU;kBACb,cAAA,8OAAC;;;;;;;;;;AAGP;uCACe","debugId":null}},
+    {"offset": {"line": 33, "column": 0}, "map": {"version":3,"sources":["file:///Users/rongalivamsi/Desktop/ngo-A/src/app/page.js"],"sourcesContent":["\"use client\";\nimport HomeTeam from \"@/components/section/homesections/hometeam/HomeTeam\";\nimport { useRef } from \"react\";\n\nexport default function HomePage() {\n  const mainContainer = useRef(null);\n  return (\n    <main\n      ref={mainContainer}\n      className=\"relative min-h-screen w-screen overflow-x-hidden\"\n    >\n      <HomeTeam />\n    </main>\n  );\n}\n"],"names":[],"mappings":";;;;AACA;AACA;AAFA;;;;AAIe,SAAS;IACtB,MAAM,gBAAgB,CAAA,GAAA,qMAAA,CAAA,SAAM,AAAD,EAAE;IAC7B,qBACE,8OAAC;QACC,KAAK;QACL,WAAU;kBAEV,cAAA,8OAAC,qKAAA,CAAA,UAAQ;;;;;;;;;;AAGf","debugId":null}}]
+}

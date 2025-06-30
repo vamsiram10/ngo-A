@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/rongalivamsi/Desktop/ngo-A/src/app/aboutus/layout.js"],"sourcesContent":["\"use client\";\n// import { ReactLenis } from \"@/lenis/react\";\n\nfunction AboutUsLayout({ children }) {\n  return (\n    // <ReactLenis root>\n    <main className=\"relative min-h-screen w-screen overflow-x-hidden bg-amber-400\">\n      <h1 className=\"text-white text-6xl font-bold text-center mt-[5.5rem]\">\n        ABOUT US vinathi\n      </h1>\n      {children}\n    </main>\n    // </ReactLenis>\n  );\n}\n\nexport default AboutUsLayout;\n"],"names":[],"mappings":";;;;AAAA;;AACA,8CAA8C;AAE9C,SAAS,cAAc,EAAE,QAAQ,EAAE;IACjC,OACE,oBAAoB;kBACpB,6LAAC;QAAK,WAAU;;0BACd,6LAAC;gBAAG,WAAU;0BAAwD;;;;;;YAGrE;;;;;;;AAIP;KAXS;uCAaM","debugId":null}}]
+}

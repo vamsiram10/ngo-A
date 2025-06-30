@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/rongalivamsi/Desktop/ngo-A/src/app/aboutus/layout.js"],"sourcesContent":["import { ReactLenis } from \"lenis/react\";\n\nfunction AboutUsLayout({ children }) {\n  return (\n    <ReactLenis root>\n      <main className=\"relative min-h-screen w-screen overflow-x-hidden bg-black\">\n        <h1 className=\"text-white text-6xl font-bold text-center mt-[5.5rem]\">\n          ABOUT US\n        </h1>\n        {children}\n      </main>\n    </ReactLenis>\n  );\n}\n\nexport default AboutUsLayout;\n"],"names":[],"mappings":";;;;;;;;;;;AAEA,SAAS,cAAc,EAAE,QAAQ,EAAE;IACjC,qBACE,8OAAC;QAAW,IAAI;kBACd,cAAA,8OAAC;YAAK,WAAU;;8BACd,8OAAC;oBAAG,WAAU;8BAAwD;;;;;;gBAGrE;;;;;;;;;;;;AAIT;uCAEe","debugId":null}}]
+}
