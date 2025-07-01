@@ -1,7 +1,11 @@
+import AnimatedTestimonials from "@/components/utils/teammem/animated-testimonials";
+
 const OurWorkSection = () => {
   return (
     <div>
-      <h1>hero</h1>
+      <h1>
+        <AnimatedTestimonials />
+      </h1>
     </div>
   );
 };

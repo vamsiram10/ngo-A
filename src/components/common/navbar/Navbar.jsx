@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import navLinks from "@/data/navbar";
+import OwlDarkModeToggle from "@/components/utils/darkmodenavbar/OwlDarkModeToggle";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,6 +27,8 @@ const Navbar = () => {
               />
             </Link>
           </div>
+
+          {/* Dark mode toggle symbol */}
 
           {/*name in header guyzzzzz*/}
           <span className="absolute left-17.5 w-45 text-black text-base text-lg sm:left-22 md:text-xl">

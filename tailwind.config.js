@@ -16,4 +16,6 @@ export default {
     "./components/**/*.{html,js,ts,jsx,tsx}",
   ],
   plugins: [],
+
+  darkMode: ["class"],
 };

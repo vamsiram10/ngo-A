@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
