@@ -8,53 +8,51 @@ import {
   useTransform,
 } from "framer-motion";
 
-// Timeline data with 4 entries from 2022, each with year, title, anime image, and content
 const timelineData = [
   {
     year: "2022",
     title: "Discovered Anime",
-    image:
+    images: [
       "https://w0.peakpx.com/wallpaper/571/269/HD-wallpaper-a-silent-voice-anime-goals-koe-no-katachi-love-random.jpg",
+      "https://w0.peakpx.com/wallpaper/513/42/HD-wallpaper-tenki-no-ko-anime-art-random-sky-waifu.jpg",
+      "https://w0.peakpx.com/wallpaper/894/73/HD-wallpaper-tenki-no-ko-anime-art-goals-random-waifu.jpg",
+    ],
     content:
       "Started watching anime and fell in love with the art and stories. I remember the first time I watched 'A Silent Voice'—the emotional depth and beautiful animation left a lasting impression on me. I began exploring different genres, from slice-of-life to action-packed shonen, and found myself eagerly anticipating each new episode. Anime quickly became more than just entertainment; ",
-    randomImage:
-      "https://w0.peakpx.com/wallpaper/513/42/HD-wallpaper-tenki-no-ko-anime-art-random-sky-waifu.jpg",
   },
   {
     year: "2023",
     title: "Joined Anime Club",
-    image:
+    images: [
       "https://w0.peakpx.com/wallpaper/894/73/HD-wallpaper-tenki-no-ko-anime-art-goals-random-waifu.jpg",
+      "https://w0.peakpx.com/wallpaper/733/129/HD-wallpaper-kimetsu-no-yaiba-anime-art-demon-slayer-fantasy-random.jpg",
+    ],
     content:
       "Became a member of the local anime club and made new friends. Attending weekly meetups, I participated in group watch parties, lively discussions, and even trivia nights. The club organized themed events, such as cosplay contests and manga drawing workshops, which allowed me to express my creativity and learn new skills. Through these activities, I formed close bonds with people who shared my enthusiasm for anime and Japanese culture. We often collaborated on fan projects, exchanged merchandise, and supported each other at conventions. The sense of belonging and camaraderie I found in the club made this year truly special.",
-    randomImage:
-      "https://w0.peakpx.com/wallpaper/733/129/HD-wallpaper-kimetsu-no-yaiba-anime-art-demon-slayer-fantasy-random.jpg",
   },
   {
     year: "2024",
     title: "Cosplayed at Convention",
-    image:
+    images: [
       "https://w0.peakpx.com/wallpaper/514/165/HD-wallpaper-a-silent-voice-anime-girl-goals-koe-no-katachi-love-random-waifu.jpg",
+      "https://w0.peakpx.com/wallpaper/891/288/HD-wallpaper-silent-voice-anime-art-koe-no-katachi-love-random.jpg",
+    ],
     content:
       "Attended my first anime convention and cosplayed as my favorite character. The experience was exhilarating—I spent weeks preparing my costume, learning makeup techniques, and perfecting every detail. Walking through the convention halls, I was amazed by the creativity and dedication of fellow cosplayers. I participated in photoshoots, joined panel discussions, and met some of my favorite voice actors. The event also featured exclusive screenings, artist alleys, and merchandise booths, making it a paradise for any anime fan. Sharing this adventure with friends from the anime club made it even more memorable, and I left with unforgettable memories and new connections.",
-    randomImage:
-      "https://w0.peakpx.com/wallpaper/891/288/HD-wallpaper-silent-voice-anime-art-koe-no-katachi-love-random.jpg",
   },
   {
     year: "2025",
     title: "Started Drawing Anime",
-    image:
+    images: [
       "https://w0.peakpx.com/wallpaper/41/192/HD-wallpaper-silent-voice-anime-koe-no-kstschi-love-random.jpg",
+      "https://w0.peakpx.com/wallpaper/1009/985/HD-wallpaper-chuunibyou-anime-art-beatiful-girl-random-waifu.jpg",
+    ],
     content:
       "Began drawing my own anime characters and sharing them online. Inspired by the incredible artists I followed, I dedicated time each day to practice sketching, inking, and digital coloring. I posted my artwork on social media and received encouraging feedback from the community, which motivated me to improve further. I also joined online art challenges and collaborated with other creators on fan comics and illustrations. Over time, I developed my unique style and even started taking commissions. This creative journey not only enhanced my artistic skills but also boosted my confidence and opened up new opportunities in the world of anime art.",
-    randomImage:
-      "https://w0.peakpx.com/wallpaper/1009/985/HD-wallpaper-chuunibyou-anime-art-beatiful-girl-random-waifu.jpg",
   },
 ];
 
-// Creative animated image switcher with new transformations
 const transitionVariants = [
-  // Classic fade/scale/rotate
   {
     initial: (direction) => ({
       opacity: 0,
@@ -83,7 +81,6 @@ const transitionVariants = [
     }),
     transition: { duration: 0.55, ease: "easeInOut" },
   },
-  // Flip Y
   {
     initial: (direction) => ({
       opacity: 0,
@@ -109,7 +106,6 @@ const transitionVariants = [
     }),
     transition: { duration: 0.6, ease: "easeInOut" },
   },
-  // Slide up with blur
   {
     initial: (direction) => ({
       opacity: 0,
@@ -132,7 +128,6 @@ const transitionVariants = [
     }),
     transition: { duration: 0.5, ease: "easeInOut" },
   },
-  // Zoom out with color overlay
   {
     initial: (direction) => ({
       opacity: 0,
@@ -158,7 +153,6 @@ const transitionVariants = [
     }),
     transition: { duration: 0.5, ease: "easeInOut" },
   },
-  // Rotate in 3D X
   {
     initial: (direction) => ({
       opacity: 0,
@@ -186,18 +180,14 @@ const transitionVariants = [
   },
 ];
 
-// --- SSR-safe random variant index ---
-// Instead of using Math.random() at render, only pick a random variant on the client after mount.
 function useRandomVariantIndex() {
   const [variantIndex, setVariantIndex] = useState(0);
   useEffect(() => {
     setVariantIndex(Math.floor(Math.random() * transitionVariants.length));
-    // eslint-disable-next-line
   }, []);
   return [variantIndex, setVariantIndex];
 }
 
-// Inline SVG for AVASA logo (fallback if AVASA.svg is not working)
 const AvasaLogoSVG = (props) => (
   <svg viewBox="0 0 64 64" fill="none" aria-hidden="true" {...props}>
     <circle
@@ -228,14 +218,12 @@ const AvasaLogoSVG = (props) => (
 
 const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
   const [active, setActive] = useState(0);
-  const [direction, setDirection] = useState(1); // 1 for next, -1 for prev
+  const [direction, setDirection] = useState(1);
   const [variantIndex, setVariantIndex] = useRandomVariantIndex();
   const [showFallbackLogo, setShowFallbackLogo] = useState(false);
 
-  // Only animate if there are at least 2 images
   if (!images || images.length === 0) return null;
 
-  // Only one image, just show it
   if (images.length === 1) {
     return (
       <div
@@ -267,8 +255,8 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
             maxWidth: "100%",
             maxHeight: "100%",
             display: "block",
-            objectFit: "cover", // Ensures the image covers the div
-            objectPosition: "center", // Center the image
+            objectFit: "cover",
+            objectPosition: "center",
           }}
           draggable={false}
         />
@@ -276,7 +264,6 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
     );
   }
 
-  // Two images: switch between them with creative animation
   const handleNext = () => {
     setDirection(1);
     setVariantIndex(Math.floor(Math.random() * transitionVariants.length));
@@ -288,7 +275,6 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
     setActive((prev) => (prev - 1 + images.length) % images.length);
   };
 
-  // For background image, keep a simple fade/blur
   return (
     <div
       className={`
@@ -308,7 +294,6 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
         height: "auto",
       }}
     >
-      {/* AVASA.svg as a decorative background image behind the blurred previous image */}
       <span
         className="object-contain z-0 absolute inset-0 w-full h-full pointer-events-none"
         style={{
@@ -357,7 +342,6 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
           />
         )}
       </span>
-      {/* Previous image (background, blurred) */}
       <motion.div
         key={images[(active - 1 + images.length) % images.length] + "-back"}
         initial={{
@@ -413,8 +397,6 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
           }}
         />
       </motion.div>
-
-      {/* Main (active) image with creative transformation */}
       <AnimatePresence initial={false} mode="wait" custom={direction}>
         <motion.div
           key={images[active] + "-" + variantIndex}
@@ -461,14 +443,13 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
           />
         </motion.div>
       </AnimatePresence>
-      {/* Switch buttons */}
       <div className="z-50 absolute left-0 top-1/2 -translate-y-1/2">
         <button
           onClick={handlePrev}
           className="flex items-center justify-center h-8 w-8 bg-gray-100 rounded-full dark:bg-neutral-800 shadow hover:scale-110 transition focus:outline-none focus:ring-2 focus:ring-blue-400"
           aria-label="Previous image"
           type="button"
-          style={{ opacity: 0.3 }} // Make the arrow button transparent
+          style={{ opacity: 0.3 }}
         >
           <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
             <path
@@ -487,7 +468,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
           className="flex items-center justify-center h-8 w-8 bg-gray-100 rounded-full dark:bg-neutral-800 shadow hover:scale-110 transition focus:outline-none focus:ring-2 focus:ring-blue-400"
           aria-label="Next image"
           type="button"
-          style={{ opacity: 0.3 }} // Make the arrow button transparent
+          style={{ opacity: 0.3 }}
         >
           <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
             <path
@@ -516,7 +497,6 @@ export function Timeline({ data }) {
     }
   }, [ref]);
 
-  // Check if useScroll and useTransform are available
   let scrollYProgress = { get: () => 0 };
   let heightTransform = 0;
   let opacityTransform = 1;
@@ -529,17 +509,12 @@ export function Timeline({ data }) {
     heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
     opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
   } catch (e) {
-    // fallback for SSR or if hooks are not available
     heightTransform = 0;
     opacityTransform = 1;
   }
 
-  // If data is not passed, fallback to timelineData
   const timelineItems =
     Array.isArray(data) && data.length > 0 ? data : timelineData;
-
-  // Responsive image size classes for mobile/tablet/desktop
-  // The image size is now handled in the AnimatedImageGallery component for best look on all screens.
 
   return (
     <div
@@ -567,7 +542,6 @@ export function Timeline({ data }) {
               <div className="absolute left-2 flex items-center justify-center h-8 w-8 h-10 w-10 bg-white rounded-full dark:bg-black sm:left-3 md:left-3">
                 <div className="p-1.5 h-3.5 w-3.5 h-4 w-4 bg-neutral-200 rounded-full border-neutral-300 dark:bg-neutral-800 border dark:border-neutral-700 sm:p-2" />
               </div>
-              {/* YEAR VISIBLE - Desktop */}
               <div className="hidden flex-col items-start pl-12 pl-20 sm:pl-16 md:flex">
                 <span className="mb-1 text-xl font-extrabold text-purple-600 dark:text-purple-400 sm:text-2xl md:text-3xl">
                   {item.year}
@@ -579,7 +553,6 @@ export function Timeline({ data }) {
             </div>
 
             <div className="relative flex flex-col gap-3 pl-10 pr-2 pl-14 pr-4 w-full transition-all sm:gap-4 md:pl-4">
-              {/* YEAR VISIBLE - Mobile */}
               <div className="block mb-1 sm:mb-2 md:hidden">
                 <span className="text-lg font-extrabold text-purple-600 dark:text-purple-400 sm:text-2xl">
                   {item.year}
@@ -589,13 +562,15 @@ export function Timeline({ data }) {
                 {item.title}
               </h3>
               <div className="flex items-center gap-2 sm:gap-4">
-                {/* Animated image switcher for the two images */}
                 <AnimatedImageGallery
-                  images={[item.image, item.randomImage].filter(Boolean)}
-                  altTexts={[item.title + " icon", "Anime"]}
+                  images={item.images || []}
+                  altTexts={(item.images || []).map((img, i) =>
+                    i === 0
+                      ? `${item.title} icon`
+                      : `${item.title} image ${i + 1}`
+                  )}
                 />
               </div>
-              {/* Content font size: base on mobile, md on md+ */}
               <div className="mt-1 text-white text-base sm:mt-2 md:text-md lg:text-lg">
                 {item.content}{" "}
               </div>
