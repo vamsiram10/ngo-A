@@ -12,22 +12,16 @@ const Navbar = () => {
   const [hideNav, setHideNav] = useState(false);
   const lastScrollY = useRef(0);
 
-  // Get current pathname to detect route changes
   const pathname = usePathname();
 
-  // Close mobile menu automatically after route change
   useEffect(() => {
     setIsMenuOpen(false);
   }, [pathname]);
 
-  // Helper to close menu on mobile nav link click
-  // We'll use a callback to ensure the menu closes after navigation/transition
   const handleMobileNavClick = useCallback(() => {
-    // Delay closing to after navigation/transition
     setTimeout(() => setIsMenuOpen(false), 700); // match transition duration
   }, []);
 
-  // Hide navbar completely when scrolling down, show when scrolling up
   useEffect(() => {
     let ticking = false;
 
@@ -38,10 +32,8 @@ const Navbar = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           if (currentScrollY > lastScrollY.current && currentScrollY > 1) {
-            // Scrolling down - hide nav completely
             setHideNav(true);
           } else if (currentScrollY < lastScrollY.current) {
-            // Scrolling up - show nav
             setHideNav(false);
           }
           lastScrollY.current = currentScrollY;
@@ -55,7 +47,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Custom wrapper for TransitionLink to ensure menu closes after navigation
   const MobileTransitionLink = ({ href, children, ...props }) => (
     <TransitionLink
       href={href}
@@ -82,7 +73,7 @@ const Navbar = () => {
     >
       <header className="absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex items-center justify-between px-4 py-2">
-          {/* Logo */}
+          {/* Logo changes here guyzz */}
           <div className="flex items-center">
             <TransitionLink href="/" className="pl-2">
               <Image
@@ -98,12 +89,12 @@ const Navbar = () => {
 
           {/* Dark mode toggle symbol */}
 
-          {/* Name in header */}
+          {/* Name in header guyz i you want any changes */}
           <span className="absolute left-17.5 w-45 text-black text-base text-lg sm:left-22 md:text-xl">
             Avasa Foundation
           </span>
 
-          {/* Desktop Menu */}
+          {/* Desktop Menu  changes here guyzz */}
           <div className="absolute right-30 hidden items-center gap-6 font-medium md:flex">
             {navLinks.middle.map((link) => (
               <div key={link.id} className="relative group">
@@ -128,7 +119,7 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Donate button */}
+          {/* Donate button done by me guyz please do not chnage */}
           <div className="hidden items-center md:flex">
             <TransitionLink href="/donate">
               <button className="relative px-4 py-2 text-white font-bold text-sm bg-gradient-to-r from-pink-500 to-pink-700 rounded-full border-2 border-pink-300 shadow-lg transition-all duration-[6000ms] hover:shadow-[0_0_50px_rgba(236,72,153,0.8)] hover:shadow-[0_0_100px_rgba(236,72,153,0.6)] hover:shadow-[0_0_150px_rgba(236,72,153,0.4)] hover:scale-110 hover:bg-gradient-to-r hover:from-pink-600 hover:to-pink-800 before:absolute before:inset-0 before:rounded-full before:border-2 before:border-pink-400 before:animate-ping before:transition-all before:duration-[6000ms] before:delay-[2000ms] after:absolute after:inset-0 after:rounded-full after:border-2 after:border-pink-300 after:animate-ping after:transition-all after:duration-[6000ms] after:delay-[4000ms] [&>*:nth-child(3)]:absolute [&>*:nth-child(3)]:inset-0 [&>*:nth-child(3)]:rounded-full [&>*:nth-child(3)]:border-2 [&>*:nth-child(3)]:border-pink-200 [&>*:nth-child(3)]:animate-ping [&>*:nth-child(3)]:transition-all [&>*:nth-child(3)]:duration-[6000ms] [&>*:nth-child(3)]:delay-[6000ms]">
@@ -137,7 +128,7 @@ const Navbar = () => {
             </TransitionLink>
           </div>
 
-          {/* Hamburger Icon */}
+          {/* Hamburger Icon copied gussss😅 from code pen */}
           <div className="md:hidden">
             <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
               <div
@@ -161,7 +152,8 @@ const Navbar = () => {
           </div>
         </nav>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu  mobile menu
+         */}
         {isMenuOpen && (
           <div className="z-50 absolute top-full mt-3 px-4 py-4 w-full bg-white rounded-xl shadow-lg border md:hidden">
             <div className="flex flex-col gap-4">
