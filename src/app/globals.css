@@ -8,6 +8,10 @@ body {
   width: 100%;
 }
 
+html {
+  scroll-behavior: auto !important;
+}
+
 body {
   overflow-x: hidden;
 }
