@@ -15,6 +15,14 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 const HomeOther = ()=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "overflow-x-hidden relative flex items-center justify-center min-h-screen w-screen",
+        style: {
+            backgroundImage: "url('/hero.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            width: "100vw",
+            minHeight: "100vh"
+        },
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "flex flex-col items-center justify-center w-full",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -28,76 +36,30 @@ const HomeOther = ()=>{
                                 children: "vamsi"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/section/homesections/homeother/HomeOther.jsx",
-                                lineNumber: 10,
+                                lineNumber: 20,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex items-center justify-center mx-2 w-20 h-24 h-32 h-40 h-56 sm:w-28 md:w-32 lg:w-40",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                    href: "/",
-                                    className: "flex items-center justify-center pl-2 w-full h-full",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                        src: "/download.jpg",
-                                        alt: "Luffy Sticker",
-                                        width: 100,
-                                        height: 100,
-                                        className: "object-contain w-full h-full",
-                                        style: {
-                                            verticalAlign: "middle"
-                                        },
-                                        loading: "eager"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/components/section/homesections/homeother/HomeOther.jsx",
-                                        lineNumber: 18,
-                                        columnNumber: 17
-                                    }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/section/homesections/homeother/HomeOther.jsx",
-                                    lineNumber: 14,
-                                    columnNumber: 15
-                                }, this)
+                                className: "flex items-center justify-center mx-2 w-20 h-24 h-32 h-40 h-56 sm:w-28 md:w-32 lg:w-40"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/section/homesections/homeother/HomeOther.jsx",
-                                lineNumber: 13,
+                                lineNumber: 23,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/section/homesections/homeother/HomeOther.jsx",
-                        lineNumber: 9,
+                        lineNumber: 19,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex flex-row items-center justify-center w-full md:w-auto",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex items-center justify-center mx-2 w-20 h-24 h-32 h-40 h-56 sm:w-28 md:w-32 lg:w-40",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                    href: "/",
-                                    className: "flex items-center justify-center pl-2 w-full h-full",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                        src: "/images.jpg",
-                                        alt: "Zoro Sticker",
-                                        width: 100,
-                                        height: 100,
-                                        className: "object-contain w-full h-full",
-                                        style: {
-                                            verticalAlign: "middle"
-                                        },
-                                        loading: "eager"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/components/section/homesections/homeother/HomeOther.jsx",
-                                        lineNumber: 37,
-                                        columnNumber: 17
-                                    }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/section/homesections/homeother/HomeOther.jsx",
-                                    lineNumber: 33,
-                                    columnNumber: 15
-                                }, this)
+                                className: "flex items-center justify-center mx-2 w-20 h-24 h-32 h-40 h-56 sm:w-28 md:w-32 lg:w-40"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/section/homesections/homeother/HomeOther.jsx",
-                                lineNumber: 32,
+                                lineNumber: 42,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -105,24 +67,24 @@ const HomeOther = ()=>{
                                 children: "Aneesh"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/section/homesections/homeother/HomeOther.jsx",
-                                lineNumber: 48,
+                                lineNumber: 58,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/section/homesections/homeother/HomeOther.jsx",
-                        lineNumber: 31,
+                        lineNumber: 41,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/section/homesections/homeother/HomeOther.jsx",
-                lineNumber: 7,
+                lineNumber: 17,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/components/section/homesections/homeother/HomeOther.jsx",
-            lineNumber: 6,
+            lineNumber: 16,
             columnNumber: 7
         }, this)
     }, void 0, false, {

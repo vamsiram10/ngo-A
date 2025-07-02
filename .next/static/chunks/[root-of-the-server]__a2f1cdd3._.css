@@ -1065,6 +1065,16 @@
     background-color: var(--color-black);
   }
 
+  .bg-black\/40 {
+    background-color: #0006;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-black\/40 {
+      background-color: color-mix(in oklab, var(--color-black) 40%, transparent);
+    }
+  }
+
   .bg-fuchsia-600 {
     background-color: var(--color-fuchsia-600);
   }
@@ -2136,6 +2146,12 @@
   @media (width >= 48rem) {
     .md\:min-h-\[160px\] {
       min-height: 160px;
+    }
+  }
+
+  @media (width >= 48rem) {
+    .md\:min-h-screen {
+      min-height: 100vh;
     }
   }
 
