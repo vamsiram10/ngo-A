@@ -20,78 +20,49 @@ const OwlDarkModeToggle = () => {
       requestAnimationFrame(() => {
         overlay.classList.add("expand");
       });
-      setTimeout(() => setDarkMode(true), 1250);
+      setTimeout(() => setDarkMode(true), 1000);
     } else {
       overlay.classList.remove("expand");
       overlay.classList.add("shrink");
-      setTimeout(() => setDarkMode(false), 1250);
+      setTimeout(() => setDarkMode(false), 1000);
     }
   };
 
   return (
     <>
-      <button className="owl-toggle" onClick={toggleMode}>
-        {/* Eyes closed */}
-        <svg
-          className={darkMode ? "eye-closed hidden" : "eye-closed"}
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 64 64"
-          fill="currentColor"
-        >
-          <path
-            d="M10 24 C16 18, 24 18, 30 24"
-            stroke="#000"
-            strokeWidth="3"
-            fill="none"
-          />
-          <path
-            d="M34 24 C40 18, 48 18, 54 24"
-            stroke="#000"
-            strokeWidth="3"
-            fill="none"
-          />
-          <path
-            d="M14 36 Q20 38, 26 36"
-            stroke="#000"
-            strokeWidth="2.5"
-            fill="none"
-          />
-          <path
-            d="M38 36 Q44 38, 50 36"
-            stroke="#000"
-            strokeWidth="2.5"
-            fill="none"
-          />
-        </svg>
-
-        {/* Eyes open */}
-        <svg
-          className={darkMode ? "eye-open" : "eye-open hidden"}
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 64 64"
-          fill="currentColor"
-        >
-          <path
-            d="M10 24 C16 18, 24 18, 30 24"
-            stroke="#fff"
-            strokeWidth="3"
-            fill="none"
-          />
-          <path
-            d="M34 24 C40 18, 48 18, 54 24"
-            stroke="#fff"
-            strokeWidth="3"
-            fill="none"
-          />
-          <circle cx="20" cy="36" r="10" fill="#fff" />
-          <circle cx="20" cy="36" r="4" fill="#000" />
-          <circle cx="44" cy="36" r="10" fill="#fff" />
-          <circle cx="44" cy="36" r="4" fill="#000" />
-        </svg>
+      <button
+        className="owl-toggle"
+        onClick={toggleMode}
+        aria-label="Toggle dark mode"
+      >
+        {/* Owl face */}
+        <div className={`owl-face ${darkMode ? "owl-dark" : "owl-light"}`}>
+          {/* Owl ears */}
+          <div className="left owl-ear"></div>
+          <div className="right owl-ear"></div>
+          {/* Owl eyes */}
+          <div className="owl-eyes">
+            <div className={`owl-eye left ${darkMode ? "open" : "closed"}`}>
+              <div className="pupil"></div>
+            </div>
+            <div className={`owl-eye right ${darkMode ? "open" : "closed"}`}>
+              <div className="pupil"></div>
+            </div>
+          </div>
+          {/* Owl beak */}
+          <div className="owl-beak"></div>
+        </div>
       </button>
 
       <div className="page-content">
-        <h1>Welcome to my website</h1>
+        <h1>
+          {darkMode ? "Night Mode Activated 🌙" : "Day Mode Activated ☀️"}
+        </h1>
+        <p className="subtitle">
+          {darkMode
+            ? "Enjoy the calm of the night."
+            : "Welcome to the bright side!"}
+        </p>
       </div>
 
       <div ref={overlayRef} className="transition-overlay zoom-in"></div>
@@ -101,128 +72,269 @@ const OwlDarkModeToggle = () => {
         body {
           height: 100%;
           width: 100%;
-          font-family: "Segoe UI", sans-serif;
-          overflow: hidden;
-          transition: background-color 0.6s ease-in-out;
+          font-family: "Segoe UI", "Geist", "Geist Mono", sans-serif;
+          overflow-x: hidden;
+          transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         body.light {
-          background-color: #ffffff;
-          color: #000000;
+          background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+          color: #1a202c;
         }
 
         body.dark {
-          background-color: #111111;
-          color: #ffffff;
+          background: linear-gradient(120deg, #18181b 0%, #23272f 100%);
+          color: #f1f5f9;
         }
 
         .owl-toggle {
           position: fixed;
-          top: 2vh;
+          top: 3vh;
           left: 2vw;
           z-index: 1002;
           background: none;
           border: none;
           cursor: pointer;
-          width: 10vw;
-          max-width: 60px;
-          height: auto;
+          width: 90px;
+          height: 90px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: transform 0.2s;
+          box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
+        }
+        .owl-toggle:active {
+          transform: scale(0.96) rotate(-3deg);
         }
 
-        .owl-toggle svg {
+        .owl-face {
+          position: relative;
+          width: 80px;
+          height: 80px;
+          background: #fff;
+          border-radius: 50%;
+          box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.1);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background 0.5s;
+        }
+        .owl-dark {
+          background: #23272f;
+          box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.25);
+        }
+        .owl-light {
+          background: #fff;
+        }
+        .owl-ear {
+          position: absolute;
+          top: -18px;
+          width: 22px;
+          height: 28px;
+          background: #fff;
+          border-radius: 60% 60% 40% 40%;
+          z-index: 2;
+          box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
+          transition: background 0.5s;
+        }
+        .owl-dark .owl-ear {
+          background: #23272f;
+        }
+        .owl-ear.left {
+          left: 0;
+          transform: rotate(-18deg);
+        }
+        .owl-ear.right {
+          right: 0;
+          transform: rotate(18deg);
+        }
+        .owl-eyes {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 60px;
+          position: absolute;
+          top: 28px;
+          left: 10px;
+        }
+        .owl-eye {
+          width: 18px;
+          height: 18px;
+          background: #fff;
+          border-radius: 50%;
+          border: 2.5px solid #23272f;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          overflow: hidden;
+          transition: background 0.5s, border 0.5s;
+        }
+        .owl-dark .owl-eye {
+          background: #23272f;
+          border: 2.5px solid #fff;
+        }
+        .owl-eye.closed::after {
+          content: "";
+          position: absolute;
           width: 100%;
-          height: auto;
+          height: 3px;
+          background: #23272f;
+          border-radius: 2px;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+        }
+        .owl-dark .owl-eye.closed::after {
+          background: #fff;
+        }
+        .owl-eye.open .pupil {
+          background: #23272f;
+        }
+        .owl-dark .owl-eye.open .pupil {
+          background: #fff;
+        }
+        .pupil {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: #23272f;
+          margin: 0 auto;
+          transition: background 0.5s;
+        }
+        .owl-beak {
+          position: absolute;
+          bottom: 18px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 12px;
+          height: 16px;
+          background: #fbbf24;
+          border-radius: 50% 50% 80% 80%;
+          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+          z-index: 3;
         }
 
-        .eye-open,
-        .eye-closed {
-          display: block;
+        .page-content {
+          margin-top: 16vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
-
-        .hidden {
-          display: none !important;
-        }
-
         h1 {
           text-align: center;
-          margin-top: 10vh;
-          font-size: clamp(1.5rem, 4vw, 3rem);
-          z-index: 1;
-          position: relative;
+          font-size: clamp(2.2rem, 4vw, 3.5rem);
+          font-weight: 800;
+          letter-spacing: -1px;
+          margin-bottom: 0.5em;
+          background: linear-gradient(90deg, #6366f1 0%, #fbbf24 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        .subtitle {
+          font-size: 1.25rem;
+          color: #64748b;
+          margin-bottom: 2em;
+          font-weight: 500;
+        }
+        body.dark .subtitle {
+          color: #cbd5e1;
         }
 
         .transition-overlay {
           position: fixed;
-          width: 10vw;
-          height: 10vw;
-          max-width: 120px;
-          max-height: 120px;
-          background-color: rgba(0, 0, 0, 0.7);
+          width: 120px;
+          height: 120px;
+          background-color: rgba(99, 102, 241, 0.7);
           z-index: 1000;
           pointer-events: none;
           border-radius: 50%;
           transform: scale(0);
           transform-origin: center;
+          left: 2vw;
+          top: 3vh;
+          transition: background 0.5s;
+        }
+        body.dark .transition-overlay {
+          background-color: rgba(251, 191, 36, 0.7);
         }
 
         .zoom-in {
-          top: -15vh;
-          left: 100vw;
           transform: scale(0);
         }
 
         .expand {
-          animation: enterFromTopRight 2.5s forwards ease-in;
+          animation: enterFromButton 1.2s forwards cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .shrink {
-          animation: exitToBottomLeft 2.5s forwards ease-in;
+          animation: exitToButton 1.2s forwards cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        @keyframes enterFromTopRight {
+        @keyframes enterFromButton {
           0% {
-            top: -15vh;
-            left: 100vw;
             transform: scale(0);
+            opacity: 0.7;
           }
-          30% {
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.4);
+          40% {
+            transform: scale(1.2);
+            opacity: 1;
           }
           100% {
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(30);
+            transform: scale(30);
+            opacity: 0;
           }
         }
 
-        @keyframes exitToBottomLeft {
+        @keyframes exitToButton {
           0% {
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(30);
+            transform: scale(30);
+            opacity: 0;
           }
-          50% {
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.4);
+          60% {
+            transform: scale(1.2);
+            opacity: 1;
           }
           100% {
-            top: 110vh;
-            left: -10vw;
             transform: scale(0);
+            opacity: 0.7;
           }
         }
 
-        @media screen and (max-width: 600px) {
+        @media (max-width: 900px) {
           .owl-toggle {
-            width: 14vw;
-            max-width: 50px;
+            width: 70px;
+            height: 70px;
           }
-
+          .owl-face {
+            width: 62px;
+            height: 62px;
+          }
+          .transition-overlay {
+            width: 80px;
+            height: 80px;
+          }
+        }
+        @media (max-width: 600px) {
+          .owl-toggle {
+            width: 54px;
+            height: 54px;
+            top: 2vh;
+            left: 2vw;
+          }
+          .owl-face {
+            width: 44px;
+            height: 44px;
+          }
+          .transition-overlay {
+            width: 50px;
+            height: 50px;
+            left: 2vw;
+            top: 2vh;
+          }
           h1 {
-            font-size: 6vw;
+            font-size: 7vw;
           }
         }
       `}</style>

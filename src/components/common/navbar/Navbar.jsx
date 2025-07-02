@@ -152,39 +152,93 @@ const Navbar = () => {
           </div>
         </nav>
 
-        {/* Mobile Menu  mobile menu
-         */}
-        {isMenuOpen && (
-          <div className="z-50 absolute top-full mt-3 px-4 py-4 w-full bg-white rounded-xl shadow-lg border md:hidden">
-            <div className="flex flex-col gap-4">
-              {navLinks.middle.map((link) => (
-                <div key={link.id}>
-                  <MobileTransitionLink href={link.url}>
-                    <p className="text-black font-medium">{link.label}</p>
-                  </MobileTransitionLink>
-                  {link.dialog && (
-                    <div className="pl-4 mt-1 space-y-1">
-                      {link.dialog.map((el) => (
-                        <MobileTransitionLink href={el.path} key={el.id}>
-                          <p className="text-gray-600 text-sm hover:text-black">
-                            {el.title}
-                          </p>
-                        </MobileTransitionLink>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-              <div className="flex justify-center">
-                <MobileTransitionLink href="/donate">
-                  <button className="relative px-16 py-2 w-full max-w-[30rem] text-white font-bold text-sm tracking-widest bg-gradient-to-r from-pink-500 to-pink-700 rounded-none border-2 border-pink-300 shadow-lg transition-all duration-[6000ms] hover:shadow-[0_0_50px_rgba(236,72,153,0.8)] hover:shadow-[0_0_100px_rgba(236,72,153,0.6)] hover:shadow-[0_0_150px_rgba(236,72,153,0.4)] hover:scale-110 hover:bg-gradient-to-r hover:from-pink-600 hover:to-pink-800 before:absolute before:inset-0 before:rounded-none before:border-2 before:border-pink-400 before:animate-ping before:transition-all before:duration-[6000ms] before:delay-[2000ms] after:absolute after:inset-0 after:rounded-none after:border-2 after:border-pink-300 after:animate-ping after:transition-all after:duration-[6000ms] after:delay-[4000ms] [&>*:nth-child(3)]:absolute [&>*:nth-child(3)]:inset-0 [&>*:nth-child(3)]:rounded-none [&>*:nth-child(3)]:border-2 [&>*:nth-child(3)]:border-pink-200 [&>*:nth-child(3)]:animate-ping [&>*:nth-child(3)]:transition-all [&>*:nth-child(3)]:duration-[6000ms] [&>*:nth-child(3)]:delay-[6000ms] uppercase md:max-w-[32rem]">
-                    Donate
-                  </button>
+        {/* Mobile Menu with scale and fade animation */}
+        <div
+          className={`z-50 absolute top-full left-0 mt-3 px-4 py-4 w-full bg-white rounded-xl shadow-lg border md:hidden
+            transition-transform transition-opacity duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
+            ${
+              isMenuOpen
+                ? "opacity-100 scale-100 pointer-events-auto"
+                : "opacity-0 scale-90 pointer-events-none"
+            }
+          `}
+          style={{
+            visibility: isMenuOpen ? "visible" : "hidden",
+          }}
+        >
+          <div className="flex flex-col gap-4">
+            {navLinks.middle.map((link, idx) => (
+              <div
+                key={link.id}
+                className={`transition-all duration-500
+                  ${isMenuOpen ? "opacity-100 scale-100" : "opacity-0 scale-90"}
+                `}
+                style={{
+                  transitionDelay: isMenuOpen ? `${idx * 80 + 100}ms` : "0ms",
+                }}
+              >
+                <MobileTransitionLink href={link.url}>
+                  <p className="text-black font-medium transition-colors duration-300 hover:text-pink-600">
+                    {link.label}
+                  </p>
                 </MobileTransitionLink>
+                {link.dialog && (
+                  <div className="pl-4 mt-1 space-y-1">
+                    {link.dialog.map((el, subIdx) => (
+                      <MobileTransitionLink href={el.path} key={el.id}>
+                        <p
+                          className={`text-gray-600 text-sm hover:text-black transition-all duration-400
+                            ${
+                              isMenuOpen
+                                ? "opacity-100 scale-100"
+                                : "opacity-0 scale-90"
+                            }
+                          `}
+                          style={{
+                            transitionDelay: isMenuOpen
+                              ? `${idx * 80 + subIdx * 40 + 200}ms`
+                              : "0ms",
+                          }}
+                        >
+                          {el.title}
+                        </p>
+                      </MobileTransitionLink>
+                    ))}
+                  </div>
+                )}
               </div>
+            ))}
+            <div className="flex justify-center">
+              <MobileTransitionLink href="/donate">
+                <button className="relative px-16 py-2 w-full max-w-[30rem] text-white font-bold text-sm tracking-widest bg-gradient-to-r from-pink-500 to-pink-700 rounded-none border-2 border-pink-300 shadow-lg transition-all duration-500 hover:shadow-[0_0_50px_rgba(236,72,153,0.8)] hover:shadow-[0_0_100px_rgba(236,72,153,0.6)] hover:shadow-[0_0_150px_rgba(236,72,153,0.4)] hover:scale-110 hover:bg-gradient-to-r hover:from-pink-600 hover:to-pink-800 before:absolute before:inset-0 before:rounded-none before:border-2 before:border-pink-400 before:animate-ping before:transition-all before:duration-[6000ms] before:delay-[2000ms] after:absolute after:inset-0 after:rounded-none after:border-2 after:border-pink-300 after:animate-ping after:transition-all after:duration-[6000ms] after:delay-[4000ms] [&>*:nth-child(3)]:absolute [&>*:nth-child(3)]:inset-0 [&>*:nth-child(3)]:rounded-none [&>*:nth-child(3)]:border-2 [&>*:nth-child(3)]:border-pink-200 [&>*:nth-child(3)]:animate-ping [&>*:nth-child(3)]:transition-all [&>*:nth-child(3)]:duration-[6000ms] [&>*:nth-child(3)]:delay-[6000ms] uppercase animate-scale-fade-in md:max-w-[32rem]">
+                  Donate
+                </button>
+              </MobileTransitionLink>
             </div>
           </div>
-        )}
+          <style jsx>{`
+            @keyframes scale-fade-in {
+              0% {
+                opacity: 0;
+                transform: scale(0.85);
+              }
+              60% {
+                opacity: 1;
+                transform: scale(1.05);
+              }
+              80% {
+                transform: scale(0.98);
+              }
+              100% {
+                opacity: 1;
+                transform: scale(1);
+              }
+            }
+            .animate-scale-fade-in {
+              animation: scale-fade-in 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+          `}</style>
+        </div>
       </header>
     </div>
   );

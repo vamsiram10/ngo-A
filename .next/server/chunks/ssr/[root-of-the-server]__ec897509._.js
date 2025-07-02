@@ -171,185 +171,127 @@ const OwlDarkModeToggle = ()=>{
             requestAnimationFrame(()=>{
                 overlay.classList.add("expand");
             });
-            setTimeout(()=>setDarkMode(true), 1250);
+            setTimeout(()=>setDarkMode(true), 1000);
         } else {
             overlay.classList.remove("expand");
             overlay.classList.add("shrink");
-            setTimeout(()=>setDarkMode(false), 1250);
+            setTimeout(()=>setDarkMode(false), 1000);
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                 onClick: toggleMode,
-                className: "jsx-e293324c2b02ec4d" + " " + "owl-toggle",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        viewBox: "0 0 64 64",
-                        fill: "currentColor",
-                        className: "jsx-e293324c2b02ec4d" + " " + ((darkMode ? "eye-closed hidden" : "eye-closed") || ""),
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                d: "M10 24 C16 18, 24 18, 30 24",
-                                stroke: "#000",
-                                strokeWidth: "3",
-                                fill: "none",
-                                className: "jsx-e293324c2b02ec4d"
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
-                                lineNumber: 41,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                d: "M34 24 C40 18, 48 18, 54 24",
-                                stroke: "#000",
-                                strokeWidth: "3",
-                                fill: "none",
-                                className: "jsx-e293324c2b02ec4d"
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
-                                lineNumber: 47,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                d: "M14 36 Q20 38, 26 36",
-                                stroke: "#000",
-                                strokeWidth: "2.5",
-                                fill: "none",
-                                className: "jsx-e293324c2b02ec4d"
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
-                                lineNumber: 53,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                d: "M38 36 Q44 38, 50 36",
-                                stroke: "#000",
-                                strokeWidth: "2.5",
-                                fill: "none",
-                                className: "jsx-e293324c2b02ec4d"
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
-                                lineNumber: 59,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
-                        lineNumber: 35,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        viewBox: "0 0 64 64",
-                        fill: "currentColor",
-                        className: "jsx-e293324c2b02ec4d" + " " + ((darkMode ? "eye-open" : "eye-open hidden") || ""),
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                d: "M10 24 C16 18, 24 18, 30 24",
-                                stroke: "#fff",
-                                strokeWidth: "3",
-                                fill: "none",
-                                className: "jsx-e293324c2b02ec4d"
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
-                                lineNumber: 74,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                d: "M34 24 C40 18, 48 18, 54 24",
-                                stroke: "#fff",
-                                strokeWidth: "3",
-                                fill: "none",
-                                className: "jsx-e293324c2b02ec4d"
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
-                                lineNumber: 80,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
-                                cx: "20",
-                                cy: "36",
-                                r: "10",
-                                fill: "#fff",
-                                className: "jsx-e293324c2b02ec4d"
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
-                                lineNumber: 86,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
-                                cx: "20",
-                                cy: "36",
-                                r: "4",
-                                fill: "#000",
-                                className: "jsx-e293324c2b02ec4d"
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
-                                lineNumber: 87,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
-                                cx: "44",
-                                cy: "36",
-                                r: "10",
-                                fill: "#fff",
-                                className: "jsx-e293324c2b02ec4d"
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
-                                lineNumber: 88,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
-                                cx: "44",
-                                cy: "36",
-                                r: "4",
-                                fill: "#000",
-                                className: "jsx-e293324c2b02ec4d"
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
-                                lineNumber: 89,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
-                        lineNumber: 68,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
+                "aria-label": "Toggle dark mode",
+                className: "jsx-b4a4517f6ee8b22f" + " " + "owl-toggle",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "jsx-b4a4517f6ee8b22f" + " " + `owl-face ${darkMode ? "owl-dark" : "owl-light"}`,
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "jsx-b4a4517f6ee8b22f" + " " + "left owl-ear"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
+                            lineNumber: 41,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "jsx-b4a4517f6ee8b22f" + " " + "right owl-ear"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
+                            lineNumber: 42,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "jsx-b4a4517f6ee8b22f" + " " + "owl-eyes",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "jsx-b4a4517f6ee8b22f" + " " + `owl-eye left ${darkMode ? "open" : "closed"}`,
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "jsx-b4a4517f6ee8b22f" + " " + "pupil"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
+                                        lineNumber: 46,
+                                        columnNumber: 15
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
+                                    lineNumber: 45,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "jsx-b4a4517f6ee8b22f" + " " + `owl-eye right ${darkMode ? "open" : "closed"}`,
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "jsx-b4a4517f6ee8b22f" + " " + "pupil"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
+                                        lineNumber: 49,
+                                        columnNumber: 15
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
+                                    lineNumber: 48,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
+                            lineNumber: 44,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "jsx-b4a4517f6ee8b22f" + " " + "owl-beak"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
+                            lineNumber: 53,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
+                    lineNumber: 39,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
                 fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
                 lineNumber: 33,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "jsx-e293324c2b02ec4d" + " " + "page-content",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                    className: "jsx-e293324c2b02ec4d",
-                    children: "Welcome to my website"
-                }, void 0, false, {
-                    fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
-                    lineNumber: 94,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
+                className: "jsx-b4a4517f6ee8b22f" + " " + "page-content",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                        className: "jsx-b4a4517f6ee8b22f",
+                        children: darkMode ? "Night Mode Activated 🌙" : "Day Mode Activated ☀️"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
+                        lineNumber: 58,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "jsx-b4a4517f6ee8b22f" + " " + "subtitle",
+                        children: darkMode ? "Enjoy the calm of the night." : "Welcome to the bright side!"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
+                        lineNumber: 61,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
-                lineNumber: 93,
+                lineNumber: 57,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 ref: overlayRef,
-                className: "jsx-e293324c2b02ec4d" + " " + "transition-overlay zoom-in"
+                className: "jsx-b4a4517f6ee8b22f" + " " + "transition-overlay zoom-in"
             }, void 0, false, {
                 fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
-                lineNumber: 97,
+                lineNumber: 68,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                id: "e293324c2b02ec4d",
-                children: "html,body{width:100%;height:100%;font-family:Segoe UI,sans-serif;transition:background-color .6s ease-in-out;overflow:hidden}body.light{color:#000;background-color:#fff}body.dark{color:#fff;background-color:#111}.owl-toggle{z-index:1002;cursor:pointer;background:0 0;border:none;width:10vw;max-width:60px;height:auto;position:fixed;top:2vh;left:2vw}.owl-toggle svg{width:100%;height:auto}.eye-open,.eye-closed{display:block}.hidden{display:none!important}h1{text-align:center;z-index:1;margin-top:10vh;font-size:clamp(1.5rem,4vw,3rem);position:relative}.transition-overlay{z-index:1000;pointer-events:none;transform-origin:50%;background-color:#000000b3;border-radius:50%;width:10vw;max-width:120px;height:10vw;max-height:120px;position:fixed;transform:scale(0)}.zoom-in{top:-15vh;left:100vw;transform:scale(0)}.expand{animation:2.5s ease-in forwards enterFromTopRight}.shrink{animation:2.5s ease-in forwards exitToBottomLeft}@keyframes enterFromTopRight{0%{top:-15vh;left:100vw;transform:scale(0)}30%{top:50%;left:50%;transform:translate(-50%,-50%)scale(.4)}to{top:50%;left:50%;transform:translate(-50%,-50%)scale(30)}}@keyframes exitToBottomLeft{0%{top:50%;left:50%;transform:translate(-50%,-50%)scale(30)}50%{top:50%;left:50%;transform:translate(-50%,-50%)scale(.4)}to{top:110vh;left:-10vw;transform:scale(0)}}@media screen and (width<=600px){.owl-toggle{width:14vw;max-width:50px}h1{font-size:6vw}}"
+                id: "b4a4517f6ee8b22f",
+                children: 'html,body{width:100%;height:100%;font-family:Segoe UI,Geist,Geist Mono,sans-serif;transition:background-color .6s cubic-bezier(.4,0,.2,1);overflow-x:hidden}body.light{color:#1a202c;background:linear-gradient(120deg,#f8fafc 0%,#e0e7ff 100%)}body.dark{color:#f1f5f9;background:linear-gradient(120deg,#18181b 0%,#23272f 100%)}.owl-toggle{z-index:1002;cursor:pointer;background:0 0;border:none;justify-content:center;align-items:center;width:90px;height:90px;transition:transform .2s;display:flex;position:fixed;top:3vh;left:2vw;box-shadow:0 4px 24px #00000014}.owl-toggle:active{transform:scale(.96)rotate(-3deg)}.owl-face{background:#fff;border-radius:50%;justify-content:center;align-items:center;width:80px;height:80px;transition:background .5s;display:flex;position:relative;box-shadow:0 2px 16px #0000001a}.owl-dark{background:#23272f;box-shadow:0 2px 16px #00000040}.owl-light{background:#fff}.owl-ear{z-index:2;background:#fff;border-radius:60% 60% 40% 40%;width:22px;height:28px;transition:background .5s;position:absolute;top:-18px;box-shadow:0 2px 8px #00000014}.owl-dark .owl-ear{background:#23272f}.owl-ear.left{left:0;transform:rotate(-18deg)}.owl-ear.right{right:0;transform:rotate(18deg)}.owl-eyes{justify-content:space-between;align-items:center;width:60px;display:flex;position:absolute;top:28px;left:10px}.owl-eye{background:#fff;border:2.5px solid #23272f;border-radius:50%;justify-content:center;align-items:center;width:18px;height:18px;transition:background .5s,border .5s;display:flex;position:relative;overflow:hidden}.owl-dark .owl-eye{background:#23272f;border:2.5px solid #fff}.owl-eye.closed:after{content:"";background:#23272f;border-radius:2px;width:100%;height:3px;position:absolute;top:50%;left:0;transform:translateY(-50%)}.owl-dark .owl-eye.closed:after{background:#fff}.owl-eye.open .pupil{background:#23272f}.owl-dark .owl-eye.open .pupil{background:#fff}.pupil{background:#23272f;border-radius:50%;width:7px;height:7px;margin:0 auto;transition:background .5s}.owl-beak{z-index:3;background:#fbbf24;border-radius:50% 50% 80% 80%;width:12px;height:16px;position:absolute;bottom:18px;left:50%;transform:translate(-50%);box-shadow:0 1px 2px #0000001a}.page-content{flex-direction:column;align-items:center;margin-top:16vh;display:flex}h1{text-align:center;letter-spacing:-1px;background:linear-gradient(90deg,#6366f1 0%,#fbbf24 100%);-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5em;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:800}.subtitle{color:#64748b;margin-bottom:2em;font-size:1.25rem;font-weight:500}body.dark .subtitle{color:#cbd5e1}.transition-overlay{z-index:1000;pointer-events:none;transform-origin:50%;background-color:#6366f1b3;border-radius:50%;width:120px;height:120px;transition:background .5s;position:fixed;top:3vh;left:2vw;transform:scale(0)}body.dark .transition-overlay{background-color:#fbbf24b3}.zoom-in{transform:scale(0)}.expand{animation:1.2s cubic-bezier(.4,0,.2,1) forwards enterFromButton}.shrink{animation:1.2s cubic-bezier(.4,0,.2,1) forwards exitToButton}@keyframes enterFromButton{0%{opacity:.7;transform:scale(0)}40%{opacity:1;transform:scale(1.2)}to{opacity:0;transform:scale(30)}}@keyframes exitToButton{0%{opacity:0;transform:scale(30)}60%{opacity:1;transform:scale(1.2)}to{opacity:.7;transform:scale(0)}}@media (width<=900px){.owl-toggle{width:70px;height:70px}.owl-face{width:62px;height:62px}.transition-overlay{width:80px;height:80px}}@media (width<=600px){.owl-toggle{width:54px;height:54px;top:2vh;left:2vw}.owl-face{width:44px;height:44px}.transition-overlay{width:50px;height:50px;top:2vh;left:2vw}h1{font-size:7vw}}'
             }, void 0, false, void 0, this)
         ]
     }, void 0, true);
@@ -476,6 +418,7 @@ __turbopack_context__.s({
     "default": (()=>__TURBOPACK__default__export__)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-jsx/style.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-ssr] (ecmascript)");
@@ -484,6 +427,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$navbar$2e$js_
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$utils$2f$darkmodenavbar$2f$OwlDarkModeToggle$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$utils$2f$transitionlink$2f$TransitionLink$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/utils/transitionlink/TransitionLink.jsx [app-ssr] (ecmascript)");
 "use client";
+;
 ;
 ;
 ;
@@ -703,88 +647,112 @@ const Navbar = ()=>{
                     lineNumber: 75,
                     columnNumber: 9
                 }, this),
-                isMenuOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "z-50 absolute top-full mt-3 px-4 py-4 w-full bg-white rounded-xl shadow-lg border md:hidden",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex flex-col gap-4",
-                        children: [
-                            __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$navbar$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].middle.map((link)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(MobileTransitionLink, {
-                                            href: link.url,
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: "text-black font-medium",
-                                                children: link.label
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        visibility: isMenuOpen ? "visible" : "hidden"
+                    },
+                    className: "jsx-e57a47aab1456462" + " " + `z-50 absolute top-full left-0 mt-3 px-4 py-4 w-full bg-white rounded-xl shadow-lg border md:hidden
+            transition-transform transition-opacity duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
+            ${isMenuOpen ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-90 pointer-events-none"}
+          `,
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "jsx-e57a47aab1456462" + " " + "flex flex-col gap-4",
+                            children: [
+                                __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$navbar$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].middle.map((link, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            transitionDelay: isMenuOpen ? `${idx * 80 + 100}ms` : "0ms"
+                                        },
+                                        className: "jsx-e57a47aab1456462" + " " + `transition-all duration-500
+                  ${isMenuOpen ? "opacity-100 scale-100" : "opacity-0 scale-90"}
+                `,
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(MobileTransitionLink, {
+                                                href: link.url,
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "jsx-e57a47aab1456462" + " " + "text-black font-medium transition-colors duration-300 hover:text-pink-600",
+                                                    children: link.label
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/components/common/navbar/Navbar.jsx",
+                                                    lineNumber: 181,
+                                                    columnNumber: 19
+                                                }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/common/navbar/Navbar.jsx",
-                                                lineNumber: 163,
-                                                columnNumber: 21
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/components/common/navbar/Navbar.jsx",
-                                            lineNumber: 162,
-                                            columnNumber: 19
-                                        }, this),
-                                        link.dialog && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "pl-4 mt-1 space-y-1",
-                                            children: link.dialog.map((el)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(MobileTransitionLink, {
-                                                    href: el.path,
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "text-gray-600 text-sm hover:text-black",
-                                                        children: el.title
-                                                    }, void 0, false, {
+                                                lineNumber: 180,
+                                                columnNumber: 17
+                                            }, this),
+                                            link.dialog && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "jsx-e57a47aab1456462" + " " + "pl-4 mt-1 space-y-1",
+                                                children: link.dialog.map((el, subIdx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(MobileTransitionLink, {
+                                                        href: el.path,
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            style: {
+                                                                transitionDelay: isMenuOpen ? `${idx * 80 + subIdx * 40 + 200}ms` : "0ms"
+                                                            },
+                                                            className: "jsx-e57a47aab1456462" + " " + `text-gray-600 text-sm hover:text-black transition-all duration-400
+                            ${isMenuOpen ? "opacity-100 scale-100" : "opacity-0 scale-90"}
+                          `,
+                                                            children: el.title
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/components/common/navbar/Navbar.jsx",
+                                                            lineNumber: 189,
+                                                            columnNumber: 25
+                                                        }, this)
+                                                    }, el.id, false, {
                                                         fileName: "[project]/src/components/common/navbar/Navbar.jsx",
-                                                        lineNumber: 169,
-                                                        columnNumber: 27
-                                                    }, this)
-                                                }, el.id, false, {
-                                                    fileName: "[project]/src/components/common/navbar/Navbar.jsx",
-                                                    lineNumber: 168,
-                                                    columnNumber: 25
-                                                }, this))
+                                                        lineNumber: 188,
+                                                        columnNumber: 23
+                                                    }, this))
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/components/common/navbar/Navbar.jsx",
+                                                lineNumber: 186,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, link.id, true, {
+                                        fileName: "[project]/src/components/common/navbar/Navbar.jsx",
+                                        lineNumber: 171,
+                                        columnNumber: 15
+                                    }, this)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "jsx-e57a47aab1456462" + " " + "flex justify-center",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(MobileTransitionLink, {
+                                        href: "/donate",
+                                        className: "jsx-e57a47aab1456462",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            className: "jsx-e57a47aab1456462" + " " + "relative px-16 py-2 w-full max-w-[30rem] text-white font-bold text-sm tracking-widest bg-gradient-to-r from-pink-500 to-pink-700 rounded-none border-2 border-pink-300 shadow-lg transition-all duration-500 hover:shadow-[0_0_50px_rgba(236,72,153,0.8)] hover:shadow-[0_0_100px_rgba(236,72,153,0.6)] hover:shadow-[0_0_150px_rgba(236,72,153,0.4)] hover:scale-110 hover:bg-gradient-to-r hover:from-pink-600 hover:to-pink-800 before:absolute before:inset-0 before:rounded-none before:border-2 before:border-pink-400 before:animate-ping before:transition-all before:duration-[6000ms] before:delay-[2000ms] after:absolute after:inset-0 after:rounded-none after:border-2 after:border-pink-300 after:animate-ping after:transition-all after:duration-[6000ms] after:delay-[4000ms] [&>*:nth-child(3)]:absolute [&>*:nth-child(3)]:inset-0 [&>*:nth-child(3)]:rounded-none [&>*:nth-child(3)]:border-2 [&>*:nth-child(3)]:border-pink-200 [&>*:nth-child(3)]:animate-ping [&>*:nth-child(3)]:transition-all [&>*:nth-child(3)]:duration-[6000ms] [&>*:nth-child(3)]:delay-[6000ms] uppercase animate-scale-fade-in md:max-w-[32rem]",
+                                            children: "Donate"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/common/navbar/Navbar.jsx",
-                                            lineNumber: 166,
-                                            columnNumber: 21
+                                            lineNumber: 213,
+                                            columnNumber: 17
                                         }, this)
-                                    ]
-                                }, link.id, true, {
-                                    fileName: "[project]/src/components/common/navbar/Navbar.jsx",
-                                    lineNumber: 161,
-                                    columnNumber: 17
-                                }, this)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex justify-center",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(MobileTransitionLink, {
-                                    href: "/donate",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                        className: "relative px-16 py-2 w-full max-w-[30rem] text-white font-bold text-sm tracking-widest bg-gradient-to-r from-pink-500 to-pink-700 rounded-none border-2 border-pink-300 shadow-lg transition-all duration-[6000ms] hover:shadow-[0_0_50px_rgba(236,72,153,0.8)] hover:shadow-[0_0_100px_rgba(236,72,153,0.6)] hover:shadow-[0_0_150px_rgba(236,72,153,0.4)] hover:scale-110 hover:bg-gradient-to-r hover:from-pink-600 hover:to-pink-800 before:absolute before:inset-0 before:rounded-none before:border-2 before:border-pink-400 before:animate-ping before:transition-all before:duration-[6000ms] before:delay-[2000ms] after:absolute after:inset-0 after:rounded-none after:border-2 after:border-pink-300 after:animate-ping after:transition-all after:duration-[6000ms] after:delay-[4000ms] [&>*:nth-child(3)]:absolute [&>*:nth-child(3)]:inset-0 [&>*:nth-child(3)]:rounded-none [&>*:nth-child(3)]:border-2 [&>*:nth-child(3)]:border-pink-200 [&>*:nth-child(3)]:animate-ping [&>*:nth-child(3)]:transition-all [&>*:nth-child(3)]:duration-[6000ms] [&>*:nth-child(3)]:delay-[6000ms] uppercase md:max-w-[32rem]",
-                                        children: "Donate"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/common/navbar/Navbar.jsx",
-                                        lineNumber: 180,
-                                        columnNumber: 19
+                                        lineNumber: 212,
+                                        columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/common/navbar/Navbar.jsx",
-                                    lineNumber: 179,
-                                    columnNumber: 17
+                                    lineNumber: 211,
+                                    columnNumber: 13
                                 }, this)
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/common/navbar/Navbar.jsx",
-                                lineNumber: 178,
-                                columnNumber: 15
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/components/common/navbar/Navbar.jsx",
-                        lineNumber: 159,
-                        columnNumber: 13
-                    }, this)
-                }, void 0, false, {
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/components/common/navbar/Navbar.jsx",
+                            lineNumber: 169,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                            id: "e57a47aab1456462",
+                            children: "@keyframes scale-fade-in{0%{opacity:0;transform:scale(.85)}60%{opacity:1;transform:scale(1.05)}80%{transform:scale(.98)}to{opacity:1;transform:scale(1)}}.animate-scale-fade-in.jsx-e57a47aab1456462{animation:.7s cubic-bezier(.4,0,.2,1) scale-fade-in}"
+                        }, void 0, false, void 0, this)
+                    ]
+                }, void 0, true, {
                     fileName: "[project]/src/components/common/navbar/Navbar.jsx",
-                    lineNumber: 158,
-                    columnNumber: 11
+                    lineNumber: 156,
+                    columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
