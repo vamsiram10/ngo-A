@@ -2,13 +2,13 @@
   "pages": {
     "/aboutus/page": [
       "static/chunks/[root-of-the-server]__a2f1cdd3._.css",
-      "static/chunks/node_modules_35901cdf._.js",
+      "static/chunks/node_modules_0ae9dae5._.js",
       "static/chunks/src_386726bf._.js",
       "static/chunks/src_app_layout_c0237562.js",
       "static/chunks/src_app_aboutus_layout_9cf2e4d5.js",
-      "static/chunks/src_app_aboutus_layout_06950376.js",
+      "static/chunks/src_app_aboutus_layout_fbc05915.js",
       "static/chunks/src_components_utils_avasalogo_FlyingBirdLogo_jsx_27937fa7._.js",
-      "static/chunks/src_app_aboutus_page_5587a0bb.js",
+      "static/chunks/src_app_aboutus_page_4d18b789.js",
       "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_fd44f5a4._.js",
       "static/chunks/node_modules_next_dist_compiled_2ce9398a._.js",
       "static/chunks/node_modules_next_dist_client_8f19e6fb._.js",

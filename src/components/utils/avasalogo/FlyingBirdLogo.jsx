@@ -2,52 +2,79 @@
 import React, { useRef, useEffect } from "react";
 
 /**
- * WalkingDogWithPerson
- * Shows a person walking a dog with basic SVG animation.
- * The dog and person gently move legs and bob as if walking.
+ * FlyingBirdLogo
+ * Animated SVG logo of a stylized bird in flight, with flapping wings.
+ * Modern, minimal, and suitable for a foundation or creative org.
+ * This version moves the bird smoothly from left to right, continuously, and goes on forever.
  */
-const WalkingDogWithPerson = ({
-  width = 300,
-  height = 200,
+const FlyingBirdLogo = ({
+  primaryColor = "#EC4899", // pink-500
+  accentColor = "#F9A8D4", // pink-300
+  beakColor = "#F59E42", // orange
+  eyeColor = "#222",
   style = {},
   className = "",
+  width = 180, // default width of the container in px
+  height = 120, // default height of the container in px
 }) => {
-  const sceneRef = useRef(null);
+  const leftWingRef = useRef(null);
+  const rightWingRef = useRef(null);
+  const birdGroupRef = useRef(null);
+  const shadowRef = useRef(null);
 
+  // We'll use a fixed size for the container and SVG
+  const baseSvgWidth = 300;
+  const baseSvgHeight = 200;
+
+  // The bird will move left to right within the small container
+  // Remove setBirdX and state, as we want a truly continuous animation
   useEffect(() => {
     let frame = 0;
     let raf;
+    // The area the bird can move horizontally
+    const scale = Math.min(width / baseSvgWidth, height / baseSvgHeight);
+    const birdWidth = baseSvgWidth * 0.6 * scale; // width of the bird group after scaling
+    const minX = -birdWidth; // Start fully offscreen left
+    const maxX = width; // End fully offscreen right
+
+    let x = minX;
+
+    const waveAmplitude = 0.09 * height;
+    const waveFrequency = 0.025;
+    const moveSpeed = Math.max(1, width / 120); // px per frame
+
+    const centerY = height / 2;
 
     const animate = () => {
-      const legAngle = Math.sin(frame * 0.2) * 15;
-      const y = Math.sin(frame * 0.1) * 4;
+      // Flap wings: angle oscillates between -30 and 30 degrees
+      const wingAngle = Math.sin(frame * 0.12) * 28;
 
-      if (sceneRef.current) {
-        sceneRef.current.setAttribute("transform", `translate(0, ${y})`);
-
-        const dogFrontLeg = sceneRef.current.querySelector("#dogFrontLeg");
-        const dogBackLeg = sceneRef.current.querySelector("#dogBackLeg");
-        const personFrontLeg =
-          sceneRef.current.querySelector("#personFrontLeg");
-        const personBackLeg = sceneRef.current.querySelector("#personBackLeg");
-        const leash = sceneRef.current.querySelector("#leash");
-
-        if (dogFrontLeg)
-          dogFrontLeg.setAttribute("transform", `rotate(${legAngle},80,140)`);
-        if (dogBackLeg)
-          dogBackLeg.setAttribute("transform", `rotate(${-legAngle},60,140)`);
-        if (personFrontLeg)
-          personFrontLeg.setAttribute(
-            "transform",
-            `rotate(${legAngle},200,160)`
-          );
-        if (personBackLeg)
-          personBackLeg.setAttribute(
-            "transform",
-            `rotate(${-legAngle},180,160)`
-          );
-        if (leash) leash.setAttribute("d", `M100,100 Q110,110 120,${120 + y}`);
+      // Bird moves left to right, looping
+      x += moveSpeed;
+      if (x > maxX) {
+        x = minX;
       }
+
+      // Bird moves in a sine wave vertically as it moves horizontally
+      const floatY = Math.sin(x * waveFrequency) * waveAmplitude;
+
+      if (leftWingRef.current)
+        leftWingRef.current.setAttribute(
+          "transform",
+          `rotate(${-wingAngle}, 90, 100)`
+        );
+      if (rightWingRef.current)
+        rightWingRef.current.setAttribute(
+          "transform",
+          `rotate(${wingAngle}, 210, 100)`
+        );
+      if (birdGroupRef.current)
+        birdGroupRef.current.setAttribute(
+          "transform",
+          `translate(${x},${centerY - 100 * scale + floatY}) scale(${scale})`
+        );
+      if (shadowRef.current)
+        shadowRef.current.setAttribute("cx", 150 * scale + x);
 
       frame++;
       raf = requestAnimationFrame(animate);
@@ -55,51 +82,119 @@ const WalkingDogWithPerson = ({
 
     raf = requestAnimationFrame(animate);
     return () => raf && cancelAnimationFrame(raf);
-  }, []);
+    // eslint-disable-next-line
+  }, [width, height]);
 
   return (
-    <svg
-      width={width}
-      height={height}
-      viewBox="0 0 400 200"
-      xmlns="http://www.w3.org/2000/svg"
-      style={{ display: "block", background: "none", ...style }}
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        zIndex: 9999,
+        background: "none",
+        overflow: "hidden",
+        display: "block",
+        ...style,
+      }}
       className={className}
     >
-      <g ref={sceneRef} fill="none" stroke="#000" strokeWidth="3">
-        {/* Dog body */}
-        <ellipse cx="80" cy="120" rx="25" ry="15" fill="black" />
-        <circle cx="100" cy="110" r="10" fill="black" />
-        <circle cx="103" cy="108" r="2" fill="white" />
-        {/* Dog tail */}
-        <path d="M60,120 Q50,110 55,100" stroke="black" />
-        {/* Dog legs */}
-        <g id="dogFrontLeg">
-          <line x1="80" y1="130" x2="80" y2="150" />
+      <svg
+        width={width}
+        height={height}
+        viewBox={`0 0 ${width} ${height}`}
+        xmlns="http://www.w3.org/2000/svg"
+        style={{
+          display: "block",
+          width: "100%",
+          height: "100%",
+          background: "none",
+          position: "absolute",
+          top: 0,
+          left: 0,
+          pointerEvents: "none",
+        }}
+      >
+        <g ref={birdGroupRef}>
+          {/* Left Wing */}
+          <g ref={leftWingRef}>
+            <path
+              d="M90,100 Q40,60 60,140 Q100,120 90,100"
+              fill={accentColor}
+              stroke={primaryColor}
+              strokeWidth="4"
+            />
+          </g>
+          {/* Right Wing */}
+          <g ref={rightWingRef}>
+            <path
+              d="M210,100 Q260,60 240,140 Q200,120 210,100"
+              fill={accentColor}
+              stroke={primaryColor}
+              strokeWidth="4"
+            />
+          </g>
+          {/* Bird Body */}
+          <ellipse
+            cx="150"
+            cy="110"
+            rx="60"
+            ry="38"
+            fill={primaryColor}
+            stroke={accentColor}
+            strokeWidth="4"
+          />
+          {/* Bird Head */}
+          <circle
+            cx="200"
+            cy="80"
+            r="28"
+            fill={primaryColor}
+            stroke={accentColor}
+            strokeWidth="4"
+          />
+          {/* Beak */}
+          <polygon
+            points="228,80 250,88 228,92"
+            fill={beakColor}
+            stroke="#EAB308"
+            strokeWidth="2"
+          />
+          {/* Eye */}
+          <circle cx="215" cy="80" r="4.5" fill={eyeColor} />
+          <circle cx="217" cy="79" r="1.2" fill="#fff" />
+          {/* Tail Feathers */}
+          <path
+            d="M95,140 Q80,170 120,150"
+            stroke={primaryColor}
+            strokeWidth="6"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M105,145 Q100,180 135,155"
+            stroke={accentColor}
+            strokeWidth="4"
+            fill="none"
+            strokeLinecap="round"
+          />
         </g>
-        <g id="dogBackLeg">
-          <line x1="60" y1="130" x2="60" y2="150" />
-        </g>
-
-        {/* Person head & body */}
-        <circle cx="200" cy="60" r="15" fill="black" />
-        <line x1="200" y1="75" x2="200" y2="130" stroke="black" />
-        {/* Arms */}
-        <line x1="200" y1="90" x2="180" y2="110" stroke="black" />
-        <line x1="200" y1="90" x2="220" y2="110" stroke="black" />
-        {/* Legs */}
-        <g id="personFrontLeg">
-          <line x1="200" y1="130" x2="220" y2="160" stroke="black" />
-        </g>
-        <g id="personBackLeg">
-          <line x1="200" y1="130" x2="180" y2="160" stroke="black" />
-        </g>
-
-        {/* Leash */}
-        <path id="leash" d="M100,100 Q110,110 120,120" stroke="blue" />
-      </g>
-    </svg>
+        {/* Optional: Add a subtle shadow for depth, moves with bird */}
+        <ellipse
+          ref={shadowRef}
+          cx={150}
+          cy={height - 15}
+          rx={60 * Math.min(width / baseSvgWidth, height / baseSvgHeight)}
+          ry={10 * Math.min(width / baseSvgWidth, height / baseSvgHeight)}
+          fill="#000"
+          opacity="0.08"
+          style={{ transition: "cx 0.1s" }}
+        />
+      </svg>
+    </div>
   );
 };
 
-export default WalkingDogWithPerson;
+export default FlyingBirdLogo;
