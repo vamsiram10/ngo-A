@@ -6,6 +6,13 @@ import React, { useRef, useEffect } from "react";
  * Animated SVG logo of a stylized bird in flight, with flapping wings.
  * Modern, minimal, and suitable for a foundation or creative org.
  * This version moves the bird smoothly from left to right, continuously, and goes on forever.
+ *
+ * NOTE: To ensure this does not interfere with the navbar or other UI,
+ * the logo is now absolutely positioned in its parent, not fixed to the viewport.
+ *
+ * To use as a background or hero element, wrap in a container with relative positioning.
+ *
+ * This change should resolve issues with the navbar not working (e.g., not clickable).
  */
 const FlyingBirdLogo = ({
   primaryColor = "#EC4899", // pink-500
@@ -16,6 +23,8 @@ const FlyingBirdLogo = ({
   className = "",
   width = 180, // default width of the container in px
   height = 120, // default height of the container in px
+  absolute = false, // allow parent to control positioning
+  zIndex = 1, // default zIndex, can be overridden
 }) => {
   const leftWingRef = useRef(null);
   const rightWingRef = useRef(null);
@@ -26,36 +35,26 @@ const FlyingBirdLogo = ({
   const baseSvgWidth = 300;
   const baseSvgHeight = 200;
 
-  // The bird will move left to right within the small container
-  // Remove setBirdX and state, as we want a truly continuous animation
   useEffect(() => {
     let frame = 0;
     let raf;
-    // The area the bird can move horizontally
     const scale = Math.min(width / baseSvgWidth, height / baseSvgHeight);
-    const birdWidth = baseSvgWidth * 0.6 * scale; // width of the bird group after scaling
-    const minX = -birdWidth; // Start fully offscreen left
-    const maxX = width; // End fully offscreen right
-
+    const birdWidth = baseSvgWidth * 0.6 * scale;
+    const minX = -birdWidth;
+    const maxX = width;
     let x = minX;
 
     const waveAmplitude = 0.09 * height;
     const waveFrequency = 0.025;
-    const moveSpeed = Math.max(1, width / 120); // px per frame
-
+    const moveSpeed = Math.max(1, width / 120);
     const centerY = height / 2;
 
     const animate = () => {
-      // Flap wings: angle oscillates between -30 and 30 degrees
       const wingAngle = Math.sin(frame * 0.12) * 28;
-
-      // Bird moves left to right, looping
       x += moveSpeed;
       if (x > maxX) {
         x = minX;
       }
-
-      // Bird moves in a sine wave vertically as it moves horizontally
       const floatY = Math.sin(x * waveFrequency) * waveAmplitude;
 
       if (leftWingRef.current)
@@ -85,22 +84,23 @@ const FlyingBirdLogo = ({
     // eslint-disable-next-line
   }, [width, height]);
 
+  // Use absolute or static positioning, not fixed, so navbar is clickable
+  const containerStyle = {
+    position: absolute ? "absolute" : "static",
+    top: 0,
+    left: 0,
+    width,
+    height,
+    zIndex,
+    background: "none",
+    overflow: "hidden",
+    display: "block",
+    pointerEvents: "none", // ensure logo never blocks mouse events
+    ...style,
+  };
+
   return (
-    <div
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100vw",
-        height: "100vh",
-        zIndex: 9999,
-        background: "none",
-        overflow: "hidden",
-        display: "block",
-        ...style,
-      }}
-      className={className}
-    >
+    <div style={containerStyle} className={className}>
       <svg
         width={width}
         height={height}

@@ -1,7 +1,12 @@
+import FlyingBirdLogo from "@/components/utils/avasalogo/FlyingBirdLogo";
+
 const ContactUsSection = () => {
   return (
     <div>
-      <h1>hero</h1>
+      <h1>
+        hero
+        <FlyingBirdLogo />
+      </h1>
     </div>
   );
 };

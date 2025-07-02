@@ -18,7 +18,14 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
  * Animated SVG logo of a stylized bird in flight, with flapping wings.
  * Modern, minimal, and suitable for a foundation or creative org.
  * This version moves the bird smoothly from left to right, continuously, and goes on forever.
- */ const FlyingBirdLogo = ({ primaryColor = "#EC4899", accentColor = "#F9A8D4", beakColor = "#F59E42", eyeColor = "#222", style = {}, className = "", width = 180, height = 120 })=>{
+ *
+ * NOTE: To ensure this does not interfere with the navbar or other UI,
+ * the logo is now absolutely positioned in its parent, not fixed to the viewport.
+ *
+ * To use as a background or hero element, wrap in a container with relative positioning.
+ *
+ * This change should resolve issues with the navbar not working (e.g., not clickable).
+ */ const FlyingBirdLogo = ({ primaryColor = "#EC4899", accentColor = "#F9A8D4", beakColor = "#F59E42", eyeColor = "#222", style = {}, className = "", width = 180, height = 120, absolute = false, zIndex = 1 })=>{
     const leftWingRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const rightWingRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const birdGroupRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
@@ -26,30 +33,24 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
     // We'll use a fixed size for the container and SVG
     const baseSvgWidth = 300;
     const baseSvgHeight = 200;
-    // The bird will move left to right within the small container
-    // Remove setBirdX and state, as we want a truly continuous animation
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         let frame = 0;
         let raf;
-        // The area the bird can move horizontally
         const scale = Math.min(width / baseSvgWidth, height / baseSvgHeight);
-        const birdWidth = baseSvgWidth * 0.6 * scale; // width of the bird group after scaling
-        const minX = -birdWidth; // Start fully offscreen left
-        const maxX = width; // End fully offscreen right
+        const birdWidth = baseSvgWidth * 0.6 * scale;
+        const minX = -birdWidth;
+        const maxX = width;
         let x = minX;
         const waveAmplitude = 0.09 * height;
         const waveFrequency = 0.025;
-        const moveSpeed = Math.max(1, width / 120); // px per frame
+        const moveSpeed = Math.max(1, width / 120);
         const centerY = height / 2;
         const animate = ()=>{
-            // Flap wings: angle oscillates between -30 and 30 degrees
             const wingAngle = Math.sin(frame * 0.12) * 28;
-            // Bird moves left to right, looping
             x += moveSpeed;
             if (x > maxX) {
                 x = minX;
             }
-            // Bird moves in a sine wave vertically as it moves horizontally
             const floatY = Math.sin(x * waveFrequency) * waveAmplitude;
             if (leftWingRef.current) leftWingRef.current.setAttribute("transform", `rotate(${-wingAngle}, 90, 100)`);
             if (rightWingRef.current) rightWingRef.current.setAttribute("transform", `rotate(${wingAngle}, 210, 100)`);
@@ -65,19 +66,22 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
         width,
         height
     ]);
+    // Use absolute or static positioning, not fixed, so navbar is clickable
+    const containerStyle = {
+        position: absolute ? "absolute" : "static",
+        top: 0,
+        left: 0,
+        width,
+        height,
+        zIndex,
+        background: "none",
+        overflow: "hidden",
+        display: "block",
+        pointerEvents: "none",
+        ...style
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        style: {
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100vw",
-            height: "100vh",
-            zIndex: 9999,
-            background: "none",
-            overflow: "hidden",
-            display: "block",
-            ...style
-        },
+        style: containerStyle,
         className: className,
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
             width: width,
@@ -239,7 +243,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/utils/avasalogo/FlyingBirdLogo.jsx",
-        lineNumber: 89,
+        lineNumber: 103,
         columnNumber: 5
     }, this);
 };
