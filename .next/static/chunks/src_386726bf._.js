@@ -361,12 +361,12 @@ var _s = __turbopack_context__.k.signature();
 function sleep(ms) {
     return new Promise((resolve)=>setTimeout(resolve, ms));
 }
-function addSlideRightOverlay() {
-    const old = document.getElementById("page-transition-slide-right");
+function addSlideUpOverlay() {
+    const old = document.getElementById("page-transition-slide-up");
     if (old) old.remove();
     const overlay = document.createElement("div");
-    overlay.id = "page-transition-slide-right";
-    overlay.className = "page-transition-slide-right";
+    overlay.id = "page-transition-slide-up";
+    overlay.className = "page-transition-slide-up";
     overlay.style.background = "#fff";
     overlay.style.animationDuration = "0.7s";
     overlay.style.animationTimingFunction = "cubic-bezier(0.77, 0, 0.175, 1)";
@@ -377,22 +377,22 @@ function addSlideRightOverlay() {
     overlay.style.position = "fixed";
     overlay.style.inset = "0";
     overlay.style.zIndex = "9999";
-    // SVG for a curved right edge (vertical curve)
+    // SVG for a curved top edge (horizontal curve)
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute("width", "32vw");
-    svg.setAttribute("height", "100%");
-    svg.setAttribute("viewBox", "0 0 32 100");
+    svg.setAttribute("width", "100%");
+    svg.setAttribute("height", "18vh");
+    svg.setAttribute("viewBox", "0 0 100 18");
     svg.setAttribute("preserveAspectRatio", "none");
     svg.style.position = "absolute";
+    svg.style.left = "0";
     svg.style.top = "0";
-    svg.style.right = "0";
-    svg.style.width = "32vw";
-    svg.style.height = "100%";
+    svg.style.width = "100%";
+    svg.style.height = "18vh";
     svg.style.pointerEvents = "none";
     svg.style.zIndex = "10001";
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    // This path creates a curve on the right edge
-    path.setAttribute("d", "M32,0 C0,25 0,75 32,100 L32,100 L32,0 Z");
+    // This path creates a curve on the top edge
+    path.setAttribute("d", "M0,0 Q50,18 100,0 L100,0 L0,0 Z");
     path.setAttribute("fill", "#fff");
     svg.appendChild(path);
     overlay.appendChild(svg);
@@ -407,16 +407,16 @@ function addSlideRightOverlay() {
     overlay.appendChild(img);
     document.body.appendChild(overlay);
 }
-function removeSlideRightOverlay() {
-    const overlay = document.getElementById("page-transition-slide-right");
+function removeSlideUpOverlay() {
+    const overlay = document.getElementById("page-transition-slide-up");
     if (overlay) overlay.remove();
 }
 if ("object" !== "undefined" && typeof document !== "undefined") {
-    if (!document.getElementById("page-transition-slide-right-style")) {
+    if (!document.getElementById("page-transition-slide-up-style")) {
         const style = document.createElement("style");
-        style.id = "page-transition-slide-right-style";
+        style.id = "page-transition-slide-up-style";
         style.innerHTML = `
-      .page-transition-slide-right {
+      .page-transition-slide-up {
         pointer-events: none;
         position: fixed;
         inset: 0;
@@ -425,33 +425,33 @@ if ("object" !== "undefined" && typeof document !== "undefined") {
         display: flex;
         align-items: center;
         justify-content: center;
-        animation: slideInFromRightCurved 0.7s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+        animation: slideInFromBottomCurved 0.7s cubic-bezier(0.77, 0, 0.175, 1) forwards;
         overflow: hidden;
       }
-      .page-transition-slide-right img {
+      .page-transition-slide-up img {
         width: 80px;
         height: 80px;
         object-fit: contain;
         display: block;
         z-index: 10002;
       }
-      .page-transition-slide-right svg {
+      .page-transition-slide-up svg {
         position: absolute;
+        left: 0;
         top: 0;
-        right: 0;
-        width: 32vw;
-        height: 100%;
+        width: 100%;
+        height: 18vh;
         z-index: 10001;
         pointer-events: none;
         display: block;
       }
-      @keyframes slideInFromRightCurved {
+      @keyframes slideInFromBottomCurved {
         0% {
-          transform: translateX(100%);
+          transform: translateY(100%);
           opacity: 1;
         }
         100% {
-          transform: translateX(0%);
+          transform: translateY(0%);
           opacity: 1;
         }
       }
@@ -478,10 +478,10 @@ const TransitionLink = ({ children, href, ...props })=>{
                 });
                 await sleep(20);
             }
-            addSlideRightOverlay();
+            addSlideUpOverlay();
             await sleep(650);
             router.push(href);
-            setTimeout(removeSlideRightOverlay, 500);
+            setTimeout(removeSlideUpOverlay, 500);
         }
     }["TransitionLink.useCallback[handleTransition]"], [
         router,
