@@ -1,39 +1,27 @@
 "use client";
 import React, { useRef, useEffect } from "react";
 
-/**
- * FlyingBirdLogo
- * Animated SVG logo of a stylized bird in flight, with flapping wings.
- * Modern, minimal, and suitable for a foundation or creative org.
- * This version moves the bird smoothly from left to right, continuously, and goes on forever.
- *
- * NOTE: To ensure this does not interfere with the navbar or other UI,
- * the logo is now absolutely positioned in its parent, not fixed to the viewport.
- *
- * To use as a background or hero element, wrap in a container with relative positioning.
- *
- * This change should resolve issues with the navbar not working (e.g., not clickable).
- */
 const FlyingBirdLogo = ({
-  primaryColor = "#EC4899", // pink-500
-  accentColor = "#F9A8D4", // pink-300
-  beakColor = "#F59E42", // orange
+  primaryColor = "#EC4899",
+  accentColor = "#F9A8D4",
+  beakColor = "#F59E42",
   eyeColor = "#222",
   style = {},
   className = "",
-  width = 180, // default width of the container in px
-  height = 120, // default height of the container in px
-  absolute = false, // allow parent to control positioning
-  zIndex = 1, // default zIndex, can be overridden
+  width = 180,
+  height = 120,
+  absolute = false,
+  zIndex = 1,
 }) => {
   const leftWingRef = useRef(null);
   const rightWingRef = useRef(null);
   const birdGroupRef = useRef(null);
   const shadowRef = useRef(null);
 
-  // We'll use a fixed size for the container and SVG
   const baseSvgWidth = 300;
   const baseSvgHeight = 200;
+
+  const [bounceFrame, setBounceFrame] = React.useState(0);
 
   useEffect(() => {
     let frame = 0;
@@ -76,15 +64,14 @@ const FlyingBirdLogo = ({
         shadowRef.current.setAttribute("cx", 150 * scale + x);
 
       frame++;
+      setBounceFrame(frame);
       raf = requestAnimationFrame(animate);
     };
 
     raf = requestAnimationFrame(animate);
     return () => raf && cancelAnimationFrame(raf);
-    // eslint-disable-next-line
   }, [width, height]);
 
-  // Use absolute or static positioning, not fixed, so navbar is clickable
   const containerStyle = {
     position: absolute ? "absolute" : "static",
     top: 0,
@@ -95,12 +82,53 @@ const FlyingBirdLogo = ({
     background: "none",
     overflow: "hidden",
     display: "block",
-    pointerEvents: "none", // ensure logo never blocks mouse events
+    pointerEvents: "none",
     ...style,
   };
 
+  const getBounceY = (i, frame, amplitude = 7, speed = 0.18, phase = 0) => {
+    return Math.sin(frame * speed + i * 0.5 + phase) * amplitude;
+  };
+
+  const server404 = "server down  404 ";
+  const server404Color = "orange";
+
+  const tagX = 70;
+  const tagY = 120;
+
+  const tagWidth = 90;
+  const tagHeight = 32;
+  const tagRadius = 8;
+
+  const stringStartX = 150;
+  const stringStartY = 100;
+  const stringEndX = tagX + tagWidth / 2;
+  const stringEndY = tagY;
+
   return (
     <div style={containerStyle} className={className}>
+      <div
+        style={{
+          position: "absolute",
+          top: 10,
+          left: 10,
+          zIndex: 10,
+          pointerEvents: "auto",
+        }}
+      >
+        <span
+          style={{
+            color: "#e11d48",
+            fontWeight: "bold",
+            fontSize: 24,
+            background: "rgba(255,255,255,0.8)",
+            borderRadius: 6,
+            padding: "2px 10px",
+          }}
+        >
+          server 404
+        </span>
+      </div>
       <svg
         width={width}
         height={height}
@@ -118,7 +146,6 @@ const FlyingBirdLogo = ({
         }}
       >
         <g ref={birdGroupRef}>
-          {/* Left Wing */}
           <g ref={leftWingRef}>
             <path
               d="M90,100 Q40,60 60,140 Q100,120 90,100"
@@ -127,7 +154,6 @@ const FlyingBirdLogo = ({
               strokeWidth="4"
             />
           </g>
-          {/* Right Wing */}
           <g ref={rightWingRef}>
             <path
               d="M210,100 Q260,60 240,140 Q200,120 210,100"
@@ -136,7 +162,6 @@ const FlyingBirdLogo = ({
               strokeWidth="4"
             />
           </g>
-          {/* Bird Body */}
           <ellipse
             cx="150"
             cy="110"
@@ -146,7 +171,6 @@ const FlyingBirdLogo = ({
             stroke={accentColor}
             strokeWidth="4"
           />
-          {/* Bird Head */}
           <circle
             cx="200"
             cy="80"
@@ -155,17 +179,14 @@ const FlyingBirdLogo = ({
             stroke={accentColor}
             strokeWidth="4"
           />
-          {/* Beak */}
           <polygon
             points="228,80 250,88 228,92"
             fill={beakColor}
             stroke="#EAB308"
             strokeWidth="2"
           />
-          {/* Eye */}
           <circle cx="215" cy="80" r="4.5" fill={eyeColor} />
           <circle cx="217" cy="79" r="1.2" fill="#fff" />
-          {/* Tail Feathers */}
           <path
             d="M95,140 Q80,170 120,150"
             stroke={primaryColor}
@@ -180,8 +201,67 @@ const FlyingBirdLogo = ({
             fill="none"
             strokeLinecap="round"
           />
+          <line
+            x1={stringStartX}
+            y1={stringStartY}
+            x2={stringEndX}
+            y2={stringEndY}
+            stroke="#eab308"
+            strokeWidth="2"
+          />
+          <rect
+            x={tagX}
+            y={tagY}
+            rx={tagRadius}
+            ry={tagRadius}
+            width={tagWidth}
+            height={tagHeight}
+            fill="#fff"
+            stroke="#e11d48"
+            strokeWidth="2"
+            opacity="0.95"
+            filter="url(#tagShadow)"
+          />
+          <defs>
+            <filter id="tagShadow" x="0" y="0" width="200%" height="200%">
+              <feDropShadow
+                dx="0"
+                dy="2"
+                stdDeviation="2"
+                floodColor="#000"
+                floodOpacity="0.12"
+              />
+            </filter>
+          </defs>
+          <g>
+            {server404.split("").map((char, i) => {
+              const fontSize = 18;
+              const totalLen = server404.length;
+              const charWidth = fontSize * 0.62;
+              const textTotalWidth = charWidth * totalLen;
+              const startX = tagX + (tagWidth - textTotalWidth) / 2;
+              const bounceY = getBounceY(i, bounceFrame, 7, 0.18, 0);
+              return (
+                <text
+                  key={i}
+                  x={startX + i * charWidth}
+                  y={tagY + tagHeight / 2 + fontSize / 3 + bounceY}
+                  fontFamily="monospace, Menlo, monospace"
+                  fontSize={fontSize}
+                  fontWeight="bold"
+                  fill="#e11d48"
+                  style={{
+                    userSelect: "none",
+                    pointerEvents: "none",
+                    transition: "y 0.1s",
+                  }}
+                >
+                  {char === " " ? "\u00A0" : char}
+                </text>
+              );
+            })}
+          </g>
         </g>
-        {/* Optional: Add a subtle shadow for depth, moves with bird */}
         <ellipse
           ref={shadowRef}
           cx={150}
