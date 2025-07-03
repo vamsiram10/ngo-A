@@ -15,27 +15,31 @@ var _s = __turbopack_context__.k.signature();
 "use client";
 ;
 ;
-const EVENT_NAME = "My Nearby Place"; // make change here aneesh when event is their
-const EVENT_DATE = "2024-08-10"; //make change here aneesh when event is their
-const EVENT_COORDS = [
-    26.2978,
-    73.0386
-]; // make change here aneesh when event is their
-const EVENT_ADDRESS = "Sardarpura, Jodhpur, Rajasthan 342003"; // <make change here aneesh when event is their
-const EVENT_LOCATION = {
-    id: "event-location-2025",
-    name: EVENT_NAME,
-    coords: EVENT_COORDS,
-    popup: `
-    <b>${EVENT_NAME}</b><br/>
-    Date: ${EVENT_DATE}<br/>
-    <span id="event-address">${EVENT_ADDRESS}</span>
+const EVENTS = [
+    {
+        id: "event-location-2025",
+        name: "Event 1",
+        date: "2024-08-10",
+        coords: [
+            26.2978,
+            73.0386
+        ],
+        address: "Sardarpura, Jodhpur, Rajasthan 342003"
+    }
+];
+function getEventPopupHtml(event) {
+    const addressId = `event-address-${event.id}`;
+    const buttonId = `copy-event-address-btn-${event.id}`;
+    return `
+    <b>${event.name}</b><br/>
+    Date: ${event.date}<br/>
+    <span id="${addressId}">${event.address}</span>
     <button 
-      id="copy-event-address-btn"
+      id="${buttonId}"
       style="margin-left:8px;padding:2px 8px;font-size:0.9em;cursor:pointer;pointer-events:auto;"
       onclick="
         event.stopPropagation();
-        var address = document.getElementById('event-address').innerText;
+        var address = document.getElementById('${addressId}').innerText;
         var showCopiedPopup = function() {
           var existing = document.getElementById('copied-popup-toast');
           if (existing) existing.remove();
@@ -83,10 +87,16 @@ const EVENT_LOCATION = {
         }
       "
     >Copy</button>
-  `,
-    isEvent: true
-};
-// The rest of the locations and constants remain unchanged.
+  `;
+}
+const EVENT_LOCATIONS = EVENTS.map(_c = (event)=>({
+        id: event.id,
+        name: event.name,
+        coords: event.coords,
+        popup: getEventPopupHtml(event),
+        isEvent: true
+    }));
+_c1 = EVENT_LOCATIONS;
 const AVASA_ICON_URL = "/svg/AVASA.svg";
 const FIXED_LOCATION = {
     id: "fixed-location",
@@ -159,7 +169,6 @@ const EVENT_POPUP_ANCHOR = [
 const MapLocation = ()=>{
     _s();
     const mapRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const fixedPopupRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "MapLocation.useEffect": ()=>{
             let mapInstance = null;
@@ -227,33 +236,18 @@ const MapLocation = ()=>{
                     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
                         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     }).addTo(mapInstance);
-                    // Only animate from fixed location to event location and back to fixed location
-                    function animateMapToLocations(locations, delay = 1200) {
+                    // Make animation slower: increase delay and duration
+                    function animateMapToLocations(locations, delay = 2000) {
                         if (!mapInstance) return;
-                        // Only use fixed and event locations
-                        let allLocations = [
-                            {
-                                ...FIXED_LOCATION,
-                                zoom: 15
-                            },
-                            {
-                                ...EVENT_LOCATION,
-                                zoom: 15
-                            },
-                            {
-                                ...FIXED_LOCATION,
-                                zoom: 15
-                            }
-                        ];
                         let i = 0;
                         function flyNext() {
-                            if (i >= allLocations.length) {
+                            if (i >= locations.length) {
                                 return;
                             }
-                            const loc = allLocations[i];
+                            const loc = locations[i];
                             mapInstance.flyTo(loc.coords, loc.zoom || 15, {
                                 animate: true,
-                                duration: 1.2
+                                duration: 2.0
                             });
                             i++;
                             animationTimeouts.push(setTimeout(flyNext, delay));
@@ -583,18 +577,36 @@ const MapLocation = ()=>{
                             }
                         }["MapLocation.useEffect.markerBounce"], 700);
                     }
+                    // Add all markers
                     addMarkerWithIcon(FIXED_LOCATION, true, true);
-                    addMarkerWithIcon(EVENT_LOCATION, true, false);
+                    EVENT_LOCATIONS.forEach({
+                        "MapLocation.useEffect": (eventLoc)=>{
+                            addMarkerWithIcon(eventLoc, true, false);
+                        }
+                    }["MapLocation.useEffect"]);
                     OTHER_LOCATIONS.forEach({
                         "MapLocation.useEffect": (location)=>{
                             addMarkerWithIcon(location, false, false);
                         }
                     }["MapLocation.useEffect"]);
-                    animateMapToLocations([
-                        FIXED_LOCATION,
-                        EVENT_LOCATION,
-                        FIXED_LOCATION
-                    ], 1200);
+                    // Animate: fixed location -> each event (in order) -> back to fixed location
+                    const animationLocations = [
+                        {
+                            ...FIXED_LOCATION,
+                            zoom: 15
+                        },
+                        ...EVENT_LOCATIONS.map({
+                            "MapLocation.useEffect": (ev)=>({
+                                    ...ev,
+                                    zoom: 15
+                                })
+                        }["MapLocation.useEffect"]),
+                        {
+                            ...FIXED_LOCATION,
+                            zoom: 15
+                        }
+                    ];
+                    animateMapToLocations(animationLocations, 2000); // was 1200, now slower
                     mapInstance.setView(initialCoords, 15, {
                         animate: false
                     });
@@ -620,15 +632,17 @@ const MapLocation = ()=>{
         className: "overflow-hidden mx-auto rounded-md"
     }, void 0, false, {
         fileName: "[project]/src/components/section/ourworksection/maplocation/MapLocation.jsx",
-        lineNumber: 566,
+        lineNumber: 582,
         columnNumber: 5
     }, this);
 };
-_s(MapLocation, "7YyR5VHPjRHlFVGmfO4y0L1pLdg=");
-_c = MapLocation;
+_s(MapLocation, "9mn7MMe4fPaZ50ApsOpRWF2HbFg=");
+_c2 = MapLocation;
 const __TURBOPACK__default__export__ = MapLocation;
-var _c;
-__turbopack_context__.k.register(_c, "MapLocation");
+var _c, _c1, _c2;
+__turbopack_context__.k.register(_c, "EVENT_LOCATIONS$EVENTS.map");
+__turbopack_context__.k.register(_c1, "EVENT_LOCATIONS");
+__turbopack_context__.k.register(_c2, "MapLocation");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
 }
