@@ -1,14 +1,10 @@
 {
   "pages": {
-    "/aboutus/page": [
+    "/_not-found/page": [
       "static/chunks/[root-of-the-server]__a2f1cdd3._.css",
       "static/chunks/node_modules_0ae9dae5._.js",
       "static/chunks/src_386726bf._.js",
       "static/chunks/src_app_layout_c0237562.js",
-      "static/chunks/src_app_aboutus_layout_9cf2e4d5.js",
-      "static/chunks/src_app_aboutus_layout_fbc05915.js",
-      "static/chunks/src_components_utils_avasalogo_FlyingBirdLogo_jsx_27937fa7._.js",
-      "static/chunks/src_app_aboutus_page_4d18b789.js",
       "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_fd44f5a4._.js",
       "static/chunks/node_modules_next_dist_compiled_2ce9398a._.js",
       "static/chunks/node_modules_next_dist_client_8f19e6fb._.js",
@@ -17,15 +13,16 @@
       "static/chunks/_e69f0d32._.js",
       "static/chunks/_93808211._.js"
     ],
-    "/contactus/page": [
+    "/ourwork/map/page": [
       "static/chunks/[root-of-the-server]__a2f1cdd3._.css",
       "static/chunks/node_modules_0ae9dae5._.js",
       "static/chunks/src_386726bf._.js",
       "static/chunks/src_app_layout_c0237562.js",
-      "static/chunks/src_app_contactus_layout_660e44dd.js",
-      "static/chunks/src_app_contactus_layout_fbc05915.js",
-      "static/chunks/src_components_utils_avasalogo_FlyingBirdLogo_jsx_27937fa7._.js",
-      "static/chunks/src_app_contactus_page_103104d9.js",
+      "static/chunks/src_app_ourwork_layout_607af120.js",
+      "static/chunks/src_app_ourwork_layout_fbc05915.js",
+      "static/chunks/src_components_section_ourworksection_maplocation_maplocation_ac080d9f.css",
+      "static/chunks/src_components_section_ourworksection_maplocation_MapLocation_jsx_ef915c79._.js",
+      "static/chunks/src_app_ourwork_map_page_ff4c5594.js",
       "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_fd44f5a4._.js",
       "static/chunks/node_modules_next_dist_compiled_2ce9398a._.js",
       "static/chunks/node_modules_next_dist_client_8f19e6fb._.js",
@@ -41,8 +38,8 @@
       "static/chunks/src_app_layout_c0237562.js",
       "static/chunks/src_app_ourwork_layout_607af120.js",
       "static/chunks/src_app_ourwork_layout_fbc05915.js",
-      "static/chunks/src_components_22482aab._.js",
       "static/chunks/node_modules_4906b0a9._.js",
+      "static/chunks/src_components_22482aab._.js",
       "static/chunks/src_app_ourwork_page_ff4c5594.js",
       "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_fd44f5a4._.js",
       "static/chunks/node_modules_next_dist_compiled_2ce9398a._.js",

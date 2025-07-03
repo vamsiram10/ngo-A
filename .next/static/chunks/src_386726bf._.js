@@ -40,7 +40,7 @@ const navLinks = {
                 {
                     id: 1,
                     title: "map location ",
-                    path: "/"
+                    path: "/ourwork/map"
                 },
                 {
                     id: 2,

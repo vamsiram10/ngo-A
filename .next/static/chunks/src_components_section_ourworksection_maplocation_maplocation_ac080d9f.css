@@ -1,0 +1,35 @@
+/* [project]/src/components/section/ourworksection/maplocation/maplocation.css [app-client] (css) */
+#leaflet-map {
+  background: #f3f3f3;
+  width: 100%;
+  min-width: 300px;
+  height: 300px;
+  min-height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: width .2s, height .2s;
+  display: block;
+  position: absolute;
+  top: 25%;
+}
+
+@media (width <= 1023px) {
+  #leaflet-map {
+    min-width: 0;
+    max-width: 100vw;
+    height: 400px;
+    width: 75vw !important;
+  }
+}
+
+@media (width <= 640px) {
+  #leaflet-map {
+    height: 600px;
+    position: absolute;
+    top: 18%;
+    left: 3.4rem;
+  }
+}
+
+
+/*# sourceMappingURL=src_components_section_ourworksection_maplocation_maplocation_ac080d9f.css.map*/

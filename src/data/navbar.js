@@ -15,7 +15,7 @@ const navLinks = {
       label: "Our Work",
       url: "/ourwork",
       dialog: [
-        { id: 1, title: "map location ", path: "/" },
+        { id: 1, title: "map location ", path: "/ourwork/map" },
         { id: 2, title: "gallery", path: "/ourwork" },
         {
           id: 3,
