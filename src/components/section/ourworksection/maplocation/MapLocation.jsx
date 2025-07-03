@@ -2,15 +2,74 @@
 import "./maplocation.css";
 import { useEffect, useRef } from "react";
 
-// All changes for event location are now written in one place below.
-// To update the event, change the values in this EVENT_LOCATION object only.
-// Update the name, coordinates, popup content, and date as needed.
+const EVENT_NAME = "My Nearby Place"; // make change here aneesh when event is their
+const EVENT_DATE = "2024-08-10"; //make change here aneesh when event is their
+const EVENT_COORDS = [26.2978, 73.0386]; // make change here aneesh when event is their
+const EVENT_ADDRESS = "Sardarpura, Jodhpur, Rajasthan 342003"; // <make change here aneesh when event is their
+
 const EVENT_LOCATION = {
   id: "event-location-2025",
-  name: "Event Location", // Name to display in popup make sure you change here only aneesh
-  coords: [26.35, 73.05], // [latitude, longitude] of the event same here aneeesh
-  popup: `<b>Event Location</b><br/>Date: 2024-07-15`, //
-  isEvent: true, // This flag triggers the event marker style
+  name: EVENT_NAME,
+  coords: EVENT_COORDS,
+  popup: `
+    <b>${EVENT_NAME}</b><br/>
+    Date: ${EVENT_DATE}<br/>
+    <span id="event-address">${EVENT_ADDRESS}</span>
+    <button 
+      id="copy-event-address-btn"
+      style="margin-left:8px;padding:2px 8px;font-size:0.9em;cursor:pointer;pointer-events:auto;"
+      onclick="
+        event.stopPropagation();
+        var address = document.getElementById('event-address').innerText;
+        var showCopiedPopup = function() {
+          var existing = document.getElementById('copied-popup-toast');
+          if (existing) existing.remove();
+          var toast = document.createElement('div');
+          toast.id = 'copied-popup-toast';
+          toast.innerText = 'Copied!';
+          toast.style.position = 'fixed';
+          toast.style.left = '50%';
+          toast.style.bottom = '32px';
+          toast.style.transform = 'translateX(-50%)';
+          toast.style.background = '#222';
+          toast.style.color = '#fff';
+          toast.style.padding = '10px 24px';
+          toast.style.borderRadius = '8px';
+          toast.style.fontSize = '1.1em';
+          toast.style.boxShadow = '0 2px 12px rgba(0,0,0,0.18)';
+          toast.style.zIndex = 9999;
+          document.body.appendChild(toast);
+          setTimeout(function() {
+            if (toast.parentNode) toast.parentNode.removeChild(toast);
+          }, 1500);
+        };
+        // Try to use Clipboard API, fallback to execCommand
+        if (window.isSecureContext && navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(address).then(function() {
+            showCopiedPopup();
+          }, function() {
+            // fallback if Clipboard API fails
+            var textarea = document.createElement('textarea');
+            textarea.value = address;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try { document.execCommand('copy'); } catch (err) {}
+            document.body.removeChild(textarea);
+            showCopiedPopup();
+          });
+        } else {
+          var textarea = document.createElement('textarea');
+          textarea.value = address;
+          document.body.appendChild(textarea);
+          textarea.select();
+          try { document.execCommand('copy'); } catch (err) {}
+          document.body.removeChild(textarea);
+          showCopiedPopup();
+        }
+      "
+    >Copy</button>
+  `,
+  isEvent: true,
 };
 
 // The rest of the locations and constants remain unchanged.
