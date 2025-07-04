@@ -1,0 +1,69 @@
+/* [project]/src/components/utils/roundedpages/cylinder.css [app-client] (css) */
+.mdw-image-gallery-3d {
+  --disabled-section-padding-top: 70px;
+  --disabled-section-padding-bottom: 50px;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.mdw-image-gallery-3d .mdw-image-gallery-inner {
+  transform-style: preserve-3d;
+  perspective: 750px;
+  backface-visibility: hidden;
+  height: 100%;
+  position: relative;
+}
+
+.mdw-image-gallery-3d .mdw-image-gallery-inner > .e-con {
+  opacity: 0;
+  transition: all .5s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.mdw-image-gallery-3d .mdw-image-gallery-inner > .e-con img {
+  object-fit: cover;
+  border-radius: 12px;
+  width: 250px;
+  height: 350px;
+  box-shadow: 0 10px 40px #0000004d;
+}
+
+.mdw-image-gallery-bg {
+  opacity: .6;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.mdw-image-gallery-bg img {
+  filter: blur(50px);
+  max-width: unset;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scale(1.125);
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+}
+
+.sticky-end {
+  position: absolute;
+  bottom: 0;
+  top: auto !important;
+}
+
+
+/*# sourceMappingURL=src_components_utils_roundedpages_cylinder_c05540c3.css.map*/

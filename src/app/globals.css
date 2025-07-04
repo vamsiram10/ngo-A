@@ -101,3 +101,24 @@ body {
     opacity: 1;
   }
 }
+
+:root {
+  --background-color: #000000;
+  --main-text-color: #ffffff;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: var(--background-color);
+  color: var(--main-text-color);
+  position: relative;
+}
+
+canvas {
+  display: block;
+}
+
+.hovered {
+  cursor: pointer;
+}

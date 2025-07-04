@@ -23,9 +23,9 @@
 
 @media (max-width: 640px) {
   #leaflet-map {
-    height: 600px;
+    height: 665px;
     position: absolute;
-    top: 18%;
-    left: 3.4rem;
+    top: 13%;
+    left: 3.2rem;
   }
 }
