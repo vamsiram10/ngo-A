@@ -1,5 +1,5 @@
 import FlyingBirdLogo from "@/components/utils/avasalogo/FlyingBirdLogo";
-import HomeEvent from "@/components/utils/roundedpages/HomeEvent";
+// import HomeEvent from "@/components/utils/roundedpages/ThreeDCarousel";
 const ContactUsSection = () => {
   return (
     <div>
@@ -7,6 +7,7 @@ const ContactUsSection = () => {
         hero
         <FlyingBirdLogo />
         {/* <HomeEvent /> */}
+        {/* <ThreeDCarousel /> */}
       </h1>
     </div>
   );
