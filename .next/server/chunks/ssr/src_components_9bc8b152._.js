@@ -1322,7 +1322,7 @@ const AnimatedTestimonials = ({ testimonials = DEFAULT_TESTIMONIALS, autoplay = 
     }
     const getPrevIndex = ()=>(active - 1 + testimonials.length) % testimonials.length;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "relative left-0 flex items-center justify-center mx-auto px-4 py-8 px-8 py-12 mt-15 w-full max-w-3xl min-h-[80vh] font-sans antialiased sm:px-6 md:static lg:px-12",
+        className: "relative flex items-center justify-center mx-auto px-1 py-1 w-full max-w-3xl min-h-screen font-sans antialiased sm:px-1 lg:px-1",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "top-10 flex flex-col items-center gap-4 gap-3 md:flex-row",
             children: [

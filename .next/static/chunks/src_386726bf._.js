@@ -45,7 +45,7 @@ const navLinks = {
                 {
                     id: 2,
                     title: "gallery",
-                    path: "/ourwork"
+                    path: "/ourwork/gallery"
                 },
                 {
                     id: 3,
