@@ -2,7 +2,7 @@ import AnimatedTestimonials from "@/components/utils/teammem/animated-testimonia
 
 const HomeTeam = () => {
   return (
-    <div className="min-h-screen w-screen">
+    <div className="min-h-screen w-screen bg-amber-300">
       <h1>
         <AnimatedTestimonials />
       </h1>

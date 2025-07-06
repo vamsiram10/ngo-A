@@ -79,7 +79,7 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
     (active - 1 + testimonials.length) % testimonials.length;
 
   return (
-    <div className="relative left-0 flex items-center justify-center mx-auto px-4 py-8 px-8 py-12 mt-15 w-full max-w-3xl min-h-[80vh] font-sans antialiased sm:px-6 md:static lg:px-12">
+    <div className="relative flex items-center justify-center mx-auto px-1 py-1 w-full max-w-3xl min-h-screen font-sans antialiased sm:px-1 lg:px-1">
       <div className="top-10 flex flex-col items-center gap-4 gap-3 md:flex-row">
         {/* Image Section */}
         <div className="flex justify-center items-center mb-8 w-full w-1/2 md:mb-0">

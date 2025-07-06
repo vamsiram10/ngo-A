@@ -13,11 +13,10 @@ export default function HomePage() {
     <ReactLenis root>
       <main
         ref={mainContainer}
-        className="relative min-h-screen w-screen overflow-x-hidden"
+        className="relative min-h-[70vh] w-screen overflow-x-hidden"
       >
         <HomeOther />
         <HomeTeam />
-
         <SomeThing />
       </main>
     </ReactLenis>

@@ -4,7 +4,7 @@ const {
 
 const SomeThing = () => {
   return (
-    <div>
+    <div className="min-h-screen w-screen bg-pink-600">
       <FlyingBirdLogo />
     </div>
   );
