@@ -250,10 +250,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$studio$2d$
 ;
 ;
 ;
+;
 function sleep(ms) {
     return new Promise((resolve)=>setTimeout(resolve, ms));
 }
 function addSlideUpOverlay() {
+    if (typeof document === "undefined") return;
     const old = document.getElementById("page-transition-slide-up");
     if (old) old.remove();
     const overlay = document.createElement("div");
@@ -300,15 +302,21 @@ function addSlideUpOverlay() {
     document.body.appendChild(overlay);
 }
 function removeSlideUpOverlay() {
+    if (typeof document === "undefined") return;
     const overlay = document.getElementById("page-transition-slide-up");
     if (overlay) overlay.remove();
 }
-if ("TURBOPACK compile-time falsy", 0) {
+function ensureTransitionStyle() {
+    if ("TURBOPACK compile-time truthy", 1) return;
     "TURBOPACK unreachable";
 }
 const TransitionLink = ({ children, href, ...props })=>{
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     const lenis = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$studio$2d$freight$2f$react$2d$lenis$2f$dist$2f$react$2d$lenis$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useLenis"])();
+    // Ensure the style is only injected on the client
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        ensureTransitionStyle();
+    }, []);
     const handleTransition = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(async (e)=>{
         if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.altKey || e.ctrlKey || e.shiftKey || typeof href === "string" && (href.startsWith("http") || href.startsWith("mailto:"))) {
             return;
@@ -330,6 +338,8 @@ const TransitionLink = ({ children, href, ...props })=>{
         href,
         lenis
     ]);
+    // Only attach onClick on the client to avoid hydration mismatch
+    // But Next.js expects the same props on server and client, so we use a stable function
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
         ...props,
         href: href,
@@ -337,7 +347,7 @@ const TransitionLink = ({ children, href, ...props })=>{
         children: children
     }, void 0, false, {
         fileName: "[project]/src/components/utils/transitionlink/TransitionLink.jsx",
-        lineNumber: 159,
+        lineNumber: 172,
         columnNumber: 5
     }, this);
 };

@@ -16,9 +16,7 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-// Set this to match your navbar's height (in px, rem, etc.)
-// If your navbar is 80px tall, set offset = "80px"
-const NAVBAR_HEIGHT = "80px"; // Change this value to match your navbar height
+const NAVBAR_HEIGHT = "80px";
 function MainGallery() {
     _s();
     const items = [
@@ -48,18 +46,15 @@ function MainGallery() {
         ];
         return `${images[index % images.length]}?dpr=2&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=`;
     };
-    // Add animation classes for each card
     const getItemClass = (index)=>`gallery__item gallery__item-animate`;
     const gridRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const cardRefs = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])([]);
-    // Animate grid slide down on mount
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "MainGallery.useEffect": ()=>{
             const grid = gridRef.current;
             if (grid) {
                 grid.classList.add("slide-down-show");
             }
-            // Intersection Observer for card animations on scroll
             if ("object" !== "undefined" && "IntersectionObserver" in window) {
                 const observer = new window.IntersectionObserver({
                     "MainGallery.useEffect": (entries)=>{
@@ -80,7 +75,6 @@ function MainGallery() {
                         if (ref) observer.observe(ref);
                     }
                 }["MainGallery.useEffect"]);
-                // Cleanup
                 return ({
                     "MainGallery.useEffect": ()=>{
                         cardRefs.current.forEach({
@@ -93,7 +87,6 @@ function MainGallery() {
             }
         }
     }["MainGallery.useEffect"], []);
-    // Responsive styles for mobile/tablet, injected as a <style> tag
     const responsiveStyle = `
     @media (max-width: 900px) {
       .gallery__grid {
@@ -158,7 +151,6 @@ function MainGallery() {
       }
     }
   `;
-    // Animation styles for cards
     const cardAnimationStyle = `
     .gallery__item-animate {
       opacity: 0;
@@ -188,14 +180,14 @@ function MainGallery() {
                 children: cardAnimationStyle
             }, void 0, false, {
                 fileName: "[project]/src/components/section/ourworksection/maingallery/MainGallery.jsx",
-                lineNumber: 178,
+                lineNumber: 170,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("style", {
                 children: responsiveStyle
             }, void 0, false, {
                 fileName: "[project]/src/components/section/ourworksection/maingallery/MainGallery.jsx",
-                lineNumber: 179,
+                lineNumber: 171,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -211,7 +203,7 @@ function MainGallery() {
                         children: "Sorry, your browser does not support CSS Grid. 😅"
                     }, void 0, false, {
                         fileName: "[project]/src/components/section/ourworksection/maingallery/MainGallery.jsx",
-                        lineNumber: 188,
+                        lineNumber: 180,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -234,7 +226,7 @@ function MainGallery() {
                                 children: "GALLERY"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/section/ourworksection/maingallery/MainGallery.jsx",
-                                lineNumber: 200,
+                                lineNumber: 192,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -244,7 +236,7 @@ function MainGallery() {
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/src/components/section/ourworksection/maingallery/MainGallery.jsx",
-                                lineNumber: 213,
+                                lineNumber: 204,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -267,7 +259,6 @@ function MainGallery() {
                                             maxWidth: "340px",
                                             width: "100%",
                                             margin: "0 auto",
-                                            // Optional: stagger animation delay for initial load
                                             transitionDelay: `${index * 60}ms`
                                         },
                                         children: [
@@ -275,7 +266,7 @@ function MainGallery() {
                                                 className: "gallery__overlay"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/section/ourworksection/maingallery/MainGallery.jsx",
-                                                lineNumber: 241,
+                                                lineNumber: 231,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -294,37 +285,37 @@ function MainGallery() {
                                                         children: index + 1
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/section/ourworksection/maingallery/MainGallery.jsx",
-                                                        lineNumber: 249,
+                                                        lineNumber: 239,
                                                         columnNumber: 19
                                                     }, this),
                                                     text
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/section/ourworksection/maingallery/MainGallery.jsx",
-                                                lineNumber: 242,
+                                                lineNumber: 232,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, index, true, {
                                         fileName: "[project]/src/components/section/ourworksection/maingallery/MainGallery.jsx",
-                                        lineNumber: 226,
+                                        lineNumber: 217,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/section/ourworksection/maingallery/MainGallery.jsx",
-                                lineNumber: 214,
+                                lineNumber: 205,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/section/ourworksection/maingallery/MainGallery.jsx",
-                        lineNumber: 192,
+                        lineNumber: 184,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/section/ourworksection/maingallery/MainGallery.jsx",
-                lineNumber: 180,
+                lineNumber: 172,
                 columnNumber: 7
             }, this)
         ]

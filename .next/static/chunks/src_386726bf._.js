@@ -232,10 +232,12 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+;
 function sleep(ms) {
     return new Promise((resolve)=>setTimeout(resolve, ms));
 }
 function addSlideUpOverlay() {
+    if (typeof document === "undefined") return;
     const old = document.getElementById("page-transition-slide-up");
     if (old) old.remove();
     const overlay = document.createElement("div");
@@ -282,10 +284,12 @@ function addSlideUpOverlay() {
     document.body.appendChild(overlay);
 }
 function removeSlideUpOverlay() {
+    if (typeof document === "undefined") return;
     const overlay = document.getElementById("page-transition-slide-up");
     if (overlay) overlay.remove();
 }
-if ("object" !== "undefined" && typeof document !== "undefined") {
+function ensureTransitionStyle() {
+    if ("object" === "undefined" || typeof document === "undefined") return;
     if (!document.getElementById("page-transition-slide-up-style")) {
         const style = document.createElement("style");
         style.id = "page-transition-slide-up-style";
@@ -337,6 +341,12 @@ const TransitionLink = ({ children, href, ...props })=>{
     _s();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const lenis = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$studio$2d$freight$2f$react$2d$lenis$2f$dist$2f$react$2d$lenis$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useLenis"])();
+    // Ensure the style is only injected on the client
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "TransitionLink.useEffect": ()=>{
+            ensureTransitionStyle();
+        }
+    }["TransitionLink.useEffect"], []);
     const handleTransition = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
         "TransitionLink.useCallback[handleTransition]": async (e)=>{
             if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.altKey || e.ctrlKey || e.shiftKey || typeof href === "string" && (href.startsWith("http") || href.startsWith("mailto:"))) {
@@ -362,6 +372,8 @@ const TransitionLink = ({ children, href, ...props })=>{
         href,
         lenis
     ]);
+    // Only attach onClick on the client to avoid hydration mismatch
+    // But Next.js expects the same props on server and client, so we use a stable function
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
         ...props,
         href: href,
@@ -369,11 +381,11 @@ const TransitionLink = ({ children, href, ...props })=>{
         children: children
     }, void 0, false, {
         fileName: "[project]/src/components/utils/transitionlink/TransitionLink.jsx",
-        lineNumber: 159,
+        lineNumber: 172,
         columnNumber: 5
     }, this);
 };
-_s(TransitionLink, "5lJulZI4bL2rr5Mwo6PQVKJ8oTQ=", false, function() {
+_s(TransitionLink, "/NDxqXyu2muRfvszhFZ7wED+h9M=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$studio$2d$freight$2f$react$2d$lenis$2f$dist$2f$react$2d$lenis$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useLenis"]

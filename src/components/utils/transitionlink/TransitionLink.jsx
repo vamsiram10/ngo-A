@@ -4,11 +4,15 @@ import React, { useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { useLenis } from "@studio-freight/react-lenis";
 
+// Move all browser-only code into useEffect to avoid hydration mismatch
+import { useEffect } from "react";
+
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 function addSlideUpOverlay() {
+  if (typeof document === "undefined") return;
   const old = document.getElementById("page-transition-slide-up");
   if (old) old.remove();
 
@@ -62,11 +66,13 @@ function addSlideUpOverlay() {
 }
 
 function removeSlideUpOverlay() {
+  if (typeof document === "undefined") return;
   const overlay = document.getElementById("page-transition-slide-up");
   if (overlay) overlay.remove();
 }
 
-if (typeof window !== "undefined" && typeof document !== "undefined") {
+function ensureTransitionStyle() {
+  if (typeof window === "undefined" || typeof document === "undefined") return;
   if (!document.getElementById("page-transition-slide-up-style")) {
     const style = document.createElement("style");
     style.id = "page-transition-slide-up-style";
@@ -119,6 +125,11 @@ export const TransitionLink = ({ children, href, ...props }) => {
   const router = useRouter();
   const lenis = useLenis();
 
+  // Ensure the style is only injected on the client
+  useEffect(() => {
+    ensureTransitionStyle();
+  }, []);
+
   const handleTransition = useCallback(
     async (e) => {
       if (
@@ -155,6 +166,8 @@ export const TransitionLink = ({ children, href, ...props }) => {
     [router, href, lenis]
   );
 
+  // Only attach onClick on the client to avoid hydration mismatch
+  // But Next.js expects the same props on server and client, so we use a stable function
   return (
     <Link {...props} href={href} onClick={handleTransition}>
       {children}

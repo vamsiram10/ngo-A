@@ -4,9 +4,7 @@ import "@/app/globals.css";
 import "./maingallery.css";
 import { useEffect, useRef } from "react";
 
-// Set this to match your navbar's height (in px, rem, etc.)
-// If your navbar is 80px tall, set offset = "80px"
-const NAVBAR_HEIGHT = "80px"; // Change this value to match your navbar height
+const NAVBAR_HEIGHT = "80px";
 
 export default function MainGallery() {
   const items = [
@@ -40,20 +38,17 @@ export default function MainGallery() {
     }?dpr=2&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=`;
   };
 
-  // Add animation classes for each card
   const getItemClass = (index) => `gallery__item gallery__item-animate`;
 
   const gridRef = useRef(null);
   const cardRefs = useRef([]);
 
-  // Animate grid slide down on mount
   useEffect(() => {
     const grid = gridRef.current;
     if (grid) {
       grid.classList.add("slide-down-show");
     }
 
-    // Intersection Observer for card animations on scroll
     if (typeof window !== "undefined" && "IntersectionObserver" in window) {
       const observer = new window.IntersectionObserver(
         (entries) => {
@@ -73,7 +68,6 @@ export default function MainGallery() {
         if (ref) observer.observe(ref);
       });
 
-      // Cleanup
       return () => {
         cardRefs.current.forEach((ref) => {
           if (ref) observer.unobserve(ref);
@@ -82,7 +76,6 @@ export default function MainGallery() {
     }
   }, []);
 
-  // Responsive styles for mobile/tablet, injected as a <style> tag
   const responsiveStyle = `
     @media (max-width: 900px) {
       .gallery__grid {
@@ -148,7 +141,6 @@ export default function MainGallery() {
     }
   `;
 
-  // Animation styles for cards
   const cardAnimationStyle = `
     .gallery__item-animate {
       opacity: 0;
@@ -209,7 +201,6 @@ export default function MainGallery() {
           >
             GALLERY
           </h1>
-          {/* Spacer for gap between gallery title and cards */}
           <div className="gallery__spacer" style={{ height: "1rem" }} />
           <div
             ref={gridRef}
@@ -234,7 +225,6 @@ export default function MainGallery() {
                   maxWidth: "340px",
                   width: "100%",
                   margin: "0 auto",
-                  // Optional: stagger animation delay for initial load
                   transitionDelay: `${index * 60}ms`,
                 }}
               >
