@@ -670,25 +670,30 @@ __turbopack_context__.s({
     "default": (()=>__TURBOPACK__default__export__)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-jsx/style.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$utils$2f$teammem$2f$animated$2d$testimonials$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/utils/teammem/animated-testimonials.tsx [app-ssr] (ecmascript)");
+;
 ;
 ;
 const HomeTeam = ()=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "flex flex-col min-h-screen w-screen bg-black",
+        className: "jsx-a3729fc243dea8ae" + " " + "flex flex-col min-h-screen w-screen bg-black",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex-1"
+                className: "jsx-a3729fc243dea8ae" + " " + "flex-1"
             }, void 0, false, {
                 fileName: "[project]/src/components/section/homesections/hometeam/HomeTeam.jsx",
                 lineNumber: 6,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex justify-center",
+                style: {
+                    marginTop: "2rem"
+                },
+                className: "jsx-a3729fc243dea8ae" + " " + "flex justify-center",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$utils$2f$teammem$2f$animated$2d$testimonials$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                     fileName: "[project]/src/components/section/homesections/hometeam/HomeTeam.jsx",
-                    lineNumber: 8,
+                    lineNumber: 13,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
@@ -697,12 +702,16 @@ const HomeTeam = ()=>{
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex-1"
+                className: "jsx-a3729fc243dea8ae" + " " + "flex-1"
             }, void 0, false, {
                 fileName: "[project]/src/components/section/homesections/hometeam/HomeTeam.jsx",
-                lineNumber: 10,
+                lineNumber: 15,
                 columnNumber: 7
-            }, this)
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                id: "a3729fc243dea8ae",
+                children: "@media (width<=768px){div.flex.justify-center.jsx-a3729fc243dea8ae{margin-top:4rem!important}}@media (width<=480px){div.flex.justify-center.jsx-a3729fc243dea8ae{margin-top:5.5rem!important}}@media (width<=432px){div.flex.justify-center.jsx-a3729fc243dea8ae{margin-top:8rem!important}}"
+            }, void 0, false, void 0, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/section/homesections/hometeam/HomeTeam.jsx",
@@ -1527,6 +1536,14 @@ const missionStatement = "To empower underprivileged communities by providing ac
 const visionStatement = "A world where every individual has the opportunity to realize their full potential, live with dignity, and contribute positively to society.";
 const HomeAbout = ()=>{
     const aboutRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const [isMobile, setIsMobile] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    // Detect mobile on mount and on resize
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const checkMobile = ()=>setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return ()=>window.removeEventListener("resize", checkMobile);
+    }, []);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         if (aboutRef.current) {
             aboutRef.current.animate([
@@ -1548,31 +1565,31 @@ const HomeAbout = ()=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         ref: aboutRef,
         id: "about",
-        className: "jsx-cbd9701741224fb1" + " " + "relative flex flex-col items-center justify-start py-10 px-2 w-full min-h-screen bg-black",
+        className: "jsx-d4f6c9cec3626780" + " " + "relative flex flex-col items-center justify-start py-10 px-2 w-full min-h-screen bg-black",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                className: "jsx-cbd9701741224fb1" + " " + "mb-6 w-full text-3xl font-bold text-white tracking-tight text-center sm:text-4xl md:text-5xl",
+                className: "jsx-d4f6c9cec3626780" + " " + "mb-6 w-full text-3xl font-bold text-white tracking-tight text-center sm:text-4xl md:text-5xl",
                 children: "About Us"
             }, void 0, false, {
                 fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                lineNumber: 33,
+                lineNumber: 42,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "jsx-cbd9701741224fb1" + " " + "flex flex-col items-center justify-center gap-7 px-2 w-full max-w-6xl sm:px-4 md:flex-row",
+                className: "jsx-d4f6c9cec3626780" + " " + "flex flex-col items-center justify-center gap-7 px-2 w-full max-w-6xl sm:px-4 md:flex-row",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "jsx-cbd9701741224fb1" + " " + "flex-1 flex flex-col items-start w-full",
+                    className: "jsx-d4f6c9cec3626780" + " " + "flex-1 flex flex-col items-start w-full",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "jsx-cbd9701741224fb1" + " " + "text-sm text-gray-200 leading-relaxed text-justify text-base sm:px-2 md:text-lg",
+                        className: "jsx-d4f6c9cec3626780" + " " + "text-sm text-gray-200 leading-relaxed text-justify text-base sm:px-2 md:text-lg",
                         children: [
                             "What began as a heartfelt initiative by",
                             " ",
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "jsx-cbd9701741224fb1" + " " + "font-semibold text-pink-400",
+                                className: "jsx-d4f6c9cec3626780" + " " + "font-semibold text-pink-400",
                                 children: "V. Radha Priyanka"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                                lineNumber: 40,
+                                lineNumber: 49,
                                 columnNumber: 13
                             }, this),
                             " ",
@@ -1580,38 +1597,39 @@ const HomeAbout = ()=>{
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                        lineNumber: 38,
+                        lineNumber: 47,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                    lineNumber: 37,
+                    lineNumber: 46,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                lineNumber: 36,
+                lineNumber: 45,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "jsx-cbd9701741224fb1" + " " + "flex justify-center my-10 w-full md:mb-32",
+                className: "jsx-d4f6c9cec3626780" + " " + "flex justify-center my-10 w-full md:mb-32",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                     src: "/main1.jpg",
                     alt: "About Us",
                     style: {
                         objectPosition: "center"
                     },
-                    className: "jsx-cbd9701741224fb1" + " " + "object-cover w-full max-w-2xl h-40 rounded-lg shadow-lg md:h-56"
+                    className: "jsx-d4f6c9cec3626780" + " " + "object-cover w-full max-w-2xl h-40 rounded-lg shadow-lg md:h-56"
                 }, void 0, false, {
                     fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                    lineNumber: 61,
+                    lineNumber: 70,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                lineNumber: 60,
+                lineNumber: 69,
                 columnNumber: 7
             }, this),
+            !isMobile ? // Desktop: fixed, as before
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 style: {
                     position: "fixed",
@@ -1621,106 +1639,219 @@ const HomeAbout = ()=>{
                     zIndex: 30,
                     pointerEvents: "none"
                 },
-                className: "jsx-cbd9701741224fb1" + " " + "flex flex-col items-center order-1 w-full md:mt-20",
+                className: "jsx-d4f6c9cec3626780" + " " + "flex flex-col items-center order-1 w-full md:mt-20",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     style: {
                         pointerEvents: "auto"
                     },
-                    className: "jsx-cbd9701741224fb1" + " " + "flex flex-row gap-4 gap-9 px-2 w-full max-w-3xl",
+                    className: "jsx-d4f6c9cec3626780" + " " + "flex flex-row gap-4 gap-9 px-2 w-full max-w-3xl",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "jsx-cbd9701741224fb1" + " " + "flex flex-col items-center justify-center p-4 w-1/2 h-[220px] min-h-[180px] bg-black/90 rounded-lg border-2 border-pink-500 shadow-md transition-shadow duration-300 hover:shadow-xl sm:p-3 md:p-8",
+                            className: "jsx-d4f6c9cec3626780" + " " + "flex flex-col items-center justify-center p-4 w-1/2 h-[220px] min-h-[180px] bg-black/90 rounded-lg border-2 border-pink-500 shadow-md transition-shadow duration-300 hover:shadow-xl sm:p-3 md:p-8",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                    className: "jsx-cbd9701741224fb1" + " " + "flex items-center gap-2 mb-1 text-base font-semibold text-pink-300 sm:text-lg md:text-xl",
+                                    className: "jsx-d4f6c9cec3626780" + " " + "flex items-center gap-2 mb-1 text-base font-semibold text-pink-300 sm:text-lg md:text-xl",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             role: "img",
                                             "aria-label": "Mission",
-                                            className: "jsx-cbd9701741224fb1",
+                                            className: "jsx-d4f6c9cec3626780",
                                             children: "🎯"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                                            lineNumber: 85,
-                                            columnNumber: 15
+                                            lineNumber: 97,
+                                            columnNumber: 17
                                         }, this),
                                         "Mission"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                                    lineNumber: 84,
-                                    columnNumber: 13
+                                    lineNumber: 96,
+                                    columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "jsx-cbd9701741224fb1" + " " + "text-gray-100 text-xs text-center sm:text-sm md:text-base",
+                                    className: "jsx-d4f6c9cec3626780" + " " + "text-gray-100 text-xs text-center sm:text-sm md:text-base",
                                     children: missionStatement
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                                    lineNumber: 90,
-                                    columnNumber: 13
+                                    lineNumber: 102,
+                                    columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                            lineNumber: 83,
-                            columnNumber: 11
+                            lineNumber: 95,
+                            columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "jsx-cbd9701741224fb1" + " " + "flex flex-col items-center justify-center p-4 w-1/2 h-[220px] min-h-[180px] bg-black/90 rounded-lg border-2 border-pink-500 shadow-md transition-shadow duration-300 hover:shadow-xl sm:p-3 md:p-8",
+                            className: "jsx-d4f6c9cec3626780" + " " + "flex flex-col items-center justify-center p-4 w-1/2 h-[220px] min-h-[180px] bg-black/90 rounded-lg border-2 border-pink-500 shadow-md transition-shadow duration-300 hover:shadow-xl sm:p-3 md:p-8",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                    className: "jsx-cbd9701741224fb1" + " " + "flex items-center gap-2 mb-1 text-base font-semibold text-pink-300 sm:text-lg md:text-xl",
+                                    className: "jsx-d4f6c9cec3626780" + " " + "flex items-center gap-2 mb-1 text-base font-semibold text-pink-300 sm:text-lg md:text-xl",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             role: "img",
                                             "aria-label": "Vision",
-                                            className: "jsx-cbd9701741224fb1",
+                                            className: "jsx-d4f6c9cec3626780",
                                             children: "👁️"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                                            lineNumber: 96,
-                                            columnNumber: 15
+                                            lineNumber: 108,
+                                            columnNumber: 17
                                         }, this),
                                         "Vision"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                                    lineNumber: 95,
-                                    columnNumber: 13
+                                    lineNumber: 107,
+                                    columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "jsx-cbd9701741224fb1" + " " + "text-gray-100 text-xs text-center sm:text-sm md:text-base",
+                                    className: "jsx-d4f6c9cec3626780" + " " + "text-gray-100 text-xs text-center sm:text-sm md:text-base",
                                     children: visionStatement
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                                    lineNumber: 101,
-                                    columnNumber: 13
+                                    lineNumber: 113,
+                                    columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                            lineNumber: 94,
-                            columnNumber: 11
+                            lineNumber: 106,
+                            columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                    lineNumber: 79,
-                    columnNumber: 9
+                    lineNumber: 91,
+                    columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                lineNumber: 68,
-                columnNumber: 7
+                lineNumber: 80,
+                columnNumber: 9
+            }, this) : // Mobile: side-by-side vertical rectangles
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    position: "static",
+                    left: "unset",
+                    right: "unset",
+                    bottom: "unset",
+                    zIndex: "unset",
+                    pointerEvents: "auto"
+                },
+                className: "jsx-d4f6c9cec3626780" + " " + "flex flex-row items-stretch order-1 gap-2 mt-2 mb-4 w-full",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            minWidth: 0,
+                            maxWidth: "100%",
+                            marginLeft: 0,
+                            height: 170,
+                            minHeight: 120,
+                            fontSize: "0.92rem",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "flex-start"
+                        },
+                        className: "jsx-d4f6c9cec3626780" + " " + "flex flex-col items-center justify-center p-2 w-1/2 bg-black/90 rounded-lg border-2 border-pink-500 shadow-md transition-shadow duration-300 hover:shadow-xl",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                className: "jsx-d4f6c9cec3626780" + " " + "flex items-center gap-2 mb-1 text-sm font-semibold text-pink-300",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        role: "img",
+                                        "aria-label": "Mission",
+                                        className: "jsx-d4f6c9cec3626780",
+                                        children: "🎯"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
+                                        lineNumber: 147,
+                                        columnNumber: 15
+                                    }, this),
+                                    "Mission"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
+                                lineNumber: 146,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "jsx-d4f6c9cec3626780" + " " + "text-gray-100 text-[0.72rem] text-center leading-tight",
+                                children: missionStatement
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
+                                lineNumber: 152,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
+                        lineNumber: 132,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            minWidth: 0,
+                            maxWidth: "100%",
+                            marginLeft: 0,
+                            height: 170,
+                            minHeight: 120,
+                            fontSize: "0.92rem",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "flex-start"
+                        },
+                        className: "jsx-d4f6c9cec3626780" + " " + "flex flex-col items-center justify-center p-2 w-1/2 bg-black/90 rounded-lg border-2 border-pink-500 shadow-md transition-shadow duration-300 hover:shadow-xl",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                className: "jsx-d4f6c9cec3626780" + " " + "flex items-center gap-2 mb-1 text-sm font-semibold text-pink-300",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        role: "img",
+                                        "aria-label": "Vision",
+                                        className: "jsx-d4f6c9cec3626780",
+                                        children: "👁️"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
+                                        lineNumber: 171,
+                                        columnNumber: 15
+                                    }, this),
+                                    "Vision"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
+                                lineNumber: 170,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "jsx-d4f6c9cec3626780" + " " + "text-gray-100 text-[0.72rem] text-center leading-tight",
+                                children: visionStatement
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
+                                lineNumber: 176,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
+                        lineNumber: 156,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
+                lineNumber: 121,
+                columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                id: "cbd9701741224fb1",
-                children: "@media (width<=767px){#about.jsx-cbd9701741224fb1>div[style].jsx-cbd9701741224fb1{margin-top:.5rem;margin-bottom:1.5rem;left:unset!important;right:unset!important;bottom:unset!important;z-index:unset!important;pointer-events:auto!important;position:static!important}#about.jsx-cbd9701741224fb1>div[style].jsx-cbd9701741224fb1>div.jsx-cbd9701741224fb1{flex-direction:row!important;gap:1rem!important}#about.jsx-cbd9701741224fb1>div[style].jsx-cbd9701741224fb1>div.jsx-cbd9701741224fb1>div.jsx-cbd9701741224fb1{flex-direction:column!important;justify-content:flex-start!important;width:48%!important;min-width:140px!important;max-width:100%!important;height:180px!important;min-height:140px!important;margin-left:0!important;padding:1.1rem!important;font-size:1.05rem!important;display:flex!important}}@media (width>=768px){#about.jsx-cbd9701741224fb1>.flex.justify-center.my-10.w-full.jsx-cbd9701741224fb1{margin-bottom:6rem!important}}"
+                id: "d4f6c9cec3626780",
+                children: "@media (width<=767px){#about.jsx-d4f6c9cec3626780>.flex.justify-center.my-10.w-full.jsx-d4f6c9cec3626780{margin-top:.5rem;margin-bottom:1.5rem!important}#about.jsx-d4f6c9cec3626780>.flex.flex-row.order-1.gap-2.mt-2.mb-4.w-full.jsx-d4f6c9cec3626780{flex-direction:row!important}#about.jsx-d4f6c9cec3626780>.flex.flex-row.order-1.gap-2.mt-2.mb-4.w-full.jsx-d4f6c9cec3626780>div.jsx-d4f6c9cec3626780{width:50%!important;min-width:0!important;margin-left:0!important}}@media (width>=768px){#about.jsx-d4f6c9cec3626780>.flex.justify-center.my-10.w-full.jsx-d4f6c9cec3626780{margin-bottom:6rem!important}}"
             }, void 0, false, void 0, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-        lineNumber: 28,
+        lineNumber: 37,
         columnNumber: 5
     }, this);
 };
