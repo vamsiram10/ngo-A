@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import FlyingBirdLogo from "@/components/utils/avasalogo/FlyingBirdLogo";
 import SomeThing from "@/components/section/homesections/something/SomeThing";
+import HomeGallery from "@/components/section/homesections/homegallery/HomeGallery";
 
 export default function HomePage() {
   const mainContainer = useRef(null);
@@ -17,7 +18,7 @@ export default function HomePage() {
       >
         <HomeOther />
         <HomeTeam />
-        <SomeThing />
+        <HomeGallery />
       </main>
     </ReactLenis>
   );

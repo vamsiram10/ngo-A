@@ -1,10 +1,10 @@
-import GallerySection from "@/components/section/ourworksection/gallery/GallerySection";
+import MainGallery from "@/components/section/ourworksection/maingallery/MainGallery";
 
 const GallerySectionPage = () => {
   return (
     <>
       {/* <OurWorkSection /> */}
-      <GallerySection />
+      <MainGallery />
     </>
   );
 };

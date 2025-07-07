@@ -35,7 +35,7 @@ const navLinks = {
         {
             id: 2,
             label: "Our Work",
-            url: "/ourwork",
+            url: "/",
             dialog: [
                 {
                     id: 1,

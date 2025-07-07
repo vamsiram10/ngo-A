@@ -237,6 +237,7 @@
     --radius-xl: .75rem;
     --radius-2xl: 1rem;
     --ease-out: cubic-bezier(0, 0, .2, 1);
+    --ease-in-out: cubic-bezier(.4, 0, .2, 1);
     --animate-ping: ping 1s cubic-bezier(0, 0, .2, 1) infinite;
     --default-transition-duration: .15s;
     --default-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
@@ -666,8 +667,16 @@
     display: flex;
   }
 
+  .grid {
+    display: grid;
+  }
+
   .hidden {
     display: none;
+  }
+
+  .inline {
+    display: inline;
   }
 
   .inline-block {
@@ -904,6 +913,10 @@
 
   .flex-1 {
     flex: 1;
+  }
+
+  .shrink {
+    flex-shrink: 1;
   }
 
   .origin-bottom {
@@ -1569,6 +1582,10 @@
     color: var(--color-white);
   }
 
+  .lowercase {
+    text-transform: lowercase;
+  }
+
   .uppercase {
     text-transform: uppercase;
   }
@@ -1688,6 +1705,11 @@
   .ease-\[cubic-bezier\(0\.54\,-0\.81\,0\.57\,0\.57\)\] {
     --tw-ease: cubic-bezier(.54, -.81, .57, .57);
     transition-timing-function: cubic-bezier(.54, -.81, .57, .57);
+  }
+
+  .ease-in-out {
+    --tw-ease: var(--ease-in-out);
+    transition-timing-function: var(--ease-in-out);
   }
 
   .ease-out {
@@ -2790,7 +2812,10 @@ html {
 }
 
 body {
-  overflow-x: hidden;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden auto;
 }
 
 section {

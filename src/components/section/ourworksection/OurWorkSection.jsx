@@ -1,13 +1,12 @@
 import FlyingBirdLogo from "@/components/utils/avasalogo/FlyingBirdLogo";
 import AnimatedTestimonials from "@/components/utils/teammem/animated-testimonials";
+import MapLocation from "./maplocation/MapLocation";
+import { Gallery } from "@/components/utils/gallerySection/Gallery";
 
 const OurWorkSection = () => {
   return (
     <div>
-      <h1>
-        {/* <AnimatedTestimonials /> */}
-        <FlyingBirdLogo />
-      </h1>
+      <h1>HERO</h1>
     </div>
   );
 };

@@ -12,9 +12,15 @@ html {
   scroll-behavior: auto !important;
 }
 
+/* ✅ GOOD GLOBAL BODY STYLES */
 body {
-  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* optional */
+  overflow-y: auto; /* ensures vertical scroll */
 }
+
 /* main {
   padding-bottom: 35rem !important;
 } */

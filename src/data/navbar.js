@@ -13,7 +13,7 @@ const navLinks = {
     {
       id: 2,
       label: "Our Work",
-      url: "/ourwork",
+      url: "/",
       dialog: [
         { id: 1, title: "map location ", path: "/ourwork/map" },
         { id: 2, title: "gallery", path: "/ourwork/gallery" },
