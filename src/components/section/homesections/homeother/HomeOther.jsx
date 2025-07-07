@@ -1,12 +1,59 @@
 import Link from "next/link";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+
+const dropInKeyframes = [
+  { transform: "translateY(-200px)", opacity: 0 },
+  { transform: "translateY(0)", opacity: 1 },
+];
+
+const dropInTiming = {
+  duration: 900,
+  easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+  fill: "forwards",
+};
 
 const HomeOther = () => {
+  const textRef = useRef(null);
+  const marqueeRef = useRef(null);
+
+  useEffect(() => {
+    if (textRef.current) {
+      textRef.current.animate(dropInKeyframes, dropInTiming);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (marqueeRef.current) {
+      const marquee = marqueeRef.current;
+      // Get width of the text
+      const textWidth = marquee.scrollWidth;
+      const containerWidth = marquee.parentElement.offsetWidth;
+
+      // GSAP infinite left-to-right animation
+      const tween = gsap.fromTo(
+        marquee,
+        { x: -textWidth },
+        {
+          x: containerWidth,
+          duration: 10,
+          ease: "linear",
+          repeat: -1,
+        }
+      );
+      return () => {
+        tween.kill();
+      };
+    }
+  }, []);
+
   return (
     <div className="min-h-screen w-screen">
       <div
         className="overflow-x-hidden relative flex items-center justify-center min-h-screen w-screen"
         style={{
-          backgroundImage: "url('/hero.jpg')",
+          backgroundImage:
+            "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('/main1.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -15,51 +62,53 @@ const HomeOther = () => {
         }}
       >
         <div className="flex flex-col items-center justify-center w-full">
-          <div className="flex flex-col items-center justify-center gap-6 gap-8 w-full md:flex-row">
-            {/* First Name and Image */}
-            <div className="flex flex-row items-center justify-center w-full md:w-auto">
-              <span className="text-4xl font-bold text-white sm:text-5xl md:text-6xl">
-                vamsi
-              </span>
-              <div className="flex items-center justify-center mx-2 w-20 h-24 h-32 h-40 h-56 sm:w-28 md:w-32 lg:w-40">
-                {/* <Link
-                  href="/"
-                  className="flex items-center justify-center pl-2 w-full h-full"
-                >
-                  <img
-                    src="/download.jpg"
-                    alt="Luffy Sticker"
-                    width={100}
-                    height={100}
-                    className="object-contain w-full h-full"
-                    style={{ verticalAlign: "middle" }}
-                    loading="eager"
-                  />
-                </Link> */}
-              </div>
-            </div>
-            {/* Second Image and Name */}
-            <div className="flex flex-row items-center justify-center w-full md:w-auto">
-              <div className="flex items-center justify-center mx-2 w-20 h-24 h-32 h-40 h-56 sm:w-28 md:w-32 lg:w-40">
-                {/* <Link
-                  href="/"
-                  className="flex items-center justify-center pl-2 w-full h-full"
-                >
-                  <img
-                    src="/images.jpg"
-                    alt="Zoro Sticker"
-                    width={100}
-                    height={100}
-                    className="object-contain w-full h-full"
-                    style={{ verticalAlign: "middle" }}
-                    loading="eager"
-                  />
-                </Link> */}
-              </div>
-              <span className="text-4xl font-bold text-white sm:text-5xl md:text-6xl">
-                Aneesh
-              </span>
-            </div>
+          {/* Statement Section */}
+          <div className="mb-10">
+            <p
+              ref={textRef}
+              className="px-4 text-white text-5xl font-semibold text-center md:text-7xl"
+              style={{
+                opacity: 0,
+                transform: "translateY(-200px)",
+                willChange: "transform, opacity",
+              }}
+            >
+              "here for a cause"
+            </p>
+          </div>
+        </div>
+        {/* Moving Avasa Foundation Name at the bottom */}
+        <div
+          className="pointer-events-none select-none"
+          style={{
+            position: "absolute",
+            left: 0,
+            bottom: 0,
+            width: "100vw",
+            overflow: "hidden",
+            zIndex: 20,
+            height: "60px",
+            background: "rgba(0,0,0,0.0)",
+          }}
+        >
+          <div
+            ref={marqueeRef}
+            style={{
+              whiteSpace: "nowrap",
+              fontWeight: 700,
+              fontSize: "2rem",
+              color: "#fff",
+              textShadow: "0 2px 8px rgba(0,0,0,0.5)",
+              letterSpacing: "0.1em",
+              display: "inline-block",
+              willChange: "transform",
+              padding: "0 2rem",
+              userSelect: "none",
+            }}
+          >
+            Avasa Foundation &nbsp;•&nbsp; Avasa Foundation &nbsp;•&nbsp; Avasa
+            Foundation &nbsp;•&nbsp; Avasa Foundation &nbsp;•&nbsp; Avasa
+            Foundation &nbsp;•&nbsp; Avasa Foundation
           </div>
         </div>
       </div>

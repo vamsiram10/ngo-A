@@ -2,10 +2,12 @@ import AnimatedTestimonials from "@/components/utils/teammem/animated-testimonia
 
 const HomeTeam = () => {
   return (
-    <div className="min-h-screen w-screen bg-amber-300">
-      <h1>
+    <div className="flex flex-col min-h-screen w-screen bg-black">
+      <div className="flex-1" />
+      <div className="flex justify-center">
         <AnimatedTestimonials />
-      </h1>
+      </div>
+      <div className="flex-1" />
     </div>
   );
 };

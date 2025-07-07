@@ -189,19 +189,45 @@ export default function MainGallery() {
             backgroundColor: "black",
           }}
         >
-          <h1
-            className="gallery__title"
+          <div className="flex justify-center items-center w-full text-white">
+            <h1
+              className="text-white font-bold text-center text-6xl gallery__title sm:text-7xl md:text-8xl lg:text-9xl xl:text-[rem] 2xl:text-[10rem]"
+              style={{
+                color: "white",
+                marginBottom: 0,
+                left: "0",
+                position: "relative",
+              }}
+            >
+              GALLERY
+            </h1>
+          </div>
+          <div
+            className="gallery__spacer"
             style={{
-              marginBottom: "1rem",
-              fontSize: "2rem",
-              color: "white",
-              position: "relative",
-              left: "40rem",
+              height: "1.5rem",
             }}
           >
-            GALLERY
-          </h1>
-          <div className="gallery__spacer" style={{ height: "1rem" }} />
+            <style>
+              {`
+                @media (min-width: 640px) {
+                  .gallery__spacer {
+                    height: 3rem !important;
+                  }
+                }
+                @media (min-width: 1024px) {
+                  .gallery__spacer {
+                    height: 4rem !important;
+                  }
+                }
+                @media (min-width: 1536px) {
+                  .gallery__spacer {
+                    height: 5rem !important;
+                  }
+                }
+              `}
+            </style>
+          </div>
           <div
             ref={gridRef}
             className="gallery__grid slide-down-init"

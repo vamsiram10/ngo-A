@@ -11,7 +11,7 @@ import {
   useAnimationControls,
 } from "motion/react";
 
-export const DraggableCardBody = ({ className, children }) => {
+export const DraggableCardBody = ({ className, children, style }) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const cardRef = useRef(null);
@@ -23,7 +23,6 @@ export const DraggableCardBody = ({ className, children }) => {
     bottom: 0,
   });
 
-  // physics biatch
   const velocityX = useVelocity(mouseX);
   const velocityY = useVelocity(mouseY);
 
@@ -53,7 +52,6 @@ export const DraggableCardBody = ({ className, children }) => {
   );
 
   useEffect(() => {
-    // Update constraints when component mounts or window resizes
     const updateConstraints = () => {
       if (typeof window !== "undefined") {
         setConstraints({
@@ -67,10 +65,8 @@ export const DraggableCardBody = ({ className, children }) => {
 
     updateConstraints();
 
-    // Add resize listener
     window.addEventListener("resize", updateConstraints);
 
-    // Clean up
     return () => {
       window.removeEventListener("resize", updateConstraints);
     };
@@ -151,13 +147,14 @@ export const DraggableCardBody = ({ className, children }) => {
         rotateY,
         opacity,
         willChange: "transform",
+        ...style,
       }}
       animate={controls}
       whileHover={{ scale: 1.02 }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className={cn(
-        "relative min-h-96 w-80 overflow-hidden rounded-md bg-neutral-100 p-6 shadow-2xl transform-3d dark:bg-neutral-900",
+        "relative min-h-60 w-48 overflow-hidden rounded-md bg-neutral-100 p-4 shadow-2xl transform-3d dark:bg-neutral-900",
         className
       )}
     >
@@ -181,50 +178,135 @@ export const DraggableCardContainer = ({ className, children }) => {
 export function Gallery() {
   const items = [
     {
-      title: "Tyler Durden",
-      image: "/svg/AVASA.svg", // Replace with your actual image path
-      className:
-        "absolute top-20 left-10 rotate-[-12deg] sm:top-16 sm:left-[15%] md:top-20 md:left-[20%]",
-    },
-
-    {
-      title: "The Narrator",
-      image: "/svg/AVASA.svg",
-      className:
-        "absolute top-20 right-10 rotate-[15deg] sm:top-16 sm:right-[15%] md:top-20 md:right-[20%]",
+      title: "Explorer",
+      image: "/gallery/1.jpg",
+      className: "absolute",
+      style: {
+        top: "12%",
+        left: "10%",
+        rotate: "-18deg",
+        zIndex: 10,
+      },
     },
     {
-      title: "Iceland",
-      image: "/svg/AVASA.svg",
-      className:
-        "absolute bottom-20 left-10 rotate-[-8deg] sm:bottom-16 sm:left-[15%] md:bottom-20 md:left-[20%]",
+      title: "Storyteller",
+      image: "/gallery/2.jpg",
+      className: "absolute",
+      style: {
+        top: "18%",
+        right: "12%",
+        rotate: "14deg",
+        zIndex: 9,
+      },
     },
     {
-      title: "Japan",
-      image: "/svg/AVASA.svg",
-      className:
-        "absolute bottom-20 right-10 rotate-[20deg] sm:bottom-16 sm:right-[15%] md:bottom-20 md:right-[20%]",
+      title: "Aurora",
+      image: "/gallery/3.jpg",
+      className: "absolute",
+      style: {
+        bottom: "18%",
+        left: "8%",
+        rotate: "-8deg",
+        zIndex: 8,
+      },
+    },
+    {
+      title: "Sakura",
+      image: "/gallery/4.jpg",
+      className: "absolute",
+      style: {
+        bottom: "10%",
+        right: "8%",
+        rotate: "22deg",
+        zIndex: 7,
+      },
+    },
+    {
+      title: "Fjord",
+      image: "/gallery/5.jpg",
+      className: "absolute",
+      style: {
+        top: "28%",
+        left: "22%",
+        rotate: "-7deg",
+        zIndex: 6,
+      },
+    },
+    {
+      title: "Carnival",
+      image: "/gallery/6.jpg",
+      className: "absolute",
+      style: {
+        top: "32%",
+        right: "20%",
+        rotate: "10deg",
+        zIndex: 5,
+      },
+    },
+    {
+      title: "Outback",
+      image: "/gallery/7.jpg",
+      className: "absolute",
+      style: {
+        bottom: "22%",
+        left: "25%",
+        rotate: "-15deg",
+        zIndex: 4,
+      },
+    },
+    {
+      title: "Maple",
+      image: "/gallery/8.jpg",
+      className: "absolute",
+      style: {
+        bottom: "25%",
+        right: "25%",
+        rotate: "16deg",
+        zIndex: 3,
+      },
     },
   ];
+
+  // Helper to merge responsive styles for the first item
+  function getCardStyle(item, idx) {
+    // Remove any unsupported @media keys from the style object
+    const baseStyle = { ...item.style };
+    // If idx === 0, apply responsive overrides using a CSS class instead of inline style
+    if (idx === 0) {
+      // Remove any @media keys if present
+      Object.keys(baseStyle).forEach((key) => {
+        if (key.startsWith("@media")) {
+          delete baseStyle[key];
+        }
+      });
+    }
+    return baseStyle;
+  }
+
+  // For the first card, add a responsive class for md:top-[16%] md:left-[18%] md:[rotate:-14deg]
+  // We'll use Tailwind's arbitrary values for top/left/rotate
+  // See: https://tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values
+
   return (
     <DraggableCardContainer className="overflow-clip relative flex items-center justify-center min-h-screen w-full">
-      <p className="absolute top-1/2 mx-auto max-w-sm text-center text-4xl font-black text-white -translate-y-3/4 dark:text-white md:text-6xl lg:text-8xl">
+      <p className="absolute top-1/2 mx-auto max-w-sm text-center text-4xl font-black text-pink-500 pointer-events-none select-none -translate-y-3/4 dark:text-pink-400 md:text-6xl lg:text-8xl">
         GALLERY
       </p>
       {items.map((item, idx) => (
         <DraggableCardBody
-          className={`${item.className} md:${item.className
-            .split(" ")
-            .slice(1)
-            .join(" ")}`}
+          className={cn(
+            item.className,
+            idx === 0 && "md:top-[16%] md:left-[18%] md:[rotate:-14deg]"
+          )}
+          style={getCardStyle(item, idx)}
           key={item.title + idx}
         >
           <img
             src={item.image}
             alt={item.title}
-            className="z-10 object-cover relative h-60 w-60 w-80 pointer-events-none md:h-80"
+            className="z-10 object-cover relative h-36 w-36 pointer-events-none md:h-52"
           />
-          <h3 className="mt-4 text-center text-lg font-bold text-neutral-700 dark:text-neutral-300 md:text-2xl">
+          <h3 className="mt-2 text-center text-base font-bold text-neutral-700 dark:text-neutral-300 md:text-lg">
             {item.title}
           </h3>
         </DraggableCardBody>

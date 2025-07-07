@@ -518,23 +518,23 @@ export function Timeline({ data }) {
 
   return (
     <div
-      className="w-full font-sans bg-white dark:bg-neutral-950 md:px-10"
+      className="pt-16 w-full font-sans bg-white dark:bg-neutral-950 sm:pt-20 md:px-10"
       ref={containerRef}
     >
-      <div className="mx-auto py-12 px-2 px-4 max-w-7xl sm:py-16 md:px-8 lg:px-10">
-        <h2 className="mb-2 max-w-4xl text-base text-black text-lg dark:text-white sm:mb-4 md:text-4xl">
+      <div className="relative mx-auto py-4 px-2 px-4 mt-6 max-w-7xl sm:py-8 md:px-8 lg:px-10">
+        <h2 className="mb-1 max-w-4xl text-base text-black text-lg dark:text-white sm:mb-2 md:text-4xl">
           OUR JOURNEY
         </h2>
         <p className="max-w-sm text-neutral-700 text-xs dark:text-neutral-300 sm:text-sm md:text-base">
           THIS IS HOW IT STARTED
         </p>
       </div>
-      <div ref={ref} className="relative mx-auto pb-20 max-w-7xl">
+      <div ref={ref} className="relative top-0 mx-auto pb-20 max-w-7xl">
         {timelineItems.map((item, index) => (
           <div
             key={index}
             className={`
-              flex flex-col md:flex-row justify-start pt-8 sm:pt-12 md:pt-24 md:gap-10
+              flex flex-col md:flex-row justify-start pt-8 sm:pt-12 md:pt-12 md:gap-10
               transition-all
             `}
           >

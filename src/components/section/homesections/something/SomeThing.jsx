@@ -12,7 +12,7 @@ const SomeThing = () => {
       </h1> */}
       {/* <FlyingBirdLogo /> */}
       <div>
-        <Gallery />
+        
       </div>
     </div>
   );
