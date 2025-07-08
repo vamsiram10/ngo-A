@@ -114,14 +114,14 @@ const HomeOther = ()=>{
                         ref: marqueeRef,
                         style: {
                             whiteSpace: "nowrap",
-                            fontWeight: 700,
-                            fontSize: "2rem",
-                            color: "#fff",
+                            fontWeight: 100,
+                            fontSize: "1.5rem",
+                            color: "#f9a8d4",
                             textShadow: "0 2px 8px rgba(0,0,0,0.5)",
                             letterSpacing: "0.1em",
                             display: "inline-block",
                             willChange: "transform",
-                            padding: "0 2rem",
+                            padding: "1rem",
                             userSelect: "none"
                         },
                         children: "Avasa Foundation  •  Avasa Foundation  •  Avasa Foundation  •  Avasa Foundation  •  Avasa Foundation  •  Avasa Foundation"
