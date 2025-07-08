@@ -69,7 +69,6 @@ export default function AboutMatter() {
 
   return (
     <>
-      {/* Shiny effect style injection */}
       <style dangerouslySetInnerHTML={{ __html: shinyStyle }} />
 
       <div className="z-0 absolute inset-0 bg-gradient-to-b from-zinc-900/30 via-black to-black pointer-events-none"></div>
