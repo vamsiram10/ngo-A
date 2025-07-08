@@ -1384,7 +1384,7 @@ const DraggableCardBody = ({ className, children, style })=>{
         columnNumber: 5
     }, this);
 };
-_s(DraggableCardBody, "yN3HMMmyK9MEorebvcwuKFZOxkk=", false, function() {
+_s(DraggableCardBody, "IufbQQb5GU0hQtkSO+5EnEC6Trk=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$motion$2d$value$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMotionValue"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$motion$2d$value$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMotionValue"],

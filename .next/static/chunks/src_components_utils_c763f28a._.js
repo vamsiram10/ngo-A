@@ -1045,14 +1045,14 @@ function Timeline({ data }) {
     }
     const timelineItems = Array.isArray(data) && data.length > 0 ? data : timelineData;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "w-full font-sans bg-white dark:bg-neutral-950 md:px-10",
+        className: "pt-16 w-full font-sans bg-white dark:bg-neutral-950 sm:pt-20 md:px-10",
         ref: containerRef,
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "mx-auto py-12 px-2 px-4 max-w-7xl sm:py-16 md:px-8 lg:px-10",
+                className: "relative mx-auto py-4 px-2 px-4 mt-6 max-w-7xl sm:py-8 md:px-8 lg:px-10",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                        className: "mb-2 max-w-4xl text-base text-black text-lg dark:text-white sm:mb-4 md:text-4xl",
+                        className: "mb-1 max-w-4xl text-base text-black text-lg dark:text-white sm:mb-2 md:text-4xl",
                         children: "OUR JOURNEY"
                     }, void 0, false, {
                         fileName: "[project]/src/components/utils/timeline/Timeline.jsx",
@@ -1075,11 +1075,11 @@ function Timeline({ data }) {
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 ref: ref,
-                className: "relative mx-auto pb-20 max-w-7xl",
+                className: "relative top-0 mx-auto pb-20 max-w-7xl",
                 children: [
                     timelineItems.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: `
-              flex flex-col md:flex-row justify-start pt-8 sm:pt-12 md:pt-24 md:gap-10
+              flex flex-col md:flex-row justify-start pt-8 sm:pt-12 md:pt-12 md:gap-10
               transition-all
             `,
                             children: [

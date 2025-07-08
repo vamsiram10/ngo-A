@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/M_Bhu/ngo-A/src/app/join-us/layout.js"],"sourcesContent":["\"use client\";\r\nimport { Lenis as ReactLenis, useLenis } from \"@studio-freight/react-lenis\";\r\nfunction EventsLayout({ children }) {\r\n  return (\r\n    <ReactLenis root>\r\n      <main className=\"relative min-h-screen w-screen overflow-x-hidden bg-black\">\r\n        <h1 className=\"text-white text-6xl font-bold text-center mt-[5.5rem]\"></h1>\r\n        {children}\r\n      </main>\r\n    </ReactLenis>\r\n  );\r\n}\r\n\r\nexport default EventsLayout;\r\n"],"names":[],"mappings":";;;;AACA;AADA;;;AAEA,SAAS,aAAa,EAAE,QAAQ,EAAE;IAChC,qBACE,6LAAC,mLAAA,CAAA,QAAU;QAAC,IAAI;kBACd,cAAA,6LAAC;YAAK,WAAU;;8BACd,6LAAC;oBAAG,WAAU;;;;;;gBACb;;;;;;;;;;;;AAIT;KATS;uCAWM","debugId":null}}]
+}

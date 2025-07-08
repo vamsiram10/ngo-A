@@ -19,3 +19,23 @@ export default {
 
   darkMode: ["class"],
 };
+
+// tailwind.config.js
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      // Add this custom shadow for the card hover glow
+      boxShadow: {
+        'pink-glow': '0 0 20px rgba(236, 72, 153, 0.3)',
+      }
+    },
+  },
+  plugins: [],
+};

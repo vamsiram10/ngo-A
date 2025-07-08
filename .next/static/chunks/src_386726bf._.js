@@ -67,12 +67,12 @@ const navLinks = {
                 {
                     id: 1,
                     title: "volunteering  ",
-                    path: "/"
+                    path: "/join-us/volunteering"
                 },
                 {
                     id: 2,
                     title: "internship",
-                    path: "/"
+                    path: "/join-us/internship"
                 },
                 {
                     id: 3,
@@ -186,7 +186,7 @@ var _s = __turbopack_context__.k.signature();
                 style: {
                     display: "none"
                 },
-                className: "jsx-2fd4c08b48cfd7ef" + " " + "owl-toggle-back sr-only",
+                className: "jsx-3ebd3014db0924b2" + " " + "owl-toggle-back sr-only",
                 children: "Toggle dark mode"
             }, void 0, false, {
                 fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
@@ -195,14 +195,14 @@ var _s = __turbopack_context__.k.signature();
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 ref: overlayRef,
-                className: "jsx-2fd4c08b48cfd7ef" + " " + "transition-overlay-back zoom-in-back"
+                className: "jsx-3ebd3014db0924b2" + " " + "transition-overlay-back zoom-in-back"
             }, void 0, false, {
                 fileName: "[project]/src/components/utils/darkmodenavbar/OwlDarkModeToggle.jsx",
                 lineNumber: 71,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                id: "2fd4c08b48cfd7ef",
+                id: "3ebd3014db0924b2",
                 children: ".transition-overlay-back{z-index:0;pointer-events:none;transform-origin:50%;background-color:#000000b3;border-radius:50%;width:100vw;height:100vh;transition:none;position:fixed;top:-15vh;left:100vw;transform:scale(0)}.zoom-in-back{top:-15vh;left:100vw;transform:scale(0)}.expand-back{animation:2.5s cubic-bezier(.4,0,.2,1) forwards enterFromTopRightBack}.shrink-back{animation:2.5s cubic-bezier(.4,0,.2,1) forwards exitToBottomLeftBack}@keyframes enterFromTopRightBack{0%{top:-15vh;left:100vw;transform:scale(0)}30%{top:50%;left:50%;transform:translate(-50%,-50%)scale(.4)}to{top:50%;left:50%;transform:translate(-50%,-50%)scale(30)}}@keyframes exitToBottomLeftBack{0%{top:50%;left:50%;transform:translate(-50%,-50%)scale(30)}50%{top:50%;left:50%;transform:translate(-50%,-50%)scale(.4)}to{top:110vh;left:-10vw;transform:scale(0)}}html,body{overflow:visible!important}"
             }, void 0, false, void 0, this)
         ]
@@ -681,26 +681,26 @@ const Navbar = ()=>{
                     style: {
                         visibility: isMenuOpen ? "visible" : "hidden"
                     },
-                    className: "jsx-e57a47aab1456462" + " " + `z-50 absolute top-full left-0 mt-3 px-4 py-4 w-full bg-white rounded-xl shadow-lg border md:hidden
+                    className: "jsx-490c43484c064375" + " " + `z-50 absolute top-full left-0 mt-3 px-4 py-4 w-full bg-white rounded-xl shadow-lg border md:hidden
             transition-transform transition-opacity duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
             ${isMenuOpen ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-90 pointer-events-none"}
           `,
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "jsx-e57a47aab1456462" + " " + "flex flex-col gap-4",
+                            className: "jsx-490c43484c064375" + " " + "flex flex-col gap-4",
                             children: [
                                 __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$navbar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].middle.map((link, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         style: {
                                             transitionDelay: isMenuOpen ? `${idx * 80 + 100}ms` : "0ms"
                                         },
-                                        className: "jsx-e57a47aab1456462" + " " + `transition-all duration-500
+                                        className: "jsx-490c43484c064375" + " " + `transition-all duration-500
                   ${isMenuOpen ? "opacity-100 scale-100" : "opacity-0 scale-90"}
                 `,
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(MobileTransitionLink, {
                                                 href: link.url,
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "jsx-e57a47aab1456462" + " " + "text-black font-medium transition-colors duration-300 hover:text-pink-600",
+                                                    className: "jsx-490c43484c064375" + " " + "text-black font-medium transition-colors duration-300 hover:text-pink-600",
                                                     children: link.label
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/common/navbar/Navbar.jsx",
@@ -713,14 +713,14 @@ const Navbar = ()=>{
                                                 columnNumber: 17
                                             }, this),
                                             link.dialog && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "jsx-e57a47aab1456462" + " " + "pl-4 mt-1 space-y-1",
+                                                className: "jsx-490c43484c064375" + " " + "pl-4 mt-1 space-y-1",
                                                 children: link.dialog.map((el, subIdx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(MobileTransitionLink, {
                                                         href: el.path,
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                             style: {
                                                                 transitionDelay: isMenuOpen ? `${idx * 80 + subIdx * 40 + 200}ms` : "0ms"
                                                             },
-                                                            className: "jsx-e57a47aab1456462" + " " + `text-gray-600 text-sm hover:text-black transition-all duration-400
+                                                            className: "jsx-490c43484c064375" + " " + `text-gray-600 text-sm hover:text-black transition-all duration-400
                             ${isMenuOpen ? "opacity-100 scale-100" : "opacity-0 scale-90"}
                           `,
                                                             children: el.title
@@ -746,12 +746,12 @@ const Navbar = ()=>{
                                         columnNumber: 15
                                     }, this)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "jsx-e57a47aab1456462" + " " + "flex justify-center",
+                                    className: "jsx-490c43484c064375" + " " + "flex justify-center",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(MobileTransitionLink, {
                                         href: "/donate",
-                                        className: "jsx-e57a47aab1456462",
+                                        className: "jsx-490c43484c064375",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            className: "jsx-e57a47aab1456462" + " " + "relative px-16 py-2 w-full max-w-[30rem] text-white font-bold text-sm tracking-widest bg-gradient-to-r from-pink-500 to-pink-700 rounded-none border-2 border-pink-300 shadow-lg transition-all duration-500 hover:shadow-[0_0_50px_rgba(236,72,153,0.8)] hover:shadow-[0_0_100px_rgba(236,72,153,0.6)] hover:shadow-[0_0_150px_rgba(236,72,153,0.4)] hover:scale-110 hover:bg-gradient-to-r hover:from-pink-600 hover:to-pink-800 before:absolute before:inset-0 before:rounded-none before:border-2 before:border-pink-400 before:animate-ping before:transition-all before:duration-[6000ms] before:delay-[2000ms] after:absolute after:inset-0 after:rounded-none after:border-2 after:border-pink-300 after:animate-ping after:transition-all after:duration-[6000ms] after:delay-[4000ms] [&>*:nth-child(3)]:absolute [&>*:nth-child(3)]:inset-0 [&>*:nth-child(3)]:rounded-none [&>*:nth-child(3)]:border-2 [&>*:nth-child(3)]:border-pink-200 [&>*:nth-child(3)]:animate-ping [&>*:nth-child(3)]:transition-all [&>*:nth-child(3)]:duration-[6000ms] [&>*:nth-child(3)]:delay-[6000ms] uppercase animate-scale-fade-in md:max-w-[32rem]",
+                                            className: "jsx-490c43484c064375" + " " + "relative px-16 py-2 w-full max-w-[30rem] text-white font-bold text-sm tracking-widest bg-gradient-to-r from-pink-500 to-pink-700 rounded-none border-2 border-pink-300 shadow-lg transition-all duration-500 hover:shadow-[0_0_50px_rgba(236,72,153,0.8)] hover:shadow-[0_0_100px_rgba(236,72,153,0.6)] hover:shadow-[0_0_150px_rgba(236,72,153,0.4)] hover:scale-110 hover:bg-gradient-to-r hover:from-pink-600 hover:to-pink-800 before:absolute before:inset-0 before:rounded-none before:border-2 before:border-pink-400 before:animate-ping before:transition-all before:duration-[6000ms] before:delay-[2000ms] after:absolute after:inset-0 after:rounded-none after:border-2 after:border-pink-300 after:animate-ping after:transition-all after:duration-[6000ms] after:delay-[4000ms] [&>*:nth-child(3)]:absolute [&>*:nth-child(3)]:inset-0 [&>*:nth-child(3)]:rounded-none [&>*:nth-child(3)]:border-2 [&>*:nth-child(3)]:border-pink-200 [&>*:nth-child(3)]:animate-ping [&>*:nth-child(3)]:transition-all [&>*:nth-child(3)]:duration-[6000ms] [&>*:nth-child(3)]:delay-[6000ms] uppercase animate-scale-fade-in md:max-w-[32rem]",
                                             children: "Donate"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/common/navbar/Navbar.jsx",
@@ -775,8 +775,8 @@ const Navbar = ()=>{
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                            id: "e57a47aab1456462",
-                            children: "@keyframes scale-fade-in{0%{opacity:0;transform:scale(.85)}60%{opacity:1;transform:scale(1.05)}80%{transform:scale(.98)}to{opacity:1;transform:scale(1)}}.animate-scale-fade-in.jsx-e57a47aab1456462{animation:.7s cubic-bezier(.4,0,.2,1) scale-fade-in}"
+                            id: "490c43484c064375",
+                            children: "@keyframes scale-fade-in{0%{opacity:0;transform:scale(.85)}60%{opacity:1;transform:scale(1.05)}80%{transform:scale(.98)}to{opacity:1;transform:scale(1)}}.animate-scale-fade-in.jsx-490c43484c064375{animation:.7s cubic-bezier(.4,0,.2,1) scale-fade-in}"
                         }, void 0, false, void 0, this)
                     ]
                 }, void 0, true, {

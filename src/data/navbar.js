@@ -30,8 +30,8 @@ const navLinks = {
       label: "Join us",
       url: "/joinus",
       dialog: [
-        { id: 1, title: "volunteering  ", path: "/" },
-        { id: 2, title: "internship", path: "/" },
+        { id: 1, title: "volunteering  ", path: "/join-us/volunteering" },
+        { id: 2, title: "internship", path: "/join-us/internship" },
         { id: 3, title: "youth corner ", path: "/" },
         { id: 4, title: "blogs", path: "/" },
       ],
