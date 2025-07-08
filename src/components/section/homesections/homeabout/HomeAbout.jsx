@@ -6,6 +6,50 @@ const missionStatement =
 const visionStatement =
   "A world where every individual can realize their full potential, live with dignity, and contribute positively to society.";
 
+// Shiny effect CSS as a style tag (for demo, ideally move to CSS file)
+// Reduced pinkness: replaced #ec4899 (pink) with #818cf8 (indigo-400) and toned down opacities
+const shinyStyle = `
+  .shiny-block {
+    position: relative;
+    overflow: hidden;
+    /* background and border color changes removed */
+    box-shadow: 0 0 24px 0 #818cf855, 0 2px 24px 0 #a21caf33;
+    transition: box-shadow 0.3s;
+  }
+  .shiny-block::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      120deg,
+      rgba(129,140,248,0.10) 0%,
+      rgba(168,85,247,0.13) 40%,
+      rgba(255,255,255,0.18) 50%,
+      rgba(129,140,248,0.08) 60%,
+      rgba(129,140,248,0.07) 100%
+    );
+    filter: blur(8px);
+    opacity: 0.6;
+    z-index: 0;
+    animation: shine-move 3.5s linear infinite;
+    pointer-events: none;
+  }
+  @keyframes shine-move {
+    0% { transform: rotate(0deg) translateX(-20%) scale(1.1);}
+    100% { transform: rotate(1deg) translateX(20%) scale(1.1);}
+  }
+  .shiny-block .shiny-content {
+    position: relative;
+    z-index: 1;
+  }
+  .shiny-block:hover {
+    box-shadow: 0 0 40px 0 #818cf8cc, 0 2px 40px 0 #a21caf88;
+  }
+`;
+
 export default function AboutMatter() {
   const aboutRef = useRef(null);
 
@@ -27,6 +71,9 @@ export default function AboutMatter() {
 
   return (
     <>
+      {/* Shiny effect style injection */}
+      <style dangerouslySetInnerHTML={{ __html: shinyStyle }} />
+
       <div className="z-0 absolute inset-0 bg-gradient-to-b from-zinc-900/30 via-black to-black pointer-events-none"></div>
 
       <div
@@ -47,8 +94,12 @@ export default function AboutMatter() {
           and her close friends began a heartfelt initiative in Hyderabad,
           distributing clothes and food to those in need. These small acts of
           kindness laid the foundation for a movement rooted in compassion and
-          change. As our vision grew, so did our reach—expanding to Jaipur and
-          building a dedicated team committed to making a difference.
+          change. As our vision grew, so did our reach—
+          <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+            {" "}
+            expanding to Jaipur{" "}
+          </span>
+          and building a dedicated team committed to making a difference.
           <br />
           <br />
           Our efforts have included refreshment drives, medical kit
@@ -61,23 +112,29 @@ export default function AboutMatter() {
         </p>
       </div>
 
-      <div className="z-10 relative flex flex-col gap-2 mt-8 mx-auto w-full max-w-3xl">
-        <div className="flex flex-col items-center p-4 w-full text-center bg-black/90 border-pink-500 rounded-xl shadow-md border">
-          <h3 className="flex items-center gap-2 mb-2 text-pink-300 text-lg font-bold animate-bounce sm:text-xl md:text-2xl">
-            🎯 Mission
-          </h3>
-          <p className="text-gray-100 text-sm leading-snug sm:text-base">
-            {missionStatement}
-          </p>
+      <div className="z-10 relative flex flex-col gap-4 mt-8 mx-auto w-full max-w-3xl">
+        {/* Mission Block */}
+        <div className="flex flex-col items-center p-4 w-full text-center rounded-xl border-pink-500 shadow-md shiny-block border">
+          <div className="shiny-content">
+            <h3 className="flex items-center gap-2 mb-2 text-pink-300 text-lg font-bold animate-bounce drop-shadow-[0_2px_8px_rgba(236,72,153,0.7)] sm:text-xl md:text-2xl">
+              🎯 Mission
+            </h3>
+            <p className="text-gray-100 text-sm leading-snug sm:text-base">
+              {missionStatement}
+            </p>
+          </div>
         </div>
 
-        <div className="flex flex-col items-center p-4 w-full text-center bg-black/90 border-pink-500 rounded-xl shadow-md border">
-          <h3 className="flex items-center gap-2 mb-2 text-pink-300 text-lg font-bold animate-bounce sm:text-xl md:text-2xl">
-            👁️ Vision
-          </h3>
-          <p className="text-gray-100 text-sm leading-snug sm:text-base">
-            {visionStatement}
-          </p>
+        {/* Vision Block */}
+        <div className="flex flex-col items-center p-4 w-full text-center rounded-xl border-pink-500 shadow-md shiny-block border">
+          <div className="shiny-content">
+            <h3 className="flex items-center gap-2 mb-2 text-pink-300 text-lg font-bold animate-bounce drop-shadow-[0_2px_8px_rgba(236,72,153,0.7)] sm:text-xl md:text-2xl">
+              👁️ Vision
+            </h3>
+            <p className="text-gray-100 text-sm leading-snug sm:text-base">
+              {visionStatement}
+            </p>
+          </div>
         </div>
       </div>
     </>

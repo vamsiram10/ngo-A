@@ -1,4 +1,4 @@
-import MapLocation from "@/components/section/ourworksection/maplocation/MapLocation";
+import MapLocation from "@/components/section/contactussection/maplocation/MapLocation";
 
 const MapPage = () => {
   return (

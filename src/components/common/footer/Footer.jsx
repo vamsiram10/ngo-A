@@ -14,7 +14,6 @@ const Footer = () => {
   return (
     <footer className="overflow-hidden relative px-6 py-12 text-white bg-gradient-to-br from-black via-gray-900 to-black shadow-2xl sm:px-8 lg:px-8">
       <div className="z-10 relative flex flex-col gap-6 gap-8 mx-auto max-w-6xl lg:flex-row">
-        {/* Social Media with enhanced styling */}
         <div className="flex-1 flex flex-col items-center lg:items-start">
           <h3 className="mb-4 text-lg font-bold tracking-wide text-transparent bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text drop-shadow sm:text-xl lg:text-lg">
             🌟 Follow Us
@@ -66,7 +65,6 @@ const Footer = () => {
                     alt={src}
                     className="w-7 h-7 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow sm:w-8 lg:w-7"
                     style={{
-                      // Make the icon white
                       filter: "invert(1) brightness(2)",
                     }}
                   />
@@ -79,7 +77,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Quick Links with enhanced styling */}
         <div className="flex-1 flex flex-col items-center lg:items-start">
           <h3 className="mb-4 text-lg font-bold tracking-wide text-transparent bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text drop-shadow sm:text-xl lg:mt-0">
             🚀 Quick Links
@@ -112,20 +109,19 @@ const Footer = () => {
             <p className="flex items-center gap-2 mb-2 text-white">
               <span>📧</span>
               Email:{" "}
-              <a
-                href="mailto:support@example.com"
-                className="transition-colors underline hover:text-pink-400 hover:scale-105"
-              >
-                aneesh.com
-              </a>
+              <span className="transition-colors underline">{`avasafoundation28@gmail.com`}</span>
             </p>
             <p className="flex items-start gap-2 mb-4 text-white">
               <span>📍</span>
               Address:{" "}
-              <span className="block text-gray-300">
-                Hope Foundation, 123 Harmony Lane,
-                <br />
-                Green Park, New Delhi, 110016, India
+              <span className="block text-gray-300 text-xs sm:text-sm">
+                Flat No.402, H No.3-98/Srr/402, Mayuri Nagar,
+                <span className="hidden sm:inline"> Raghava Residency,</span>
+                <br className="sm:hidden" />
+                <span className="sm:hidden">Raghava Residency,</span>
+                Miyapur, Serilingampally,
+                <br className="sm:hidden" />
+                Rangareddy, Telangana, India
               </span>
             </p>
           </div>
@@ -164,8 +160,11 @@ const Footer = () => {
         <span className="font-semibold text-pink-400">Avasa Foundation</span>{" "}
         &copy; {new Date().getFullYear()} &mdash; All rights reserved.
         <div className="flex flex-col items-center justify-center gap-1 mt-2 text-xs text-gray-500">
-          <span>Registered NGO: Hope Foundation, Reg. No. 123456789</span>
-          <span>123 Harmony Lane, Green Park, New Delhi, 110016, India</span>
+          <span>Registered NGO: AVASA FOUNDATION, Reg. No. 1108</span>
+          <span>
+            Flat No.402, H No.3-98/Srr/402, Mayuri Nagar, Raghava Residency,
+            Miyapur, Serilingampally, Rangareddy, Telangana, India
+          </span>
         </div>
       </div>
     </footer>

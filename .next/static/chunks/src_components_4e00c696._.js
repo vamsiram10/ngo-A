@@ -598,16 +598,22 @@ function MainGallery() {
                             backgroundColor: "black"
                         },
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                className: "gallery__title",
-                                style: {
-                                    marginBottom: "1rem",
-                                    fontSize: "2rem",
-                                    color: "white",
-                                    position: "relative",
-                                    left: "40rem"
-                                },
-                                children: "GALLERY"
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex justify-center items-center w-full text-white",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                                    className: "text-white font-bold text-center text-6xl gallery__title sm:text-7xl md:text-8xl lg:text-9xl xl:text-[rem] 2xl:text-[10rem]",
+                                    style: {
+                                        color: "white",
+                                        marginBottom: 0,
+                                        left: "0",
+                                        position: "relative"
+                                    },
+                                    children: "GALLERY"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/section/ourworksection/maingallery/MainGallery.jsx",
+                                    lineNumber: 193,
+                                    columnNumber: 13
+                                }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/section/ourworksection/maingallery/MainGallery.jsx",
                                 lineNumber: 192,
@@ -616,11 +622,34 @@ function MainGallery() {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "gallery__spacer",
                                 style: {
-                                    height: "1rem"
-                                }
+                                    height: "1.5rem"
+                                },
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("style", {
+                                    children: `
+                @media (min-width: 640px) {
+                  .gallery__spacer {
+                    height: 3rem !important;
+                  }
+                }
+                @media (min-width: 1024px) {
+                  .gallery__spacer {
+                    height: 4rem !important;
+                  }
+                }
+                @media (min-width: 1536px) {
+                  .gallery__spacer {
+                    height: 5rem !important;
+                  }
+                }
+              `
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/section/ourworksection/maingallery/MainGallery.jsx",
+                                    lineNumber: 211,
+                                    columnNumber: 13
+                                }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/section/ourworksection/maingallery/MainGallery.jsx",
-                                lineNumber: 204,
+                                lineNumber: 205,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -650,7 +679,7 @@ function MainGallery() {
                                                 className: "gallery__overlay"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/section/ourworksection/maingallery/MainGallery.jsx",
-                                                lineNumber: 231,
+                                                lineNumber: 257,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -669,25 +698,25 @@ function MainGallery() {
                                                         children: index + 1
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/section/ourworksection/maingallery/MainGallery.jsx",
-                                                        lineNumber: 239,
+                                                        lineNumber: 265,
                                                         columnNumber: 19
                                                     }, this),
                                                     text
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/section/ourworksection/maingallery/MainGallery.jsx",
-                                                lineNumber: 232,
+                                                lineNumber: 258,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, index, true, {
                                         fileName: "[project]/src/components/section/ourworksection/maingallery/MainGallery.jsx",
-                                        lineNumber: 217,
+                                        lineNumber: 243,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/section/ourworksection/maingallery/MainGallery.jsx",
-                                lineNumber: 205,
+                                lineNumber: 231,
                                 columnNumber: 11
                             }, this)
                         ]

@@ -51,7 +51,7 @@ const HomeOther = () => {
         className="overflow-x-hidden relative flex items-center justify-center min-h-screen w-screen"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/main1.jpg')",
+            "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/main1.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

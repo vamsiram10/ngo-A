@@ -71,8 +71,8 @@ const navLinks = {
             dialog: [
                 {
                     id: 1,
-                    title: "map location ",
-                    path: "/ourwork/map"
+                    title: "our chapters ",
+                    path: "/"
                 },
                 {
                     id: 2,
@@ -130,6 +130,11 @@ const navLinks = {
                 },
                 {
                     id: 2,
+                    title: "Map Location",
+                    path: "/contactus/map"
+                },
+                {
+                    id: 3,
                     title: "FAQs",
                     path: "/"
                 }
@@ -310,6 +315,12 @@ function ensureTransitionStyle() {
     if ("TURBOPACK compile-time truthy", 1) return;
     "TURBOPACK unreachable";
 }
+function getRewrittenHref(href) {
+    // Rewrite "/ourwork" to "/" and "/contactus/maplocation" to "/contactus/map"
+    if (href === "/ourwork") return "/";
+    if (href === "/contactus/maplocation") return "/contactus/map";
+    return href;
+}
 const TransitionLink = ({ children, href, ...props })=>{
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     const lenis = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$studio$2d$freight$2f$react$2d$lenis$2f$dist$2f$react$2d$lenis$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useLenis"])();
@@ -317,8 +328,9 @@ const TransitionLink = ({ children, href, ...props })=>{
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         ensureTransitionStyle();
     }, []);
+    const rewrittenHref = getRewrittenHref(href);
     const handleTransition = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(async (e)=>{
-        if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.altKey || e.ctrlKey || e.shiftKey || typeof href === "string" && (href.startsWith("http") || href.startsWith("mailto:"))) {
+        if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.altKey || e.ctrlKey || e.shiftKey || typeof rewrittenHref === "string" && (rewrittenHref.startsWith("http") || rewrittenHref.startsWith("mailto:"))) {
             return;
         }
         e.preventDefault();
@@ -331,23 +343,23 @@ const TransitionLink = ({ children, href, ...props })=>{
         }
         addSlideUpOverlay();
         await sleep(650);
-        router.push(href);
+        router.push(rewrittenHref);
         setTimeout(removeSlideUpOverlay, 500);
     }, [
         router,
-        href,
+        rewrittenHref,
         lenis
     ]);
     // Only attach onClick on the client to avoid hydration mismatch
     // But Next.js expects the same props on server and client, so we use a stable function
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
         ...props,
-        href: href,
+        href: rewrittenHref,
         onClick: handleTransition,
         children: children
     }, void 0, false, {
         fileName: "[project]/src/components/utils/transitionlink/TransitionLink.jsx",
-        lineNumber: 172,
+        lineNumber: 180,
         columnNumber: 5
     }, this);
 };
@@ -747,7 +759,7 @@ const Footer = ()=>{
                                 children: "🌟 Follow Us"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                lineNumber: 19,
+                                lineNumber: 18,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -794,7 +806,7 @@ const Footer = ()=>{
                                                 children: src
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                                lineNumber: 62,
+                                                lineNumber: 61,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -805,12 +817,11 @@ const Footer = ()=>{
                                                         alt: src,
                                                         className: "w-7 h-7 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow sm:w-8 lg:w-7",
                                                         style: {
-                                                            // Make the icon white
                                                             filter: "invert(1) brightness(2)"
                                                         }
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                                        lineNumber: 64,
+                                                        lineNumber: 63,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -818,30 +829,30 @@ const Footer = ()=>{
                                                         children: emoji
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                                        lineNumber: 73,
+                                                        lineNumber: 71,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                                lineNumber: 63,
+                                                lineNumber: 62,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, src, true, {
                                         fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                        lineNumber: 55,
+                                        lineNumber: 54,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                lineNumber: 22,
+                                lineNumber: 21,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/common/footer/Footer.jsx",
-                        lineNumber: 18,
+                        lineNumber: 17,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -852,7 +863,7 @@ const Footer = ()=>{
                                 children: "🚀 Quick Links"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                lineNumber: 84,
+                                lineNumber: 81,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -889,30 +900,30 @@ const Footer = ()=>{
                                                     children: icon
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                                    lineNumber: 99,
+                                                    lineNumber: 96,
                                                     columnNumber: 19
                                                 }, this),
                                                 name
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                            lineNumber: 95,
+                                            lineNumber: 92,
                                             columnNumber: 17
                                         }, this)
                                     }, name, false, {
                                         fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                        lineNumber: 94,
+                                        lineNumber: 91,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                lineNumber: 87,
+                                lineNumber: 84,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/common/footer/Footer.jsx",
-                        lineNumber: 83,
+                        lineNumber: 80,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -923,7 +934,7 @@ const Footer = ()=>{
                                 children: "📞 Contact Us"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                lineNumber: 108,
+                                lineNumber: 105,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -936,24 +947,23 @@ const Footer = ()=>{
                                                 children: "📧"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                                lineNumber: 113,
+                                                lineNumber: 110,
                                                 columnNumber: 15
                                             }, this),
                                             "Email:",
                                             " ",
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                href: "mailto:support@example.com",
-                                                className: "transition-colors underline hover:text-pink-400 hover:scale-105",
-                                                children: "aneesh.com"
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "transition-colors underline",
+                                                children: `avasafoundation28@gmail.com`
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                                lineNumber: 115,
+                                                lineNumber: 112,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                        lineNumber: 112,
+                                        lineNumber: 109,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -963,37 +973,63 @@ const Footer = ()=>{
                                                 children: "📍"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                                lineNumber: 123,
+                                                lineNumber: 115,
                                                 columnNumber: 15
                                             }, this),
                                             "Address:",
                                             " ",
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "block text-gray-300",
+                                                className: "block text-gray-300 text-xs sm:text-sm",
                                                 children: [
-                                                    "Hope Foundation, 123 Harmony Lane,",
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
+                                                    "Flat No.402, H No.3-98/Srr/402, Mayuri Nagar,",
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "hidden sm:inline",
+                                                        children: " Raghava Residency,"
+                                                    }, void 0, false, {
                                                         fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                                        lineNumber: 127,
+                                                        lineNumber: 119,
                                                         columnNumber: 17
                                                     }, this),
-                                                    "Green Park, New Delhi, 110016, India"
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {
+                                                        className: "sm:hidden"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/components/common/footer/Footer.jsx",
+                                                        lineNumber: 120,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "sm:hidden",
+                                                        children: "Raghava Residency,"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/components/common/footer/Footer.jsx",
+                                                        lineNumber: 121,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    "Miyapur, Serilingampally,",
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {
+                                                        className: "sm:hidden"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/components/common/footer/Footer.jsx",
+                                                        lineNumber: 123,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    "Rangareddy, Telangana, India"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                                lineNumber: 125,
+                                                lineNumber: 117,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                        lineNumber: 122,
+                                        lineNumber: 114,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                lineNumber: 111,
+                                lineNumber: 108,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1004,26 +1040,26 @@ const Footer = ()=>{
                                         children: "SUPPORT A CAUSE"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                        lineNumber: 133,
+                                        lineNumber: 129,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "absolute inset-0 bg-gradient-to-r from-pink-400 to-purple-400 opacity-0 transition-opacity duration-300 group-hover:opacity-20"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                        lineNumber: 134,
+                                        lineNumber: 130,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                lineNumber: 132,
+                                lineNumber: 128,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/common/footer/Footer.jsx",
-                        lineNumber: 107,
+                        lineNumber: 104,
                         columnNumber: 9
                     }, this)
                 ]
@@ -1040,7 +1076,7 @@ const Footer = ()=>{
                         children: "Avasa Foundation"
                     }, void 0, false, {
                         fileName: "[project]/src/components/common/footer/Footer.jsx",
-                        lineNumber: 164,
+                        lineNumber: 160,
                         columnNumber: 9
                     }, this),
                     " ",
@@ -1051,29 +1087,29 @@ const Footer = ()=>{
                         className: "flex flex-col items-center justify-center gap-1 mt-2 text-xs text-gray-500",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                children: "Registered NGO: Hope Foundation, Reg. No. 123456789"
+                                children: "Registered NGO: AVASA FOUNDATION, Reg. No. 1108"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                lineNumber: 167,
+                                lineNumber: 163,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                children: "123 Harmony Lane, Green Park, New Delhi, 110016, India"
+                                children: "Flat No.402, H No.3-98/Srr/402, Mayuri Nagar, Raghava Residency, Miyapur, Serilingampally, Rangareddy, Telangana, India"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/common/footer/Footer.jsx",
-                                lineNumber: 168,
+                                lineNumber: 164,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/common/footer/Footer.jsx",
-                        lineNumber: 166,
+                        lineNumber: 162,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/common/footer/Footer.jsx",
-                lineNumber: 163,
+                lineNumber: 159,
                 columnNumber: 7
             }, this)
         ]

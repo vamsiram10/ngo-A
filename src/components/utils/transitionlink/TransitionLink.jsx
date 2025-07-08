@@ -3,8 +3,6 @@ import Link from "next/link";
 import React, { useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { useLenis } from "@studio-freight/react-lenis";
-
-// Move all browser-only code into useEffect to avoid hydration mismatch
 import { useEffect } from "react";
 
 function sleep(ms) {
@@ -121,6 +119,13 @@ function ensureTransitionStyle() {
   }
 }
 
+function getRewrittenHref(href) {
+  // Rewrite "/ourwork" to "/" and "/contactus/maplocation" to "/contactus/map"
+  if (href === "/ourwork") return "/";
+  if (href === "/contactus/maplocation") return "/contactus/map";
+  return href;
+}
+
 export const TransitionLink = ({ children, href, ...props }) => {
   const router = useRouter();
   const lenis = useLenis();
@@ -129,6 +134,8 @@ export const TransitionLink = ({ children, href, ...props }) => {
   useEffect(() => {
     ensureTransitionStyle();
   }, []);
+
+  const rewrittenHref = getRewrittenHref(href);
 
   const handleTransition = useCallback(
     async (e) => {
@@ -139,8 +146,9 @@ export const TransitionLink = ({ children, href, ...props }) => {
         e.altKey ||
         e.ctrlKey ||
         e.shiftKey ||
-        (typeof href === "string" &&
-          (href.startsWith("http") || href.startsWith("mailto:")))
+        (typeof rewrittenHref === "string" &&
+          (rewrittenHref.startsWith("http") ||
+            rewrittenHref.startsWith("mailto:")))
       ) {
         return;
       }
@@ -159,17 +167,17 @@ export const TransitionLink = ({ children, href, ...props }) => {
 
       await sleep(650);
 
-      router.push(href);
+      router.push(rewrittenHref);
 
       setTimeout(removeSlideUpOverlay, 500);
     },
-    [router, href, lenis]
+    [router, rewrittenHref, lenis]
   );
 
   // Only attach onClick on the client to avoid hydration mismatch
   // But Next.js expects the same props on server and client, so we use a stable function
   return (
-    <Link {...props} href={href} onClick={handleTransition}>
+    <Link {...props} href={rewrittenHref} onClick={handleTransition}>
       {children}
     </Link>
   );
