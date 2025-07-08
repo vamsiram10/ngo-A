@@ -91,7 +91,10 @@ export default function AboutMatter() {
         <p className="text-[0.75rem] text-gray-200 leading-relaxed text-justify xs:text-sm sm:text-base">
           In 2022,{" "}
           <span className="font-semibold text-pink-400">V. Radha Priyanka</span>{" "}
-          and her close friends began a heartfelt initiative in Hyderabad,
+          and her close friends began a heartfelt initiative in{" "}
+          <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+            Hyderabad{" "}
+          </span>
           distributing clothes and food to those in need. These small acts of
           kindness laid the foundation for a movement rooted in compassion and
           change. As our vision grew, so did our reach—
