@@ -26,11 +26,9 @@ const HomeOther = () => {
   useEffect(() => {
     if (marqueeRef.current) {
       const marquee = marqueeRef.current;
-      // Get width of the text
       const textWidth = marquee.scrollWidth;
       const containerWidth = marquee.parentElement.offsetWidth;
 
-      // GSAP infinite left-to-right animation
       const tween = gsap.fromTo(
         marquee,
         { x: -textWidth },
@@ -53,7 +51,7 @@ const HomeOther = () => {
         className="overflow-x-hidden relative flex items-center justify-center min-h-screen w-screen"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('/main1.jpg')",
+            "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/main1.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -62,8 +60,7 @@ const HomeOther = () => {
         }}
       >
         <div className="flex flex-col items-center justify-center w-full">
-          {/* Statement Section */}
-          <div className="mb-10">
+          <div className="z-50 relative mb-10">
             <p
               ref={textRef}
               className="px-4 text-white text-5xl font-semibold text-center md:text-7xl"
@@ -73,11 +70,10 @@ const HomeOther = () => {
                 willChange: "transform, opacity",
               }}
             >
-              "here for a cause"
+              "Here for a Cause"
             </p>
           </div>
         </div>
-        {/* Moving Avasa Foundation Name at the bottom */}
         <div
           className="pointer-events-none select-none"
           style={{

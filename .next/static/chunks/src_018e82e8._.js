@@ -47,10 +47,8 @@ const HomeOther = ()=>{
         "HomeOther.useEffect": ()=>{
             if (marqueeRef.current) {
                 const marquee = marqueeRef.current;
-                // Get width of the text
                 const textWidth = marquee.scrollWidth;
                 const containerWidth = marquee.parentElement.offsetWidth;
-                // GSAP infinite left-to-right animation
                 const tween = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].fromTo(marquee, {
                     x: -textWidth
                 }, {
@@ -72,7 +70,7 @@ const HomeOther = ()=>{
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "overflow-x-hidden relative flex items-center justify-center min-h-screen w-screen",
             style: {
-                backgroundImage: "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('/main1.jpg')",
+                backgroundImage: "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/main1.jpg')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -83,7 +81,7 @@ const HomeOther = ()=>{
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "flex flex-col items-center justify-center w-full",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "mb-10",
+                        className: "z-50 relative mb-10",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                             ref: textRef,
                             className: "px-4 text-white text-5xl font-semibold text-center md:text-7xl",
@@ -92,20 +90,20 @@ const HomeOther = ()=>{
                                 transform: "translateY(-200px)",
                                 willChange: "transform, opacity"
                             },
-                            children: '"here for a cause"'
+                            children: '"Here for a Cause"'
                         }, void 0, false, {
                             fileName: "[project]/src/components/section/homesections/homeother/HomeOther.jsx",
-                            lineNumber: 67,
+                            lineNumber: 64,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/section/homesections/homeother/HomeOther.jsx",
-                        lineNumber: 66,
+                        lineNumber: 63,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/section/homesections/homeother/HomeOther.jsx",
-                    lineNumber: 64,
+                    lineNumber: 62,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -137,23 +135,23 @@ const HomeOther = ()=>{
                         children: "Avasa Foundation  •  Avasa Foundation  •  Avasa Foundation  •  Avasa Foundation  •  Avasa Foundation  •  Avasa Foundation"
                     }, void 0, false, {
                         fileName: "[project]/src/components/section/homesections/homeother/HomeOther.jsx",
-                        lineNumber: 94,
+                        lineNumber: 90,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/section/homesections/homeother/HomeOther.jsx",
-                    lineNumber: 81,
+                    lineNumber: 77,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/section/homesections/homeother/HomeOther.jsx",
-            lineNumber: 52,
+            lineNumber: 50,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/section/homesections/homeother/HomeOther.jsx",
-        lineNumber: 51,
+        lineNumber: 49,
         columnNumber: 5
     }, this);
 };
@@ -342,20 +340,41 @@ const AnimatedTestimonials = ({ testimonials = DEFAULT_TESTIMONIALS, autoplay = 
     }
     const getPrevIndex = ()=>(active - 1 + testimonials.length) % testimonials.length;
     const titleClass = "mb-4 w-full text-2xl font-bold text-white tracking-tight text-center sm:text-3xl md:text-5xl md:mb-6";
-    const matterBlockClass = "relative flex flex-col flex-1 items-center gap-4 px-2 py-3 min-h-[120px] max-w-xs w-full bg-white/80 rounded-2xl border-2 border-pink-400 shadow-lg dark:bg-neutral-900/80 dark:border-pink-500 md:flex-row md:gap-8 md:px-8 md:py-8 md:min-h-[220px] md:max-w-3xl";
+    // Remove border and border color classes from blocks
+    const matterBlockClass = "relative flex flex-col flex-1 items-center gap-4 px-2 py-3 min-h-[120px] max-w-xs w-full bg-white/80 rounded-2xl shadow-lg dark:bg-neutral-900/80 md:flex-row md:gap-8 md:px-8 md:py-8 md:min-h-[220px] md:max-w-3xl";
     const nameClass = "text-lg font-semibold text-pink-500 dark:text-pink-400 sm:text-xl md:text-3xl";
     const designationClass = "text-xs text-gray-500 dark:text-neutral-400 sm:text-sm";
-    const quoteBlockClass = "relative px-2 py-3 max-w-xs w-full bg-white/90 rounded-2xl border-2 border-pink-400 shadow-lg dark:bg-neutral-900/90 dark:border-pink-500 md:px-8 md:py-8 md:max-w-3xl";
+    const quoteBlockClass = "relative px-2 py-3 max-w-xs w-full bg-white/90 rounded-2xl shadow-lg dark:bg-neutral-900/90 md:px-8 md:py-8 md:max-w-3xl";
     const quoteTextClass = "text-sm text-gray-700 leading-relaxed dark:text-neutral-300 md:text-lg";
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "relative flex flex-col items-center justify-center mx-auto px-1 py-1 w-full max-w-6xl min-h-screen font-sans antialiased sm:px-1 lg:px-1",
         children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "z-0 absolute inset-0 pointer-events-none",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "w-full h-full",
+                    style: {
+                        position: "absolute",
+                        inset: 0,
+                        pointerEvents: "none",
+                        background: "linear-gradient(to bottom, rgba(24,24,27,0.3) 0%, rgba(0,0,0,0.85) 60%, #000 100%)"
+                    }
+                }, void 0, false, {
+                    fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
+                    lineNumber: 179,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
+                lineNumber: 178,
+                columnNumber: 7
+            }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                 className: titleClass,
                 children: "Testimonials"
             }, void 0, false, {
                 fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                lineNumber: 176,
+                lineNumber: 190,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -413,19 +432,19 @@ const AnimatedTestimonials = ({ testimonials = DEFAULT_TESTIMONIALS, autoplay = 
                                         width: imageSize,
                                         height: imageSize,
                                         draggable: false,
-                                        className: "object-cover object-center w-full h-full rounded-xl border-gray-200 shadow-md border dark:border-neutral-800",
+                                        className: "object-cover object-center w-full h-full rounded-xl shadow-md",
                                         style: {
                                             opacity: 0.3,
                                             filter: "blur(3px)"
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                                        lineNumber: 222,
+                                        lineNumber: 236,
                                         columnNumber: 15
                                     }, this)
                                 }, testimonials[getPrevIndex()].src + "-back", false, {
                                     fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                                    lineNumber: 195,
+                                    lineNumber: 209,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -470,31 +489,31 @@ const AnimatedTestimonials = ({ testimonials = DEFAULT_TESTIMONIALS, autoplay = 
                                             width: imageSize,
                                             height: imageSize,
                                             draggable: false,
-                                            className: "object-cover object-center w-full h-full rounded-2xl border-gray-200 shadow-lg border dark:border-neutral-800"
+                                            className: "object-cover object-center w-full h-full rounded-2xl shadow-lg"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                                            lineNumber: 262,
+                                            lineNumber: 276,
                                             columnNumber: 17
                                         }, this)
                                     }, testimonials[active].src, false, {
                                         fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                                        lineNumber: 233,
+                                        lineNumber: 247,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                                    lineNumber: 232,
+                                    lineNumber: 246,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                            lineNumber: 184,
+                            lineNumber: 198,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                        lineNumber: 178,
+                        lineNumber: 192,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -506,7 +525,7 @@ const AnimatedTestimonials = ({ testimonials = DEFAULT_TESTIMONIALS, autoplay = 
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Shimmer, {}, void 0, false, {
                                 fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                                lineNumber: 278,
+                                lineNumber: 292,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -539,7 +558,7 @@ const AnimatedTestimonials = ({ testimonials = DEFAULT_TESTIMONIALS, autoplay = 
                                                     children: testimonials[active].name
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                                                    lineNumber: 290,
+                                                    lineNumber: 304,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -547,28 +566,28 @@ const AnimatedTestimonials = ({ testimonials = DEFAULT_TESTIMONIALS, autoplay = 
                                                     children: testimonials[active].designation
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                                                    lineNumber: 291,
+                                                    lineNumber: 305,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                                            lineNumber: 289,
+                                            lineNumber: 303,
                                             columnNumber: 17
                                         }, this)
                                     }, active, false, {
                                         fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                                        lineNumber: 281,
+                                        lineNumber: 295,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                                    lineNumber: 280,
+                                    lineNumber: 294,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                                lineNumber: 279,
+                                lineNumber: 293,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -583,12 +602,12 @@ const AnimatedTestimonials = ({ testimonials = DEFAULT_TESTIMONIALS, autoplay = 
                                             className: "h-5 w-5 w-6 text-gray-700 transition-transform duration-300 dark:text-neutral-400 group-hover:rotate-12 md:h-6"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                                            lineNumber: 305,
+                                            lineNumber: 319,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                                        lineNumber: 299,
+                                        lineNumber: 313,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -600,30 +619,30 @@ const AnimatedTestimonials = ({ testimonials = DEFAULT_TESTIMONIALS, autoplay = 
                                             className: "h-5 w-5 w-6 text-gray-700 transition-transform duration-300 dark:text-neutral-400 group-hover:-rotate-12 md:h-6"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                                            lineNumber: 313,
+                                            lineNumber: 327,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                                        lineNumber: 307,
+                                        lineNumber: 321,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                                lineNumber: 298,
+                                lineNumber: 312,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                        lineNumber: 274,
+                        lineNumber: 288,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                lineNumber: 177,
+                lineNumber: 191,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -637,7 +656,7 @@ const AnimatedTestimonials = ({ testimonials = DEFAULT_TESTIMONIALS, autoplay = 
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Shimmer, {}, void 0, false, {
                             fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                            lineNumber: 323,
+                            lineNumber: 337,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -663,29 +682,29 @@ const AnimatedTestimonials = ({ testimonials = DEFAULT_TESTIMONIALS, autoplay = 
                                 children: testimonials[active].quote
                             }, active, false, {
                                 fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                                lineNumber: 325,
+                                lineNumber: 339,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                            lineNumber: 324,
+                            lineNumber: 338,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                    lineNumber: 319,
+                    lineNumber: 333,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-                lineNumber: 318,
+                lineNumber: 332,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/utils/teammem/animated-testimonials.tsx",
-        lineNumber: 175,
+        lineNumber: 176,
         columnNumber: 5
     }, this);
 };
@@ -717,7 +736,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$utils$2
 ;
 const HomeTeam = ()=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "flex flex-col min-h-screen w-screen bg-amber-400",
+        className: "flex flex-col min-h-screen w-screen bg-black",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex-1"

@@ -160,19 +160,33 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
 
   const titleClass =
     "mb-4 w-full text-2xl font-bold text-white tracking-tight text-center sm:text-3xl md:text-5xl md:mb-6";
+  // Remove border and border color classes from blocks
   const matterBlockClass =
-    "relative flex flex-col flex-1 items-center gap-4 px-2 py-3 min-h-[120px] max-w-xs w-full bg-white/80 rounded-2xl border-2 border-pink-400 shadow-lg dark:bg-neutral-900/80 dark:border-pink-500 md:flex-row md:gap-8 md:px-8 md:py-8 md:min-h-[220px] md:max-w-3xl";
+    "relative flex flex-col flex-1 items-center gap-4 px-2 py-3 min-h-[120px] max-w-xs w-full bg-white/80 rounded-2xl shadow-lg dark:bg-neutral-900/80 md:flex-row md:gap-8 md:px-8 md:py-8 md:min-h-[220px] md:max-w-3xl";
   const nameClass =
     "text-lg font-semibold text-pink-500 dark:text-pink-400 sm:text-xl md:text-3xl";
   const designationClass =
     "text-xs text-gray-500 dark:text-neutral-400 sm:text-sm";
   const quoteBlockClass =
-    "relative px-2 py-3 max-w-xs w-full bg-white/90 rounded-2xl border-2 border-pink-400 shadow-lg dark:bg-neutral-900/90 dark:border-pink-500 md:px-8 md:py-8 md:max-w-3xl";
+    "relative px-2 py-3 max-w-xs w-full bg-white/90 rounded-2xl shadow-lg dark:bg-neutral-900/90 md:px-8 md:py-8 md:max-w-3xl";
   const quoteTextClass =
     "text-sm text-gray-700 leading-relaxed dark:text-neutral-300 md:text-lg";
 
   return (
     <div className="relative flex flex-col items-center justify-center mx-auto px-1 py-1 w-full max-w-6xl min-h-screen font-sans antialiased sm:px-1 lg:px-1">
+      {/* Gradient background at the bottom */}
+      <div className="z-0 absolute inset-0 pointer-events-none">
+        <div
+          className="w-full h-full"
+          style={{
+            position: "absolute",
+            inset: 0,
+            pointerEvents: "none",
+            background:
+              "linear-gradient(to bottom, rgba(24,24,27,0.3) 0%, rgba(0,0,0,0.85) 60%, #000 100%)",
+          }}
+        />
+      </div>
       <h2 className={titleClass}>Testimonials</h2>
       <div className="flex flex-col items-center justify-center gap-4 gap-10 w-full md:flex-row lg:gap-45">
         <div
@@ -225,7 +239,7 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
                 width={imageSize}
                 height={imageSize}
                 draggable={false}
-                className="object-cover object-center w-full h-full rounded-xl border-gray-200 shadow-md border dark:border-neutral-800"
+                className="object-cover object-center w-full h-full rounded-xl shadow-md"
                 style={{ opacity: 0.3, filter: "blur(3px)" }}
               />
             </motion.div>
@@ -265,7 +279,7 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
                   width={imageSize}
                   height={imageSize}
                   draggable={false}
-                  className="object-cover object-center w-full h-full rounded-2xl border-gray-200 shadow-lg border dark:border-neutral-800"
+                  className="object-cover object-center w-full h-full rounded-2xl shadow-lg"
                 />
               </motion.div>
             </AnimatePresence>
