@@ -296,7 +296,7 @@ export function Gallery() {
         <DraggableCardBody
           className={cn(
             item.className,
-            idx === 0 && "md:top-[16%] md:left-[18%] md:[rotate:-14deg]"
+            idx === 0 && "md:top-[16%] left-[18%] md:[rotate:-14deg]"
           )}
           style={getCardStyle(item, idx)}
           key={item.title + idx}

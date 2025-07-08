@@ -1,15 +1,15 @@
 {
   "pages": {
-    "/contactus/map/page": [
+    "/ourwork/gallery/page": [
       "static/chunks/[root-of-the-server]__a2f1cdd3._.css",
       "static/chunks/node_modules_0ae9dae5._.js",
       "static/chunks/src_386726bf._.js",
       "static/chunks/src_app_layout_c0237562.js",
-      "static/chunks/src_app_contactus_layout_660e44dd.js",
-      "static/chunks/src_app_contactus_layout_fbc05915.js",
-      "static/chunks/src_components_section_contactussection_maplocation_maplocation_5a674232.css",
-      "static/chunks/src_components_section_contactussection_maplocation_MapLocation_jsx_d14d5ef0._.js",
-      "static/chunks/src_app_contactus_map_page_103104d9.js",
+      "static/chunks/src_app_ourwork_layout_607af120.js",
+      "static/chunks/src_app_ourwork_layout_fbc05915.js",
+      "static/chunks/src_components_section_ourworksection_maingallery_maingallery_17b11cdd.css",
+      "static/chunks/src_components_section_ourworksection_maingallery_MainGallery_jsx_70d28ae3._.js",
+      "static/chunks/src_app_ourwork_gallery_page_ff4c5594.js",
       "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_fd44f5a4._.js",
       "static/chunks/node_modules_next_dist_compiled_2ce9398a._.js",
       "static/chunks/node_modules_next_dist_client_8f19e6fb._.js",
