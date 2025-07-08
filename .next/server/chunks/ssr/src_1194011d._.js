@@ -1543,8 +1543,6 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 ;
 const missionStatement = "We empower underprivileged communities by providing access to education, healthcare, and sustainable livelihoods, fostering holistic growth and inclusion.";
 const visionStatement = "A world where every individual can realize their full potential, live with dignity, and contribute positively to society.";
-// Shiny effect CSS as a style tag (for demo, ideally move to CSS file)
-// Reduced pinkness: replaced #ec4899 (pink) with #818cf8 (indigo-400) and toned down opacities
 const shinyStyle = `
   .shiny-block {
     position: relative;
@@ -1614,14 +1612,14 @@ function AboutMatter() {
                 }
             }, void 0, false, {
                 fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                lineNumber: 75,
+                lineNumber: 73,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "z-0 absolute inset-0 bg-gradient-to-b from-zinc-900/30 via-black to-black pointer-events-none"
             }, void 0, false, {
                 fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                lineNumber: 77,
+                lineNumber: 75,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1634,20 +1632,20 @@ function AboutMatter() {
                         children: "About Us"
                     }, void 0, false, {
                         fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                        lineNumber: 84,
+                        lineNumber: 82,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "mx-auto mt-2 w-24 h-1 bg-pink-500 rounded-full shadow-md"
                     }, void 0, false, {
                         fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                        lineNumber: 87,
+                        lineNumber: 85,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                lineNumber: 79,
+                lineNumber: 77,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1662,7 +1660,7 @@ function AboutMatter() {
                             children: "V. Radha Priyanka"
                         }, void 0, false, {
                             fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                            lineNumber: 93,
+                            lineNumber: 91,
                             columnNumber: 11
                         }, this),
                         " ",
@@ -1676,7 +1674,7 @@ function AboutMatter() {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                            lineNumber: 95,
+                            lineNumber: 93,
                             columnNumber: 11
                         }, this),
                         "distributing clothes and food to those in need. These small acts of kindness laid the foundation for a movement rooted in compassion and change. As our vision grew, so did our reach—",
@@ -1689,30 +1687,30 @@ function AboutMatter() {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                            lineNumber: 101,
+                            lineNumber: 99,
                             columnNumber: 11
                         }, this),
                         "and building a dedicated team committed to making a difference.",
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                             fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                            lineNumber: 106,
+                            lineNumber: 104,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                             fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                            lineNumber: 107,
+                            lineNumber: 105,
                             columnNumber: 11
                         }, this),
                         "Our efforts have included refreshment drives, medical kit distributions, and visits to orphanages and old age homes, all guided by a single purpose: to bring hope, dignity, and support to those often overlooked. In November 2024, we proudly became a registered NGO, amplifying our impact and enabling us to reach even more lives. Today, we are a growing family of changemakers, united by empathy and driven by action."
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                    lineNumber: 91,
+                    lineNumber: 89,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                lineNumber: 90,
+                lineNumber: 88,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1728,7 +1726,7 @@ function AboutMatter() {
                                     children: "🎯 Mission"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                                    lineNumber: 122,
+                                    lineNumber: 120,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1736,18 +1734,18 @@ function AboutMatter() {
                                     children: missionStatement
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                                    lineNumber: 125,
+                                    lineNumber: 123,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                            lineNumber: 121,
+                            lineNumber: 119,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                        lineNumber: 120,
+                        lineNumber: 118,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1760,7 +1758,7 @@ function AboutMatter() {
                                     children: "👁️ Vision"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                                    lineNumber: 134,
+                                    lineNumber: 132,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1768,24 +1766,24 @@ function AboutMatter() {
                                     children: visionStatement
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                                    lineNumber: 137,
+                                    lineNumber: 135,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                            lineNumber: 133,
+                            lineNumber: 131,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                        lineNumber: 132,
+                        lineNumber: 130,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/section/homesections/homeabout/HomeAbout.jsx",
-                lineNumber: 118,
+                lineNumber: 116,
                 columnNumber: 7
             }, this)
         ]

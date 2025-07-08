@@ -6,8 +6,6 @@ const missionStatement =
 const visionStatement =
   "A world where every individual can realize their full potential, live with dignity, and contribute positively to society.";
 
-// Shiny effect CSS as a style tag (for demo, ideally move to CSS file)
-// Reduced pinkness: replaced #ec4899 (pink) with #818cf8 (indigo-400) and toned down opacities
 const shinyStyle = `
   .shiny-block {
     position: relative;
