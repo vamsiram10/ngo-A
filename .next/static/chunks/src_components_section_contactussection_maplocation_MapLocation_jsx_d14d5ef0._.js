@@ -100,13 +100,13 @@ _c1 = EVENT_LOCATIONS;
 const AVASA_ICON_URL = "/svg/AVASA.svg";
 const FIXED_LOCATION = {
     id: "fixed-location",
-    name: "present AVASA Location",
+    name: " AVASA HQ",
     coords: [
-        26.33171558001394,
-        73.04491042494395
+        17.494898,
+        78.363327
     ],
     iconUrl: AVASA_ICON_URL,
-    popup: "<b>present AVASA Location</b>"
+    popup: "<b> AVASA HQ</b>"
 };
 const OTHER_LOCATIONS = [
     {

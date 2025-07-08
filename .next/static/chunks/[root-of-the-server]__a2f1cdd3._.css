@@ -1158,16 +1158,6 @@
     }
   }
 
-  .bg-black\/90 {
-    background-color: #000000e6;
-  }
-
-  @supports (color: color-mix(in lab, red, red)) {
-    .bg-black\/90 {
-      background-color: color-mix(in oklab, var(--color-black) 90%, transparent);
-    }
-  }
-
   .bg-gray-100 {
     background-color: var(--color-gray-100);
   }
@@ -1589,10 +1579,6 @@
   .tracking-widest {
     --tw-tracking: var(--tracking-widest);
     letter-spacing: var(--tracking-widest);
-  }
-
-  .break-all {
-    word-break: break-all;
   }
 
   .text-black {
@@ -2238,12 +2224,6 @@
   }
 
   @media (width >= 40rem) {
-    .sm\:w-auto {
-      width: auto;
-    }
-  }
-
-  @media (width >= 40rem) {
     .sm\:min-w-\[120px\] {
       min-width: 120px;
     }
@@ -2692,12 +2672,6 @@
   @media (width >= 64rem) {
     .lg\:items-start {
       align-items: flex-start;
-    }
-  }
-
-  @media (width >= 64rem) {
-    .lg\:justify-start {
-      justify-content: flex-start;
     }
   }
 
