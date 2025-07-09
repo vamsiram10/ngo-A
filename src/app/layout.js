@@ -4,6 +4,7 @@ import NavBar from "@/components/common/navbar/Navbar";
 import Footer from "@/components/common/footer/Footer";
 import Link from "next/link";
 import Image from "next/image";
+import AnimatedCursor from "@/components/utils/animatedcursor/AnimatedCursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({ children }) {
         style={{ backgroundColor: "black" }}
       >
         <NavBar />
+        <AnimatedCursor />
         {children}
         <Footer />
       </body>
