@@ -1,6 +1,5 @@
 "use client";
 
-import AnimatedCursor from "@/components/utils/animatedcursor/AnimatedCursor";
 import { Lenis as ReactLenis, useLenis } from "@studio-freight/react-lenis";
 
 function OurWorkLayout({ children }) {
@@ -8,7 +7,6 @@ function OurWorkLayout({ children }) {
     <ReactLenis root>
       <main className="relative min-h-screen w-screen overflow-x-hidden bg-black">
         <h1 className="text-white text-6xl font-bold text-center mt-[]"></h1>
-        <AnimatedCursor />
         {children}
       </main>
     </ReactLenis>
