@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/rongalivamsi/Desktop/ngo-A/src/app/page.js"],"sourcesContent":["\"use client\";\nimport HomeTeam from \"@/components/section/homesections/hometeam/HomeTeam\";\nimport { useRef } from \"react\";\n\nexport default function HomePage() {\n  const mainContainer = useRef(null);\n  return (\n    <main\n      ref={mainContainer}\n      className=\"relative min-h-screen w-screen overflow-x-hidden\"\n    >\n      <HomeTeam />\n    </main>\n  );\n}\n"],"names":[],"mappings":";;;;;;;;;AAEA;;;AAFA;;;AAIe,SAAS;;IACtB,MAAM,gBAAgB,CAAA,GAAA,6JAAA,CAAA,SAAM,AAAD,EAAE;IAC7B,qBACE,6LAAC;QACC,KAAK;QACL,WAAU;kBAEV,cAAA,6LAAC;;;;;;;;;;AAGP;GAVwB;KAAA","debugId":null}}]
-}
