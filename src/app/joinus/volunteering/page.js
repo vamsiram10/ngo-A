@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -239,6 +239,73 @@ const RegistrationModal = ({ isOpen, onClose, opportunity }) => {
   );
 };
 
+// --- Navbar with Smooth Show/Hide on Scroll ---
+
+function SmoothNavbar() {
+  const [show, setShow] = useState(false);
+  const lastScrollY = useRef(0);
+  const ticking = useRef(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!ticking.current) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          if (currentScrollY > 80 && currentScrollY > lastScrollY.current) {
+            // Scrolling down, show navbar
+            setShow(true);
+          } else if (currentScrollY < lastScrollY.current - 10) {
+            // Scrolling up, hide navbar
+            setShow(false);
+          }
+          lastScrollY.current = currentScrollY;
+          ticking.current = false;
+        });
+        ticking.current = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <motion.nav
+      initial={{ y: -80, opacity: 0 }}
+      animate={show ? { y: 0, opacity: 1 } : { y: -80, opacity: 0 }}
+      transition={{ type: "spring", stiffness: 200, damping: 28 }}
+      className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur border-b border-neutral-800 shadow-lg"
+      style={{ pointerEvents: show ? "auto" : "none" }}
+    >
+      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+        <Link href="/" className="text-xl font-bold text-pink-500">
+          Changemaker
+        </Link>
+        <div className="flex gap-6">
+          <Link
+            href="#opportunities"
+            className="text-white hover:text-pink-400 transition"
+          >
+            Opportunities
+          </Link>
+          <Link
+            href="/joinus/volunteering"
+            className="text-white hover:text-pink-400 transition"
+          >
+            Volunteer
+          </Link>
+          <Link
+            href="/about"
+            className="text-white hover:text-pink-400 transition"
+          >
+            About
+          </Link>
+        </div>
+      </div>
+    </motion.nav>
+  );
+}
+
 // --- Main Volunteering Page Component ---
 
 export default function VolunteeringPage() {
@@ -299,6 +366,7 @@ export default function VolunteeringPage() {
 
   return (
     <>
+      <SmoothNavbar />
       <main className="bg-black text-white">
         <section className="relative min-h-[90vh] flex items-center justify-center text-center p-4">
           <Image
