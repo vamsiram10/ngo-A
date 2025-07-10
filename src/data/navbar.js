@@ -15,7 +15,7 @@ const navLinks = {
       label: "Our Work",
       url: "/",
       dialog: [
-        { id: 1, title: "our chapters ", path: "/" },
+        { id: 1, title: "our chapters ", path: "/ourwork/ourchapters" },
         { id: 2, title: "gallery", path: "/ourwork/gallery" },
         {
           id: 3,
@@ -30,8 +30,8 @@ const navLinks = {
       label: "Join us",
       url: "/joinus",
       dialog: [
-        { id: 1, title: "volunteering  ", path: "/" },
-        { id: 2, title: "internship", path: "/" },
+        { id: 1, title: "volunteering  ", path: "/joinus/volunteering" },
+        { id: 2, title: "internship", path: "/joinus/internship" },
         { id: 3, title: "youth corner ", path: "/" },
         { id: 4, title: "blogs", path: "/" },
       ],
