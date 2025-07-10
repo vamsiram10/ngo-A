@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,9 +10,230 @@ const containerVariants = { hidden: { opacity: 0 }, visible: { opacity: 1, trans
 const itemVariants = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } };
 
 // --- Local Components ---
-const Stat = ({ to, suffix, label }) => ( <div className="text-center"><Counter to={to} suffix={suffix} /><p className="font-serif text-xs text-neutral-400 tracking-widest mt-2 uppercase">{label}</p></div> );
-const FeaturePoint = ({ number, title, children }) => ( <motion.div variants={itemVariants} className="relative pl-12"><div className="absolute left-0 top-1 flex h-8 w-8 items-center justify-center rounded-full bg-pink-900/50 border border-pink-700/60 text-pink-400 font-semibold">{number}</div><h3 className="font-semibold text-lg text-white mb-2">{title}</h3><p className="text-neutral-400 leading-relaxed">{children}</p></motion.div> );
-const RegistrationModal = ({ isOpen, onClose, opportunity }) => { const [view, setView] = useState('details'); const handleClose = () => { onClose(); setTimeout(() => { setView('details'); }, 300); }; const handleSubmit = (e) => { e.preventDefault(); setView('success'); }; if (!opportunity) return null; return ( <AnimatePresence>{isOpen && ( <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={handleClose} className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"><motion.div initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 50, opacity: 0 }} transition={{ type: "spring", stiffness: 300, damping: 30 }} onClick={(e) => e.stopPropagation()} className="bg-neutral-900 border border-neutral-700 rounded-2xl w-full max-w-2xl shadow-2xl overflow-hidden"><AnimatePresence mode="wait">{view === 'details' && ( <motion.div key="details" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><Image src={opportunity.img} alt={opportunity.title} width={800} height={400} className="w-full h-56 object-cover" /><div className="p-8"><h2 className="text-3xl font-bold text-pink-500 mb-2">{opportunity.title}</h2><p className="text-neutral-400 mb-4">Commitment: {opportunity.time}</p><p className="text-neutral-300 leading-relaxed mb-6">{opportunity.longDesc}</p><h3 className="font-semibold text-white mb-2">Key Responsibilities:</h3><ul className="list-disc list-inside text-neutral-400 space-y-1 mb-6">{opportunity.responsibilities.map(res => <li key={res}>{res}</li>)}</ul><div className="flex justify-end"><button onClick={() => setView('form')} className="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-8 rounded-full transition-all">Register Now</button></div></div></motion.div> )}{view === 'form' && ( <motion.div key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="p-8"><div className="mb-6"><h2 className="text-2xl font-bold text-pink-500">{opportunity.title}</h2><p className="text-neutral-400">Register your interest.</p></div><form onSubmit={handleSubmit} className="space-y-4"><div className="grid grid-cols-1 md:grid-cols-2 gap-4"><input className="w-full bg-neutral-800 border border-neutral-600 rounded-lg px-4 py-2.5 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-pink-500" type="text" name="name" placeholder="Full Name" required /><input className="w-full bg-neutral-800 border border-neutral-600 rounded-lg px-4 py-2.5 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-pink-500" type="email" name="email" placeholder="Email Address" required /></div><input className="w-full bg-neutral-800 border border-neutral-600 rounded-lg px-4 py-2.5 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-pink-500" type="tel" name="phone" placeholder="Phone Number" required /><div><label className="block text-sm font-medium text-neutral-400 mb-2">Areas of Interest:</label><div className="grid grid-cols-2 md:grid-cols-3 gap-2">{['Design & Media', 'Outreach', 'Research'].map(interest => ( <label key={interest} className="flex items-center space-x-2 bg-neutral-800 border border-neutral-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-neutral-700 has-[:checked]:bg-pink-900/50 has-[:checked]:border-pink-700"><input type="checkbox" name="interests" value={interest} className="h-4 w-4 rounded-sm bg-neutral-700 border-neutral-500 text-pink-600 focus:ring-pink-500" /><span>{interest}</span></label> ))}</div></div><div className="flex justify-between items-center pt-2"><button type="button" onClick={() => setView('details')} className="text-neutral-400 hover:text-white transition">← Back to Details</button><button type="submit" className="bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2 px-6 rounded-full transition-all">Submit</button></div></form></motion.div> )}{view === 'success' && ( <motion.div key="success" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="p-8 text-center"><motion.div initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="text-green-500 mx-auto mb-4 h-16 w-16"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></motion.div><h2 className="text-2xl font-bold text-white mb-2">Registration Received!</h2><p className="text-neutral-300 mb-6">Thank you for your interest in "{opportunity.title}". We'll be in touch soon.</p><button onClick={handleClose} className="bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2 px-6 rounded-full transition-all">Close</button></motion.div> )}</AnimatePresence></motion.div></motion.div> )}</AnimatePresence> ); };
+
+const Stat = ({ to, suffix, label }) => (
+  <div className="text-center">
+    <Counter to={to} suffix={suffix} />
+    <p className="font-serif text-xs text-neutral-400 tracking-widest mt-2 uppercase">
+      {label}
+    </p>
+  </div>
+);
+
+const FeaturePoint = ({ number, title, children }) => (
+  <motion.div variants={itemVariants} className="relative pl-12">
+    <div className="absolute left-0 top-1 flex h-8 w-8 items-center justify-center rounded-full bg-pink-900/50 border border-pink-700/60 text-pink-400 font-semibold">
+      {number}
+    </div>
+    <h3 className="font-semibold text-lg text-white mb-2">{title}</h3>
+    <p className="text-neutral-400 leading-relaxed">{children}</p>
+  </motion.div>
+);
+
+const RegistrationModal = ({ isOpen, onClose, opportunity }) => {
+  const [view, setView] = useState("details");
+  const handleClose = () => {
+    onClose();
+    setTimeout(() => {
+      setView("details");
+    }, 300);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setView("success");
+  };
+  if (!opportunity) return null;
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={handleClose}
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        >
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 50, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            onClick={(e) => e.stopPropagation()}
+            className="bg-neutral-900 border border-neutral-700 rounded-2xl w-full max-w-2xl shadow-2xl overflow-hidden"
+          >
+            <AnimatePresence mode="wait">
+              {view === "details" && (
+                <motion.div
+                  key="details"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="p-0"
+                >
+                  <Image
+                    src={opportunity.img}
+                    alt={opportunity.title}
+                    width={800}
+                    height={400}
+                    className="w-full h-56 object-cover"
+                  />
+                  <div className="p-8">
+                    <h2 className="text-3xl font-bold text-pink-500 mb-2">
+                      {opportunity.title}
+                    </h2>
+                    <p className="text-neutral-400 mb-4">
+                      Commitment: {opportunity.time}
+                    </p>
+                    <p className="text-neutral-300 leading-relaxed mb-6">
+                      {opportunity.longDesc}
+                    </p>
+                    <h3 className="font-semibold text-white mb-2">
+                      Key Responsibilities:
+                    </h3>
+                    <ul className="list-disc list-inside text-neutral-400 space-y-1 mb-6">
+                      {opportunity.responsibilities.map((res) => (
+                        <li key={res}>{res}</li>
+                      ))}
+                    </ul>
+                    <div className="flex justify-end">
+                      <button
+                        onClick={() => setView("form")}
+                        className="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-8 rounded-full transition-all"
+                      >
+                        Register Now
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+              {view === "form" && (
+                <motion.div
+                  key="form"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="p-8"
+                >
+                  <div className="mb-6">
+                    <h2 className="text-2xl font-bold text-pink-500">
+                      {opportunity.title}
+                    </h2>
+                    <p className="text-neutral-400">Register your interest.</p>
+                  </div>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <input
+                        className="w-full bg-neutral-800 border border-neutral-600 rounded-lg px-4 py-2.5 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
+                        type="text"
+                        name="name"
+                        placeholder="Full Name"
+                        required
+                      />
+                      <input
+                        className="w-full bg-neutral-800 border border-neutral-600 rounded-lg px-4 py-2.5 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
+                        type="email"
+                        name="email"
+                        placeholder="Email Address"
+                        required
+                      />
+                    </div>
+                    <input
+                      className="w-full bg-neutral-800 border border-neutral-600 rounded-lg px-4 py-2.5 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
+                      type="tel"
+                      name="phone"
+                      placeholder="Phone Number"
+                      required
+                    />
+                    <div>
+                      <label className="block text-sm font-medium text-neutral-400 mb-2">
+                        Areas of Interest:
+                      </label>
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                        {["Design & Media", "Outreach", "Research"].map(
+                          (interest) => (
+                            <label
+                              key={interest}
+                              className="flex items-center space-x-2 bg-neutral-800 border border-neutral-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-neutral-700 has-[:checked]:bg-pink-900/50 has-[:checked]:border-pink-700"
+                            >
+                              <input
+                                type="checkbox"
+                                name="interests"
+                                value={interest}
+                                className="h-4 w-4 rounded-sm bg-neutral-700 border-neutral-500 text-pink-600 focus:ring-pink-500"
+                              />
+                              <span>{interest}</span>
+                            </label>
+                          )
+                        )}
+                      </div>
+                    </div>
+                    <div className="flex justify-between items-center pt-2">
+                      <button
+                        type="button"
+                        onClick={() => setView("details")}
+                        className="text-neutral-400 hover:text-white transition"
+                      >
+                        ← Back to Details
+                      </button>
+                      <button
+                        type="submit"
+                        className="bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2 px-6 rounded-full transition-all"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </form>
+                </motion.div>
+              )}
+              {view === "success" && (
+                <motion.div
+                  key="success"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="p-8 text-center"
+                >
+                  <motion.div
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    className="text-green-500 mx-auto mb-4 h-16 w-16"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5 13l4 4L19 7"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </motion.div>
+                  <h2 className="text-2xl font-bold text-white mb-2">
+                    Registration Received!
+                  </h2>
+                  <p className="text-neutral-300 mb-6">
+                    Thank you for your interest in "{opportunity.title}
+                    ". We'll be in touch soon.
+                  </p>
+                  <button
+                    onClick={handleClose}
+                    className="bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2 px-6 rounded-full transition-all"
+                  >
+                    Close
+                  </button>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
 
 export default function VolunteeringPage() {
     const [modalOpen, setModalOpen] = useState(false); const [selectedOpp, setSelectedOpp] = useState(null); const openModal = (opportunity) => { setSelectedOpp(opportunity); setModalOpen(true); }; const closeModal = () => { setModalOpen(false); };
