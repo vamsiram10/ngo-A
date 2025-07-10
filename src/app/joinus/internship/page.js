@@ -189,7 +189,7 @@ const RegistrationModal = ({ isOpen, onClose, opportunity }) => {
                         onClick={() => setView("details")}
                         className="text-neutral-400 hover:text-white transition"
                       >
-                        ← Back to Details
+                        &larr; Back to Details
                       </button>
                       <button
                         type="submit"
@@ -233,8 +233,8 @@ const RegistrationModal = ({ isOpen, onClose, opportunity }) => {
                     Application Received!
                   </h2>
                   <p className="text-neutral-300 mb-6">
-                    Thank you for applying for the "{opportunity.title}"
-                    program. We'll be in touch soon.
+                    Thank you for applying for the &quot;{opportunity.title}
+                    &quot; program. We&apos;ll be in touch soon.
                   </p>
                   <button
                     onClick={handleClose}
@@ -360,7 +360,7 @@ export default function InternshipPage() {
                 <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,_rgba(107,33,168,0.08),_transparent_40%)]"></div>
                 <div className="absolute inset-0 -z-20 [mask-image:radial-gradient(ellipse_at_center,white,transparent)] bg-cover bg-[url('https://tailwindcss.com/_next/static/media/docs@tinypng.61f4d333_1x.png')] opacity-20"></div>
                 <h2 className="text-4xl font-bold text-pink-500 mb-16 text-center">
-                  What You'll Gain
+                  What You&apos;ll Gain
                 </h2>
                 <motion.div
                   initial="hidden"
@@ -459,7 +459,7 @@ export default function InternshipPage() {
                       whileHover={{ scale: 1.05 }}
                       className="w-full mt-auto bg-gradient-to-r from-pink-600 to-violet-600 hover:from-pink-500 hover:to-violet-500 text-white font-bold py-3 rounded-lg transition-all duration-300"
                     >
-                      View & Apply
+                      View &amp; Apply
                     </motion.button>
                   </div>
                 </motion.div>
