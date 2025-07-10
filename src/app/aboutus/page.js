@@ -1,9 +1,10 @@
-import AboutUsSection from "@/components/section/aboutussection/AboutUsSection";
+import AboutUsContent from "@/components/section/aboutussection/AboutUsContent";
+
 
 const AboutUsPage = () => {
   return (
     <>
-      <AboutUsSection />
+      <AboutUsContent/> 
     </>
   );
 };

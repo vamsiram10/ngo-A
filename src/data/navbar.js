@@ -5,9 +5,9 @@ const navLinks = {
       label: "About Us",
       url: "/aboutus",
       dialog: [
-        { id: 1, title: "who we are ", path: "/" },
-        { id: 2, title: "what do we do", path: "/" },
-        { id: 3, title: "meet our team", path: "/" },
+        { id: 1, title: "who we are ", path: "aboutus/#who-we-are" },
+        { id: 2, title: "what do we do", path: "aboutus/#what-we-do" },
+        { id: 3, title: "meet our team", path: "aboutus/#meet-our-team" },
       ],
     },
     {
