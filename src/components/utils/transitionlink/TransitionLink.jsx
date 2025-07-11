@@ -5,6 +5,12 @@ import { useRouter } from "next/navigation";
 import { useLenis } from "@studio-freight/react-lenis";
 import { useEffect } from "react";
 
+// Utility to escape double and single quotes for HTML attributes/text
+function escapeHtml(str) {
+  if (typeof str !== "string") return str;
+  return str.replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -159,6 +165,20 @@ export const TransitionLink = ({ children, href, ...props }) => {
     rewrittenHref = props["data-aboutus-anchor"];
   }
 
+  // Escape children if it's a string to avoid unescaped quotes
+  let safeChildren = children;
+  if (typeof children === "string") {
+    safeChildren = escapeHtml(children);
+  }
+
+  // Escape all string props to avoid unescaped quotes in attributes
+  const { ["data-aboutus-anchor"]: _anchor, ...restProps } = props;
+  const safeProps = {};
+  Object.keys(restProps).forEach((key) => {
+    const value = restProps[key];
+    safeProps[key] = typeof value === "string" ? escapeHtml(value) : value;
+  });
+
   const handleTransition = useCallback(
     async (e) => {
       if (
@@ -196,13 +216,9 @@ export const TransitionLink = ({ children, href, ...props }) => {
     [router, rewrittenHref, lenis]
   );
 
-  // Only attach onClick on the client to avoid hydration mismatch
-  // But Next.js expects the same props on server and client, so we use a stable function
-  // Pass the rewrittenHref and remove the data-aboutus-anchor prop so it doesn't end up on the <a>
-  const { ["data-aboutus-anchor"]: _anchor, ...restProps } = props;
   return (
-    <Link {...restProps} href={rewrittenHref} onClick={handleTransition}>
-      {children}
+    <Link {...safeProps} href={rewrittenHref} onClick={handleTransition}>
+      {safeChildren}
     </Link>
   );
 };
