@@ -32,7 +32,7 @@ const navLinks = {
       dialog: [
         { id: 1, title: "volunteering  ", path: "/joinus/volunteering" },
         { id: 2, title: "internship", path: "/joinus/internship" },
-        { id: 3, title: "youth corner ", path: "/" },
+        { id: 3, title: " ", path: "/" },
         { id: 4, title: "blogs", path: "/" },
       ],
     },
