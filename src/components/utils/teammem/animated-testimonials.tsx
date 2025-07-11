@@ -1,7 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
+
+// Use <img> instead of next/image for external images not configured in next.config.js
+// import Image from "next/image";
 
 type Testimonial = {
   quote: string;
@@ -130,10 +133,17 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
   const [active, setActive] = useState(0);
   const imageSize = useResponsiveImageSize();
 
-  const handleNext = () =>
-    setActive((prev) => (prev + 1) % testimonials.length);
-  const handlePrev = () =>
-    setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  const handleNext = useCallback(
+    () => setActive((prev) => (prev + 1) % testimonials.length),
+    [testimonials.length]
+  );
+  const handlePrev = useCallback(
+    () =>
+      setActive(
+        (prev) => (prev - 1 + testimonials.length) % testimonials.length
+      ),
+    [testimonials.length]
+  );
 
   useEffect(() => {
     if (autoplay) {
@@ -141,7 +151,7 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
       return () => clearInterval(interval);
     }
     return;
-  }, [autoplay, testimonials.length]);
+  }, [autoplay, testimonials.length, handleNext]);
 
   const randomRotateY = () => Math.floor(Math.random() * 21) - 10;
 
@@ -171,6 +181,38 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
     "relative px-2 py-3 max-w-xs w-full bg-white/90 rounded-2xl shadow-lg dark:bg-neutral-900/90 md:px-8 md:py-8 md:max-w-3xl";
   const quoteTextClass =
     "text-sm text-gray-700 leading-relaxed dark:text-neutral-300 md:text-lg";
+
+  // Helper to render image, using <img> for external URLs
+  const TestimonialImage = ({
+    src,
+    alt,
+    className,
+    style,
+    width,
+    height,
+    draggable,
+    priority,
+  }: {
+    src: string;
+    alt: string;
+    className?: string;
+    style?: React.CSSProperties;
+    width: number;
+    height: number;
+    draggable?: boolean;
+    priority?: boolean;
+  }) => (
+    <img
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      draggable={draggable}
+      className={className}
+      style={style}
+      loading={priority ? "eager" : "lazy"}
+    />
+  );
 
   return (
     <div className="relative flex flex-col items-center justify-center mx-auto px-1 py-1 w-full max-w-6xl min-h-screen font-sans antialiased sm:px-1 lg:px-1">
@@ -233,7 +275,7 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
               className="absolute inset-0 pointer-events-none origin-bottom"
               style={{ zIndex: 5 }}
             >
-              <img
+              <TestimonialImage
                 src={testimonials[getPrevIndex()].src}
                 alt={testimonials[getPrevIndex()].name}
                 width={imageSize}
@@ -241,6 +283,7 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
                 draggable={false}
                 className="object-cover object-center w-full h-full rounded-xl shadow-md"
                 style={{ opacity: 0.3, filter: "blur(3px)" }}
+                priority={false}
               />
             </motion.div>
             <AnimatePresence initial={false} mode="wait">
@@ -273,13 +316,14 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
                 className="absolute inset-0 origin-bottom"
                 style={{ zIndex: 40 }}
               >
-                <img
+                <TestimonialImage
                   src={testimonials[active].src}
                   alt={testimonials[active].name}
                   width={imageSize}
                   height={imageSize}
                   draggable={false}
                   className="object-cover object-center w-full h-full rounded-2xl shadow-lg"
+                  priority={true}
                 />
               </motion.div>
             </AnimatePresence>
