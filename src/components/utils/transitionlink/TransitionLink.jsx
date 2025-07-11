@@ -120,9 +120,21 @@ function ensureTransitionStyle() {
 }
 
 function getRewrittenHref(href) {
-  // Rewrite "/ourwork" to "/" and "/contactus/maplocation" to "/contactus/map"
+  // Special-case About Us anchor links: rewrite "/" to the correct anchor if possible
+  // This is to support navLinks dialog links like "aboutus/#who-we-are" etc.
+  // If the href is exactly "aboutus/#who-we-are", "aboutus/#what-we-do", or "aboutus/#meet-our-team", return as is.
+  // If the href is "/" and props['data-aboutus-anchor'] is set, use that.
+  // Otherwise, keep the original logic.
   if (href === "/ourwork") return "/";
   if (href === "/contactus/maplocation") return "/contactus/map";
+  // If the href is one of the About Us anchor links, return as is
+  if (
+    href === "aboutus/#who-we-are" ||
+    href === "aboutus/#what-we-do" ||
+    href === "aboutus/#meet-our-team"
+  ) {
+    return href;
+  }
   return href;
 }
 
@@ -135,7 +147,17 @@ export const TransitionLink = ({ children, href, ...props }) => {
     ensureTransitionStyle();
   }, []);
 
-  const rewrittenHref = getRewrittenHref(href);
+  // Patch: If the href is "/" and a data-aboutus-anchor prop is present, use that as the href
+  let rewrittenHref = getRewrittenHref(href);
+  if (
+    href === "/" &&
+    typeof props["data-aboutus-anchor"] === "string" &&
+    (props["data-aboutus-anchor"] === "aboutus/#who-we-are" ||
+      props["data-aboutus-anchor"] === "aboutus/#what-we-do" ||
+      props["data-aboutus-anchor"] === "aboutus/#meet-our-team")
+  ) {
+    rewrittenHref = props["data-aboutus-anchor"];
+  }
 
   const handleTransition = useCallback(
     async (e) => {
@@ -176,8 +198,10 @@ export const TransitionLink = ({ children, href, ...props }) => {
 
   // Only attach onClick on the client to avoid hydration mismatch
   // But Next.js expects the same props on server and client, so we use a stable function
+  // Pass the rewrittenHref and remove the data-aboutus-anchor prop so it doesn't end up on the <a>
+  const { ["data-aboutus-anchor"]: _anchor, ...restProps } = props;
   return (
-    <Link {...props} href={rewrittenHref} onClick={handleTransition}>
+    <Link {...restProps} href={rewrittenHref} onClick={handleTransition}>
       {children}
     </Link>
   );
