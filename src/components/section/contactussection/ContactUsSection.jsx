@@ -6,9 +6,10 @@ import GameCarousel from "@/components/utils/personal/GameCarousel";
 const ContactUsSection = () => {
   return (
     <div>
-      <GameCarousel />
+      {/* <GameCarousel /> */}
       {/* <HomeEvent /> */}
       {/* <ThreeDCarousel /> */}
+      <FlyingBirdLogo />
     </div>
   );
 };
