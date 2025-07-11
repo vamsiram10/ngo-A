@@ -46,9 +46,9 @@ const HomeOther = () => {
   }, []);
 
   return (
-    <div className="min-h-screen w-screen">
+    <div className="overflow-x-hidden relative h-dvh w-screen">
       <div
-        className="overflow-x-hidden relative flex items-center justify-center min-h-screen w-screen"
+        className="flex items-center justify-center h-dvh w-screen"
         style={{
           backgroundImage:
             "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/main1.jpg')",
@@ -56,7 +56,7 @@ const HomeOther = () => {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           width: "100vw",
-          minHeight: "100vh",
+          minHeight: "100dvh",
         }}
       >
         <div className="flex flex-col items-center justify-center w-full">

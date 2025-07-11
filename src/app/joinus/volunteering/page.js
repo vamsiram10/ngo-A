@@ -38,6 +38,27 @@ const FeaturePoint = ({ number, title, children }) => (
 
 const RegistrationModal = ({ isOpen, onClose, opportunity }) => {
   const [view, setView] = useState("details");
+  const modalContentRef = useRef(null);
+
+  // Prevent background scroll when modal is open (for mobile)
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  // Focus modal content on open (for accessibility)
+  useEffect(() => {
+    if (isOpen && modalContentRef.current) {
+      modalContentRef.current.focus();
+    }
+  }, [isOpen, view]);
+
   const handleClose = () => {
     onClose();
     setTimeout(() => {
@@ -57,15 +78,28 @@ const RegistrationModal = ({ isOpen, onClose, opportunity }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={handleClose}
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-0 sm:p-4"
+          style={{
+            // Ensure modal always scrolls on mobile if content is tall
+            overflowY: "auto",
+            WebkitOverflowScrolling: "touch",
+          }}
         >
           <motion.div
+            ref={modalContentRef}
+            tabIndex={-1}
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 50, opacity: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-neutral-900 border border-neutral-700 rounded-2xl w-full max-w-2xl shadow-2xl overflow-hidden"
+            className="bg-neutral-900 border border-neutral-700 rounded-2xl w-full max-w-2xl shadow-2xl overflow-hidden outline-none
+              max-h-[100vh] flex flex-col"
+            style={{
+              // Make sure modal never exceeds viewport height
+              // and is scrollable inside if needed
+              overflowY: "auto",
+            }}
           >
             <AnimatePresence mode="wait">
               {view === "details" && (
@@ -74,17 +108,19 @@ const RegistrationModal = ({ isOpen, onClose, opportunity }) => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="p-0"
+                  className="p-0 flex flex-col"
                 >
-                  <Image
-                    src={opportunity.img}
-                    alt={opportunity.title}
-                    width={800}
-                    height={400}
-                    className="w-full h-56 object-cover"
-                  />
-                  <div className="p-8">
-                    <h2 className="text-3xl font-bold text-pink-500 mb-2">
+                  <div className="relative w-full h-48 sm:h-56">
+                    <Image
+                      src={opportunity.img}
+                      alt={opportunity.title}
+                      fill
+                      className="w-full h-full object-cover"
+                      style={{ objectFit: "cover" }}
+                    />
+                  </div>
+                  <div className="p-4 sm:p-8 flex-1 flex flex-col">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-pink-500 mb-2">
                       {opportunity.title}
                     </h2>
                     <p className="text-neutral-400 mb-4">
@@ -101,7 +137,7 @@ const RegistrationModal = ({ isOpen, onClose, opportunity }) => {
                         <li key={res}>{res}</li>
                       ))}
                     </ul>
-                    <div className="flex justify-end">
+                    <div className="flex justify-end mt-auto">
                       <button
                         onClick={() => setView("form")}
                         className="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-8 rounded-full transition-all"
@@ -118,15 +154,18 @@ const RegistrationModal = ({ isOpen, onClose, opportunity }) => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="p-8"
+                  className="p-4 sm:p-8 flex-1 flex flex-col"
                 >
                   <div className="mb-6">
-                    <h2 className="text-2xl font-bold text-pink-500">
+                    <h2 className="text-xl sm:text-2xl font-bold text-pink-500">
                       {opportunity.title}
                     </h2>
                     <p className="text-neutral-400">Register your interest.</p>
                   </div>
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form
+                    onSubmit={handleSubmit}
+                    className="space-y-4 flex-1 flex flex-col"
+                  >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <input
                         className="w-full bg-neutral-800 border border-neutral-600 rounded-lg px-4 py-2.5 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
@@ -173,7 +212,7 @@ const RegistrationModal = ({ isOpen, onClose, opportunity }) => {
                         )}
                       </div>
                     </div>
-                    <div className="flex justify-between items-center pt-2">
+                    <div className="flex justify-between items-center pt-2 mt-auto">
                       <button
                         type="button"
                         onClick={() => setView("details")}
@@ -197,7 +236,7 @@ const RegistrationModal = ({ isOpen, onClose, opportunity }) => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="p-8 text-center"
+                  className="p-4 sm:p-8 text-center flex-1 flex flex-col justify-center"
                 >
                   <motion.div
                     initial={{ scale: 0.5, opacity: 0 }}
@@ -218,7 +257,7 @@ const RegistrationModal = ({ isOpen, onClose, opportunity }) => {
                       />
                     </svg>
                   </motion.div>
-                  <h2 className="text-2xl font-bold text-white mb-2">
+                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
                     Registration Received!
                   </h2>
                   <p className="text-neutral-300 mb-6">
@@ -302,10 +341,10 @@ export default function VolunteeringPage() {
           <Image
             src="/images/volunteer-hero.jpg"
             alt="A group of smiling volunteers"
-            layout="fill"
-            objectFit="cover"
-            className="z-0 opacity-40"
+            fill
+            className="z-0 opacity-40 object-cover"
             priority
+            style={{ objectFit: "cover" }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10"></div>
           <motion.div
@@ -316,13 +355,13 @@ export default function VolunteeringPage() {
           >
             <motion.h1
               variants={itemVariants}
-              className="text-5xl md:text-7xl font-bold text-white mb-6"
+              className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6"
             >
               Become a <span className="text-pink-500">Changemaker</span>
             </motion.h1>
             <motion.p
               variants={itemVariants}
-              className="text-lg md:text-xl text-neutral-200 mx-auto max-w-3xl mb-10 leading-relaxed"
+              className="text-base sm:text-lg md:text-xl text-neutral-200 mx-auto max-w-3xl mb-10 leading-relaxed"
             >
               Join a passionate community dedicated to creating tangible,
               lasting impact. Your time and skills can change lives.
@@ -331,7 +370,7 @@ export default function VolunteeringPage() {
               <Link href="#opportunities">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
-                  className="bg-pink-600 hover:bg-pink-700 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 shadow-lg shadow-pink-800/60"
+                  className="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 sm:py-4 px-6 sm:px-10 rounded-full transition-all duration-300 shadow-lg shadow-pink-800/60"
                 >
                   View Opportunities
                 </motion.button>
@@ -341,21 +380,21 @@ export default function VolunteeringPage() {
         </section>
 
         <section className="relative -mt-20 z-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-white/5 border border-white/10 backdrop-blur-lg rounded-2xl py-12">
-              <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+            <div className="bg-white/5 border border-white/10 backdrop-blur-lg rounded-2xl py-8 sm:py-12">
+              <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
                 <Stat to={100} suffix="+" label="Volunteers Engaged" />
                 <Stat to={8} label="Active Projects" />
                 <Stat to={2000} suffix="+" label="Lives Impacted" />
               </div>
             </div>
           </div>
-          <div className="bg-black pt-28 pb-12">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="relative bg-neutral-900 border border-neutral-800 rounded-3xl p-8 md:p-16 overflow-hidden">
+          <div className="bg-black pt-16 sm:pt-28 pb-8 sm:pb-12">
+            <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+              <div className="relative bg-neutral-900 border border-neutral-800 rounded-3xl p-4 sm:p-8 md:p-16 overflow-hidden">
                 <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,_rgba(107,33,168,0.08),_transparent_40%)]"></div>
                 <div className="absolute inset-0 -z-20 [mask-image:radial-gradient(ellipse_at_center,white,transparent)] bg-cover bg-[url('https://tailwindcss.com/_next/static/media/docs@tinypng.61f4d333_1x.png')] opacity-20"></div>
-                <h2 className="text-4xl font-bold text-pink-500 mb-16 text-center">
+                <h2 className="text-2xl sm:text-4xl font-bold text-pink-500 mb-8 sm:mb-16 text-center">
                   Why Your Help Matters
                 </h2>
                 <motion.div
@@ -363,9 +402,9 @@ export default function VolunteeringPage() {
                   whileInView="visible"
                   variants={containerVariants}
                   viewport={{ once: true, amount: 0.2 }}
-                  className="grid lg:grid-cols-3 gap-12 md:gap-16 items-center"
+                  className="grid gap-8 sm:gap-12 md:gap-16 items-center lg:grid-cols-3"
                 >
-                  <div className="lg:col-span-1 space-y-12 text-right">
+                  <div className="lg:col-span-1 space-y-8 sm:space-y-12 text-right">
                     <FeaturePoint number="01" title="Make a Real Impact">
                       Your work directly contributes to improving lives and
                       strengthening communities.
@@ -379,16 +418,17 @@ export default function VolunteeringPage() {
                     variants={itemVariants}
                     className="lg:col-span-1 flex justify-center items-center order-first lg:order-none"
                   >
-                    <div className="relative w-full max-w-xs aspect-square rounded-full overflow-hidden border-4 border-neutral-800 shadow-2xl">
+                    <div className="relative w-40 sm:w-full max-w-xs aspect-square rounded-full overflow-hidden border-4 border-neutral-800 shadow-2xl">
                       <Image
                         src="/images/volunteer2.jpg"
                         alt="A volunteer helping the community"
-                        layout="fill"
-                        objectFit="cover"
+                        fill
+                        className="object-cover"
+                        style={{ objectFit: "cover" }}
                       />
                     </div>
                   </motion.div>
-                  <div className="lg:col-span-1 space-y-12 text-left">
+                  <div className="lg:col-span-1 space-y-8 sm:space-y-12 text-left">
                     <FeaturePoint number="03" title="Join a Community">
                       Connect with like-minded individuals who share your
                       passion for social good.
@@ -406,10 +446,10 @@ export default function VolunteeringPage() {
 
         <section
           id="opportunities"
-          className="bg-neutral-950 py-24 border-t border-neutral-800"
+          className="bg-neutral-950 py-12 sm:py-24 border-t border-neutral-800"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-pink-500 mb-12 text-center">
+          <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+            <h2 className="text-2xl sm:text-4xl font-bold text-pink-500 mb-8 sm:mb-12 text-center">
               Current Opportunities
             </h2>
             <motion.div
@@ -417,7 +457,7 @@ export default function VolunteeringPage() {
               whileInView="visible"
               variants={containerVariants}
               viewport={{ once: true, amount: 0.1 }}
-              className="grid gap-10 md:grid-cols-2 lg:grid-cols-3"
+              className="grid gap-6 sm:gap-10 md:grid-cols-2 lg:grid-cols-3"
             >
               {opportunities.map((item) => (
                 <motion.div
@@ -426,35 +466,36 @@ export default function VolunteeringPage() {
                   className="bg-neutral-900 rounded-xl flex flex-col border border-neutral-800 transition-all duration-300 hover:border-pink-500/80 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-900/40 bg-[radial-gradient(circle_at_top,_rgba(236,72,153,0.08),_transparent_40%)]"
                 >
                   <div
-                    className="relative h-48 w-full rounded-t-xl overflow-hidden cursor-pointer"
+                    className="relative h-40 sm:h-48 w-full rounded-t-xl overflow-hidden cursor-pointer"
                     onClick={() => openModal(item)}
                   >
                     <Image
                       src={item.img}
                       alt={item.title}
-                      layout="fill"
-                      objectFit="cover"
+                      fill
+                      className="object-cover"
+                      style={{ objectFit: "cover" }}
                     />
                   </div>
-                  <div className="p-6 flex flex-col flex-grow">
+                  <div className="p-4 sm:p-6 flex flex-col flex-grow">
                     <h3
-                      className="text-2xl font-semibold text-pink-400 mb-3 cursor-pointer"
+                      className="text-xl sm:text-2xl font-semibold text-pink-400 mb-2 sm:mb-3 cursor-pointer"
                       onClick={() => openModal(item)}
                     >
                       {item.title}
                     </h3>
-                    <p className="text-neutral-300 text-base mb-4 flex-grow leading-relaxed">
+                    <p className="text-neutral-300 text-sm sm:text-base mb-2 sm:mb-4 flex-grow leading-relaxed">
                       {item.desc}
                     </p>
-                    <p className="text-sm text-neutral-400 font-semibold mb-6">
+                    <p className="text-xs sm:text-sm text-neutral-400 font-semibold mb-4 sm:mb-6">
                       Commitment:{" "}
                       <span className="text-neutral-200">{item.time}</span>
                     </p>
-                    <div className="mt-auto pt-4">
+                    <div className="mt-auto pt-2 sm:pt-4">
                       <motion.button
                         onClick={() => openModal(item)}
                         whileHover={{ scale: 1.05 }}
-                        className="w-full bg-gradient-to-r from-pink-600 to-violet-600 hover:from-pink-500 hover:to-violet-500 text-white font-bold py-3 rounded-lg transition-all duration-300"
+                        className="w-full bg-gradient-to-r from-pink-600 to-violet-600 hover:from-pink-500 hover:to-violet-500 text-white font-bold py-2 sm:py-3 rounded-lg transition-all duration-300"
                       >
                         View &amp; Register
                       </motion.button>

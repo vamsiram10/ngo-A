@@ -3,9 +3,6 @@ import React, { useEffect, useState, useCallback } from "react";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Use <img> instead of next/image for external images not configured in next.config.js
-// import Image from "next/image";
-
 type Testimonial = {
   quote: string;
   name: string;
@@ -64,15 +61,13 @@ interface AnimatedTestimonialsProps {
 }
 
 const IMAGE_SIZE = 384;
-const IMAGE_SIZE_MD = 256;
-const IMAGE_SIZE_SM = 160;
 const IMAGE_SIZE_MD_LG = 320;
 const IMAGE_SIZE_SM_LG = 280;
 
 const useResponsiveImageSize = () => {
   const [size, setSize] = useState(IMAGE_SIZE);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const updateSize = () => {
       if (window.innerWidth < 640) {
         setSize(IMAGE_SIZE_SM_LG);
@@ -89,7 +84,7 @@ const useResponsiveImageSize = () => {
   return size;
 };
 
-const Shimmer = () => (
+const Shimmer: React.FC = () => (
   <span
     className="z-10 absolute inset-0 pointer-events-none"
     aria-hidden="true"
@@ -130,20 +125,16 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
   testimonials = DEFAULT_TESTIMONIALS,
   autoplay = false,
 }) => {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState<number>(0);
   const imageSize = useResponsiveImageSize();
 
-  const handleNext = useCallback(
-    () => setActive((prev) => (prev + 1) % testimonials.length),
-    [testimonials.length]
-  );
-  const handlePrev = useCallback(
-    () =>
-      setActive(
-        (prev) => (prev - 1 + testimonials.length) % testimonials.length
-      ),
-    [testimonials.length]
-  );
+  const handleNext = useCallback(() => {
+    setActive((prev) => (prev + 1) % testimonials.length);
+  }, [testimonials.length]);
+
+  const handlePrev = useCallback(() => {
+    setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  }, [testimonials.length]);
 
   useEffect(() => {
     if (autoplay) {
@@ -170,7 +161,6 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
 
   const titleClass =
     "mb-4 w-full text-2xl font-bold text-white tracking-tight text-center sm:text-3xl md:text-5xl md:mb-6";
-  // Remove border and border color classes from blocks
   const matterBlockClass =
     "relative flex flex-col flex-1 items-center gap-4 px-2 py-3 min-h-[120px] max-w-xs w-full bg-white/80 rounded-2xl shadow-lg dark:bg-neutral-900/80 md:flex-row md:gap-8 md:px-8 md:py-8 md:min-h-[220px] md:max-w-3xl";
   const nameClass =
@@ -183,16 +173,7 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
     "text-sm text-gray-700 leading-relaxed dark:text-neutral-300 md:text-lg";
 
   // Helper to render image, using <img> for external URLs
-  const TestimonialImage = ({
-    src,
-    alt,
-    className,
-    style,
-    width,
-    height,
-    draggable,
-    priority,
-  }: {
+  const TestimonialImage: React.FC<{
     src: string;
     alt: string;
     className?: string;
@@ -201,7 +182,7 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
     height: number;
     draggable?: boolean;
     priority?: boolean;
-  }) => (
+  }> = ({ src, alt, className, style, width, height, draggable, priority }) => (
     <img
       src={src}
       alt={alt}
@@ -230,7 +211,7 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
         />
       </div>
       <h2 className={titleClass}>Testimonials</h2>
-      <div className="flex flex-col items-center justify-center gap-4 gap-10 w-full md:flex-row lg:gap-45">
+      <div className="flex flex-col items-center justify-center gap-10 w-full md:flex-row lg:gap-45">
         <div
           className="flex flex-col flex-shrink-0 items-center"
           style={{
@@ -353,22 +334,22 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
               </motion.div>
             </AnimatePresence>
           </div>
-          <div className="flex flex-row items-center justify-center gap-2 gap-4 mt-2 mt-0 min-w-[40px] min-w-[48px] md:flex-col">
+          <div className="flex flex-row items-center justify-center gap-4 mt-0 min-w-[48px] md:flex-col">
             <button
               onClick={handlePrev}
-              className="flex items-center justify-center h-8 w-8 w-10 bg-gray-100 rounded-full dark:bg-neutral-800 shadow hover:scale-110 transition focus:outline-none focus:ring-2 focus:ring-blue-400 md:h-10"
+              className="flex items-center justify-center h-10 w-10 bg-gray-100 rounded-full dark:bg-neutral-800 shadow hover:scale-110 transition focus:outline-none focus:ring-2 focus:ring-blue-400"
               aria-label="Previous testimonial"
               type="button"
             >
-              <IconArrowLeft className="h-5 w-5 w-6 text-gray-700 transition-transform duration-300 dark:text-neutral-400 group-hover:rotate-12 md:h-6" />
+              <IconArrowLeft className="h-6 w-6 text-gray-700 transition-transform duration-300 dark:text-neutral-400 group-hover:rotate-12" />
             </button>
             <button
               onClick={handleNext}
-              className="flex items-center justify-center h-8 w-8 w-10 bg-gray-100 rounded-full dark:bg-neutral-800 shadow hover:scale-110 transition focus:outline-none focus:ring-2 focus:ring-blue-400 md:h-10"
+              className="flex items-center justify-center h-10 w-10 bg-gray-100 rounded-full dark:bg-neutral-800 shadow hover:scale-110 transition focus:outline-none focus:ring-2 focus:ring-blue-400"
               aria-label="Next testimonial"
               type="button"
             >
-              <IconArrowRight className="h-5 w-5 w-6 text-gray-700 transition-transform duration-300 dark:text-neutral-400 group-hover:-rotate-12 md:h-6" />
+              <IconArrowRight className="h-6 w-6 text-gray-700 transition-transform duration-300 dark:text-neutral-400 group-hover:-rotate-12" />
             </button>
           </div>
         </div>

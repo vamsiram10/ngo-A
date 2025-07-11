@@ -2,8 +2,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/common/navbar/Navbar";
 import Footer from "@/components/common/footer/Footer";
-import Link from "next/link";
-import Image from "next/image";
 import AnimatedCursor from "@/components/utils/animatedcursor/AnimatedCursor";
 
 const geistSans = Geist({
@@ -29,12 +27,12 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/svg/AVASA.svg" type="image/svg+xml" />
       </head>
       <body
-        className={` antialiased relative`}
+        className={`min-h-screen flex flex-col antialiased relative ${geistSans.variable} ${geistMono.variable}`}
         style={{ backgroundColor: "black" }}
       >
         <NavBar />
         <AnimatedCursor />
-        {children}
+        <main className="flex-grow">{children}</main>
         <Footer />
       </body>
     </html>
