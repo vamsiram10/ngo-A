@@ -18,9 +18,26 @@ const Navbar = () => {
     setIsMenuOpen(false);
   }, [pathname]);
 
+  // This function closes the mobile menu immediately after clicking a nav link
+  // We use a setTimeout with 0ms to ensure the menu closes before the page transition starts
   const handleMobileNavClick = useCallback(() => {
-    setTimeout(() => setIsMenuOpen(false), 700); // match transition duration
+    setIsMenuOpen(false);
   }, []);
+
+  // MobileTransitionLink closes the menu immediately on click, before page transition
+  const MobileTransitionLink = ({ href, children, ...props }) => (
+    <TransitionLink
+      href={href}
+      {...props}
+      onClick={(e) => {
+        // Close menu immediately before transition
+        setIsMenuOpen(false);
+        if (props.onClick) props.onClick(e);
+      }}
+    >
+      {children}
+    </TransitionLink>
+  );
 
   useEffect(() => {
     let ticking = false;
@@ -46,19 +63,6 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const MobileTransitionLink = ({ href, children, ...props }) => (
-    <TransitionLink
-      href={href}
-      {...props}
-      onClick={(e) => {
-        if (props.onClick) props.onClick(e);
-        handleMobileNavClick();
-      }}
-    >
-      {children}
-    </TransitionLink>
-  );
 
   return (
     <div
@@ -107,7 +111,12 @@ const Navbar = () => {
                 {link.dialog && (
                   <div className="z-50 absolute top-full left-0 hidden flex-col mt-1 w-40 bg-white rounded-lg shadow-md border group-hover:flex">
                     {link.dialog.map((el) => (
-                      <TransitionLink href={el.path} key={el.id}>
+                      <TransitionLink
+                        href={el.path}
+                        key={el.id}
+                        // Optionally, add onClick to close menu if you want dialog to close on desktop click
+                        // onClick={() => setIsMenuOpen(false)}
+                      >
                         <p className="px-4 py-2 text-black hover:bg-gray-100">
                           {el.title}
                         </p>
@@ -185,7 +194,11 @@ const Navbar = () => {
                 {link.dialog && (
                   <div className="pl-4 mt-1 space-y-1">
                     {link.dialog.map((el, subIdx) => (
-                      <MobileTransitionLink href={el.path} key={el.id}>
+                      <MobileTransitionLink
+                        href={el.path}
+                        key={el.id}
+                        // No need to pass onClick, handled in MobileTransitionLink
+                      >
                         <p
                           className={`text-gray-600 text-sm hover:text-black transition-all duration-400
                             ${
