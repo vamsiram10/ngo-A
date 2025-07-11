@@ -179,7 +179,7 @@ const RegistrationModal = ({ isOpen, onClose, opportunity }) => {
                         onClick={() => setView("details")}
                         className="text-neutral-400 hover:text-white transition"
                       >
-                        ← Back to Details
+                        &larr; Back to Details
                       </button>
                       <button
                         type="submit"
@@ -222,8 +222,8 @@ const RegistrationModal = ({ isOpen, onClose, opportunity }) => {
                     Registration Received!
                   </h2>
                   <p className="text-neutral-300 mb-6">
-                    Thank you for your interest in "{opportunity.title}
-                    ". We'll be in touch soon.
+                    Thank you for your interest in &quot;{opportunity.title}
+                    &quot;. We&apos;ll be in touch soon.
                   </p>
                   <button
                     onClick={handleClose}
@@ -259,7 +259,7 @@ export default function VolunteeringPage() {
       desc: "Craft compelling visuals and social content that tells our story.",
       time: "5-10 hrs/week",
       longDesc:
-        "As a Design & Media volunteer, you will be the creative force behind our public communications. You'll work with our team to produce engaging content that captures the hearts and minds of our audience, driving awareness and support for our cause.",
+        "As a Design & Media volunteer, you will be the creative force behind our public communications. You&apos;ll work with our team to produce engaging content that captures the hearts and minds of our audience, driving awareness and support for our cause.",
       responsibilities: [
         "Creating graphics for social media campaigns.",
         "Editing short promotional videos.",
@@ -273,7 +273,7 @@ export default function VolunteeringPage() {
       desc: "Be the face of our mission. Plan and lead campaigns and awareness drives.",
       time: "Flexible",
       longDesc:
-        "Join our outreach team to connect directly with the communities we serve. You'll be instrumental in organizing events, running fundraising drives, and representing our foundation to the public, building relationships that form the backbone of our work.",
+        "Join our outreach team to connect directly with the communities we serve. You&apos;ll be instrumental in organizing events, running fundraising drives, and representing our foundation to the public, building relationships that form the backbone of our work.",
       responsibilities: [
         "Assisting in event planning and execution.",
         "Engaging with the public at events.",
@@ -287,7 +287,7 @@ export default function VolunteeringPage() {
       desc: "Help us measure what matters. Conduct surveys and analyze our social impact.",
       time: "8-12 hrs/week",
       longDesc:
-        "In this data-driven role, you will help us quantify the change we create. You'll be involved in conducting surveys, analyzing results, and compiling impact reports that guide our strategy and demonstrate our effectiveness to stakeholders.",
+        "In this data-driven role, you will help us quantify the change we create. You&apos;ll be involved in conducting surveys, analyzing results, and compiling impact reports that guide our strategy and demonstrate our effectiveness to stakeholders.",
       responsibilities: [
         "Collecting and organizing survey data.",
         "Analyzing qualitative and quantitative feedback.",
@@ -456,7 +456,7 @@ export default function VolunteeringPage() {
                         whileHover={{ scale: 1.05 }}
                         className="w-full bg-gradient-to-r from-pink-600 to-violet-600 hover:from-pink-500 hover:to-violet-500 text-white font-bold py-3 rounded-lg transition-all duration-300"
                       >
-                        View & Register
+                        View &amp; Register
                       </motion.button>
                     </div>
                   </div>
