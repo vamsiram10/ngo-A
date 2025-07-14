@@ -1,13 +1,13 @@
+import React from "react";
 import ContactUsSection from "@/components/section/contactussection/ContactUsSection";
 
 const ContactUsPage = () => {
   return (
     <>
-      <ReactLenis root>
       <main className="relative min-h-screen w-screen overflow-x-hidden bg-black">
-        <h1 className="text-white text-6xl font-bold text-center mt-[5.5rem]">
-       
-        </h1>
+        {/* <h1 className="text-white text-6xl font-bold text-center mt-[5.5rem]">
+          Contact Us
+        </h1> */}
 
         <div className="landing_page">
           <div className="responsive-container-block big-container relative">
@@ -18,16 +18,15 @@ const ContactUsPage = () => {
             />
 
             <div className="responsive-container-block container relative z-10 flex flex-wrap">
-              {/* Left Content */}
               <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 left-one w-full md:w-1/2 p-6">
                 <div className="content-box text-white">
                   <p className="text-blk section-head text-3xl font-semibold mb-4">
                     Lorem ipsum amet dolor
                   </p>
                   <p className="text-blk section-subhead mb-6 text-gray-300">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                    enim ad minim veniam, quis volupta
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis volupta
                   </p>
                   <div className="icons-container flex space-x-4">
                     <a className="share-icon" href="#">
@@ -62,7 +61,6 @@ const ContactUsPage = () => {
                 </div>
               </div>
 
-              {/* Right Contact Form */}
               <div className="responsive-cell-block wk-ipadp-6 wk-tab-12 wk-mobile-12 wk-desk-6 right-one w-full md:w-1/2 p-6">
                 <form className="form-box bg-white rounded-lg shadow-md p-6">
                   <div className="container-block form-wrapper">
@@ -113,8 +111,8 @@ const ContactUsPage = () => {
           </div>
         </div>
       </main>
-    </ReactLenis>
-    <ContactUsSection //>
+    </>
   );
 };
+
 export default ContactUsPage;
