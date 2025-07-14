@@ -22,7 +22,7 @@ const navLinks = {
           title: "Past events",
           path: "/ourwork/events",
         },
-        { id: 4, title: "Upcoming events", path: "/" },
+        { id: 4, title: "Upcoming events", path: "/ourwork/upcomingevents" },
       ],
     },
     {
