@@ -88,7 +88,7 @@ const HomeOther = () => {
             pointerEvents: "auto", // allow pointer events
           }}
         >
-          <a
+          <Link
             href="/contactus/map"
             ref={marqueeRef}
             style={{
@@ -107,11 +107,12 @@ const HomeOther = () => {
               pointerEvents: "auto", // allow pointer events on link
             }}
             tabIndex={0}
+            scroll={false}
           >
             Avasa Foundation &nbsp;•&nbsp; Avasa Foundation &nbsp;•&nbsp; Avasa
             Foundation &nbsp;•&nbsp; Avasa Foundation &nbsp;•&nbsp; Avasa
             Foundation &nbsp;•&nbsp; Avasa Foundation
-          </a>
+          </Link>
         </div>
       </div>
     </div>
