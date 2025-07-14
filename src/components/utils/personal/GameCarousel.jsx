@@ -2,12 +2,10 @@
 
 import React, { useEffect, useRef } from "react";
 import "@/app/globals.css";
-
-// SwiperJS for carousel (no CSS parsing issues)
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
-import { EffectCoverflow } from "swiper/modules"; // Removed Pagination
+import { EffectCoverflow } from "swiper/modules";
 
 const games = [
   {
@@ -171,11 +169,9 @@ const games = [
 export default function GameCarousel() {
   const swiperRef = useRef(null);
 
-  // For "active" effect on click, allow toggling active state
   useEffect(() => {
     const handleClick = (e) => {
       const items = document.querySelectorAll(".custom-carousel .item");
-      // If the clicked item is already active, remove active from all
       if (e.currentTarget.classList.contains("active")) {
         items.forEach((el) => el.classList.remove("active"));
       } else {
@@ -186,7 +182,6 @@ export default function GameCarousel() {
     const items = document.querySelectorAll(".custom-carousel .item");
     items.forEach((el, idx) => {
       el.addEventListener("click", handleClick);
-      // Set first as active by default
       if (idx === 0) el.classList.add("active");
     });
     return () => {
@@ -245,14 +240,12 @@ export default function GameCarousel() {
               style={{ width: "320px", height: "400px" }}
             >
               <div className={`item${index === 0 ? " active" : ""}`}>
-                {/* Image fits the card */}
                 <img
                   src={game.image}
                   alt={game.title}
                   className="item-image"
                   draggable={false}
                 />
-                {/* Add a subtle floating animation to the image background */}
                 <div className="item-float-bg" />
                 <div className="item-desc pink-text">
                   <h3 className="item-title-animated pink-text">
@@ -266,7 +259,6 @@ export default function GameCarousel() {
           ))}
         </Swiper>
       </div>
-      {/* Swiper and custom styles */}
       <style jsx>{`
         * {
           margin: 0;
