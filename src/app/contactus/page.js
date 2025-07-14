@@ -13,7 +13,7 @@ const ContactUsPage = () => {
           <div className="responsive-container-block big-container relative">
             <img
               className="bg-img absolute w-full h-full object-cover z-0"
-              src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/clothes-bg.png"
+              src="https://media.gettyimages.com/id/1644207968/video/4k-video-neon-effect-rectangle-frame-backgraund.jpg?s=640x640&k=20&c=TqQXMt3UIV1GLHuYYDH-guBupN0SLvefYQWhIaXpvLw="
               alt="Background"
             />
 
