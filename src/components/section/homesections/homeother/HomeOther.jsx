@@ -75,7 +75,7 @@ const HomeOther = () => {
           </div>
         </div>
         <div
-          className="pointer-events-none select-none"
+          className="select-none"
           style={{
             position: "absolute",
             left: 0,
@@ -85,9 +85,11 @@ const HomeOther = () => {
             zIndex: 20,
             height: "60px",
             background: "rgba(0,0,0,0.0)",
+            pointerEvents: "auto", // allow pointer events
           }}
         >
-          <div
+          <a
+            href="/contactus/map"
             ref={marqueeRef}
             style={{
               whiteSpace: "nowrap",
@@ -100,12 +102,16 @@ const HomeOther = () => {
               willChange: "transform",
               padding: "1rem",
               userSelect: "none",
+              textDecoration: "none",
+              cursor: "pointer",
+              pointerEvents: "auto", // allow pointer events on link
             }}
+            tabIndex={0}
           >
             Avasa Foundation &nbsp;•&nbsp; Avasa Foundation &nbsp;•&nbsp; Avasa
             Foundation &nbsp;•&nbsp; Avasa Foundation &nbsp;•&nbsp; Avasa
             Foundation &nbsp;•&nbsp; Avasa Foundation
-          </div>
+          </a>
         </div>
       </div>
     </div>
