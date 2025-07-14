@@ -10,7 +10,7 @@ import { EffectCoverflow } from "swiper/modules";
 const games = [
   {
     title: "Dota 2",
-    image: "/maingallery/a.jpg",
+    image: "/gallery/1.jpg",
     description:
       "Dota 2 is a multiplayer online battle arena by Valve. The game is a sequel to Defense of the Ancients, which was a community-created mod for Blizzard Entertainment's Warcraft III.",
   },
