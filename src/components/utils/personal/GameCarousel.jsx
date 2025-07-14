@@ -166,6 +166,22 @@ const games = [
   },
 ];
 
+function AnimatedWord({ word }) {
+  return (
+    <span className="animated-word">
+      {word.split("").map((char, idx) => (
+        <span
+          key={idx}
+          className="animated-letter"
+          style={{ animationDelay: `${idx * 0.08}s` }}
+        >
+          {char === " " ? "\u00A0" : char}
+        </span>
+      ))}
+    </span>
+  );
+}
+
 export default function GameCarousel() {
   const swiperRef = useRef(null);
 
@@ -212,7 +228,7 @@ export default function GameCarousel() {
           width: "fit-content",
         }}
       >
-        GALLERY
+        <AnimatedWord word="GALLERY" />
       </h2>
       <div className="custom-carousel">
         <Swiper
@@ -296,6 +312,27 @@ export default function GameCarousel() {
           0% {
             opacity: 0;
             transform: translateY(-40px) scale(0.95);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+        /* Animated word heading styles */
+        .animated-word {
+          display: inline-block;
+        }
+        .animated-letter {
+          display: inline-block;
+          opacity: 0;
+          transform: translateY(24px) scale(0.98);
+          animation: headingLetterFadeIn 0.5s cubic-bezier(0.4, 2, 0.6, 1)
+            forwards;
+        }
+        @keyframes headingLetterFadeIn {
+          0% {
+            opacity: 0;
+            transform: translateY(24px) scale(0.98);
           }
           100% {
             opacity: 1;
