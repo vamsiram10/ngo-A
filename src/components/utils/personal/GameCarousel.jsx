@@ -7,76 +7,164 @@ import "@/app/globals.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
-// Removed: import "swiper/css/pagination";
-
-// Fix: Import modules from 'swiper/modules' instead of 'swiper'
 import { EffectCoverflow } from "swiper/modules"; // Removed Pagination
 
 const games = [
   {
     title: "Dota 2",
-    image: "/gallery/2.jpg",
+    image: "/maingallery/a.jpg",
     description:
       "Dota 2 is a multiplayer online battle arena by Valve. The game is a sequel to Defense of the Ancients, which was a community-created mod for Blizzard Entertainment's Warcraft III.",
   },
   {
     title: "Elden Ring",
-    image: "/gallery/3.jpg",
+    image: "/maingallery/b.jpg",
     description:
       "Elden Ring is an action RPG developed by FromSoftware, featuring a vast open world and challenging combat.",
   },
   {
     title: "Hollow Knight",
-    image: "/gallery/4.jpg",
+    image: "/maingallery/c.jpg",
     description:
       "Hollow Knight is a critically acclaimed metroidvania game with hand-drawn art and deep exploration.",
   },
   {
     title: "Cyberpunk 2077",
-    image: "/gallery/5.jpg",
+    image: "/maingallery/d.jpg",
     description:
       "Cyberpunk 2077 is an open-world RPG set in Night City, offering immersive storytelling and futuristic action.",
   },
   {
     title: "Celeste",
-    image: "/gallery/1.jpg",
+    image: "/maingallery/e.jpg",
     description:
       "Celeste is a platformer about climbing a mountain, featuring tight controls and a heartfelt story.",
   },
   {
     title: "The Witcher 3",
-    image:
-      "https://www.yudiz.com/codepen/expandable-animated-card-slider/winter-3.jpg",
+    image: "/maingallery/f.jpg",
     description:
       "The Witcher 3 is a story-driven RPG where you explore a rich open world as Geralt of Rivia.",
   },
   {
     title: "RDR 2",
-    image:
-      "https://www.yudiz.com/codepen/expandable-animated-card-slider/rdr-2.jpg",
+    image: "/maingallery/g.jpg",
     description:
       "RDR 2 is an action-adventure game developed and published by Rockstar Games, set in a fictionalized Western US.",
   },
   {
     title: "PUBG Mobile",
-    image:
-      "https://www.yudiz.com/codepen/expandable-animated-card-slider/pubg.jpg",
+    image: "/maingallery/h.jpg",
     description:
       "PUBG Mobile is a battle royale shooter that pits 100 players against each other in a struggle for survival.",
   },
   {
     title: "Fortnite",
-    image:
-      "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg",
+    image: "/maingallery/i.jpg",
     description:
       "Battle royale where 100 players fight to be the last person standing. Fast building mechanics & colorful design.",
   },
   {
     title: "Far Cry 5",
-    image:
-      "https://www.yudiz.com/codepen/expandable-animated-card-slider/far-cry-5.jpg",
+    image: "/maingallery/j.jpg",
     description:
       "Far Cry 5 is a 2018 first-person shooter game developed by Ubisoft, set in an open world environment.",
+  },
+  {
+    title: "Assassin's Creed Valhalla",
+    image: "/maingallery/k.jpg",
+    description:
+      "Assassin's Creed Valhalla lets you become a legendary Viking on a quest for glory in England's Dark Ages.",
+  },
+  {
+    title: "Overwatch",
+    image: "/maingallery/l.jpg",
+    description:
+      "Overwatch is a vibrant team-based shooter set on a near-future earth, with unique heroes and abilities.",
+  },
+  {
+    title: "Minecraft",
+    image: "/maingallery/m.jpg",
+    description:
+      "Minecraft is a sandbox game where you can build, explore, and survive in a blocky, procedurally-generated world.",
+  },
+  {
+    title: "League of Legends",
+    image: "/maingallery/n.jpg",
+    description:
+      "League of Legends is a fast-paced, competitive online game blending the speed and intensity of an RTS with RPG elements.",
+  },
+  {
+    title: "Apex Legends",
+    image: "/maingallery/o.jpg",
+    description:
+      "Apex Legends is a free-to-play battle royale game featuring unique characters and fast-paced squad-based gameplay.",
+  },
+  {
+    title: "Genshin Impact",
+    image: "/maingallery/p.jpg",
+    description:
+      "Genshin Impact is an open-world action RPG with beautiful visuals and elemental combat, set in the world of Teyvat.",
+  },
+  {
+    title: "Valorant",
+    image: "/maingallery/q.jpg",
+    description:
+      "Valorant is a tactical first-person shooter from Riot Games, combining precise gunplay with unique agent abilities.",
+  },
+  {
+    title: "God of War",
+    image: "/maingallery/r.jpg",
+    description:
+      "God of War follows Kratos and his son Atreus on a mythological journey through Norse realms.",
+  },
+  {
+    title: "Sekiro: Shadows Die Twice",
+    image: "/maingallery/s.jpg",
+    description:
+      "Sekiro is an action-adventure game by FromSoftware, known for its challenging sword combat and stealth mechanics.",
+  },
+  {
+    title: "Super Mario Odyssey",
+    image: "/maingallery/t.jpg",
+    description:
+      "Super Mario Odyssey is a 3D platformer where Mario travels across various worlds to save Princess Peach.",
+  },
+  {
+    title: "Hollow Knight",
+    image: "/maingallery/u.jpg",
+    description:
+      "Hollow Knight is a challenging 2D action-adventure set in a vast, ruined kingdom of insects and heroes.",
+  },
+  {
+    title: "Celeste",
+    image: "/maingallery/v.jpg",
+    description:
+      "Celeste is a platformer about climbing a mountain, overcoming tough obstacles, and facing inner struggles.",
+  },
+  {
+    title: "The Legend of Zelda: Breath of the Wild",
+    image: "/maingallery/w.jpg",
+    description:
+      "Breath of the Wild is an open-world adventure where you explore, solve puzzles, and battle to save Hyrule.",
+  },
+  {
+    title: "Stardew Valley",
+    image: "/maingallery/x.jpg",
+    description:
+      "Stardew Valley is a relaxing farming simulation game where you grow crops, raise animals, and build relationships.",
+  },
+  {
+    title: "Hades",
+    image: "/maingallery/y.jpg",
+    description:
+      "Hades is a rogue-like dungeon crawler where you battle out of the Underworld as the immortal Prince Zagreus.",
+  },
+  {
+    title: "Animal Crossing: New Horizons",
+    image: "/maingallery/z.jpg",
+    description:
+      "Animal Crossing: New Horizons lets you build your dream island life, make friends, and decorate to your heart's content.",
   },
 ];
 
@@ -139,18 +227,16 @@ export default function GameCarousel() {
           centeredSlides={true}
           slidesPerView={"auto"}
           loop={true}
-          // Make left and right side animation symmetric by using rotate: 0 and stretch: 0
           coverflowEffect={{
-            rotate: 0, // No rotation, so both sides animate the same
+            rotate: 0,
             stretch: 0,
             depth: 200,
             modifier: 1,
-            slideShadows: false, // Remove slide shadows for symmetry
-            scale: 0.85, // Ensures both sides scale equally
+            slideShadows: false,
+            scale: 0.85,
           }}
-          spaceBetween={30} // Ensures equal gap between all cards (left and right)
-          // Removed: pagination={{ clickable: true }}
-          modules={[EffectCoverflow]} // Removed Pagination
+          spaceBetween={30}
+          modules={[EffectCoverflow]}
           className="game-swiper"
         >
           {games.map((game, index) => (
@@ -158,22 +244,22 @@ export default function GameCarousel() {
               key={index}
               style={{ width: "320px", height: "400px" }}
             >
-              <div
-                className={`item${index === 0 ? " active" : ""}`}
-                style={{
-                  backgroundImage: `url(${game.image})`,
-                }}
-              >
+              <div className={`item${index === 0 ? " active" : ""}`}>
+                {/* Image fits the card */}
+                <img
+                  src={game.image}
+                  alt={game.title}
+                  className="item-image"
+                  draggable={false}
+                />
                 {/* Add a subtle floating animation to the image background */}
                 <div className="item-float-bg" />
                 <div className="item-desc pink-text">
                   <h3 className="item-title-animated pink-text">
                     {game.title}
                   </h3>
-                  {/* Description is now white, not pink */}
                   <p className="game-desc-white">{game.description}</p>
                 </div>
-                {/* Add a subtle glowing border animation when active */}
                 <div className="item-glow" />
               </div>
             </SwiperSlide>
@@ -200,7 +286,6 @@ export default function GameCarousel() {
           top: -15px;
         }
         .game-section {
-          /* Remove original padding to avoid double spacing */
           padding: 0;
         }
         .line-title {
@@ -225,51 +310,39 @@ export default function GameCarousel() {
             transform: translateY(0) scale(1);
           }
         }
-        // .line-title::before,
-        // .line-title::after {
-        //   content: "";
-        //   position: absolute;
-        //   bottom: 0;
-        //   left: 0;
-        //   height: 4px;
-        //   border-radius: 2px;
-        // }
-        // .line-title::before {
-        //   width: 100%;
-        //   background: #f2f2f2;
-        // }
-        // .line-title::after {
-        //   width: 32px;
-        //   background: #e73700;
-        // }
         .custom-carousel {
           width: 100%;
         }
         .game-swiper {
-          /* Add more gap below images for dots on desktop */
         }
         .item {
-          margin: 0 0px 60px; /* Remove horizontal margin, Swiper's spaceBetween will handle it */
+          margin: 0 0px 60px;
           width: 320px;
           height: 400px;
           display: flex;
           align-items: flex-end;
-          background: #343434 no-repeat center center / cover;
+          background: #343434;
           border-radius: 16px;
           overflow: hidden;
           position: relative;
           transition: all 0.4s cubic-bezier(0.4, 2, 0.6, 1);
           cursor: pointer;
         }
-        /* 
-          To expand the card both left and right, 
-          use left: 50%; transform: translateX(-50%);
-          and set width for .item and .item.active.
-        */
+        .item-image {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          z-index: 0;
+          pointer-events: none;
+          user-select: none;
+        }
         .custom-carousel .swiper-slide {
           display: flex;
           justify-content: center;
-          /* This ensures the .item is centered in the slide */
         }
         .item {
           left: 50%;
@@ -289,7 +362,6 @@ export default function GameCarousel() {
           width: 100%;
           left: 0;
           top: 0;
-          /* Make the gradient symmetric on both left and right sides */
           background-image: linear-gradient(
               to bottom,
               rgba(0, 0, 0, 0) 60%,
@@ -302,17 +374,18 @@ export default function GameCarousel() {
               rgba(0, 0, 0, 0) 80%,
               rgba(0, 0, 0, 0.18) 100%
             );
+          z-index: 1;
+          pointer-events: none;
         }
-        /* Floating background animation for each card */
         .item-float-bg {
           position: absolute;
           top: 0;
           left: 0;
           right: 0;
           bottom: 0;
-          z-index: 0;
+          z-index: 1;
           pointer-events: none;
-          background: inherit;
+          background: none;
           border-radius: 16px;
           animation: floatBg 4s ease-in-out infinite alternate;
           opacity: 0.15;
@@ -326,7 +399,6 @@ export default function GameCarousel() {
             transform: scale(1.04) translateY(-10px);
           }
         }
-        /* Glowing border animation for active card */
         .item-glow {
           display: none;
         }
@@ -353,7 +425,6 @@ export default function GameCarousel() {
             opacity: 1;
           }
         }
-        /* Animated title for each card */
         .item-title-animated {
           animation: fadeInUp 0.7s cubic-bezier(0.4, 2, 0.6, 1);
         }
@@ -371,7 +442,7 @@ export default function GameCarousel() {
           padding: 0 24px 12px;
           color: #fff;
           position: relative;
-          z-index: 1;
+          z-index: 2;
           transform: translateY(calc(100% - 54px));
           transition: all 0.4s cubic-bezier(0.4, 2, 0.6, 1);
         }
@@ -387,7 +458,6 @@ export default function GameCarousel() {
           opacity: 1;
           transform: translateY(0);
         }
-        /* Animate the description text with a fade-in when active */
         .item.active .item-desc p {
           animation: fadeInText 0.6s 0.2s both;
         }
@@ -401,32 +471,22 @@ export default function GameCarousel() {
             transform: translateY(0);
           }
         }
-        /* Make description color white, not pink */
         .game-desc-white {
           color: #fff !important;
         }
-
-        /* Make sure left and right cards look and animate identically */
         .swiper-coverflow .swiper-slide {
-          /* Remove any default rotation or skew for symmetry */
           transform-origin: 50% 50% !important;
         }
-        /* --- Symmetry fix: force all coverflow slides to have no rotation, skew, or translation except scale --- */
         .swiper-coverflow .swiper-slide {
-          /* Remove any transform set by Swiper except scale for both sides */
-          /* This will override Swiper's default coverflow transforms */
-          /* The !important is needed to override inline styles from Swiper */
           transform: scale(0.85) !important;
-          /* The active slide will be handled by Swiper as scale(1) */
         }
         .swiper-coverflow .swiper-slide-active {
           transform: scale(1) !important;
         }
-
         @media (max-width: 767px) {
           .centered-section {
             padding: 0 2vw;
-            min-height: 100vh; /* Make section a bit bigger on mobile */
+            min-height: 100vh;
           }
           .line-title {
             width: 290px;
@@ -440,7 +500,7 @@ export default function GameCarousel() {
           .game-swiper .swiper-slide {
             width: 240px !important;
             height: 340px;
-            margin: 0 0px 48px; /* Remove horizontal margin, Swiper's spaceBetween will handle it */
+            margin: 0 0px 48px;
           }
           .item {
             left: 50%;
@@ -456,49 +516,43 @@ export default function GameCarousel() {
             padding: 0 18px 10px;
             transform: translateY(calc(100% - 54px));
           }
-          /* Remove extra space for pagination dots on mobile */
           .game-swiper {
             padding-bottom: 10px !important;
           }
-          /* Remove pagination dots on mobile */
           .swiper-pagination {
             display: none !important;
           }
-          /* Symmetry fix for mobile */
           .swiper-coverflow .swiper-slide {
             transform: scale(0.85) !important;
           }
           .swiper-coverflow .swiper-slide-active {
             transform: scale(1) !important;
           }
-          /* Floating background animation for mobile */
           .item-float-bg {
             filter: blur(6px) brightness(1.1);
           }
+          .item-image {
+            width: 100%;
+            height: 100%;
+          }
         }
-        /* Add gap between images and dots on desktop only */
         @media (min-width: 768px) {
           .game-swiper {
             padding-bottom: 20px !important;
           }
-          /* Remove pagination dots on desktop */
           .swiper-pagination {
             display: none !important;
           }
         }
-        /* Make every letter color as pink */
         .pink-text,
         .pink-text * {
           color: #ff69b4 !important;
         }
-        /* But override for description */
         .game-desc-white {
           color: #fff !important;
         }
       `}</style>
-      {/* Swiper core styles (mimicking swiper/css, swiper/css/effect-coverflow, swiper/css/pagination) */}
       <style jsx global>{`
-        /* Swiper core styles */
         .swiper {
           position: relative;
           overflow: hidden;
@@ -528,13 +582,11 @@ export default function GameCarousel() {
         .swiper-slide-prev {
           z-index: 1;
         }
-        /* Remove Swiper pagination dots globally */
         .swiper-pagination,
         .swiper-pagination-bullet,
         .swiper-pagination-bullet-active {
           display: none !important;
         }
-        /* Coverflow effect */
         .swiper-coverflow .swiper-wrapper {
           perspective: 1200px;
         }
@@ -542,14 +594,12 @@ export default function GameCarousel() {
           transition: transform 0.4s cubic-bezier(0.4, 2, 0.6, 1),
             box-shadow 0.4s cubic-bezier(0.4, 2, 0.6, 1);
         }
-        /* --- Symmetry fix: force all coverflow slides to have no rotation, skew, or translation except scale --- */
         .swiper-coverflow .swiper-slide {
           transform: scale(0.85) !important;
         }
         .swiper-coverflow .swiper-slide-active {
           transform: scale(1) !important;
         }
-        /* Responsive for Swiper */
         @media (max-width: 767px) {
           .swiper-slide {
             width: 240px !important;

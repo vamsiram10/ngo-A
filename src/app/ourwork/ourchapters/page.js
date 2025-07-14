@@ -32,28 +32,6 @@ const chapters = [
   },
 ];
 
-const MapPin = ({ chapter, onMouseEnter, onMouseLeave, isHovered }) => (
-  <div
-    onMouseEnter={() => onMouseEnter(chapter.id)}
-    onMouseLeave={onMouseLeave}
-    onTouchStart={() => onMouseEnter(chapter.id)}
-    onTouchEnd={() => setTimeout(() => onMouseLeave(), 800)}
-    className="absolute z-10 cursor-pointer"
-    style={{
-      left: chapter.position.left,
-      top: chapter.position.top,
-      transform: "translate(-50%, -50%)",
-    }}
-  >
-    <div
-      className={`w-4 h-4 rounded-full bg-pink-500 transition-all duration-300 ${
-        isHovered ? "shadow-[0_0_15px_rgba(236,72,153,0.8)]" : "shadow-md"
-      }`}
-    ></div>
-    <div className="absolute w-4 h-4 rounded-full bg-pink-500 animate-ping"></div>
-  </div>
-);
-
 const ChapterCard = ({ chapter }) => (
   <motion.div
     variants={itemVariants}
@@ -115,21 +93,14 @@ export default function OurChaptersPage() {
   return (
     <main className="bg-black text-white">
       <div className="overflow-hidden">
-        {/* Hero */}
-        <div className="relative flex items-center justify-center text-center px-4 min-h-[100vh] sm:min-h-[80vh] md:min-h-[100vh]">
-          <Image
-            src="/images/chapter-hero.jpg"
-            alt="Volunteers"
-            fill
-            className="object-cover z-0 opacity-40"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10" />
+        {/* Hero with Map on Right */}
+        <div className="relative flex flex-col md:flex-row items-center justify-center px-4 min-h-[100vh] sm:min-h-[80vh] md:min-h-[100vh]">
+          {/* Left: Text Content */}
           <motion.div
             initial="hidden"
             animate="visible"
             variants={containerVariants}
-            className="relative z-20 max-w-4xl"
+            className="relative z-20 max-w-2xl w-full text-center md:text-left md:w-1/2 py-16 md:py-0"
           >
             <motion.h1
               variants={itemVariants}
@@ -144,7 +115,10 @@ export default function OurChaptersPage() {
               From bustling metros to local neighborhoods, our mission is
               powered by dedicated chapters across India. Find yours today.
             </motion.p>
-            <motion.div variants={itemVariants}>
+            <motion.div
+              variants={itemVariants}
+              className="flex justify-center md:justify-start"
+            >
               <Link href="#map">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
@@ -155,104 +129,106 @@ export default function OurChaptersPage() {
               </Link>
             </motion.div>
           </motion.div>
+          {/* Right: More Visible Map */}
+          <div className="relative w-full md:w-1/2 flex justify-center items-center h-[380px] sm:h-[480px] md:h-[620px] lg:h-[700px]">
+            <div
+              id="map"
+              className="
+                relative
+                w-full
+                max-w-2xl
+                aspect-[4/3]
+                md:aspect-[16/9]
+                border-2 border-pink-500
+                rounded-2xl
+                overflow-hidden
+                bg-neutral-900/90
+                shadow-2xl
+                backdrop-blur-lg
+                z-20
+              "
+            >
+              <Image
+                src="/images/india-map.png"
+                alt="Map of India"
+                fill
+                className="object-contain opacity-80 saturate-150"
+                priority
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 900px"
+              />
+              {chapters.map((chapter) => (
+                <div
+                  key={chapter.id}
+                  onMouseEnter={() => setHoveredChapter(chapter.id)}
+                  onMouseLeave={() => setHoveredChapter(null)}
+                  onTouchStart={() => setHoveredChapter(chapter.id)}
+                  onTouchEnd={() =>
+                    setTimeout(() => setHoveredChapter(null), 800)
+                  }
+                  className="absolute z-30 cursor-pointer"
+                  style={{
+                    left: chapter.position.left,
+                    top: chapter.position.top,
+                    transform: "translate(-50%, -50%)",
+                  }}
+                >
+                  <div
+                    className={`
+                      rounded-full border-2 sm:border-4 border-pink-500 bg-white flex items-center justify-center shadow-lg transition-all duration-300
+                      ${
+                        hoveredChapter === chapter.id
+                          ? "ring-2 sm:ring-4 ring-pink-300/60 scale-110"
+                          : ""
+                      }
+                      w-10 h-10 sm:w-12 sm:h-12
+                    `}
+                  >
+                    <Image
+                      src="/svg/AVASA.svg"
+                      alt="AVASA Logo"
+                      width={32}
+                      height={32}
+                      className="rounded-full object-contain bg-white animate-blink-signal sm:w-10 sm:h-10 w-8 h-8"
+                      priority
+                    />
+                  </div>
+                </div>
+              ))}
+              <AnimatePresence>
+                {hoveredChapter && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 p-3 sm:p-5 bg-black/80 backdrop-blur-lg rounded-xl border border-pink-500/30 text-left z-40"
+                  >
+                    <h3 className="text-pink-400 font-semibold text-base sm:text-lg md:text-xl">
+                      {getChapterById(hoveredChapter)?.name}
+                    </h3>
+                    <p className="text-neutral-200 text-xs sm:text-sm">
+                      {getChapterById(hoveredChapter)?.volunteers}+ Volunteers
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
+          {/* Background Image */}
+          <Image
+            src="/images/chapter-hero.jpg"
+            alt="Volunteers"
+            fill
+            // Make the background image more visible by increasing opacity and saturation
+            className="object-cover z-0 opacity-50 saturate-150 absolute inset-0 pointer-events-none"
+            priority
+          />
+          {/* Make the overlay less opaque to reveal more of the background */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10 pointer-events-none" />
         </div>
 
+        {/* Chapters List */}
         <div className="bg-black py-12 sm:py-16 md:py-24 border-y border-neutral-800">
           <div className="max-w-5xl mx-auto px-2 sm:px-4">
-            {/* Map */}
-            <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-pink-500 mb-6 sm:mb-10 text-center">
-              Find a Chapter Near You
-            </h2>
-
-            <div className="flex justify-center">
-              <div
-                id="map"
-                className="
-                  relative
-                  w-full
-                  aspect-[4/3]
-                  xs:aspect-[16/9]
-                  border border-neutral-800
-                  rounded-xl
-                  overflow-hidden
-                  bg-neutral-900
-                  mb-10 sm:mb-16
-                  max-w-full
-                  md:max-w-3xl
-                  lg:max-w-4xl
-                  xl:max-w-5xl
-                  md:aspect-[16/7]
-                  md:h-[420px]
-                  lg:h-[520px]
-                  xl:h-[600px]
-                "
-              >
-                <Image
-                  src="/images/india-map.png"
-                  alt="Map of India"
-                  fill
-                  className="object-contain opacity-10"
-                  priority
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1000px"
-                />
-                {chapters.map((chapter) => (
-                  <div
-                    key={chapter.id}
-                    onMouseEnter={() => setHoveredChapter(chapter.id)}
-                    onMouseLeave={() => setHoveredChapter(null)}
-                    onTouchStart={() => setHoveredChapter(chapter.id)}
-                    onTouchEnd={() =>
-                      setTimeout(() => setHoveredChapter(null), 800)
-                    }
-                    className="absolute z-10 cursor-pointer"
-                    style={{
-                      left: chapter.position.left,
-                      top: chapter.position.top,
-                      transform: "translate(-50%, -50%)",
-                    }}
-                  >
-                    <div
-                      className={`
-                        rounded-full border-2 sm:border-4 border-pink-500 bg-white flex items-center justify-center shadow-lg transition-all duration-300
-                        ${
-                          hoveredChapter === chapter.id
-                            ? "ring-2 sm:ring-4 ring-pink-300/60"
-                            : ""
-                        }
-                        w-8 h-8 sm:w-10 sm:h-10
-                      `}
-                    >
-                      <Image
-                        src="/svg/AVASA.svg"
-                        alt="AVASA Logo"
-                        width={24}
-                        height={24}
-                        className="rounded-full object-contain bg-white animate-blink-signal sm:w-8 sm:h-8 w-6 h-6"
-                        priority
-                      />
-                    </div>
-                  </div>
-                ))}
-                <AnimatePresence>
-                  {hoveredChapter && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 8 }}
-                      className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 p-2 sm:p-4 bg-black/60 backdrop-blur-md rounded-lg border border-white/10 text-left"
-                    >
-                      <h3 className="text-pink-400 font-semibold text-sm sm:text-base md:text-lg">
-                        {getChapterById(hoveredChapter)?.name}
-                      </h3>
-                      <p className="text-neutral-300 text-xs sm:text-sm">
-                        {getChapterById(hoveredChapter)?.volunteers}+ Volunteers
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            </div>
-            {/* Chapters List */}
             <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-pink-500 mb-8 sm:mb-12 text-center">
               Our Chapters
             </h2>
