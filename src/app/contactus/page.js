@@ -22,12 +22,10 @@ const ContactUsPage = () => {
               <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 left-one w-full md:w-1/2 p-6">
                 <div className="content-box text-white">
                   <p className="text-blk section-head text-3xl font-semibold mb-4">
-                    Lorem ipsum amet dolor
+                    Here for a Cause!
                   </p>
                   <p className="text-blk section-subhead mb-6 text-gray-300">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                    enim ad minim veniam, quis volupta
+                    Contact us to colloborate for a cause greater than all of us. Our team will get back to you.
                   </p>
                   <div className="icons-container flex space-x-4">
                     <a className="share-icon" href="#">
@@ -114,7 +112,8 @@ const ContactUsPage = () => {
         </div>
       </main>
     </ReactLenis>
-    <ContactUsSection //>
+    </>
   );
 };
 export default ContactUsPage;
+
