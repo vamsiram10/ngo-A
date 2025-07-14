@@ -331,6 +331,7 @@ export default function GameCarousel() {
           z-index: 0;
           pointer-events: none;
           user-select: none;
+          display: block; /* Ensure image is always displayed */
         }
         .custom-carousel .swiper-slide {
           display: flex;
@@ -524,8 +525,18 @@ export default function GameCarousel() {
             filter: blur(6px) brightness(1.1);
           }
           .item-image {
-            width: 100%;
-            height: 100%;
+            width: 100% !important;
+            height: 100% !important;
+            min-width: 0 !important;
+            min-height: 0 !important;
+            max-width: 100% !important;
+            max-height: 100% !important;
+            display: block !important;
+            object-fit: cover !important;
+            object-position: center !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
           }
         }
         @media (min-width: 768px) {
