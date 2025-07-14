@@ -10,91 +10,91 @@ import { EffectCoverflow } from "swiper/modules";
 const games = [
   {
     title: "Dota 2",
-    image: "/gallery/1.jpg",
+    image: "/maingallery/a.JPG",
     description:
       "Dota 2 is a multiplayer online battle arena by Valve. The game is a sequel to Defense of the Ancients, which was a community-created mod for Blizzard Entertainment's Warcraft III.",
   },
   {
     title: "Elden Ring",
-    image: "/maingallery/b.jpg",
+    image: "/maingallery/b.JPG",
     description:
       "Elden Ring is an action RPG developed by FromSoftware, featuring a vast open world and challenging combat.",
   },
   {
     title: "Hollow Knight",
-    image: "/maingallery/c.jpg",
+    image: "/maingallery/c.JPG",
     description:
       "Hollow Knight is a critically acclaimed metroidvania game with hand-drawn art and deep exploration.",
   },
   {
     title: "Cyberpunk 2077",
-    image: "/maingallery/d.jpg",
+    image: "/maingallery/d.JPG",
     description:
       "Cyberpunk 2077 is an open-world RPG set in Night City, offering immersive storytelling and futuristic action.",
   },
   {
     title: "Celeste",
-    image: "/maingallery/e.jpg",
+    image: "/maingallery/e.JPG",
     description:
       "Celeste is a platformer about climbing a mountain, featuring tight controls and a heartfelt story.",
   },
   {
     title: "The Witcher 3",
-    image: "/maingallery/f.jpg",
+    image: "/maingallery/f.JPG",
     description:
       "The Witcher 3 is a story-driven RPG where you explore a rich open world as Geralt of Rivia.",
   },
   {
     title: "RDR 2",
-    image: "/maingallery/g.jpg",
+    image: "/maingallery/g.JPG",
     description:
       "RDR 2 is an action-adventure game developed and published by Rockstar Games, set in a fictionalized Western US.",
   },
   {
     title: "PUBG Mobile",
-    image: "/maingallery/h.jpg",
+    image: "/maingallery/h.JPG",
     description:
       "PUBG Mobile is a battle royale shooter that pits 100 players against each other in a struggle for survival.",
   },
   {
     title: "Fortnite",
-    image: "/maingallery/i.jpg",
+    image: "/maingallery/i.JPG",
     description:
       "Battle royale where 100 players fight to be the last person standing. Fast building mechanics & colorful design.",
   },
   {
     title: "Far Cry 5",
-    image: "/maingallery/j.jpg",
+    image: "/maingallery/j.JPG",
     description:
       "Far Cry 5 is a 2018 first-person shooter game developed by Ubisoft, set in an open world environment.",
   },
   {
     title: "Assassin's Creed Valhalla",
-    image: "/maingallery/k.jpg",
+    image: "/maingallery/k.JPG",
     description:
       "Assassin's Creed Valhalla lets you become a legendary Viking on a quest for glory in England's Dark Ages.",
   },
   {
     title: "Overwatch",
-    image: "/maingallery/l.jpg",
+    image: "/maingallery/l.JPG",
     description:
       "Overwatch is a vibrant team-based shooter set on a near-future earth, with unique heroes and abilities.",
   },
   {
     title: "Minecraft",
-    image: "/maingallery/m.jpg",
+    image: "/maingallery/m.JPG",
     description:
       "Minecraft is a sandbox game where you can build, explore, and survive in a blocky, procedurally-generated world.",
   },
   {
     title: "League of Legends",
-    image: "/maingallery/n.jpg",
+    image: "/maingallery/n.JPG",
     description:
       "League of Legends is a fast-paced, competitive online game blending the speed and intensity of an RTS with RPG elements.",
   },
   {
     title: "Apex Legends",
-    image: "/maingallery/o.jpg",
+    image: "/maingallery/o.JPG",
     description:
       "Apex Legends is a free-to-play battle royale game featuring unique characters and fast-paced squad-based gameplay.",
   },
@@ -106,61 +106,61 @@ const games = [
   },
   {
     title: "Valorant",
-    image: "/maingallery/q.jpg",
+    image: "/maingallery/q.JPG",
     description:
       "Valorant is a tactical first-person shooter from Riot Games, combining precise gunplay with unique agent abilities.",
   },
   {
     title: "God of War",
-    image: "/maingallery/r.jpg",
+    image: "/maingallery/r.JPG",
     description:
       "God of War follows Kratos and his son Atreus on a mythological journey through Norse realms.",
   },
   {
     title: "Sekiro: Shadows Die Twice",
-    image: "/maingallery/s.jpg",
+    image: "/maingallery/s.JPG",
     description:
       "Sekiro is an action-adventure game by FromSoftware, known for its challenging sword combat and stealth mechanics.",
   },
   {
     title: "Super Mario Odyssey",
-    image: "/maingallery/t.jpg",
+    image: "/maingallery/t.JPG",
     description:
       "Super Mario Odyssey is a 3D platformer where Mario travels across various worlds to save Princess Peach.",
   },
   {
     title: "Hollow Knight",
-    image: "/maingallery/u.jpg",
+    image: "/maingallery/u.JPG",
     description:
       "Hollow Knight is a challenging 2D action-adventure set in a vast, ruined kingdom of insects and heroes.",
   },
   {
     title: "Celeste",
-    image: "/maingallery/v.jpg",
+    image: "/maingallery/v.JPG",
     description:
       "Celeste is a platformer about climbing a mountain, overcoming tough obstacles, and facing inner struggles.",
   },
   {
     title: "The Legend of Zelda: Breath of the Wild",
-    image: "/maingallery/w.jpg",
+    image: "/maingallery/w.JPG",
     description:
       "Breath of the Wild is an open-world adventure where you explore, solve puzzles, and battle to save Hyrule.",
   },
   {
     title: "Stardew Valley",
-    image: "/maingallery/x.jpg",
+    image: "/maingallery/x.JPG",
     description:
       "Stardew Valley is a relaxing farming simulation game where you grow crops, raise animals, and build relationships.",
   },
   {
     title: "Hades",
-    image: "/maingallery/y.jpg",
+    image: "/maingallery/y.JPG",
     description:
       "Hades is a rogue-like dungeon crawler where you battle out of the Underworld as the immortal Prince Zagreus.",
   },
   {
     title: "Animal Crossing: New Horizons",
-    image: "/maingallery/z.jpg",
+    image: "/maingallery/z.JPG",
     description:
       "Animal Crossing: New Horizons lets you build your dream island life, make friends, and decorate to your heart's content.",
   },
