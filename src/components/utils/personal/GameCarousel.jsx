@@ -256,12 +256,14 @@ export default function GameCarousel() {
               style={{ width: "320px", height: "400px" }}
             >
               <div className={`item${index === 0 ? " active" : ""}`}>
-                <img
-                  src={game.image}
-                  alt={game.title}
-                  className="item-image"
-                  draggable={false}
-                />
+                <div className="item-image-wrapper">
+                  <img
+                    src={game.image}
+                    alt={game.title}
+                    className="item-image"
+                    draggable={false}
+                  />
+                </div>
                 <div className="item-float-bg" />
                 <div className="item-desc pink-text">
                   <h3 className="item-title-animated pink-text">
@@ -357,18 +359,26 @@ export default function GameCarousel() {
           transition: all 0.4s cubic-bezier(0.4, 2, 0.6, 1);
           cursor: pointer;
         }
-        .item-image {
+        .item-image-wrapper {
           position: absolute;
           top: 0;
           left: 0;
           width: 100%;
           height: 100%;
-          object-fit: cover;
-          object-position: center;
           z-index: 0;
+          display: flex;
+          align-items: stretch;
+          justify-content: stretch;
+        }
+        .item-image {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          object-position: center;
           pointer-events: none;
           user-select: none;
-          display: block; /* Ensure image is always displayed */
+          display: block;
+          background: #222;
         }
         .custom-carousel .swiper-slide {
           display: flex;
@@ -561,6 +571,20 @@ export default function GameCarousel() {
           .item-float-bg {
             filter: blur(6px) brightness(1.1);
           }
+          .item-image-wrapper {
+            width: 100% !important;
+            height: 100% !important;
+            min-width: 0 !important;
+            min-height: 0 !important;
+            max-width: 100% !important;
+            max-height: 100% !important;
+            display: flex !important;
+            align-items: stretch !important;
+            justify-content: stretch !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+          }
           .item-image {
             width: 100% !important;
             height: 100% !important;
@@ -569,11 +593,9 @@ export default function GameCarousel() {
             max-width: 100% !important;
             max-height: 100% !important;
             display: block !important;
-            object-fit: cover !important;
+            object-fit: contain !important;
             object-position: center !important;
-            position: absolute !important;
-            top: 0 !important;
-            left: 0 !important;
+            background: #222 !important;
           }
         }
         @media (min-width: 768px) {
