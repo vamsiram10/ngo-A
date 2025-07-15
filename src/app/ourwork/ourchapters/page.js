@@ -32,6 +32,41 @@ const chapters = [
   },
 ];
 
+const galleryImages = [
+    {
+        src: "/images/chapter-hero.jpg",
+        alt: "Group of volunteers working together",
+        title: "Unity in Action",
+        description: "Our teams collaborating on a national drive.",
+        span: "col-span-2 aspect-video lg:col-span-2 lg:row-span-2 lg:aspect-square",
+    },
+    {
+        src: "/images/chapter-jaipur.jpg",
+        alt: "Jaipur Chapter Activities",
+        title: "Jaipur's Joy",
+        description: "Distributing essentials to the local community.",
+    },
+    {
+        src: "/images/chapter-hyd.jpg",
+        alt: "Hyderabad Chapter Drive",
+        title: "Hyderabad's Heart",
+        description: "A successful skill-building workshop.",
+    },
+    {
+        src: "/images/chapter-hyd.jpg",
+        alt: "Community Event",
+        title: "Street Smarts",
+        description: "An awareness campaign in full swing.",
+    },
+    {
+        src: "/images/chapter-jaipur.jpg",
+        alt: "Another Community Event",
+        title: "Shared Smiles",
+        description: "Moments of connection and joy.",
+    },
+];
+
+
 const ChapterCard = ({ chapter }) => (
   <motion.div
     variants={itemVariants}
@@ -86,6 +121,42 @@ const ContentItem = ({ title, description, isFaq = false }) => (
   </motion.div>
 );
 
+const GalleryCard = ({ image }) => (
+    <motion.div
+      variants={itemVariants}
+      whileHover="hover"
+      transition={{ type: "spring", stiffness: 250 }}
+      className={`group relative aspect-square rounded-2xl overflow-hidden shadow-lg hover:shadow-pink-600/30 transition-shadow duration-300 ${image.span || ''}`}
+    >
+      <Image
+        src={image.src}
+        alt={image.alt}
+        fill
+        className="object-cover transition-transform duration-300 group-hover:scale-105"
+        sizes="(max-width: 768px) 50vw, (max-width: 1024px) 50vw, 33vw"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 text-white">
+        <motion.h3
+          initial={{ y: 10, opacity: 0 }}
+          variants={{ hover: { y: 0, opacity: 1 } }}
+          transition={{ delay: 0.1, ease: "easeOut" }}
+          className="font-bold text-lg sm:text-xl"
+        >
+          {image.title}
+        </motion.h3>
+        <motion.p
+          initial={{ y: 10, opacity: 0 }}
+          variants={{ hover: { y: 0, opacity: 1 } }}
+          transition={{ delay: 0.15, ease: "easeOut" }}
+          className="text-sm text-neutral-300"
+        >
+          {image.description}
+        </motion.p>
+      </div>
+    </motion.div>
+  );
+
 export default function OurChaptersPage() {
   const [hoveredChapter, setHoveredChapter] = useState(null);
   const getChapterById = (id) => chapters.find((c) => c.id === id);
@@ -95,7 +166,6 @@ export default function OurChaptersPage() {
       <div className="overflow-hidden">
         {/* Hero with Map on Right */}
         <div className="relative flex flex-col md:flex-row items-center justify-center px-4 min-h-[100vh] sm:min-h-[80vh] md:min-h-[100vh]">
-          {/* Left: Text Content */}
           <motion.div
             initial="hidden"
             animate="visible"
@@ -119,7 +189,7 @@ export default function OurChaptersPage() {
               variants={itemVariants}
               className="flex justify-center md:justify-start"
             >
-              <Link href="#map">
+              <Link href="#chapters">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   className="bg-pink-600 hover:bg-pink-700 px-6 py-3 rounded-full text-white text-base sm:text-lg font-semibold transition"
@@ -129,23 +199,13 @@ export default function OurChaptersPage() {
               </Link>
             </motion.div>
           </motion.div>
-          {/* Right: More Visible Map */}
           <div className="relative w-full md:w-1/2 flex justify-center items-center h-[380px] sm:h-[480px] md:h-[620px] lg:h-[700px]">
             <div
               id="map"
               className="
-                relative
-                w-full
-                max-w-2xl
-                aspect-[4/3]
-                md:aspect-[16/9]
-                border-2 border-pink-500
-                rounded-2xl
-                overflow-hidden
-                bg-neutral-900/90
-                shadow-2xl
-                backdrop-blur-lg
-                z-20
+                relative w-full max-w-2xl aspect-[4/3] md:aspect-[16/9]
+                border-2 border-pink-500 rounded-2xl overflow-hidden
+                bg-neutral-900/90 shadow-2xl backdrop-blur-lg z-20
               "
             >
               <Image
@@ -175,11 +235,7 @@ export default function OurChaptersPage() {
                   <div
                     className={`
                       rounded-full border-2 sm:border-4 border-pink-500 bg-white flex items-center justify-center shadow-lg transition-all duration-300
-                      ${
-                        hoveredChapter === chapter.id
-                          ? "ring-2 sm:ring-4 ring-pink-300/60 scale-110"
-                          : ""
-                      }
+                      ${hoveredChapter === chapter.id ? "ring-2 sm:ring-4 ring-pink-300/60 scale-110" : ""}
                       w-10 h-10 sm:w-12 sm:h-12
                     `}
                   >
@@ -213,22 +269,19 @@ export default function OurChaptersPage() {
               </AnimatePresence>
             </div>
           </div>
-          {/* Background Image */}
           <Image
             src="/images/chapter-hero.jpg"
             alt="Volunteers"
             fill
-            // Make the background image more visible by increasing opacity and saturation
             className="object-cover z-0 opacity-50 saturate-150 absolute inset-0 pointer-events-none"
             priority
           />
-          {/* Make the overlay less opaque to reveal more of the background */}
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10 pointer-events-none" />
         </div>
 
         {/* Chapters List */}
-        <div className="bg-black py-12 sm:py-16 md:py-24 border-y border-neutral-800">
-          <div className="max-w-5xl mx-auto px-2 sm:px-4">
+        <div id="chapters" className="bg-black py-16 md:py-24 border-y border-neutral-800">
+          <div className="max-w-5xl mx-auto px-4">
             <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-pink-500 mb-8 sm:mb-12 text-center">
               Our Chapters
             </h2>
@@ -237,12 +290,12 @@ export default function OurChaptersPage() {
               whileInView="visible"
               variants={containerVariants}
               viewport={{ once: true, amount: 0.2 }}
-              className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2"
+              className="grid grid-cols-1 gap-8 md:grid-cols-2"
             >
               {chapters.map((chapter) => (
                 <div
                   key={chapter.id}
-                  className="w-full max-w-xs sm:max-w-sm md:max-w-md mx-auto"
+                  className="w-full max-w-sm mx-auto"
                 >
                   <ChapterCard chapter={chapter} />
                 </div>
@@ -251,50 +304,32 @@ export default function OurChaptersPage() {
           </div>
         </div>
 
-        {/* Features */}
+        {/* Gallery Section with final fix */}
         <div className="bg-black py-16 sm:py-24 border-b border-neutral-800">
-          <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-pink-500 mb-6">
-                The Heart of Our Community
-              </h2>
-              <div className="space-y-5 sm:space-y-6">
-                <ContentItem
-                  title="Local Events & Drives"
-                  description="From charity drives to awareness campaigns, our chapters are active on the ground, making a visible difference."
-                />
-                <ContentItem
-                  title="Skill-Building Workshops"
-                  description="We host workshops to empower our volunteers with new skills in leadership, communication, and project management."
-                />
-                <ContentItem
-                  title="Collaborative Projects"
-                  description="Each chapter works on unique, localized projects that address the specific needs of their community."
-                />
-              </div>
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center mb-12">
+                <h2 className="text-3xl sm:text-4xl font-bold text-pink-500 mb-3">
+                Moments That Define Us
+                </h2>
+                <p className="text-neutral-400 text-base sm:text-lg max-w-2xl mx-auto">
+                    A glimpse into the lifeblood of our mission—the events, drives, and smiles from our chapters nationwide.
+                </p>
             </div>
-            <div className="relative h-64 sm:h-[400px] lg:h-[500px] w-full">
-              <div className="absolute top-0 right-0 h-2/3 w-2/3 rounded-2xl overflow-hidden shadow-xl z-10">
-                <Image
-                  src="/images/chapter-jaipur.jpg"
-                  alt="Jaipur Chapter"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-              <div className="absolute bottom-0 left-0 h-1/2 w-1/2 rounded-2xl overflow-hidden shadow-xl">
-                <Image
-                  src="/images/chapter-hyd.jpg"
-                  alt="Hyderabad Chapter"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-            </div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              variants={containerVariants}
+              viewport={{ once: true, amount: 0.1 }}
+              // By removing `auto-rows-fr`, the gap is now applied uniformly.
+              className="grid grid-cols-2 lg:grid-cols-4 gap-4"
+            >
+              {galleryImages.map((image, index) => (
+                <GalleryCard key={index} image={image} />
+              ))}
+            </motion.div>
           </div>
         </div>
+
 
         {/* FAQs */}
         <div className="bg-neutral-950 py-16 sm:py-24 border-b border-neutral-800">
