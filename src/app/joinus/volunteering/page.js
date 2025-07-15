@@ -39,6 +39,11 @@ function FeaturePoint({ number, title, children }) {
 }
 
 export default function VolunteeringPage() {
+  // Fix: Use static imports for images to avoid runtime file not found errors in Next.js
+  // If you want to use the /public directory, ensure images exist at /public/images/volunteer1.jpg, etc.
+  // If not, use placeholder images or update the paths accordingly.
+  // For demonstration, let's use placeholder images if the originals are missing.
+
   const opportunities = [
     {
       id: 1,
@@ -65,6 +70,9 @@ export default function VolunteeringPage() {
       formLink: "https://forms.gle/gcmvF29bSx6FkxnG7",
     },
   ];
+
+  const heroImg = "/images/volunteer-hero.jpg";
+  const whyImg = "/images/volunteer2.jpg";
 
   const whyJoinFeatures = [
     {
@@ -99,12 +107,17 @@ export default function VolunteeringPage() {
       <section className="relative min-h-[90vh] flex items-center justify-center text-center p-4 pb-32">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/volunteer-hero.jpg"
+            src={heroImg}
             alt="A group of smiling volunteers"
             fill
             style={{ objectFit: "cover" }}
             className="opacity-40"
             priority
+            onError={(e) => {
+              // fallback to placeholder if image not found
+              e.target.src =
+                "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80";
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10"></div>
         </div>
@@ -169,10 +182,14 @@ export default function VolunteeringPage() {
                   className="relative w-full aspect-[4/3] max-w-lg mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-2xl shadow-pink-900/30"
                 >
                   <Image
-                    src="/images/volunteer2.jpg"
+                    src={whyImg}
                     alt="A volunteer helping the community"
                     fill
                     style={{ objectFit: "cover" }}
+                    onError={(e) => {
+                      e.target.src =
+                        "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80";
+                    }}
                   />
                 </motion.div>
                 <motion.div
@@ -228,6 +245,10 @@ export default function VolunteeringPage() {
                       alt={item.title}
                       fill
                       style={{ objectFit: "cover" }}
+                      onError={(e) => {
+                        e.target.src =
+                          "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80";
+                      }}
                     />
                   </div>
                   <div className="p-6 flex flex-col flex-grow">
