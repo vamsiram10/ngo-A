@@ -9,16 +9,17 @@ import { EffectCoverflow } from "swiper/modules";
 
 const games = [
   {
-    title: "Dota 2",
+    title: "Care Meal",
     image: "/maingallery/a.JPG",
     description:
-      "Dota 2 is a multiplayer online battle arena by Valve. The game is a sequel to Defense of the Ancients, which was a community-created mod for Blizzard Entertainment's Warcraft III.",
+      "Serving smiles and lunch at Nayasawera NGO, Jaipur.
+",
   },
   {
-    title: "Elden Ring",
+    title: "Elder Aid",
     image: "/maingallery/b.JPG",
     description:
-      "Elden Ring is an action RPG developed by FromSoftware, featuring a vast open world and challenging combat.",
+      "Sharing love, one meal at a time with the golden hearts of the old age home.",
   },
   {
     title: "Hollow Knight",
