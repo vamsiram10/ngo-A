@@ -11,9 +11,7 @@ const games = [
   {
     title: "Care Meal",
     image: "/maingallery/a.JPG",
-    description:
-      "Serving smiles and lunch at Nayasawera NGO, Jaipur.
-",
+    description: "Serving smiles and lunch at Nayasawera NGO, Jaipur.",
   },
   {
     title: "Elder Aid",
