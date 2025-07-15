@@ -139,12 +139,12 @@ export default function InternshipPage() {
           </div>
         </div>
 
-        {/* "What You'll Gain" Section */}
+        {/* "What You&apos;ll Gain" Section */}
         <div className="bg-black pt-20 md:pt-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-neutral-900 rounded-3xl border border-neutral-800 p-8 md:p-16">
               <h2 className="text-3xl md:text-4xl font-bold text-pink-500 mb-16 text-center">
-                What You'll Gain
+                What You&apos;ll Gain
               </h2>
               <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
                 <motion.div
