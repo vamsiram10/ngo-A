@@ -4,7 +4,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Counter from "@/components/Counter";
 
-// --- Animation Variants ---
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
@@ -14,7 +13,6 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
-// --- Reusable Components ---
 const Stat = ({ to, suffix, label }) => (
   <div className="text-center">
     <Counter to={to} suffix={suffix} />
@@ -83,7 +81,6 @@ export default function InternshipPage() {
 
   return (
     <main className="bg-black text-white">
-      {/* --- Hero Section with bottom padding to make space for the overlapping card --- */}
       <section className="relative min-h-[90vh] flex items-center justify-center text-center p-4 pb-32">
         <Image
           src="/images/intern1.jpg"
@@ -126,9 +123,7 @@ export default function InternshipPage() {
         </motion.div>
       </section>
 
-      {/* --- CORRECTED: Wrapper for all content below the hero, pulled up to overlap --- */}
       <div className="relative z-20" style={{ transform: "translateY(-96px)" }}>
-        {/* Stats Card */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white/5 border border-white/10 backdrop-blur-lg rounded-2xl py-12">
             <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-y-0 md:gap-x-4">
@@ -139,7 +134,6 @@ export default function InternshipPage() {
           </div>
         </div>
 
-        {/* "What You&apos;ll Gain" Section */}
         <div className="bg-black pt-20 md:pt-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-neutral-900 rounded-3xl border border-neutral-800 p-8 md:p-16">
@@ -186,7 +180,6 @@ export default function InternshipPage() {
         <br></br>
         <br></br>
 
-        {/* Internship Programs Section with New Card Design */}
         <div
           id="programs"
           className="bg-neutral-950 py-20 md:py-24 pb-24 md:pb-32 border-t border-neutral-800"
