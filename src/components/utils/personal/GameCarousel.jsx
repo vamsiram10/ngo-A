@@ -27,7 +27,7 @@ const games = [
   },
   {
     title: "Cyberpunk 2077",
-    image: "/maingallery/d.JPG",
+    image: "/maingallery/12.jpg",
     description:
       "Cyberpunk 2077 is an open-world RPG set in Night City, offering immersive storytelling and futuristic action.",
   },
