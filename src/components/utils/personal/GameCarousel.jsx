@@ -11,157 +11,169 @@ import BackgroundLines from "@/components/utils/background/background-lines"; //
 const games = [
   {
     title: "Care Meal",
-    image: "/maingallery/a.JPG",
+    image: "/main gallery/a.JPG",
     description: "Serving smiles and lunch at Nayasawera NGO, Jaipur.",
   },
   {
     title: "Elder Aid",
-    image: "/maingallery/b.JPG",
+    image: "/main gallery/b.JPG",
     description:
       "Sharing love, one meal at a time with the golden hearts of the old age home.",
   },
   {
     title: "Hearts Aligned",
-    image: "/maingallery/12.jpg",
+    image: "/main gallery/c.JPG",
     description:
       "  A day of shared smiles between the youngest dreams and the wisest hearts.",
   },
   {
     title: "Golden Bonds ",
-    image: "/maingallery/c.JPG",
+    image: "/main gallery/d.JPG",
     description: "Sharing smiles and stories with the golden generation.",
   },
   {
     title: "Bright Beginnings",
-    image: "/maingallery/e.JPG",
+    image: "/main gallery/e.JPG",
     description:
       "Igniting young minds with care, curiosity, and joyful connection.",
   },
   {
     title: "Joy in Every Smile",
-    image: "/maingallery/f.JPG",
+    image: "/main gallery/f.JPG",
     description:
       "A day filled with laughter, play, and pure happiness with the little stars.",
   },
   {
     title: "Steps of Joy",
-    image: "/maingallery/g.JPG",
+    image: "/main gallery/g.JPG",
     description:
       "Dancing beyond limits, spreading joy and confidence with every move.",
   },
   {
     title: "Learning Lights",
-    image: "/maingallery/h.JPG",
+    image: "/main gallery/h.JPG",
     description:
       "Empowering young minds through knowledge, one lesson at a time.",
   },
   {
     title: "Cool Kindness",
-    image: "/maingallery/i.JPG",
+    image: "/main gallery/i.JPG",
     description:
       "Cooling hearts and hands—serving buttermilk with care and compassion.",
   },
   {
     title: "Pride in Every Heart",
-    image: "/maingallery/j.JPG",
+    image: "/main gallery/j.JPG",
     description:
       "Celebrating the spirit of the nation with young patriots and bright smiles.",
   },
   {
     title: "Cool for a Cause",
-    image: "/maingallery/k.JPG",
+    image: "/main gallery/k.JPG",
     description:
       "Quenching thirst with kindness — a refreshing gesture on a warm day.",
   },
   {
     title: "Sip of Care",
-    image: "/maingallery/l.JPG",
+    image: "/main gallery/l.JPG",
     description:
       "Serving smiles in every glass — spreading cool comfort on a sunny day.",
   },
   {
     title: "Beat the Heat Drive",
-    image: "/maingallery/m.JPG",
+    image: "/main gallery/m.JPG",
     description:
       "Bringing cool relief to warm days — serving hydration with heart.",
   },
   {
     title: "Hope in Every Corner",
-    image: "/maingallery/n.JPG",
+    image: "/main gallery/n.JPG",
     description:
       "Spreading warmth, listening hearts, and building bonds in the heart of the community.",
   },
   {
     title: "Refresh & Reach",
-    image: "/maingallery/o.JPG",
+    image: "/main gallery/o.JPG",
     description:
       "Spreading smiles and energy—sharing refreshments with love and care.",
   },
   {
     title: "Hands of Hope",
-    image: "/maingallery/p.jpg",
+    image: "/main gallery/p.jpg",
     description:
       "Extending compassion where it’s needed most—standing by those who need us.",
   },
   {
     title: "Tech for Tomorrow",
-    image: "/maingallery/q.JPG",
+    image: "/main gallery/q.JPG",
     description:
       "Empowering young minds with tools for a brighter, smarter future.",
   },
   {
     title: "Quenching Thirst",
-    image: "/maingallery/r.JPG",
+    image: "/main gallery/r.JPG",
     description:
       "A small sip, a big relief — serving cool comfort with care and compassion.",
   },
   {
     title: "Refreshment Drive",
-    image: "/maingallery/s.JPG",
+    image: "/main gallery/s.JPG",
     description:
       "Serving smiles with every sip and bite — a small act of kindness to lift the day.",
   },
   {
     title: "Health in Hand",
-    image: "/maingallery/t.JPG",
+    image: "/main gallery/t.JPG",
     description:
       "Distributing essential medical kits — a step towards safer, healthier lives.",
   },
   {
     title: "Gratitude Moments",
-    image: "/maingallery/u.JPG",
+    image: "/main gallery/u.JPG",
     description:
       "Honored with heartfelt appreciation — a reminder that every small act creates lasting impact.",
   },
   {
     title: "Bonds Beyond Books",
-    image: "/maingallery/v.JPG",
+    image: "/main gallery/v.JPG",
     description:
       "Laughs, learning, and love — creating joyful moments with curious young minds.",
   },
   {
     title: "Support in Service",
-    image: "/maingallery/w.JPG",
+    image: "/main gallery/w.JPG",
     description:
       "Standing beside our traffic heroes — lending a hand to those who keep our roads safe.",
   },
   {
     title: "Helping Our Helpers",
-    image: "/maingallery/x.JPG",
+    image: "/main gallery/x.JPG",
     description:
       "A gesture of gratitude for those who protect and serve us daily — because care goes both ways.",
   },
   {
     title: "Hygiene for Her",
-    image: "/maingallery/y.JPG",
+    image: "/main gallery/y.JPG",
     description:
       "Empowering women with access to hygiene and self-care essentials.",
   },
   {
     title: "Threads of Kindness",
-    image: "/maingallery/z.JPG",
+    image: "/main gallery/z.JPG",
     description:
       "From our hearts to their hands — a gesture of warmth and dignity.",
+  },
+  {
+    title: "Joyful Gatherings",
+    image: "/main gallery/a1.JPG",
+    description:
+      "Bringing communities together — sharing laughter, stories, and support.",
+  },
+  {
+    title: "Seeds of Hope",
+    image: "/main gallery/a2.JPG",
+    description:
+      "Planting the promise of a greener tomorrow, one sapling at a time.",
   },
 ];
 
