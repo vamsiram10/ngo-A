@@ -1,64 +1,108 @@
 import React, { useRef, useEffect } from "react";
 
-// Example video data. Replace with your own video URLs or sources.
 const videos = [
   {
-    src: "/videos/video1.mp4",
+    src: "/vedios/1.mp4",
     type: "video/mp4",
-    poster: "/thumbnails/thumb1.jpg",
+    poster: "/vedios/1.jpg",
   },
   {
-    src: "/videos/video2.mp4",
+    src: "/vedios/02.mp4",
     type: "video/mp4",
-    poster: "/thumbnails/thumb2.jpg",
+    poster: "/vedios/2.jpg",
   },
   {
-    src: "/videos/video3.mp4",
+    src: "/vedios/03.mp4",
     type: "video/mp4",
-    poster: "/thumbnails/thumb3.jpg",
+    poster: "/vedios/3.jpg",
   },
-  // Add more videos as needed
+  {
+    src: "/vedios/04.mp4",
+    type: "video/mp4",
+    poster: "/vedios/4.jpg",
+  },
+  {
+    src: "/vedios/5.mp4",
+    type: "video/mp4",
+    poster: "/vedios/5.jpg",
+  },
+  {
+    src: "/vedios/06.mp4",
+    type: "video/mp4",
+    poster: "/vedios/6.jpg",
+  },
+  {
+    src: "/vedios/07.mp4",
+    type: "video/mp4",
+    poster: "/vedios/7.jpg",
+  },
+  {
+    src: "/vedios/08.mp4",
+    type: "video/mp4",
+    poster: "/vedios/8.jpg",
+  },
 ];
 
-const VIDEO_WIDTH = 400; // px
-const GAP = 32; // px (2rem)
-const SCROLL_SPEED = 1; // px per frame
+const VIDEO_WIDTH = 400;
+const VIDEO_HEIGHT = 320;
+const GAP = 32;
 
 const HomeGallery2 = () => {
   const scrollRef = useRef(null);
 
-  // Duplicate videos for seamless looping
-  const videoList = [...videos, ...videos];
+  const videoList = [...videos, ...videos, ...videos];
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
-    let frameId;
     let isHovered = false;
+    let isUserScrolling = false;
+    let scrollTimeout;
+    let animationActive = true;
 
-    // Hide scrollbar (for all browsers)
     if (scrollContainer) {
       scrollContainer.style.scrollbarWidth = "none";
       scrollContainer.style.msOverflowStyle = "none";
-      scrollContainer.style.overflow = "hidden";
+      scrollContainer.style.overflowX = "auto";
+      scrollContainer.style.overflowY = "hidden";
+      scrollContainer.classList.add("hide-scrollbar");
     }
 
-    const animate = () => {
-      if (!isHovered && scrollContainer) {
-        scrollContainer.scrollLeft += SCROLL_SPEED;
-        // Calculate the width of one set of videos (all original videos + gaps)
-        const singleSetWidth =
-          videos.length * VIDEO_WIDTH + (videos.length - 1) * GAP;
-        // Reset scroll to start for infinite loop
-        if (scrollContainer.scrollLeft >= singleSetWidth) {
-          scrollContainer.scrollLeft = 0;
+    const singleSetWidth =
+      videos.length * VIDEO_WIDTH + (videos.length - 1) * GAP;
+
+    const velocity = 700;
+    let lastTime = performance.now();
+
+    if (scrollContainer) {
+      scrollContainer.scrollLeft = singleSetWidth;
+    }
+
+    function animate() {
+      if (!animationActive) return;
+      const now = performance.now();
+      const delta = now - lastTime;
+      lastTime = now;
+
+      if (!isHovered && !isUserScrolling && scrollContainer) {
+        let nextScrollLeft =
+          scrollContainer.scrollLeft + velocity * (delta / 1000);
+
+        if (nextScrollLeft >= singleSetWidth * 2) {
+          nextScrollLeft -= singleSetWidth;
         }
+        if (nextScrollLeft < 0) {
+          nextScrollLeft += singleSetWidth;
+        }
+
+        scrollContainer.scrollLeft = nextScrollLeft;
       }
-      frameId = requestAnimationFrame(animate);
-    };
 
-    frameId = requestAnimationFrame(animate);
+      requestAnimationFrame(animate);
+    }
 
-    // Pause on hover
+    animationActive = true;
+    requestAnimationFrame(animate);
+
     const handleMouseEnter = () => {
       isHovered = true;
     };
@@ -66,19 +110,45 @@ const HomeGallery2 = () => {
       isHovered = false;
     };
 
+    const handleScroll = () => {
+      isUserScrolling = true;
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        isUserScrolling = false;
+      }, 100);
+
+      if (scrollContainer) {
+        if (scrollContainer.scrollLeft >= singleSetWidth * 2) {
+          scrollContainer.scrollLeft -= singleSetWidth;
+        }
+        if (scrollContainer.scrollLeft < 0) {
+          scrollContainer.scrollLeft += singleSetWidth;
+        }
+      }
+    };
+
     if (scrollContainer) {
       scrollContainer.addEventListener("mouseenter", handleMouseEnter);
       scrollContainer.addEventListener("mouseleave", handleMouseLeave);
+      scrollContainer.addEventListener("scroll", handleScroll);
     }
 
     return () => {
-      cancelAnimationFrame(frameId);
+      animationActive = false;
       if (scrollContainer) {
         scrollContainer.removeEventListener("mouseenter", handleMouseEnter);
         scrollContainer.removeEventListener("mouseleave", handleMouseLeave);
+        scrollContainer.removeEventListener("scroll", handleScroll);
+        scrollContainer.classList.remove("hide-scrollbar");
       }
     };
   }, []);
+
+  const hideScrollbarStyle = `
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+  `;
 
   return (
     <div
@@ -87,21 +157,31 @@ const HomeGallery2 = () => {
         overflow: "hidden",
         position: "relative",
         background: "#111",
-        padding: "2rem 0",
+        padding: "2.5rem 0",
+        minHeight: `${VIDEO_HEIGHT + 64}px`,
+        boxSizing: "border-box",
       }}
     >
+      <style>{hideScrollbarStyle}</style>
       <div
         ref={scrollRef}
         style={{
           display: "flex",
           gap: `${GAP}px`,
-          overflow: "hidden",
+          overflowX: "auto",
+          overflowY: "hidden",
           scrollBehavior: "auto",
           width: "100vw",
           scrollbarWidth: "none",
           msOverflowStyle: "none",
+          WebkitOverflowScrolling: "touch",
+          cursor: "grab",
+          minHeight: `${VIDEO_HEIGHT}px`,
+          alignItems: "center",
         }}
         className="homegallery2-scroll"
+        tabIndex={0}
+        aria-label="Scrollable video gallery"
       >
         {videoList.map((video, idx) => (
           <div
@@ -109,6 +189,8 @@ const HomeGallery2 = () => {
             style={{
               minWidth: `${VIDEO_WIDTH}px`,
               maxWidth: `${VIDEO_WIDTH}px`,
+              minHeight: `${VIDEO_HEIGHT}px`,
+              maxHeight: `${VIDEO_HEIGHT}px`,
               flex: `0 0 ${VIDEO_WIDTH}px`,
               borderRadius: "1rem",
               overflow: "hidden",
@@ -117,6 +199,7 @@ const HomeGallery2 = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              padding: 0,
             }}
           >
             <video
@@ -127,10 +210,12 @@ const HomeGallery2 = () => {
               loop
               muted
               playsInline
+              width={VIDEO_WIDTH}
+              height={VIDEO_HEIGHT}
               style={{
                 width: "100%",
-                height: "250px",
-                objectFit: "cover",
+                height: "100%",
+                objectFit: "fill",
                 background: "#000",
                 display: "block",
               }}
@@ -138,7 +223,6 @@ const HomeGallery2 = () => {
           </div>
         ))}
       </div>
-      {/* Optional: Add a subtle gradient fade on left/right */}
       <div
         style={{
           position: "absolute",
