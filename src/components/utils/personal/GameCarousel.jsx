@@ -23,13 +23,14 @@ const games = [
   {
     title: "Golden Bonds",
     image: "/maingallery/c.JPG",
-    description: "Sharing smiles and stories with the golden generation.",
+    description:
+      "Sharing smiles and stories with the golden generation.",
   },
   {
-    title: "Cyberpunk 2077",
-    image: "/maingallery/12.jpg",
+    title: "Hearts Aligned",
+    image: "/maingallery/d.JPG",
     description:
-      "Cyberpunk 2077 is an open-world RPG set in Night City, offering immersive storytelling and futuristic action.",
+      "A day of shared smiles between the youngest dreams and the wisest hearts.",
   },
   {
     title: "Bright Beginnings",
@@ -92,76 +93,76 @@ const games = [
       "Spreading warmth, listening hearts, and building bonds in the heart of the community.",
   },
   {
-    title: "Apex Legends",
+    title: "Refresh & Reach",
     image: "/maingallery/o.JPG",
     description:
-      "Apex Legends is a free-to-play battle royale game featuring unique characters and fast-paced squad-based gameplay.",
+      "Spreading smiles and energy—sharing refreshments with love and care.",
   },
   {
-    title: "Genshin Impact",
+    title: "Hands of Hope",
     image: "/maingallery/p.jpg",
     description:
-      "Genshin Impact is an open-world action RPG with beautiful visuals and elemental combat, set in the world of Teyvat.",
+      "Extending compassion where it’s needed most—standing by those who need us.",
   },
   {
-    title: "Valorant",
+    title: "Tech for Tomorrow",
     image: "/maingallery/q.JPG",
     description:
-      "Valorant is a tactical first-person shooter from Riot Games, combining precise gunplay with unique agent abilities.",
+      "Empowering young minds with tools for a brighter, smarter future.",
   },
   {
-    title: "God of War",
+    title: "Quenching Thirst",
     image: "/maingallery/r.JPG",
     description:
-      "God of War follows Kratos and his son Atreus on a mythological journey through Norse realms.",
+      "A small sip, a big relief — serving cool comfort with care and compassion.",
   },
   {
-    title: "Sekiro: Shadows Die Twice",
+    title: "Refreshment Drive",
     image: "/maingallery/s.JPG",
     description:
-      "Sekiro is an action-adventure game by FromSoftware, known for its challenging sword combat and stealth mechanics.",
+      "Serving smiles with every sip and bite — a small act of kindness to lift the day.",
   },
   {
-    title: "Super Mario Odyssey",
+    title: "Health in Hand",
     image: "/maingallery/t.JPG",
     description:
-      "Super Mario Odyssey is a 3D platformer where Mario travels across various worlds to save Princess Peach.",
+      "Distributing essential medical kits — a step towards safer, healthier lives.",
   },
   {
-    title: "Hollow Knight",
+    title: "Gratitude Moments",
     image: "/maingallery/u.JPG",
     description:
-      "Hollow Knight is a challenging 2D action-adventure set in a vast, ruined kingdom of insects and heroes.",
+      "Honored with heartfelt appreciation — a reminder that every small act creates lasting impact.",
   },
   {
-    title: "Celeste",
+    title: "Bonds Beyond Books",
     image: "/maingallery/v.JPG",
     description:
-      "Celeste is a platformer about climbing a mountain, overcoming tough obstacles, and facing inner struggles.",
+      "Laughs, learning, and love — creating joyful moments with curious young minds.",
   },
   {
-    title: "The Legend of Zelda: Breath of the Wild",
+    title: "Support in Service",
     image: "/maingallery/w.JPG",
     description:
-      "Breath of the Wild is an open-world adventure where you explore, solve puzzles, and battle to save Hyrule.",
+      "Standing beside our traffic heroes — lending a hand to those who keep our roads safe.",
   },
   {
-    title: "Stardew Valley",
+    title: "Helping Our Helpers",
     image: "/maingallery/x.JPG",
     description:
-      "Stardew Valley is a relaxing farming simulation game where you grow crops, raise animals, and build relationships.",
+      "A gesture of gratitude for those who protect and serve us daily — because care goes both ways.",
   },
   {
-    title: "Hades",
+    title: "Hygiene for Her",
     image: "/maingallery/y.JPG",
     description:
-      "Hades is a rogue-like dungeon crawler where you battle out of the Underworld as the immortal Prince Zagreus.",
+      "Empowering women with access to hygiene and self-care essentials.",
   },
   {
-    title: "Animal Crossing: New Horizons",
+    title: "Threads of Kindness",
     image: "/maingallery/z.JPG",
     description:
-      "Animal Crossing: New Horizons lets you build your dream island life, make friends, and decorate to your heart's content.",
+      "From our hearts to their hands — a gesture of warmth and dignity.",
   },
 ];
 
