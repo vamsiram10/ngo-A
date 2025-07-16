@@ -12,45 +12,30 @@ const timelineData = [
   {
     year: "2022",
     title: "The Beginning of Avasa",
-    images: [
-      "https://w0.peakpx.com/wallpaper/571/269/HD-wallpaper-a-silent-voice-anime-goals-koe-no-katachi-love-random.jpg",
-      "https://w0.peakpx.com/wallpaper/513/42/HD-wallpaper-tenki-no-ko-anime-art-random-sky-waifu.jpg",
-      "https://w0.peakpx.com/wallpaper/894/73/HD-wallpaper-tenki-no-ko-anime-art-goals-random-waifu.jpg",
-    ],
+    images: ["/timelinephotos/2022.JPG"],
     content:
       "Avasa was founded by Radha Priyanka in Hyderabad with a vision to support the underprivileged. The year saw heartfelt initiatives like clothes donation drives, online awareness sessions on self-confidence, interactions with orphanages, and food distribution for the needy — laying the foundation for a mission rooted in compassion.",
   },
   {
     year: "2023",
     title: " A New Chapter in Jaipur",
-    images: [
-      "https://w0.peakpx.com/wallpaper/894/73/HD-wallpaper-tenki-no-ko-anime-art-goals-random-waifu.jpg",
-      "https://w0.peakpx.com/wallpaper/733/129/HD-wallpaper-kimetsu-no-yaiba-anime-art-demon-slayer-fantasy-random.jpg",
-    ],
+    images: ["/timelinephotos/2023.JPG"],
     content:
       "In 2023, Avasa was reborn in Jaipur with renewed energy. Radha, joined by her university friends and volunteers, expanded outreach through meaningful interactions with Naya Sawera Orphanage and Sarthak Old Age Home.The team conducted dance classes and bonding sessions with children at Matra Chaya Bal Gruh and connected deeply with residents of a nearby village, Chak, understanding their everyday struggles.Efforts included distributing food and warm clothes to those in need, and engaging with students at the government school in Chak, bringing care, creativity, and community to life through every initiative.",
   },
   {
     year: "2024",
     title: "A Year of Recognition & Formal Milestone",
-    images: [
-      "https://w0.peakpx.com/wallpaper/514/165/HD-wallpaper-a-silent-voice-anime-girl-goals-koe-no-katachi-love-random-waifu.jpg",
-      "https://w0.peakpx.com/wallpaper/891/288/HD-wallpaper-silent-voice-anime-art-koe-no-katachi-love-random.jpg",
-    ],
+    images: ["/timelinephotos/2024.JPG"],
     content:
       "In 2024, Avasa Foundation was officially registered under the Telangana Societies Registration Act (Reg. No. 1108 of 2024), marking a major step in our organizational journey.We celebrated New Year’s with both an orphanage and an old age home, and were honored to be invited by the Chak Government School for their Republic Day and Annual Day celebrations, where we distributed stationery kits and continued regular student engagement.Our ongoing association with Sarthak Old Age Home strengthened, while our Beat the Heat drive distributed 1,000 buttermilk packets across underserved areas.Other initiatives included food donation with Naya Sawera NGO, period kits for women in Chak village, and medical kit distribution in Vaishali Nagar slums — reinforcing our commitment to community wellness and dignity.",
   },
   {
     year: "2025",
     title: "Innovation, Expansion & Continued Commitment",
-    images: [
-      "https://w0.peakpx.com/wallpaper/41/192/HD-wallpaper-silent-voice-anime-koe-no-kstschi-love-random.jpg",
-      "https://w0.peakpx.com/wallpaper/1009/985/HD-wallpaper-chuunibyou-anime-art-beatiful-girl-random-waifu.jpg",
-    ],
+    images: ["/timelinephotos/2025.JPG"],
     content:
-      "In 2025, Avasa Foundation continued its mission with renewed energy and innovation.We were honored once again to join the Republic Day celebrations at Chak Government School, where we strengthened our commitment to education by providing a projector, offering much-needed technical support to enhance classroom learning.Building on the success of the previous year, our summer Beat the Heat drive returned with greater scale — distributing over 1,500 buttermilk packets to individuals battling the harsh summer heat across underserved areas.With every initiative, Avasa continues to evolve — combining compassion, community, and sustainable support to uplift lives across generations.
-
-",
+      "In 2025, Avasa Foundation continued its mission with renewed energy and innovation.We were honored once again to join the Republic Day celebrations at Chak Government School, where we strengthened our commitment to education by providing a projector, offering much-needed technical support to enhance classroom learning.Building on the success of the previous year, our summer Beat the Heat drive returned with greater scale — distributing over 1,500 buttermilk packets to individuals battling the harsh summer heat across underserved areas.With every initiative, Avasa continues to evolve — combining compassion, community, and sustainable support to uplift lives across generations.",
   },
 ];
 
@@ -227,6 +212,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
   if (!images || images.length === 0) return null;
 
   if (images.length === 1) {
+    // Make the image fill the available place
     return (
       <div
         className={`relative ${imageSize}`}
@@ -238,7 +224,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
           maxWidth: "220px",
           maxHeight: "220px",
           width: "100%",
-          height: "auto",
+          height: "100%",
           overflow: "hidden",
           display: "flex",
           alignItems: "center",
@@ -248,7 +234,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
         <img
           src={images[0]}
           alt={altTexts[0] || "Gallery image"}
-          className={`object-cover object-center w-full h-full rounded-lg border-neutral-200 border dark:border-neutral-700 shadow`}
+          className={`object-cover object-center absolute inset-0 w-full h-full rounded-lg border-neutral-200 border dark:border-neutral-700 shadow`}
           style={{
             aspectRatio: "1 / 1",
             background: "#fff",
@@ -257,8 +243,10 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
             maxWidth: "100%",
             maxHeight: "100%",
             display: "block",
-            objectFit: "cover",
+            objectFit: "contain",
             objectPosition: "center",
+            position: "absolute",
+            inset: 0,
           }}
           draggable={false}
         />

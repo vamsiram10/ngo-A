@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import Image from "next/image";
+// Removed next/image import due to static export incompatibility
 
 const fadeIn = {
   hidden: { opacity: 0, y: 40 },
@@ -151,12 +151,13 @@ export default function AboutUsContent() {
               commitment to meaningful, community-driven change.
             </p>
           </div>
-          <Image
+          <img
             className="m-10 rounded-2xl"
             width={550}
             height={300}
             alt="image"
             src="/images/aboutus1.jpg"
+            style={{ objectFit: "cover" }}
           />
         </div>
       </motion.section>

@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef, useEffect } from "react";
 
 const videos = [
@@ -71,7 +72,7 @@ const HomeGallery2 = () => {
       videos.length * VIDEO_WIDTH + (videos.length - 1) * GAP;
 
     const velocity = 700;
-    let lastTime = performance.now();
+    let lastTime = typeof window !== "undefined" ? performance.now() : 0;
 
     if (scrollContainer) {
       scrollContainer.scrollLeft = singleSetWidth;
@@ -79,7 +80,7 @@ const HomeGallery2 = () => {
 
     function animate() {
       if (!animationActive) return;
-      const now = performance.now();
+      const now = typeof window !== "undefined" ? performance.now() : 0;
       const delta = now - lastTime;
       lastTime = now;
 
@@ -97,11 +98,15 @@ const HomeGallery2 = () => {
         scrollContainer.scrollLeft = nextScrollLeft;
       }
 
-      requestAnimationFrame(animate);
+      if (typeof window !== "undefined") {
+        requestAnimationFrame(animate);
+      }
     }
 
     animationActive = true;
-    requestAnimationFrame(animate);
+    if (typeof window !== "undefined") {
+      requestAnimationFrame(animate);
+    }
 
     const handleMouseEnter = () => {
       isHovered = true;
