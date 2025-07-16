@@ -19,33 +19,57 @@ const fadeIn = {
 export default function AboutUsContent() {
   const team = [
     {
-      name: "Vinathi",
-      role: "Account Manager",
-      desc: "Cheerful and enthusiastic, she handles financial expenses with positivity.",
+      name: "V. Radha Priyanka",
+      role: "Founder/ President",
+      desc: "Visionary and compassionate, she leads Avasa with purpose, heart, and unwavering commitment to its mission."
       img: "/team/vinathi.jpg",
     },
     {
-      name: "Radha Priyanka",
-      role: "Founder",
-      desc: "Visionary and compassionate, she leads Avasa with purpose and heart.",
+      name: "V. Keerthi Sri",
+      role: "Vice President",
+      desc: "Provides strategic oversight, ensuring organizational alignment, operational excellence, and effective implementation of programs."
+      img: "/team/vinathi.jpg",
+    },
+    {
+      name: "Ananya Pandey",
+      role: "General Secretary",
+      desc: "Manages administrative affairs, ensures clear communication, and upholds governance with integrity.",
       img: "/team/priyanka.jpg",
     },
     {
-      name: "Ajay",
-      role: "Outreach Lead",
-      desc: "Manages drives and events with energy and dedication.",
+      name: "M.V. Nageswara Rao",
+      role: "Joint Secretary",
+      desc: "Supports administrative functions and streamlines coordination to ensure operational efficiency.",
       img: "/team/ajay.jpg",
     },
     {
-      name: "Radha Priyanka",
-      role: "Founder",
-      desc: "Visionary and compassionate, she leads Avasa with purpose and heart.",
+      name: "V. Lakshmi Prasanna",
+      role: "Treasurer",
+      desc: "Manages financial operations, maintains transparent records, and ensures accountable use of funds.",
       img: "/team/priyanka.jpg",
     },
     {
-      name: "Ajay",
-      role: "Outreach Lead",
-      desc: "Manages drives and events with energy and dedication.",
+      name: "K. Usha Bhargavi",
+      role: "Executive member",
+      desc: "Contributes to decision-making, supports program execution, and upholds the organization’s mission through active involvement.",
+      img: "/team/ajay.jpg",
+    },
+    {
+      name: "V. Sai Harini",
+      role: "Executive member",
+      desc: "Contributes in organizational activities, offering insights and assistance to drive impactful initiatives forward.",
+      img: "/team/ajay.jpg",
+    },
+    {
+      name: "Ch. Vinathi",
+      role: "Head of Finance",
+      desc: "Oversees financial planning, budgeting, and compliance to ensure fiscal responsibility and sustainability.",
+      img: "/team/ajay.jpg",
+    },
+    {
+      name: "R.V.R. Vamsi",
+      role: "Head of Social Media",
+      desc: "Leads the organization’s digital presence by strategizing, creating, and managing content to amplify outreach and engagement.",
       img: "/team/ajay.jpg",
     },
   ];
@@ -119,8 +143,10 @@ export default function AboutUsContent() {
           purpose—to bring hope, dignity, and support.
           <br />
           <br />
-          In November 2024, we officially registered as an NGO, allowing us to
-          amplify our impact and reach.
+          Founded in 2022 and officially incorporated as a <strong className="text-[#fb64b6]">registered NGO in November 2024</strong>, 
+          Avasa is registered under the Telangana Societies Registration Act, 2001 
+          with registration number <strong className="text-[#fb64b6]">1108 of 2024</strong>. This recognition enables us to scale our
+          initiatives and deepen our commitment to meaningful, community-driven change.
         </p>
       </div>
           <Image
