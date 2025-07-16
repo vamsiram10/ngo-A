@@ -21,16 +21,15 @@ const games = [
       "Sharing love, one meal at a time with the golden hearts of the old age home.",
   },
   {
-    title: "Golden Bonds",
-    image: "/maingallery/c.JPG",
+    title: "Hearts Aligned",
+    image: "/maingallery/12.jpg",
     description:
-      "Sharing smiles and stories with the golden generation.",
+      "  A day of shared smiles between the youngest dreams and the wisest hearts.",
   },
   {
-    title: "Hearts Aligned",
-    image: "/maingallery/d.JPG",
-    description:
-      "A day of shared smiles between the youngest dreams and the wisest hearts.",
+    title: "Golden Bonds ",
+    image: "/maingallery/c.JPG",
+    description: "Sharing smiles and stories with the golden generation.",
   },
   {
     title: "Bright Beginnings",
