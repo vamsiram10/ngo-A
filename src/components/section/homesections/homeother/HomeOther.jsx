@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 // You can add more images here if you want to make it a carousel
-const images = ["/main1.jpg", "/maingallery/a.JPG"];
+const images = ["/main.jpg", "/main1.jpg"];
 
 const dropInKeyframes = [
   { transform: "translateY(-200px)", opacity: 0 },
@@ -200,7 +200,7 @@ const HomeOther = () => {
           <div className="z-50 relative mb-10">
             <p
               ref={textRef}
-              className="px-4 text-white text-5xl font-semibold text-center md:text-7xl"
+              className="px-4 text-white text-3xl font-semibold text-center md:text-7xl"
               style={{
                 opacity: 0,
                 transform: "translateY(-200px)",
