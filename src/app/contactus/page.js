@@ -15,7 +15,7 @@ const ContactUsPage = () => {
             {/* Use a regular img tag for external background image to avoid next/image config error */}
             <img
               className="bg-img absolute w-full h-full object-cover z-0"
-              src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/clothes-bg.png"
+              src="https://media.gettyimages.com/id/1644207968/video/4k-video-neon-effect-rectangle-frame-backgraund.jpg?s=640x640&k=20&c=TqQXMt3UIV1GLHuYYDH-guBupN0SLvefYQWhIaXpvLw="
               alt="Background"
               style={{ objectFit: "cover", zIndex: 0 }}
               loading="eager"
@@ -25,12 +25,16 @@ const ContactUsPage = () => {
               <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 left-one w-full md:w-1/2 p-6">
                 <div className="content-box text-white">
                   <p className="text-blk section-head text-3xl font-semibold mb-4">
-                    Lorem ipsum amet dolor
+                    Here for a Cause!
                   </p>
                   <p className="text-blk section-subhead mb-6 text-gray-300">
+
+                    Contact us to colloborate for a cause greater than all of us. Our team will get back to you.
+
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam, quis volupta
+
                   </p>
                   <div className="icons-container flex space-x-4">
                     <a className="share-icon" href="#">
@@ -127,8 +131,13 @@ const ContactUsPage = () => {
           </div>
         </div>
       </main>
+
+    </ReactLenis>
+
+
     </>
   );
 };
 
 export default ContactUsPage;
+
