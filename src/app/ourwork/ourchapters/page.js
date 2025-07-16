@@ -72,25 +72,31 @@ const galleryContent = [
       "In the heart of the Pink City, our Jaipur chapter brings smiles and support to many. From local clean-up initiatives to celebrating festivals with underprivileged children, our volunteers create lasting bonds and beautiful memories.",
     images: [
       {
-        src: "/images/chapter-jaipur.jpg",
+        src: "/jaipur/j1.jpg",
         alt: "Jaipur event 1",
         title: "Shared Smiles",
         description: "Moments of connection and joy.",
       },
       {
-        src: "/images/chapter-jaipur.jpg",
+        src: "/jaipur/j2.jpg",
         alt: "Jaipur event 2",
         title: "Art for a Cause",
         description: "Creative workshops for local youth.",
       },
       {
-        src: "/images/chapter-jaipur.jpg",
+        src: "/jaipur/j3.jpg",
         alt: "Jaipur event 3",
         title: "Community Cleanup",
         description: "Working together for a cleaner city.",
       },
       {
-        src: "/images/chapter-jaipur.jpg",
+        src: "/jaipur/j4.jpg",
+        alt: "Jaipur event 4",
+        title: "Festival Fun",
+        description: "Celebrating with the community.",
+      },
+      {
+        src: "/jaipur/j5.jpg",
         alt: "Jaipur event 4",
         title: "Festival Fun",
         description: "Celebrating with the community.",
@@ -151,24 +157,47 @@ const ContentItem = ({ title, description, isFaq = false }) => (
   </motion.div>
 );
 
-const GalleryCard = ({ image }) => (
+// --- GalleryCard with mobile click-to-activate effect ---
+import { useRef } from "react";
+
+const GalleryCard = ({ image, isActive, onClick, index }) => (
   <motion.div
     variants={itemVariants}
     whileHover="hover"
     transition={{ type: "spring", stiffness: 250 }}
-    className="group relative aspect-square rounded-2xl overflow-hidden shadow-lg hover:shadow-pink-600/30 transition-shadow duration-300"
+    className={`group relative aspect-square rounded-2xl overflow-hidden shadow-lg hover:shadow-pink-600/30 transition-shadow duration-300
+      ${isActive ? "mobile-gallery-active" : ""}
+    `}
+    // Only add onClick for mobile, but it's fine to always add, effect is only visible on mobile
+    onClick={onClick}
+    tabIndex={0}
+    role="button"
+    aria-pressed={isActive}
+    onKeyDown={(e) => {
+      if (e.key === "Enter" || e.key === " ") onClick();
+    }}
+    style={{ touchAction: "manipulation" }}
   >
     <img
       src={image.src}
       alt={image.alt}
-      className="object-cover w-full h-full absolute inset-0 transition-transform duration-300 group-hover:scale-105"
+      className={`object-cover w-full h-full absolute inset-0 transition-transform duration-300 group-hover:scale-105
+        ${isActive ? "mobile-gallery-scale" : ""}
+      `}
       style={{ objectFit: "cover" }}
+      draggable={false}
     />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-    <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 text-white">
+    <div
+      className={`
+        absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300
+        ${isActive ? "mobile-gallery-opacity" : ""}
+      `}
+    />
+    <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 text-white pointer-events-none">
       <motion.h3
         initial={{ y: 10, opacity: 0 }}
         variants={{ hover: { y: 0, opacity: 1 } }}
+        animate={isActive ? "hover" : undefined}
         transition={{ delay: 0.1, ease: "easeOut" }}
         className="font-bold text-lg sm:text-xl"
       >
@@ -177,32 +206,87 @@ const GalleryCard = ({ image }) => (
       <motion.p
         initial={{ y: 10, opacity: 0 }}
         variants={{ hover: { y: 0, opacity: 1 } }}
+        animate={isActive ? "hover" : undefined}
         transition={{ delay: 0.15, ease: "easeOut" }}
         className="text-sm text-neutral-300"
       >
         {image.description}
       </motion.p>
     </div>
+    {/* Mobile overlay click-out area */}
+    {isActive && (
+      <div
+        className="fixed inset-0 z-40 sm:hidden"
+        style={{ cursor: "pointer" }}
+        onClick={(e) => {
+          // Prevent click bubbling to card itself
+          e.stopPropagation();
+          if (typeof window !== "undefined" && window.innerWidth < 640) {
+            onClick();
+          }
+        }}
+      />
+    )}
   </motion.div>
 );
 
-const ChapterGallery = ({ title, description, images }) => (
-  <motion.div variants={itemVariants} className="mb-16 last:mb-0">
-    <div className="max-w-3xl mx-auto text-center mb-8 px-4">
-      <h3 className="text-2xl sm:text-3xl font-bold text-pink-400 mb-3">
-        {title}
-      </h3>
-      <p className="text-neutral-300 text-base sm:text-lg">{description}</p>
-    </div>
-    <div className="custom-scrollbar flex overflow-x-auto space-x-4 md:space-x-6 py-4 pl-4 pr-4 sm:pl-8 sm:pr-8">
-      {images.map((image, index) => (
-        <div key={index} className="flex-shrink-0 w-72 sm:w-80">
-          <GalleryCard image={image} />
-        </div>
-      ))}
-    </div>
-  </motion.div>
-);
+// --- ChapterGallery with mobile gallery state ---
+const ChapterGallery = ({ title, description, images }) => {
+  // Track which gallery card is active on mobile (index), null if none
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  // Helper: is mobile (sm breakpoint)
+  const isMobile = () =>
+    typeof window !== "undefined" && window.innerWidth < 640;
+
+  // Dismiss on scroll/tap outside (mobile only)
+  // (Optional: can be added for better UX, but not required for basic click-to-activate)
+
+  return (
+    <motion.div variants={itemVariants} className="mb-16 last:mb-0">
+      <div className="max-w-3xl mx-auto text-center mb-8 px-4">
+        <h3 className="text-2xl sm:text-3xl font-bold text-pink-400 mb-3">
+          {title}
+        </h3>
+        <p className="text-neutral-300 text-base sm:text-lg">{description}</p>
+      </div>
+      <div className="custom-scrollbar flex overflow-x-auto space-x-4 md:space-x-6 py-4 pl-4 pr-4 sm:pl-8 sm:pr-8">
+        {images.map((image, index) => (
+          <div key={index} className="flex-shrink-0 w-72 sm:w-80">
+            <GalleryCard
+              image={image}
+              index={index}
+              isActive={activeIndex === index}
+              onClick={() => {
+                if (typeof window !== "undefined" && window.innerWidth < 640) {
+                  setActiveIndex(activeIndex === index ? null : index);
+                }
+              }}
+            />
+          </div>
+        ))}
+      </div>
+      {/* Add some global styles for mobile click effect */}
+      <style jsx global>{`
+        @media (max-width: 639px) {
+          .mobile-gallery-active {
+            z-index: 50;
+            box-shadow: 0 8px 32px 0 rgba(236, 72, 153, 0.25),
+              0 1.5px 8px 0 rgba(236, 72, 153, 0.15);
+          }
+          .mobile-gallery-scale {
+            transform: scale(1.05);
+            transition: transform 0.3s;
+          }
+          .mobile-gallery-opacity {
+            opacity: 1 !important;
+            transition: opacity 0.3s;
+          }
+        }
+      `}</style>
+    </motion.div>
+  );
+};
 
 export default function OurChaptersPage() {
   const [hoveredChapterId, setHoveredChapterId] = useState(null);
