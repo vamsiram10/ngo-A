@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import { EffectCoverflow } from "swiper/modules";
+import BackgroundLines from "@/components/utils/background/background-lines"; // Adjust path as needed
 
 const games = [
   {
@@ -205,7 +206,14 @@ export default function GameCarousel() {
   }, []);
 
   return (
-    <section className="game-section centered-section">
+    <section
+      className="game-section centered-section"
+      style={{ position: "relative", overflow: "hidden" }}
+    >
+      {/* Responsive background lines */}
+      <div className="background-lines-wrapper">
+        <BackgroundLines />
+      </div>
       <h2
         className="line-title animated-title pink-text"
         style={{
@@ -283,6 +291,15 @@ export default function GameCarousel() {
         }
         body {
           font-family: "Roboto", sans-serif;
+        }
+        .background-lines-wrapper {
+          position: absolute;
+          inset: 0;
+          width: 100vw;
+          height: 100vh;
+          z-index: 0;
+          pointer-events: none;
+          overflow: hidden;
         }
         .centered-section {
           min-height: 100vh;
@@ -523,6 +540,10 @@ export default function GameCarousel() {
           transform: scale(1) !important;
         }
         @media (max-width: 767px) {
+          .background-lines-wrapper {
+            width: 100vw;
+            height: 100vh;
+          }
           .centered-section {
             padding: 0 2vw;
             min-height: 100vh;
@@ -598,6 +619,10 @@ export default function GameCarousel() {
           }
         }
         @media (min-width: 768px) {
+          .background-lines-wrapper {
+            width: 100vw;
+            height: 100vh;
+          }
           .game-swiper {
             padding-bottom: 20px !important;
           }

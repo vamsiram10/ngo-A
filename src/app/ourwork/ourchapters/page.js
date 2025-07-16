@@ -32,37 +32,56 @@ const chapters = [
   },
 ];
 
-const galleryImages = [
+const galleryContent = [
     {
-        src: "/images/chapter-hero.jpg",
-        alt: "Group of volunteers working together",
-        title: "Unity in Action",
-        description: "Our teams collaborating on a national drive.",
-        span: "col-span-2 aspect-video lg:col-span-2 lg:row-span-2 lg:aspect-square",
+        id: 'hyd',
+        title: 'Hyderabad Chapter',
+        description: 'Our Hyderabad chapter has been at the forefront of community engagement, organizing everything from educational drives to health camps. These moments capture the spirit of our volunteers and the vibrant communities we serve.',
+        images: [
+            {
+                src: "/images/chapter-hyd.jpg",
+                alt: "Hyderabad event 1",
+                title: "Street Smarts",
+                description: "An awareness campaign in full swing.",
+            },
+            {
+                src: "/images/chapter-hyd.jpg",
+                alt: "Hyderabad event 2",
+                title: "Health Drive",
+                description: "Providing essential health services.",
+            },
+            {
+                src: "/images/chapter-hyd.jpg",
+                alt: "Hyderabad event 3",
+                title: "Educational Outreach",
+                description: "Supporting local schools.",
+            },
+        ],
     },
     {
-        src: "/images/chapter-jaipur.jpg",
-        alt: "Jaipur Chapter Activities",
-        title: "Jaipur's Joy",
-        description: "Distributing essentials to the local community.",
-    },
-    {
-        src: "/images/chapter-hyd.jpg",
-        alt: "Hyderabad Chapter Drive",
-        title: "Hyderabad's Heart",
-        description: "A successful skill-building workshop.",
-    },
-    {
-        src: "/images/chapter-hyd.jpg",
-        alt: "Community Event",
-        title: "Street Smarts",
-        description: "An awareness campaign in full swing.",
-    },
-    {
-        src: "/images/chapter-jaipur.jpg",
-        alt: "Another Community Event",
-        title: "Shared Smiles",
-        description: "Moments of connection and joy.",
+        id: 'jaipur',
+        title: 'Jaipur Chapter',
+        description: 'In the heart of the Pink City, our Jaipur chapter brings smiles and support to many. From local clean-up initiatives to celebrating festivals with underprivileged children, our volunteers create lasting bonds and beautiful memories.',
+        images: [
+            {
+                src: "/images/chapter-jaipur.jpg",
+                alt: "Jaipur event 1",
+                title: "Shared Smiles",
+                description: "Moments of connection and joy.",
+            },
+            {
+                src: "/images/chapter-jaipur.jpg",
+                alt: "Jaipur event 2",
+                title: "Art for a Cause",
+                description: "Creative workshops for local youth.",
+            },
+            {
+                src: "/images/chapter-jaipur.jpg",
+                alt: "Jaipur event 3",
+                title: "Community Cleanup",
+                description: "Working together for a cleaner city.",
+            },
+        ],
     },
 ];
 
@@ -126,14 +145,14 @@ const GalleryCard = ({ image }) => (
       variants={itemVariants}
       whileHover="hover"
       transition={{ type: "spring", stiffness: 250 }}
-      className={`group relative aspect-square rounded-2xl overflow-hidden shadow-lg hover:shadow-pink-600/30 transition-shadow duration-300 ${image.span || ''}`}
+      className="group relative aspect-square rounded-2xl overflow-hidden shadow-lg hover:shadow-pink-600/30 transition-shadow duration-300"
     >
       <Image
         src={image.src}
         alt={image.alt}
         fill
         className="object-cover transition-transform duration-300 group-hover:scale-105"
-        sizes="(max-width: 768px) 50vw, (max-width: 1024px) 50vw, 33vw"
+        sizes="(max-width: 768px) 80vw, 300px"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 text-white">
@@ -156,6 +175,23 @@ const GalleryCard = ({ image }) => (
       </div>
     </motion.div>
   );
+
+const ChapterGallery = ({ title, description, images }) => (
+    <motion.div variants={itemVariants} className="mb-16 last:mb-0">
+        <div className="max-w-3xl mx-auto text-center mb-8 px-4">
+            <h3 className="text-2xl sm:text-3xl font-bold text-pink-400 mb-3">{title}</h3>
+            <p className="text-neutral-300 text-base sm:text-lg">{description}</p>
+        </div>
+        <div className="flex overflow-x-auto space-x-4 md:space-x-6 py-4 pl-4 pr-4 sm:pl-8 sm:pr-8">
+            {images.map((image, index) => (
+                <div key={index} className="flex-shrink-0 w-72 sm:w-80">
+                    <GalleryCard image={image} />
+                </div>
+            ))}
+        </div>
+    </motion.div>
+);
+
 
 export default function OurChaptersPage() {
   const [hoveredChapter, setHoveredChapter] = useState(null);
@@ -303,31 +339,34 @@ export default function OurChaptersPage() {
             </motion.div>
           </div>
         </div>
-
-        {/* Gallery Section with final fix */}
+        
+        {/* Moments That Define Us Section */}
         <div className="bg-black py-16 sm:py-24 border-b border-neutral-800">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center mb-12">
-                <h2 className="text-3xl sm:text-4xl font-bold text-pink-500 mb-3">
-                Moments That Define Us
-                </h2>
-                <p className="text-neutral-400 text-base sm:text-lg max-w-2xl mx-auto">
-                    A glimpse into the lifeblood of our mission—the events, drives, and smiles from our chapters nationwide.
-                </p>
+            <div className="max-w-7xl mx-auto">
+                <div className="text-center mb-12 px-4">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-pink-500 mb-3">
+                        Moments That Define Us
+                    </h2>
+                    <p className="text-neutral-400 text-base sm:text-lg max-w-3xl mx-auto">
+                        A glimpse into the lifeblood of our mission—the events, drives, and smiles from our chapters nationwide.
+                    </p>
+                </div>
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    variants={containerVariants}
+                    viewport={{ once: true, amount: 0.1 }}
+                >
+                    {galleryContent.map((chapter) => (
+                        <ChapterGallery
+                            key={chapter.id}
+                            title={chapter.title}
+                            description={chapter.description}
+                            images={chapter.images}
+                        />
+                    ))}
+                </motion.div>
             </div>
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              variants={containerVariants}
-              viewport={{ once: true, amount: 0.1 }}
-              // By removing `auto-rows-fr`, the gap is now applied uniformly.
-              className="grid grid-cols-2 lg:grid-cols-4 gap-4"
-            >
-              {galleryImages.map((image, index) => (
-                <GalleryCard key={index} image={image} />
-              ))}
-            </motion.div>
-          </div>
         </div>
 
 
