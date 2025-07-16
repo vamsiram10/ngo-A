@@ -228,7 +228,7 @@ export default function AboutUsContent() {
       >
         <div className="mt-16 sm:mt-20 md:mt-24 lg:mt-32 md:mx-20">
           <h2 className="text-3xl font-bold text-[#fb64b6] text-center sm:text-4xl">
-            Meet Our Team
+            Meet Our Board
           </h2>
 
           <div className="flex flex-wrap justify-center gap-6 mt-8 px-2 sm:mt-10 sm:px-0 sm:gap-8">
