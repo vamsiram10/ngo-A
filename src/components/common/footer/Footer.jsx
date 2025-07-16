@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const SOCIALS = [
   {
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/avasa.foundation/",
     src: "instagram",
     color: "#ec4899",
     emoji: "📸",
@@ -23,7 +23,7 @@ const SOCIALS = [
     emoji: "👥",
   },
   {
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/company/the-avasa-foundation/?originalSubdomain=in",
     src: "linkedin",
     color: "#0a66c2",
     emoji: "💼",
