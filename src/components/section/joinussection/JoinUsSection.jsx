@@ -1,14 +1,14 @@
-import FlyingBirdLogo from "@/components/utils/avasalogo/FlyingBirdLogo";
-import Timeline from "@/components/utils/timeline/Timeline";
+import { BackgroundLines } from "@/components/utils/background/background-lines";
 
-const JoinUs = () => {
+const JoinUsSection = () => {
   return (
     <div>
       <h1>Aneesh WORk</h1>
       {/* <Timeline /> */}
-      <FlyingBirdLogo />
+      {/* <FlyingBirdLogo /> */}
+      <BackgroundLines />
     </div>
   );
 };
 
-export default JoinUs;
+export default JoinUsSection;

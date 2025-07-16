@@ -22,7 +22,7 @@ const navLinks = {
           title: "Past events",
           path: "/ourwork/events",
         },
-        { id: 4, title: "Upcoming events", path: "/" },
+        { id: 4, title: "Upcoming events", path: "/ourwork/upcomingevents" },
       ],
     },
     {
@@ -32,8 +32,7 @@ const navLinks = {
       dialog: [
         { id: 1, title: "volunteering  ", path: "/joinus/volunteering" },
         { id: 2, title: "internship", path: "/joinus/internship" },
-        { id: 3, title: " ", path: "/" },
-        { id: 4, title: "blogs", path: "/" },
+        { id: 3, title: "blogs", path: "/" },
       ],
     },
     {
@@ -41,13 +40,12 @@ const navLinks = {
       label: "Contact Us",
       url: "/contactus",
       dialog: [
-        { id: 1, title: "Get in touch", path: "/" },
         {
-          id: 2,
+          id: 1,
           title: "Map Location",
           path: "/contactus/map",
         },
-        { id: 3, title: "FAQs", path: "/" },
+        { id: 2, title: "FAQs", path: "/" },
       ],
     },
   ],

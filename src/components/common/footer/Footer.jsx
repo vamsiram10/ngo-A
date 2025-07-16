@@ -9,12 +9,7 @@ const SOCIALS = [
     color: "#ec4899",
     emoji: "📸",
   },
-  {
-    href: "https://twitter.com",
-    src: "twitter",
-    color: "#1da1f2",
-    emoji: "🐦",
-  },
+
   {
     href: "https://youtube.com",
     src: "youtube",

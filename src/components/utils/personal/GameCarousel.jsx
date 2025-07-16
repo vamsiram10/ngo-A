@@ -2,92 +2,203 @@
 
 import React, { useEffect, useRef } from "react";
 import "@/app/globals.css";
-
-// SwiperJS for carousel (no CSS parsing issues)
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
-// Removed: import "swiper/css/pagination";
-
-// Fix: Import modules from 'swiper/modules' instead of 'swiper'
-import { EffectCoverflow } from "swiper/modules"; // Removed Pagination
+import { EffectCoverflow } from "swiper/modules";
+import BackgroundLines from "@/components/utils/background/background-lines"; // Adjust path as needed
 
 const games = [
   {
-    title: "Dota 2",
-    image: "/gallery/2.jpg",
-    description:
-      "Dota 2 is a multiplayer online battle arena by Valve. The game is a sequel to Defense of the Ancients, which was a community-created mod for Blizzard Entertainment's Warcraft III.",
+    title: "Care Meal",
+    image: "/main gallery/a.JPG",
+    description: "Serving smiles and lunch at Nayasawera NGO, Jaipur.",
   },
   {
-    title: "Elden Ring",
-    image: "/gallery/3.jpg",
+    title: "Elder Aid",
+    image: "/main gallery/b.JPG",
     description:
-      "Elden Ring is an action RPG developed by FromSoftware, featuring a vast open world and challenging combat.",
+      "Sharing love, one meal at a time with the golden hearts of the old age home.",
   },
   {
-    title: "Hollow Knight",
-    image: "/gallery/4.jpg",
+    title: "Hearts Aligned",
+    image: "/main gallery/c.JPG",
     description:
-      "Hollow Knight is a critically acclaimed metroidvania game with hand-drawn art and deep exploration.",
+      "  A day of shared smiles between the youngest dreams and the wisest hearts.",
   },
   {
-    title: "Cyberpunk 2077",
-    image: "/gallery/5.jpg",
-    description:
-      "Cyberpunk 2077 is an open-world RPG set in Night City, offering immersive storytelling and futuristic action.",
+    title: "Golden Bonds ",
+    image: "/main gallery/d.JPG",
+    description: "Sharing smiles and stories with the golden generation.",
   },
   {
-    title: "Celeste",
-    image: "/gallery/1.jpg",
+    title: "Bright Beginnings",
+    image: "/main gallery/e.JPG",
     description:
-      "Celeste is a platformer about climbing a mountain, featuring tight controls and a heartfelt story.",
+      "Igniting young minds with care, curiosity, and joyful connection.",
   },
   {
-    title: "The Witcher 3",
-    image:
-      "https://www.yudiz.com/codepen/expandable-animated-card-slider/winter-3.jpg",
+    title: "Joy in Every Smile",
+    image: "/main gallery/f.JPG",
     description:
-      "The Witcher 3 is a story-driven RPG where you explore a rich open world as Geralt of Rivia.",
+      "A day filled with laughter, play, and pure happiness with the little stars.",
   },
   {
-    title: "RDR 2",
-    image:
-      "https://www.yudiz.com/codepen/expandable-animated-card-slider/rdr-2.jpg",
+    title: "Steps of Joy",
+    image: "/main gallery/g.JPG",
     description:
-      "RDR 2 is an action-adventure game developed and published by Rockstar Games, set in a fictionalized Western US.",
+      "Dancing beyond limits, spreading joy and confidence with every move.",
   },
   {
-    title: "PUBG Mobile",
-    image:
-      "https://www.yudiz.com/codepen/expandable-animated-card-slider/pubg.jpg",
+    title: "Learning Lights",
+    image: "/main gallery/h.JPG",
     description:
-      "PUBG Mobile is a battle royale shooter that pits 100 players against each other in a struggle for survival.",
+      "Empowering young minds through knowledge, one lesson at a time.",
   },
   {
-    title: "Fortnite",
-    image:
-      "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg",
+    title: "Cool Kindness",
+    image: "/main gallery/i.JPG",
     description:
-      "Battle royale where 100 players fight to be the last person standing. Fast building mechanics & colorful design.",
+      "Cooling hearts and hands—serving buttermilk with care and compassion.",
   },
   {
-    title: "Far Cry 5",
-    image:
-      "https://www.yudiz.com/codepen/expandable-animated-card-slider/far-cry-5.jpg",
+    title: "Pride in Every Heart",
+    image: "/main gallery/j.JPG",
     description:
-      "Far Cry 5 is a 2018 first-person shooter game developed by Ubisoft, set in an open world environment.",
+      "Celebrating the spirit of the nation with young patriots and bright smiles.",
+  },
+  {
+    title: "Cool for a Cause",
+    image: "/main gallery/k.JPG",
+    description:
+      "Quenching thirst with kindness — a refreshing gesture on a warm day.",
+  },
+  {
+    title: "Sip of Care",
+    image: "/main gallery/l.JPG",
+    description:
+      "Serving smiles in every glass — spreading cool comfort on a sunny day.",
+  },
+  {
+    title: "Beat the Heat Drive",
+    image: "/main gallery/m.JPG",
+    description:
+      "Bringing cool relief to warm days — serving hydration with heart.",
+  },
+  {
+    title: "Hope in Every Corner",
+    image: "/main gallery/n.JPG",
+    description:
+      "Spreading warmth, listening hearts, and building bonds in the heart of the community.",
+  },
+  {
+    title: "Refresh & Reach",
+    image: "/main gallery/o.JPG",
+    description:
+      "Spreading smiles and energy—sharing refreshments with love and care.",
+  },
+  {
+    title: "Hands of Hope",
+    image: "/main gallery/p.jpg",
+    description:
+      "Extending compassion where it’s needed most—standing by those who need us.",
+  },
+  {
+    title: "Tech for Tomorrow",
+    image: "/main gallery/q.JPG",
+    description:
+      "Empowering young minds with tools for a brighter, smarter future.",
+  },
+  {
+    title: "Quenching Thirst",
+    image: "/main gallery/r.JPG",
+    description:
+      "A small sip, a big relief — serving cool comfort with care and compassion.",
+  },
+  {
+    title: "Refreshment Drive",
+    image: "/main gallery/s.JPG",
+    description:
+      "Serving smiles with every sip and bite — a small act of kindness to lift the day.",
+  },
+  {
+    title: "Health in Hand",
+    image: "/main gallery/t.JPG",
+    description:
+      "Distributing essential medical kits — a step towards safer, healthier lives.",
+  },
+  {
+    title: "Gratitude Moments",
+    image: "/main gallery/u.JPG",
+    description:
+      "Honored with heartfelt appreciation — a reminder that every small act creates lasting impact.",
+  },
+  {
+    title: "Bonds Beyond Books",
+    image: "/main gallery/v.JPG",
+    description:
+      "Laughs, learning, and love — creating joyful moments with curious young minds.",
+  },
+  {
+    title: "Support in Service",
+    image: "/main gallery/w.JPG",
+    description:
+      "Standing beside our traffic heroes — lending a hand to those who keep our roads safe.",
+  },
+  {
+    title: "Helping Our Helpers",
+    image: "/main gallery/x.JPG",
+    description:
+      "A gesture of gratitude for those who protect and serve us daily — because care goes both ways.",
+  },
+  {
+    title: "Hygiene for Her",
+    image: "/main gallery/y.JPG",
+    description:
+      "Empowering women with access to hygiene and self-care essentials.",
+  },
+  {
+    title: "Threads of Kindness",
+    image: "/main gallery/z.JPG",
+    description:
+      "From our hearts to their hands — a gesture of warmth and dignity.",
+  },
+  {
+    title: "Joyful Gatherings",
+    image: "/main gallery/a1.JPG",
+    description:
+      "Bringing communities together — sharing laughter, stories, and support.",
+  },
+  {
+    title: "Seeds of Hope",
+    image: "/main gallery/a2.JPG",
+    description:
+      "Planting the promise of a greener tomorrow, one sapling at a time.",
   },
 ];
+
+function AnimatedWord({ word }) {
+  return (
+    <span className="animated-word">
+      {word.split("").map((char, idx) => (
+        <span
+          key={idx}
+          className="animated-letter"
+          style={{ animationDelay: `${idx * 0.08}s` }}
+        >
+          {char === " " ? "\u00A0" : char}
+        </span>
+      ))}
+    </span>
+  );
+}
 
 export default function GameCarousel() {
   const swiperRef = useRef(null);
 
-  // For "active" effect on click, allow toggling active state
   useEffect(() => {
     const handleClick = (e) => {
       const items = document.querySelectorAll(".custom-carousel .item");
-      // If the clicked item is already active, remove active from all
       if (e.currentTarget.classList.contains("active")) {
         items.forEach((el) => el.classList.remove("active"));
       } else {
@@ -98,7 +209,6 @@ export default function GameCarousel() {
     const items = document.querySelectorAll(".custom-carousel .item");
     items.forEach((el, idx) => {
       el.addEventListener("click", handleClick);
-      // Set first as active by default
       if (idx === 0) el.classList.add("active");
     });
     return () => {
@@ -107,7 +217,14 @@ export default function GameCarousel() {
   }, []);
 
   return (
-    <section className="game-section centered-section">
+    <section
+      className="game-section centered-section"
+      style={{ position: "relative", overflow: "hidden" }}
+    >
+      {/* Responsive background lines */}
+      <div className="background-lines-wrapper">
+        <BackgroundLines />
+      </div>
       <h2
         className="line-title animated-title pink-text"
         style={{
@@ -129,7 +246,7 @@ export default function GameCarousel() {
           width: "fit-content",
         }}
       >
-        GALLERY
+        <AnimatedWord word="GALLERY" />
       </h2>
       <div className="custom-carousel">
         <Swiper
@@ -139,18 +256,16 @@ export default function GameCarousel() {
           centeredSlides={true}
           slidesPerView={"auto"}
           loop={true}
-          // Make left and right side animation symmetric by using rotate: 0 and stretch: 0
           coverflowEffect={{
-            rotate: 0, // No rotation, so both sides animate the same
+            rotate: 0,
             stretch: 0,
             depth: 200,
             modifier: 1,
-            slideShadows: false, // Remove slide shadows for symmetry
-            scale: 0.85, // Ensures both sides scale equally
+            slideShadows: false,
+            scale: 0.85,
           }}
-          spaceBetween={30} // Ensures equal gap between all cards (left and right)
-          // Removed: pagination={{ clickable: true }}
-          modules={[EffectCoverflow]} // Removed Pagination
+          spaceBetween={30}
+          modules={[EffectCoverflow]}
           className="game-swiper"
         >
           {games.map((game, index) => (
@@ -158,29 +273,28 @@ export default function GameCarousel() {
               key={index}
               style={{ width: "320px", height: "400px" }}
             >
-              <div
-                className={`item${index === 0 ? " active" : ""}`}
-                style={{
-                  backgroundImage: `url(${game.image})`,
-                }}
-              >
-                {/* Add a subtle floating animation to the image background */}
+              <div className={`item${index === 0 ? " active" : ""}`}>
+                <div className="item-image-wrapper">
+                  <img
+                    src={game.image}
+                    alt={game.title}
+                    className="item-image"
+                    draggable={false}
+                  />
+                </div>
                 <div className="item-float-bg" />
                 <div className="item-desc pink-text">
                   <h3 className="item-title-animated pink-text">
                     {game.title}
                   </h3>
-                  {/* Description is now white, not pink */}
                   <p className="game-desc-white">{game.description}</p>
                 </div>
-                {/* Add a subtle glowing border animation when active */}
                 <div className="item-glow" />
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
-      {/* Swiper and custom styles */}
       <style jsx>{`
         * {
           margin: 0;
@@ -188,6 +302,15 @@ export default function GameCarousel() {
         }
         body {
           font-family: "Roboto", sans-serif;
+        }
+        .background-lines-wrapper {
+          position: absolute;
+          inset: 0;
+          width: 100vw;
+          height: 100vh;
+          z-index: 0;
+          pointer-events: none;
+          overflow: hidden;
         }
         .centered-section {
           min-height: 100vh;
@@ -200,7 +323,6 @@ export default function GameCarousel() {
           top: -15px;
         }
         .game-section {
-          /* Remove original padding to avoid double spacing */
           padding: 0;
         }
         .line-title {
@@ -225,51 +347,69 @@ export default function GameCarousel() {
             transform: translateY(0) scale(1);
           }
         }
-        // .line-title::before,
-        // .line-title::after {
-        //   content: "";
-        //   position: absolute;
-        //   bottom: 0;
-        //   left: 0;
-        //   height: 4px;
-        //   border-radius: 2px;
-        // }
-        // .line-title::before {
-        //   width: 100%;
-        //   background: #f2f2f2;
-        // }
-        // .line-title::after {
-        //   width: 32px;
-        //   background: #e73700;
-        // }
+        /* Animated word heading styles */
+        .animated-word {
+          display: inline-block;
+        }
+        .animated-letter {
+          display: inline-block;
+          opacity: 0;
+          transform: translateY(24px) scale(0.98);
+          animation: headingLetterFadeIn 0.5s cubic-bezier(0.4, 2, 0.6, 1)
+            forwards;
+        }
+        @keyframes headingLetterFadeIn {
+          0% {
+            opacity: 0;
+            transform: translateY(24px) scale(0.98);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
         .custom-carousel {
           width: 100%;
         }
         .game-swiper {
-          /* Add more gap below images for dots on desktop */
         }
         .item {
-          margin: 0 0px 60px; /* Remove horizontal margin, Swiper's spaceBetween will handle it */
+          margin: 0 0px 60px;
           width: 320px;
           height: 400px;
           display: flex;
           align-items: flex-end;
-          background: #343434 no-repeat center center / cover;
+          background: #343434;
           border-radius: 16px;
           overflow: hidden;
           position: relative;
           transition: all 0.4s cubic-bezier(0.4, 2, 0.6, 1);
           cursor: pointer;
         }
-        /* 
-          To expand the card both left and right, 
-          use left: 50%; transform: translateX(-50%);
-          and set width for .item and .item.active.
-        */
+        .item-image-wrapper {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 0;
+          display: flex;
+          align-items: stretch;
+          justify-content: stretch;
+        }
+        .item-image {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          object-position: center;
+          pointer-events: none;
+          user-select: none;
+          display: block;
+          background: #222;
+        }
         .custom-carousel .swiper-slide {
           display: flex;
           justify-content: center;
-          /* This ensures the .item is centered in the slide */
         }
         .item {
           left: 50%;
@@ -289,7 +429,6 @@ export default function GameCarousel() {
           width: 100%;
           left: 0;
           top: 0;
-          /* Make the gradient symmetric on both left and right sides */
           background-image: linear-gradient(
               to bottom,
               rgba(0, 0, 0, 0) 60%,
@@ -302,17 +441,18 @@ export default function GameCarousel() {
               rgba(0, 0, 0, 0) 80%,
               rgba(0, 0, 0, 0.18) 100%
             );
+          z-index: 1;
+          pointer-events: none;
         }
-        /* Floating background animation for each card */
         .item-float-bg {
           position: absolute;
           top: 0;
           left: 0;
           right: 0;
           bottom: 0;
-          z-index: 0;
+          z-index: 1;
           pointer-events: none;
-          background: inherit;
+          background: none;
           border-radius: 16px;
           animation: floatBg 4s ease-in-out infinite alternate;
           opacity: 0.15;
@@ -326,7 +466,6 @@ export default function GameCarousel() {
             transform: scale(1.04) translateY(-10px);
           }
         }
-        /* Glowing border animation for active card */
         .item-glow {
           display: none;
         }
@@ -353,7 +492,6 @@ export default function GameCarousel() {
             opacity: 1;
           }
         }
-        /* Animated title for each card */
         .item-title-animated {
           animation: fadeInUp 0.7s cubic-bezier(0.4, 2, 0.6, 1);
         }
@@ -371,7 +509,7 @@ export default function GameCarousel() {
           padding: 0 24px 12px;
           color: #fff;
           position: relative;
-          z-index: 1;
+          z-index: 2;
           transform: translateY(calc(100% - 54px));
           transition: all 0.4s cubic-bezier(0.4, 2, 0.6, 1);
         }
@@ -387,7 +525,6 @@ export default function GameCarousel() {
           opacity: 1;
           transform: translateY(0);
         }
-        /* Animate the description text with a fade-in when active */
         .item.active .item-desc p {
           animation: fadeInText 0.6s 0.2s both;
         }
@@ -401,32 +538,26 @@ export default function GameCarousel() {
             transform: translateY(0);
           }
         }
-        /* Make description color white, not pink */
         .game-desc-white {
           color: #fff !important;
         }
-
-        /* Make sure left and right cards look and animate identically */
         .swiper-coverflow .swiper-slide {
-          /* Remove any default rotation or skew for symmetry */
           transform-origin: 50% 50% !important;
         }
-        /* --- Symmetry fix: force all coverflow slides to have no rotation, skew, or translation except scale --- */
         .swiper-coverflow .swiper-slide {
-          /* Remove any transform set by Swiper except scale for both sides */
-          /* This will override Swiper's default coverflow transforms */
-          /* The !important is needed to override inline styles from Swiper */
           transform: scale(0.85) !important;
-          /* The active slide will be handled by Swiper as scale(1) */
         }
         .swiper-coverflow .swiper-slide-active {
           transform: scale(1) !important;
         }
-
         @media (max-width: 767px) {
+          .background-lines-wrapper {
+            width: 100vw;
+            height: 100vh;
+          }
           .centered-section {
             padding: 0 2vw;
-            min-height: 100vh; /* Make section a bit bigger on mobile */
+            min-height: 100vh;
           }
           .line-title {
             width: 290px;
@@ -440,7 +571,7 @@ export default function GameCarousel() {
           .game-swiper .swiper-slide {
             width: 240px !important;
             height: 340px;
-            margin: 0 0px 48px; /* Remove horizontal margin, Swiper's spaceBetween will handle it */
+            margin: 0 0px 48px;
           }
           .item {
             left: 50%;
@@ -456,49 +587,69 @@ export default function GameCarousel() {
             padding: 0 18px 10px;
             transform: translateY(calc(100% - 54px));
           }
-          /* Remove extra space for pagination dots on mobile */
           .game-swiper {
             padding-bottom: 10px !important;
           }
-          /* Remove pagination dots on mobile */
           .swiper-pagination {
             display: none !important;
           }
-          /* Symmetry fix for mobile */
           .swiper-coverflow .swiper-slide {
             transform: scale(0.85) !important;
           }
           .swiper-coverflow .swiper-slide-active {
             transform: scale(1) !important;
           }
-          /* Floating background animation for mobile */
           .item-float-bg {
             filter: blur(6px) brightness(1.1);
           }
+          .item-image-wrapper {
+            width: 100% !important;
+            height: 100% !important;
+            min-width: 0 !important;
+            min-height: 0 !important;
+            max-width: 100% !important;
+            max-height: 100% !important;
+            display: flex !important;
+            align-items: stretch !important;
+            justify-content: stretch !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+          }
+          .item-image {
+            width: 100% !important;
+            height: 100% !important;
+            min-width: 0 !important;
+            min-height: 0 !important;
+            max-width: 100% !important;
+            max-height: 100% !important;
+            display: block !important;
+            object-fit: contain !important;
+            object-position: center !important;
+            background: #222 !important;
+          }
         }
-        /* Add gap between images and dots on desktop only */
         @media (min-width: 768px) {
+          .background-lines-wrapper {
+            width: 100vw;
+            height: 100vh;
+          }
           .game-swiper {
             padding-bottom: 20px !important;
           }
-          /* Remove pagination dots on desktop */
           .swiper-pagination {
             display: none !important;
           }
         }
-        /* Make every letter color as pink */
         .pink-text,
         .pink-text * {
           color: #ff69b4 !important;
         }
-        /* But override for description */
         .game-desc-white {
           color: #fff !important;
         }
       `}</style>
-      {/* Swiper core styles (mimicking swiper/css, swiper/css/effect-coverflow, swiper/css/pagination) */}
       <style jsx global>{`
-        /* Swiper core styles */
         .swiper {
           position: relative;
           overflow: hidden;
@@ -528,13 +679,11 @@ export default function GameCarousel() {
         .swiper-slide-prev {
           z-index: 1;
         }
-        /* Remove Swiper pagination dots globally */
         .swiper-pagination,
         .swiper-pagination-bullet,
         .swiper-pagination-bullet-active {
           display: none !important;
         }
-        /* Coverflow effect */
         .swiper-coverflow .swiper-wrapper {
           perspective: 1200px;
         }
@@ -542,14 +691,12 @@ export default function GameCarousel() {
           transition: transform 0.4s cubic-bezier(0.4, 2, 0.6, 1),
             box-shadow 0.4s cubic-bezier(0.4, 2, 0.6, 1);
         }
-        /* --- Symmetry fix: force all coverflow slides to have no rotation, skew, or translation except scale --- */
         .swiper-coverflow .swiper-slide {
           transform: scale(0.85) !important;
         }
         .swiper-coverflow .swiper-slide-active {
           transform: scale(1) !important;
         }
-        /* Responsive for Swiper */
         @media (max-width: 767px) {
           .swiper-slide {
             width: 240px !important;
