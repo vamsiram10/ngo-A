@@ -19,33 +19,57 @@ const fadeIn = {
 export default function AboutUsContent() {
   const team = [
     {
-      name: "Vinathi",
-      role: "Account Manager",
-      desc: "Cheerful and enthusiastic, she handles financial expenses with positivity.",
+      name: "V. Radha Priyanka",
+      role: "Founder/ President",
+      desc: "Visionary and compassionate, she leads Avasa with purpose, heart, and unwavering commitment to its mission."
       img: "/team/vinathi.jpg",
     },
     {
-      name: "Radha Priyanka",
-      role: "Founder",
-      desc: "Visionary and compassionate, she leads Avasa with purpose and heart.",
+      name: "V. Keerthi Sri",
+      role: "Vice President",
+      desc: "Provides strategic oversight, ensuring organizational alignment, operational excellence, and effective implementation of programs."
+      img: "/team/vinathi.jpg",
+    },
+    {
+      name: "Ananya Pandey",
+      role: "General Secretary",
+      desc: "Manages administrative affairs, ensures clear communication, and upholds governance with integrity.",
       img: "/team/priyanka.jpg",
     },
     {
-      name: "Ajay",
-      role: "Outreach Lead",
-      desc: "Manages drives and events with energy and dedication.",
+      name: "M.V. Nageswara Rao",
+      role: "Joint Secretary",
+      desc: "Supports administrative functions and streamlines coordination to ensure operational efficiency.",
       img: "/team/ajay.jpg",
     },
     {
-      name: "Radha Priyanka",
-      role: "Founder",
-      desc: "Visionary and compassionate, she leads Avasa with purpose and heart.",
+      name: "V. Lakshmi Prasanna",
+      role: "Treasurer",
+      desc: "Manages financial operations, maintains transparent records, and ensures accountable use of funds.",
       img: "/team/priyanka.jpg",
     },
     {
-      name: "Ajay",
-      role: "Outreach Lead",
-      desc: "Manages drives and events with energy and dedication.",
+      name: "K. Usha Bhargavi",
+      role: "Executive member",
+      desc: "Contributes to decision-making, supports program execution, and upholds the organization’s mission through active involvement.",
+      img: "/team/ajay.jpg",
+    },
+    {
+      name: "V. Sai Harini",
+      role: "Executive member",
+      desc: "Contributes in organizational activities, offering insights and assistance to drive impactful initiatives forward.",
+      img: "/team/ajay.jpg",
+    },
+    {
+      name: "Ch. Vinathi",
+      role: "Head of Finance",
+      desc: "Oversees financial planning, budgeting, and compliance to ensure fiscal responsibility and sustainability.",
+      img: "/team/ajay.jpg",
+    },
+    {
+      name: "R.V.R. Vamsi",
+      role: "Head of Social Media",
+      desc: "Leads the organization’s digital presence by strategizing, creating, and managing content to amplify outreach and engagement.",
       img: "/team/ajay.jpg",
     },
   ];
@@ -96,6 +120,34 @@ export default function AboutUsContent() {
         viewport={{ once: true }}
         variants={fadeIn}
       >
+
+      <div className="flex justify-around items-center bg-[#fb64b6]/10 rounded-xl shadow-md hover:shadow-lg transition">
+      <div className="flex-1/2">
+        <h2 className="mb-6 text-3xl font-bold text-[#fb64b6] text-center sm:text-4xl">
+          Who We Are
+        </h2>
+        <p className="mx-auto px-2   text-center leading-relaxed text-white text-lg sm:px-14">
+          What began as a heartfelt initiative by{" "}
+          <strong className="text-[#fb64b6]">V. Radha Priyanka</strong> and her
+          close friends in 2022 has now grown into a registered movement of
+          compassion and change. Rooted in Hyderabad, our journey started with
+          simple acts—distributing clothes and food to those in need.
+          <br />
+          <br />
+          As our vision expanded, so did our reach. We built a dedicated team
+          and extended to Jaipur—taking our mission of care to more communities.
+          From refreshment drives and medical kit distributions to visits to
+          orphanages and old age homes, every effort is driven by the same
+          purpose—to bring hope, dignity, and support.
+          <br />
+          <br />
+          Founded in 2022 and officially incorporated as a <strong className="text-[#fb64b6]">registered NGO in November 2024</strong>, 
+          Avasa is registered under the Telangana Societies Registration Act, 2001 
+          with registration number <strong className="text-[#fb64b6]">1108 of 2024</strong>. This recognition enables us to scale our
+          initiatives and deepen our commitment to meaningful, community-driven change.
+        </p>
+      </div>
+
         <div className="flex justify-around items-center bg-[#fb64b6]/10 rounded-xl shadow-md hover:shadow-lg transition">
           <div className="flex-1/2">
             <h2 className="mb-6 text-3xl font-bold text-[#fb64b6] text-center sm:text-4xl">
@@ -120,6 +172,7 @@ export default function AboutUsContent() {
               to amplify our impact and reach.
             </p>
           </div>
+
           <Image
             className="m-10 rounded-2xl"
             width={550}
@@ -198,7 +251,7 @@ export default function AboutUsContent() {
       >
         <div className="mt-16 sm:mt-20 md:mt-24 mx-20 lg:mt-32">
           <h2 className="text-3xl font-bold text-[#fb64b6] text-center sm:text-4xl">
-            Meet Our Team
+            Meet Our Board
           </h2>
 
           <div className="flex flex-wrap justify-center gap-6 mt-8 px-2 sm:gap-8 mt-10 px-0">
