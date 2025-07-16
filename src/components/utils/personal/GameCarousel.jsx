@@ -23,8 +23,7 @@ const games = [
   {
     title: "Golden Bonds",
     image: "/maingallery/c.JPG",
-    description:
-      "Sharing smiles and stories with the golden generation.",
+    description: "Sharing smiles and stories with the golden generation.",
   },
   {
     title: "Cyberpunk 2077",
