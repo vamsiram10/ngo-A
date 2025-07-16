@@ -612,9 +612,9 @@ const MapLocation = () => {
           #leaflet-map {
             height: 90% !important;
             min-height: 12rem !important;
-            max-height: 30rem !important;
+            max-height: 40rem !important;
             position: absolute;
-            top: 10rem;
+            top: 5rem;
           }
         }
         @media (min-width: 641px) and (max-width: 1024px) {
