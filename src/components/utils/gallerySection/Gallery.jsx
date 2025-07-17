@@ -178,7 +178,7 @@ export const DraggableCardContainer = ({ className, children }) => {
 export function Gallery() {
   const items = [
     {
-      title: "Explorer",
+      title: "Literacy",
       image: "/gallery/1.jpg",
       className: "absolute",
       style: {
@@ -189,7 +189,7 @@ export function Gallery() {
       },
     },
     {
-      title: "Storyteller",
+      title: "Beat the Heat",
       image: "/gallery/2.jpg",
       className: "absolute",
       style: {
@@ -200,7 +200,7 @@ export function Gallery() {
       },
     },
     {
-      title: "Aurora",
+      title: "Naya Sawera NGO",
       image: "/gallery/3.jpg",
       className: "absolute",
       style: {
@@ -211,7 +211,7 @@ export function Gallery() {
       },
     },
     {
-      title: "Sakura",
+      title: "Sarthak Oldage Home",
       image: "/gallery/4.jpg",
       className: "absolute",
       style: {
@@ -222,7 +222,7 @@ export function Gallery() {
       },
     },
     {
-      title: "Fjord",
+      title: "Winter Drive",
       image: "/gallery/5.jpg",
       className: "absolute",
       style: {
@@ -233,7 +233,7 @@ export function Gallery() {
       },
     },
     {
-      title: "Carnival",
+      title: "Medikit Drive",
       image: "/gallery/6.jpg",
       className: "absolute",
       style: {
@@ -244,7 +244,7 @@ export function Gallery() {
       },
     },
     {
-      title: "Outback",
+      title: "Food Donation Drive",
       image: "/gallery/7.jpg",
       className: "absolute",
       style: {
@@ -255,7 +255,7 @@ export function Gallery() {
       },
     },
     {
-      title: "Maple",
+      title: "Republic Day Celebrations",
       image: "/gallery/8.jpg",
       className: "absolute",
       style: {
