@@ -89,7 +89,6 @@ const HomeOther = () => {
       }, 500); // fade duration
     }, 2000);
     return () => clearInterval(interval);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex]);
 
   // Click handler for background
