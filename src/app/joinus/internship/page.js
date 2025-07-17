@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 
 // Fallback image URL
 const fallbackImg =
@@ -29,6 +30,7 @@ function FeaturePoint({ number, title, children }) {
   );
 }
 
+// Custom image error handler for next/image fallback
 function handleImgError(e) {
   if (e.target.src !== fallbackImg) {
     e.target.src = fallbackImg;
@@ -136,7 +138,7 @@ export default function InternshipPage() {
     {
       id: 4,
       quote:
-        "An incredible journey of learning and growth. The team was fantastic, and I'm proud of the work we accomplished together.",
+        "An incredible journey of learning and growth. The team was fantastic, and I&apos;m proud of the work we accomplished together.",
       name: "Manthan jain",
       role: "Former Content Writing Intern",
       avatar: "/images/avatar4.jpg",
@@ -144,7 +146,7 @@ export default function InternshipPage() {
     {
       id: 5,
       quote:
-        "I highly recommend this internship to anyone looking to make a difference. It's a fantastic opportunity to apply your skills in a meaningful way.",
+        "I highly recommend this internship to anyone looking to make a difference. It&apos;s a fantastic opportunity to apply your skills in a meaningful way.",
       name: "K Gayathri Devi",
       role: "Former Social Media Intern",
       avatar: "/images/avatar5.jpg",
@@ -152,7 +154,7 @@ export default function InternshipPage() {
     {
       id: 6,
       quote:
-        "I highly recommend this internship to anyone looking to make a difference. It's a fantastic opportunity to apply your skills in a meaningful way.",
+        "I highly recommend this internship to anyone looking to make a difference. It&apos;s a fantastic opportunity to apply your skills in a meaningful way.",
       name: "B.Chandrashekar Reddy",
       role: "Former Social Media Intern",
       avatar: "/images/avatar6.jpg",
@@ -160,7 +162,7 @@ export default function InternshipPage() {
     {
       id: 7,
       quote:
-        "I highly recommend this internship to anyone looking to make a difference. It's a fantastic opportunity to apply your skills in a meaningful way.",
+        "I highly recommend this internship to anyone looking to make a difference. It&apos;s a fantastic opportunity to apply your skills in a meaningful way.",
       name: "Noman ahmad",
       role: "Former Social Media Intern",
       avatar: "/images/avatar7.jpg",
@@ -169,24 +171,25 @@ export default function InternshipPage() {
 
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-  const nextTestimonial = () => {
+  // useCallback to avoid missing dependency warning
+  const nextTestimonial = useCallback(() => {
     setCurrentTestimonial((prev) =>
       prev === testimonials.length - 1 ? 0 : prev + 1
     );
-  };
+  }, [testimonials.length]);
 
-  const prevTestimonial = () => {
+  const prevTestimonial = useCallback(() => {
     setCurrentTestimonial((prev) =>
       prev === 0 ? testimonials.length - 1 : prev - 1
     );
-  };
+  }, [testimonials.length]);
 
   useEffect(() => {
     const timer = setInterval(() => {
       nextTestimonial();
     }, 5000);
     return () => clearInterval(timer);
-  }, [currentTestimonial]);
+  }, [nextTestimonial]);
 
   const slideVariants = {
     hidden: { opacity: 0, x: 50 },
@@ -194,16 +197,41 @@ export default function InternshipPage() {
     exit: { opacity: 0, x: -50 },
   };
 
+  // Helper for fallback in next/image
+  const imageWithFallback = (props) => {
+    // next/image does not support onError fallback directly, so we use a key to force re-render
+    // when src changes to fallback
+    const { src, alt, className, fill, style, ...rest } = props;
+    const [imgSrc, setImgSrc] = useState(src);
+    return (
+      <Image
+        src={imgSrc}
+        alt={alt}
+        className={className}
+        fill={fill}
+        style={style}
+        onError={() => setImgSrc(fallbackImg)}
+        {...rest}
+      />
+    );
+  };
+
   return (
     <main className="bg-black text-white">
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center text-center p-4 pb-32">
-        <img
-          src="/images/intern1.jpg"
-          alt="Interns collaborating"
-          onError={handleImgError}
-          className="absolute inset-0 w-full h-full object-cover opacity-30 z-0"
-        />
+        <div className="absolute inset-0 w-full h-full">
+          <Image
+            src="/images/intern1.jpg"
+            alt="Interns collaborating"
+            fill
+            className="object-cover opacity-30 z-0"
+            style={{ objectFit: "cover" }}
+            onError={handleImgError}
+            priority
+            sizes="100vw"
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10"></div>
         <motion.div
           initial="hidden"
@@ -259,15 +287,19 @@ export default function InternshipPage() {
                 >
                   <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-8 max-w-2xl w-full mx-auto flex flex-col items-center">
                     <p className="text-neutral-300 text-lg italic mb-6">
-                      “{testimonials[currentTestimonial].quote}”
+                      &ldquo;{testimonials[currentTestimonial].quote}&rdquo;
                     </p>
                     <div className="flex items-center">
-                      <img
-                        src={testimonials[currentTestimonial].avatar}
-                        alt={testimonials[currentTestimonial].name}
-                        onError={handleImgError}
-                        className="w-12 h-12 rounded-full object-cover"
-                      />
+                      <div className="relative w-12 h-12">
+                        <Image
+                          src={testimonials[currentTestimonial].avatar}
+                          alt={testimonials[currentTestimonial].name}
+                          fill
+                          className="rounded-full object-cover"
+                          onError={handleImgError}
+                          sizes="48px"
+                        />
+                      </div>
                       <div className="ml-4 text-left">
                         <p className="font-semibold text-white">
                           {testimonials[currentTestimonial].name}
@@ -285,6 +317,7 @@ export default function InternshipPage() {
               <button
                 onClick={prevTestimonial}
                 className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300 z-10"
+                aria-label="Previous testimonial"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -304,6 +337,7 @@ export default function InternshipPage() {
               <button
                 onClick={nextTestimonial}
                 className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300 z-10"
+                aria-label="Next testimonial"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -333,6 +367,7 @@ export default function InternshipPage() {
                       ? "bg-pink-500"
                       : "bg-neutral-600"
                   }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
                 ></button>
               ))}
             </div>
@@ -344,7 +379,7 @@ export default function InternshipPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-neutral-900 rounded-3xl border border-neutral-800 p-8 md:p-16">
               <h2 className="text-3xl md:text-4xl font-bold text-pink-500 mb-12 text-center">
-                What You'll Gain
+                What You&apos;ll Gain
               </h2>
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
@@ -353,11 +388,15 @@ export default function InternshipPage() {
                 transition={{ duration: 0.8 }}
                 className="relative w-full aspect-[16/9] max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-pink-900/30 mb-16"
               >
-                <img
+                <Image
                   src="/images/intern2.jpg"
                   alt="A group of interns working together"
-                  onError={handleImgError}
+                  fill
                   className="absolute inset-0 w-full h-full object-cover"
+                  style={{ objectFit: "cover" }}
+                  onError={handleImgError}
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  priority={false}
                 />
               </motion.div>
               <motion.div
@@ -381,7 +420,7 @@ export default function InternshipPage() {
           </div>
         </div>
 
-        <br></br>
+        <br />
 
         {/* Programs Section */}
         <div
@@ -406,11 +445,15 @@ export default function InternshipPage() {
                   className="bg-white rounded-xl flex flex-col border border-gray-200 transition-all duration-300 hover:shadow-xl"
                 >
                   <div className="relative h-56 w-full rounded-t-xl overflow-hidden">
-                    <img
+                    <Image
                       src={item.img}
                       alt={item.title}
-                      onError={handleImgError}
+                      fill
                       className="absolute inset-0 w-full h-full object-cover"
+                      style={{ objectFit: "cover" }}
+                      onError={handleImgError}
+                      sizes="(max-width: 768px) 100vw, 600px"
+                      priority={false}
                     />
                   </div>
                   <div className="p-6 flex flex-col flex-grow">
