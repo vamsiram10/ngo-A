@@ -2,28 +2,28 @@
 import React from "react";
 import Link from "next/link";
 
+// Use only correct, real social URLs to avoid hydration mismatch
 const SOCIALS = [
   {
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/avasa.foundation/",
     src: "instagram",
     color: "#ec4899",
     emoji: "📸",
   },
-
   {
-    href: "https://youtube.com",
+    href: "https://www.youtube.com/@avasafoundation",
     src: "youtube",
     color: "#ff0000",
     emoji: "📺",
   },
   {
-    href: "https://facebook.com",
+    href: "https://www.facebook.com/avasafoundation",
     src: "facebook",
     color: "#1877f3",
     emoji: "👥",
   },
   {
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/company/the-avasa-foundation/?originalSubdomain=in",
     src: "linkedin",
     color: "#0a66c2",
     emoji: "💼",

@@ -1,11 +1,14 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Counter from "@/components/Counter";
 
 // Fix for Next.js Image component props (no layout/objectFit in app dir, use fill and style instead)
 // Also, ensure all imported components are valid React components (not objects)
+
+// Helper fallback image URL for static export
+const fallbackImg =
+  "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -37,6 +40,13 @@ function FeaturePoint({ number, title, children }) {
       <p className="text-neutral-400 leading-relaxed">{children}</p>
     </motion.div>
   );
+}
+
+// Helper for fallback on image error
+function handleImgError(e) {
+  if (e.target.src !== fallbackImg) {
+    e.target.src = fallbackImg;
+  }
 }
 
 export default function InternshipPage() {
@@ -89,13 +99,20 @@ export default function InternshipPage() {
   return (
     <main className="bg-black text-white">
       <section className="relative min-h-[90vh] flex items-center justify-center text-center p-4 pb-32">
-        <Image
+        {/* Replace Next.js <Image> with <img> for static export compatibility */}
+        <img
           src="/images/intern1.jpg"
           alt="Interns collaborating"
-          fill
-          style={{ objectFit: "cover" }}
-          className="z-0 opacity-30"
-          priority
+          style={{
+            objectFit: "cover",
+            width: "100%",
+            height: "100%",
+            position: "absolute",
+            inset: 0,
+            zIndex: 0,
+            opacity: 0.3,
+          }}
+          onError={handleImgError}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10"></div>
         <motion.div
@@ -155,11 +172,19 @@ export default function InternshipPage() {
                   transition={{ duration: 0.8 }}
                   className="relative w-full aspect-[4/3] max-w-lg mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-2xl shadow-pink-900/30"
                 >
-                  <Image
+                  {/* Replace Next.js <Image> with <img> for static export compatibility */}
+                  <img
                     src="/images/intern2.jpg"
                     alt="A group of interns working together"
-                    fill
-                    style={{ objectFit: "cover" }}
+                    style={{
+                      objectFit: "cover",
+                      width: "100%",
+                      height: "100%",
+                      position: "absolute",
+                      inset: 0,
+                      borderRadius: "1rem",
+                    }}
+                    onError={handleImgError}
                   />
                 </motion.div>
                 <motion.div
@@ -209,11 +234,20 @@ export default function InternshipPage() {
                   className="bg-white rounded-xl flex flex-col border border-gray-200 transition-all duration-300 hover:shadow-xl"
                 >
                   <div className="relative h-56 w-full rounded-t-xl overflow-hidden">
-                    <Image
+                    {/* Replace Next.js <Image> with <img> for static export compatibility */}
+                    <img
                       src={item.img}
                       alt={item.title}
-                      fill
-                      style={{ objectFit: "cover" }}
+                      style={{
+                        objectFit: "cover",
+                        width: "100%",
+                        height: "100%",
+                        position: "absolute",
+                        inset: 0,
+                        borderTopLeftRadius: "0.75rem",
+                        borderTopRightRadius: "0.75rem",
+                      }}
+                      onError={handleImgError}
                     />
                   </div>
                   <div className="p-6 flex flex-col flex-grow">

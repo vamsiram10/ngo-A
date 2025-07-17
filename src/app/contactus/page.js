@@ -119,7 +119,7 @@ const ContactUsPage = () => {
                     type="submit"
                     className="submit-btn mt-4 bg-black text-white px-4 py-2 rounded hover:bg-gray-800"
                   >
-                    Get quote
+                    submit
                   </button>
                 </div>
               </form>

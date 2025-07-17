@@ -98,8 +98,9 @@ const games = [
       "Providing essential health kits to support safer and healthier communities.",
   },
   {
-    title: "none",
-    image: "/main gallery/p.jpg",
+
+    title: "Hands of Hope",
+    image: "/main gallery/p.JPG",
     description:
       "to be changed",
   },
