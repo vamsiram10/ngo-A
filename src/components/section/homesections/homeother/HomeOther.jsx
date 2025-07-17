@@ -2,7 +2,13 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
-const images = ["/main.jpg", "/main1.jpg"];
+const images = [
+  "/main.jpg",
+  "/main1.jpg",
+  "/main gallery/d.jpg",
+  "/main gallery/l.jpg",
+  "/main gallery/i.jpg",
+];
 
 const dropInKeyframes = [
   { transform: "translateY(-200px)", opacity: 0 },
@@ -40,13 +46,17 @@ const HomeOther = () => {
   const bgRef = useRef(null);
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(null);
+  const [isFading, setIsFading] = useState(false);
 
+  // Animate text drop-in
   useEffect(() => {
     if (textRef.current) {
       textRef.current.animate(dropInKeyframes, dropInTiming);
     }
   }, []);
 
+  // Marquee animation
   useEffect(() => {
     if (marqueeRef.current) {
       const marquee = marqueeRef.current;
@@ -69,6 +79,21 @@ const HomeOther = () => {
     }
   }, []);
 
+  // Auto background image change every 2 seconds with smooth fade
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPrevIndex(currentIndex);
+      setIsFading(true);
+      setTimeout(() => {
+        setCurrentIndex((prev) => (prev + 1) % images.length);
+        setIsFading(false);
+      }, 500); // fade duration
+    }, 2000);
+    return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentIndex]);
+
+  // Click handler for background
   const handleBgClick = (e) => {
     if (
       e.target.closest(".carousel-arrow") ||
@@ -76,9 +101,15 @@ const HomeOther = () => {
     ) {
       return;
     }
-    setCurrentIndex((prev) => (prev + 1) % images.length);
+    setPrevIndex(currentIndex);
+    setIsFading(true);
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+      setIsFading(false);
+    }, 500);
   };
 
+  // Touch swipe for background
   useEffect(() => {
     const bg = bgRef.current;
     if (!bg) return;
@@ -100,13 +131,18 @@ const HomeOther = () => {
       const dx = e.touches[0].clientX - startX;
       const dy = e.touches[0].clientY - startY;
       if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
-        if (dx > 0) {
-          setCurrentIndex((prev) =>
-            prev === 0 ? images.length - 1 : prev - 1
-          );
-        } else {
-          setCurrentIndex((prev) => (prev + 1) % images.length);
-        }
+        setPrevIndex(currentIndex);
+        setIsFading(true);
+        setTimeout(() => {
+          if (dx > 0) {
+            setCurrentIndex((prev) =>
+              prev === 0 ? images.length - 1 : prev - 1
+            );
+          } else {
+            setCurrentIndex((prev) => (prev + 1) % images.length);
+          }
+          setIsFading(false);
+        }, 500);
         isSwiping = false;
       }
     };
@@ -124,46 +160,101 @@ const HomeOther = () => {
       bg.removeEventListener("touchmove", onTouchMove);
       bg.removeEventListener("touchend", onTouchEnd);
     };
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentIndex]);
 
+  // Keyboard navigation
   useEffect(() => {
     const onKeyDown = (e) => {
       if (e.key === "ArrowLeft") {
-        setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+        setPrevIndex(currentIndex);
+        setIsFading(true);
+        setTimeout(() => {
+          setCurrentIndex((prev) =>
+            prev === 0 ? images.length - 1 : prev - 1
+          );
+          setIsFading(false);
+        }, 500);
       } else if (e.key === "ArrowRight") {
-        setCurrentIndex((prev) => (prev + 1) % images.length);
+        setPrevIndex(currentIndex);
+        setIsFading(true);
+        setTimeout(() => {
+          setCurrentIndex((prev) => (prev + 1) % images.length);
+          setIsFading(false);
+        }, 500);
       }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentIndex]);
 
+  // Render two background layers for crossfade
   return (
     <div className="overflow-x-hidden relative h-dvh w-screen">
       <div
         ref={bgRef}
         className="flex items-center justify-center h-dvh w-screen"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${images[currentIndex]}')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
+          position: "relative",
           width: "100vw",
           minHeight: "100dvh",
-          transition: "background-image 0.5s",
         }}
         onClick={handleBgClick}
         tabIndex={-1}
       >
+        {/* Transparent light black overlay */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: "rgba(0,0,0,0.25)",
+            zIndex: 3,
+            // zIndex above backgrounds, below overlays
+          }}
+        />
+        {/* Previous background for fade out */}
+        {prevIndex !== null && isFading && (
+          <div
+            className="absolute inset-0 transition-opacity duration-500 pointer-events-none"
+            style={{
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${images[prevIndex]}')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              opacity: isFading ? 1 : 0,
+              zIndex: 1,
+              transition: "opacity 0.5s",
+            }}
+          />
+        )}
+        {/* Current background for fade in */}
+        <div
+          className="absolute inset-0 transition-opacity duration-700"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('${images[currentIndex]}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            opacity: isFading ? 0 : 1,
+            zIndex: 2,
+            transition: "opacity 0.7s",
+          }}
+        />
+        {/* Content overlays */}
         <button
           className="left-4 carousel-arrow"
           style={{ ...arrowStyle, left: "1.5rem" }}
           aria-label="Previous"
           onClick={(e) => {
             e.stopPropagation();
-            setCurrentIndex((prev) =>
-              prev === 0 ? images.length - 1 : prev - 1
-            );
+            setPrevIndex(currentIndex);
+            setIsFading(true);
+            setTimeout(() => {
+              setCurrentIndex((prev) =>
+                prev === 0 ? images.length - 1 : prev - 1
+              );
+              setIsFading(false);
+            }, 500);
           }}
         ></button>
         <button
@@ -172,10 +263,15 @@ const HomeOther = () => {
           aria-label="Next"
           onClick={(e) => {
             e.stopPropagation();
-            setCurrentIndex((prev) => (prev + 1) % images.length);
+            setPrevIndex(currentIndex);
+            setIsFading(true);
+            setTimeout(() => {
+              setCurrentIndex((prev) => (prev + 1) % images.length);
+              setIsFading(false);
+            }, 500);
           }}
         ></button>
-        <div className="flex flex-col items-center justify-center w-full">
+        <div className="z-10 relative flex flex-col items-center justify-center w-full">
           <div className="z-50 relative mb-10">
             <p
               ref={textRef}
