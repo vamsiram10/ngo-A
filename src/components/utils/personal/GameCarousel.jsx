@@ -99,7 +99,7 @@ const games = [
   },
   {
     title: "Hands of Hope",
-    image: "/main gallery/p.jpg",
+    image: "/main gallery/p.JPG",
     description:
       "Extending compassion where it’s needed most—standing by those who need us.",
   },
