@@ -5,6 +5,10 @@ import { useRouter } from "next/navigation";
 import { useLenis } from "@studio-freight/react-lenis";
 import { useEffect, useState } from "react";
 
+// ---- TRANSITION DURATION CONTROL ----
+// To change the transition duration, edit this value (in milliseconds):
+const TRANSITION_DURATION_MS = 1500; // 700ms = 0.7s. Change this to your desired duration (e.g., 1000 for 1s)
+
 // Utility to escape double and single quotes for HTML attributes/text
 function escapeHtml(str) {
   if (typeof str !== "string") return str;
@@ -24,7 +28,7 @@ function addSlideRightOverlay() {
   overlay.id = "page-transition-slide-right";
   overlay.className = "page-transition-slide-right";
   overlay.style.background = "#fff";
-  overlay.style.animationDuration = "0.7s";
+  overlay.style.animationDuration = `${TRANSITION_DURATION_MS / 1000}s`;
   overlay.style.animationTimingFunction = "cubic-bezier(0.77, 0, 0.175, 1)";
   overlay.style.display = "flex";
   overlay.style.alignItems = "center";
@@ -90,7 +94,9 @@ function ensureTransitionStyle() {
         display: flex;
         align-items: center;
         justify-content: center;
-        animation: slideInFromRightCurved 0.7s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+        animation: slideInFromRightCurved ${
+          TRANSITION_DURATION_MS / 1000
+        }s cubic-bezier(0.77, 0, 0.175, 1) forwards;
         overflow: hidden;
       }
       .page-transition-slide-right img {
@@ -216,7 +222,8 @@ export const TransitionLink = ({ children, href, ...props }) => {
 
       addSlideRightOverlay();
 
-      await sleep(650);
+      // Wait for the transition duration before navigating
+      await sleep(TRANSITION_DURATION_MS - 50); // 50ms less to account for overlay setup
 
       router.push(navHref);
 

@@ -6,6 +6,7 @@
 html,
 body {
   width: 100%;
+  scroll-behavior: smooth;
 }
 
 html {
@@ -137,9 +138,6 @@ canvas {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
-
-
 
 .custom-scrollbar::-webkit-scrollbar {
   height: 10px;
