@@ -588,8 +588,8 @@ const MapLocation = () => {
         className={cn(
           "absolute inset-0",
           "[background-size:50px_50px]",
-          "[background-image:linear-gradient(to_right,#bdbdbd_1.5px,transparent_1.5px),linear-gradient(to_bottom,#bdbdbd_1.5px,transparent_1.5px)]",
-          "dark:[background-image:linear-gradient(to_right,#444_1.5px,transparent_1.5px),linear-gradient(to_bottom,#444_1.5px,transparent_1.5px)]"
+          // Always use black grid lines, regardless of light/dark mode
+          "[background-image:linear-gradient(to_right,#222_1.5px,transparent_1.5px),linear-gradient(to_bottom,#222_1.5px,transparent_1.5px)]"
         )}
         style={{
           opacity: 0.4,
