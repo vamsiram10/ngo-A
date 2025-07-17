@@ -11,21 +11,11 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
+
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
-
-function Stat({ to, suffix, label }) {
-  return (
-    <div className="text-center">
-      <Counter to={to} suffix={suffix} />
-      <p className="font-serif text-xs text-neutral-400 tracking-widest mt-2 uppercase">
-        {label}
-      </p>
-    </div>
-  );
-}
 
 function FeaturePoint({ number, title, children }) {
   return (
@@ -59,45 +49,67 @@ export default function InternshipPage() {
     {
       id: 1,
       img: "/images/intern1.jpg",
-      title: "Research & Impact Analysis",
-      desc: "Dive deep into data to measure program effectiveness, identify trends, and contribute to strategic reports.",
+      title: "Technical Intern",
+      desc: "Help with website maintenance, data management, and IT support to keep our digital infrastructure strong and efficient.",
       duration: "3-6 months",
-      formLink: "https://docs.google.com/forms/your-research-form",
+      formLink: "https://forms.gle/eM8hh64etLhw2fAy5",
     },
     {
       id: 2,
       img: "/images/intern2.jpg",
-      title: "Design & Communications",
-      desc: "Shape our narrative by creating powerful brand assets and managing digital campaigns.",
+      title: "Social Media Intern",
+      desc: "Create engaging content, manage our online presence, and connect with our community across various social platforms.",
       duration: "3-4 months",
-      formLink: "https://docs.google.com/forms/your-design-form",
+      formLink: "https://forms.gle/eM8hh64etLhw2fAy5",
+    },
+    {
+      id: 3,
+      img: "/images/intern1.jpg",
+      title: "Fundraising Intern",
+      desc: "Support our fundraising efforts through research, outreach, and campaign assistance to help us reach our financial goals.",
+      duration: "4-6 months",
+      formLink: "https://forms.gle/eM8hh64etLhw2fAy5",
+    },
+    {
+      id: 4,
+      img: "/images/intern2.jpg",
+      title: "Content Writing Intern",
+      desc: "Craft compelling articles, blog posts, and website content to share our story and the impact of our work.",
+      duration: "3-5 months",
+      formLink: "https://forms.gle/eM8hh64etLhw2fAy5",
     },
   ];
 
   const whyJoinFeatures = [
     {
       number: "01",
-      title: "Make a Real Impact",
-      description:
-        "Your work directly contributes to improving lives and strengthening communities.",
+      title: "Work Remotely",
+      description: "Enjoy the flexibility of contributing from anywhere!",
     },
     {
       number: "02",
-      title: "Develop New Skills",
-      description:
-        "Gain valuable experience in leadership, communication, and project management.",
+      title: "Gain Real-World Experience",
+      description: "Develop valuable skills in your chosen field.",
     },
     {
       number: "03",
-      title: "Join a Community",
-      description:
-        "Connect with like-minded individuals who share your passion for social good.",
+      title: "Make a Meaningful Impact",
+      description: "Directly contribute to the betterment of underprivileged communities.",
     },
     {
       number: "04",
-      title: "Flexible Commitment",
-      description:
-        "Find roles that fit your schedule, from one-day events to ongoing projects.",
+      title: "Professional Development",
+      description: "Enhance your teamwork, communication, and organizational skills.",
+    },
+    {
+      number: "05",
+      title: "Certificate of Completion",
+      description: "Receive recognition for your dedication after successfully completing the 1-month internship.",
+    },
+    {
+      number: "06",
+      title: "Networking Opportunities",
+      description: "Connect with passionate individuals and grow your professional network.",
     },
   ];
 
@@ -111,20 +123,13 @@ export default function InternshipPage() {
 
   return (
     <main className="bg-black text-white">
+      {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center text-center p-4 pb-32">
         <img
           src="/images/intern1.jpg"
           alt="Interns collaborating"
-          style={{
-            objectFit: "cover",
-            width: "100%",
-            height: "100%",
-            position: "absolute",
-            inset: 0,
-            zIndex: 0,
-            opacity: 0.3,
-          }}
           onError={handleImgError}
+          className="absolute inset-0 w-full h-full object-cover opacity-30 z-0"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10"></div>
         <motion.div
@@ -158,22 +163,75 @@ export default function InternshipPage() {
         </motion.div>
       </section>
 
-      <div className="relative z-20" style={{ transform: "translateY(-96px)" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white/5 border border-white/10 backdrop-blur-lg rounded-2xl py-12">
-            <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-y-0 md:gap-x-4">
-              <Stat to={100} suffix="+" label="Interns Mentored" />
-              <Stat to={95} suffix="%" label="Success Rate" />
-              <Stat to={15} label="Active Cities" />
+      {/* Main content wrapper */}
+      <div className="relative z-20 -mt-24">
+
+        {/* Testimonials Carousel Section */}
+        <div className="py-20 md:py-28">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold text-pink-500 mb-12">
+                    What Our Interns Say
+                </h2>
+
+                <div className="relative h-80 md:h-64">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={currentTestimonial}
+                            variants={slideVariants}
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                            className="absolute inset-0 flex items-center justify-center"
+                        >
+                            <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-8 max-w-2xl w-full mx-auto flex flex-col items-center">
+                                <p className="text-neutral-300 text-lg italic mb-6">
+                                    “{testimonials[currentTestimonial].quote}”
+                                </p>
+                                <div className="flex items-center">
+                                    <img
+                                        src={testimonials[currentTestimonial].avatar}
+                                        alt={testimonials[currentTestimonial].name}
+                                        onError={handleImgError}
+                                        className="w-12 h-12 rounded-full object-cover"
+                                    />
+                                    <div className="ml-4 text-left">
+                                        <p className="font-semibold text-white">{testimonials[currentTestimonial].name}</p>
+                                        <p className="text-pink-400 text-sm">{testimonials[currentTestimonial].role}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </AnimatePresence>
+
+                    {/* Navigation Buttons */}
+                    <button onClick={prevTestimonial} className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300 z-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                    <button onClick={nextTestimonial} className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300 z-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                </div>
+
+                {/* Indicator Dots */}
+                <div className="flex justify-center gap-2 mt-8">
+                    {testimonials.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setCurrentTestimonial(index)}
+                            className={`w-3 h-3 rounded-full transition-colors duration-300 ${currentTestimonial === index ? 'bg-pink-500' : 'bg-neutral-600'}`}
+                        ></button>
+                    ))}
+                </div>
             </div>
-          </div>
         </div>
 
+        {/* Benefits Section */}
         <div className="bg-black pt-20 md:pt-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-neutral-900 rounded-3xl border border-neutral-800 p-8 md:p-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-pink-500 mb-16 text-center">
-                What You&apos;ll Gain
+              <h2 className="text-3xl md:text-4xl font-bold text-pink-500 mb-12 text-center">
+                What You'll Gain
               </h2>
               <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
                 <motion.div
@@ -219,9 +277,10 @@ export default function InternshipPage() {
           </div>
         </div>
 
-        <br />
-        <br />
+        <br>
+        </br>
 
+        {/* Programs Section */}
         <div
           id="programs"
           className="bg-neutral-950 py-20 md:py-24 pb-24 md:pb-32 border-t border-neutral-800"
@@ -235,7 +294,7 @@ export default function InternshipPage() {
               whileInView="visible"
               variants={containerVariants}
               viewport={{ once: true, amount: 0.1 }}
-              className="grid gap-10 md:grid-cols-2"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-10"
             >
               {opportunities.map((item) => (
                 <motion.div
@@ -247,16 +306,8 @@ export default function InternshipPage() {
                     <img
                       src={item.img}
                       alt={item.title}
-                      style={{
-                        objectFit: "cover",
-                        width: "100%",
-                        height: "100%",
-                        position: "absolute",
-                        inset: 0,
-                        borderTopLeftRadius: "0.75rem",
-                        borderTopRightRadius: "0.75rem",
-                      }}
                       onError={handleImgError}
+                      className="absolute inset-0 w-full h-full object-cover"
                     />
                   </div>
                   <div className="p-6 flex flex-col flex-grow">
@@ -267,8 +318,7 @@ export default function InternshipPage() {
                       {item.desc}
                     </p>
                     <p className="text-sm text-gray-500 font-semibold mb-6">
-                      Duration:{" "}
-                      <span className="text-black">{item.duration}</span>
+                      Duration: <span className="text-black">{item.duration}</span>
                     </p>
                     <a
                       href={item.formLink}

@@ -62,6 +62,12 @@ const galleryContent = [
         title: "Community Joy",
         description: "Sharing moments of happiness.",
       },
+      {
+        src: "/images/chapter-hyd5.jpg",
+        alt: "Hyderabad event 4",
+        title: "Community Joy",
+        description: "Sharing moments of happiness.",
+      },
     ],
   },
   {

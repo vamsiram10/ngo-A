@@ -289,7 +289,12 @@ export default function AboutUsContent() {
         </div>
 
         {/* FOOTER SPACER */}
+<<<<<<< HEAD
         <div className="h-32 sm:h-24" />
+=======
+        <div className="h-32 sm:h-45" />
+
+>>>>>>> 3896f0f (Internship page updated)
       </div>
     </div>
   );

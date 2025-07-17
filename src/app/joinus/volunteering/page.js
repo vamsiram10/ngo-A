@@ -53,7 +53,7 @@ export default function VolunteeringPage() {
     {
       id: 1,
       img: "/images/volunteer1.jpg",
-      title: "Design & Media",
+      title: "Hyderabad",
       desc: "Craft compelling visuals and social content.",
       time: "5-10 hrs/week",
       formLink: "https://forms.gle/gcmvF29bSx6FkxnG7",
@@ -61,7 +61,7 @@ export default function VolunteeringPage() {
     {
       id: 2,
       img: "/images/volunteer2.jpg",
-      title: "Community Outreach",
+      title: "Jaipur",
       desc: "Be the face of our mission. Plan and lead campaigns.",
       time: "Flexible",
       formLink: "https://forms.gle/gcmvF29bSx6FkxnG7",
@@ -69,7 +69,7 @@ export default function VolunteeringPage() {
     {
       id: 3,
       img: "/images/volunteer3.jpg",
-      title: "Research & Impact",
+      title: "Remote",
       desc: "Help us measure what matters. Analyze our social impact.",
       time: "8-12 hrs/week",
       formLink: "https://forms.gle/gcmvF29bSx6FkxnG7",
@@ -97,12 +97,6 @@ export default function VolunteeringPage() {
       title: "Join a Community",
       description:
         "Connect with like-minded individuals who share your passion for social good.",
-    },
-    {
-      number: "04",
-      title: "Flexible Commitment",
-      description:
-        "Find roles that fit your schedule, from one-day events to ongoing projects.",
     },
   ];
 
@@ -174,9 +168,9 @@ export default function VolunteeringPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white/5 border border-white/10 backdrop-blur-lg rounded-2xl py-12">
             <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-y-0 md:gap-x-4">
-              <Stat to={100} suffix="+" label="Volunteers Engaged" />
+              <Stat to={90} suffix="+" label="Volunteers Engaged" />
               <Stat to={8} label="Active Projects" />
-              <Stat to={2000} suffix="+" label="Lives Impacted" />
+              <Stat to={2000} suffix="+" label="Smiles Ignited" />
             </div>
           </div>
         </div>
