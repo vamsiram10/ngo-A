@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Counter from "@/components/Counter";
 import { useEffect } from "react";
 
-// --- Animation Variants ---
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
@@ -14,7 +13,6 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
-// --- Reusable Components ---
 function Stat({ to, suffix, label }) {
   return (
     <div className="text-center">
@@ -38,14 +36,11 @@ function FeaturePoint({ number, title, children }) {
   );
 }
 
-// Helper fallback image URL
 const fallbackImg =
   "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80";
 
 export default function VolunteeringPage() {
-  // Add smooth scroll behavior to the page
   useEffect(() => {
-    // Add smooth scroll to html element
     const html = document.documentElement;
     const prevScroll = html.style.scrollBehavior;
     html.style.scrollBehavior = "smooth";
@@ -54,7 +49,6 @@ export default function VolunteeringPage() {
     };
   }, []);
 
-  // Use /public images or fallback to placeholder
   const opportunities = [
     {
       id: 1,
@@ -112,7 +106,6 @@ export default function VolunteeringPage() {
     },
   ];
 
-  // Helper for fallback on image error
   function handleImgError(e) {
     if (e.target.src !== fallbackImg) {
       e.target.src = fallbackImg;
@@ -121,7 +114,6 @@ export default function VolunteeringPage() {
 
   return (
     <main className="bg-black text-white">
-      {/* --- Hero Section with bottom padding --- */}
       <section className="relative min-h-[90vh] flex items-center justify-center text-center p-4 pb-32">
         <div className="absolute inset-0 z-0">
           <img
@@ -178,9 +170,7 @@ export default function VolunteeringPage() {
         </motion.div>
       </section>
 
-      {/* --- CORRECTED: Wrapper for all content below the hero, pulled up to overlap --- */}
       <div className="relative z-20" style={{ transform: "translateY(-96px)" }}>
-        {/* Stats Card */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white/5 border border-white/10 backdrop-blur-lg rounded-2xl py-12">
             <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-y-0 md:gap-x-4">
@@ -191,7 +181,6 @@ export default function VolunteeringPage() {
           </div>
         </div>
 
-        {/* "Why Your Help Matters" Section */}
         <div className="bg-black pt-20 md:pt-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-neutral-900 rounded-3xl border border-neutral-800 p-8 md:p-16">
@@ -244,7 +233,6 @@ export default function VolunteeringPage() {
         <br />
         <br />
 
-        {/* Opportunities Section with New Card Design */}
         <div
           id="opportunities"
           className="bg-neutral-950 pt-20 pb-24 md:pt-24 md:pb-32 border-t border-neutral-800"

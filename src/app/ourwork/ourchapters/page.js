@@ -3,7 +3,6 @@ import { useState, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Use a standard <img> tag instead of next/image for static export compatibility
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
@@ -157,8 +156,6 @@ const ContentItem = ({ title, description, isFaq = false }) => (
   </motion.div>
 );
 
-// --- GalleryCard with mobile click-to-activate effect ---
-
 const GalleryCard = ({ image, isActive, onClick, index }) => (
   <motion.div
     variants={itemVariants}
@@ -167,7 +164,6 @@ const GalleryCard = ({ image, isActive, onClick, index }) => (
     className={`group relative aspect-square rounded-2xl overflow-hidden shadow-lg hover:shadow-pink-600/30 transition-shadow duration-300
       ${isActive ? "mobile-gallery-active" : ""}
     `}
-    // Only add onClick for mobile, but it's fine to always add, effect is only visible on mobile
     onClick={onClick}
     tabIndex={0}
     role="button"
@@ -212,13 +208,11 @@ const GalleryCard = ({ image, isActive, onClick, index }) => (
         {image.description}
       </motion.p>
     </div>
-    {/* Mobile overlay click-out area */}
     {isActive && (
       <div
         className="fixed inset-0 z-40 sm:hidden"
         style={{ cursor: "pointer" }}
         onClick={(e) => {
-          // Prevent click bubbling to card itself
           e.stopPropagation();
           if (typeof window !== "undefined" && window.innerWidth < 640) {
             onClick();
@@ -229,17 +223,11 @@ const GalleryCard = ({ image, isActive, onClick, index }) => (
   </motion.div>
 );
 
-// --- ChapterGallery with mobile gallery state ---
 const ChapterGallery = ({ title, description, images }) => {
-  // Track which gallery card is active on mobile (index), null if none
   const [activeIndex, setActiveIndex] = useState(null);
 
-  // Helper: is mobile (sm breakpoint)
   const isMobile = () =>
     typeof window !== "undefined" && window.innerWidth < 640;
-
-  // Dismiss on scroll/tap outside (mobile only)
-  // (Optional: can be added for better UX, but not required for basic click-to-activate)
 
   return (
     <motion.div variants={itemVariants} className="mb-16 last:mb-0">
@@ -265,7 +253,6 @@ const ChapterGallery = ({ title, description, images }) => {
           </div>
         ))}
       </div>
-      {/* Add some global styles for mobile click effect */}
       <style jsx global>{`
         @media (max-width: 639px) {
           .mobile-gallery-active {
@@ -294,16 +281,13 @@ export default function OurChaptersPage() {
     ? chapters.find((c) => c.id === hoveredChapterId)
     : null;
 
-  // Ref for the chapters section
   const chaptersSectionRef = useRef(null);
 
-  // Smooth scroll handler for the "Explore Our Chapters" button
   const handleSmoothScroll = (e) => {
     e.preventDefault();
     if (chaptersSectionRef.current) {
       chaptersSectionRef.current.scrollIntoView({ behavior: "smooth" });
     } else {
-      // fallback for SSR or if ref not set, use hash
       if (typeof window !== "undefined") {
         const el = document.getElementById("chapters");
         if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -338,7 +322,6 @@ export default function OurChaptersPage() {
               variants={itemVariants}
               className="flex justify-center md:justify-start"
             >
-              {/* Use a button for smooth scroll */}
               <button
                 onClick={handleSmoothScroll}
                 className="bg-pink-600 hover:bg-pink-700 px-6 py-3 rounded-full text-white text-base sm:text-lg font-semibold transition"

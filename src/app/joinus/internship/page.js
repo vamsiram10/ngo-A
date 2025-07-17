@@ -1,12 +1,9 @@
 "use client";
 import Link from "next/link";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Counter from "@/components/Counter";
 
-// Fix for Next.js Image component props (no layout/objectFit in app dir, use fill and style instead)
-// Also, ensure all imported components are valid React components (not objects)
-
-// Helper fallback image URL for static export
 const fallbackImg =
   "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80";
 
@@ -42,7 +39,6 @@ function FeaturePoint({ number, title, children }) {
   );
 }
 
-// Helper for fallback on image error
 function handleImgError(e) {
   if (e.target.src !== fallbackImg) {
     e.target.src = fallbackImg;
@@ -50,6 +46,15 @@ function handleImgError(e) {
 }
 
 export default function InternshipPage() {
+  useEffect(() => {
+    const html = document.documentElement;
+    const prevScroll = html.style.scrollBehavior;
+    html.style.scrollBehavior = "smooth";
+    return () => {
+      html.style.scrollBehavior = prevScroll;
+    };
+  }, []);
+
   const opportunities = [
     {
       id: 1,
@@ -96,10 +101,17 @@ export default function InternshipPage() {
     },
   ];
 
+  const handleExploreProgramsClick = (e) => {
+    e.preventDefault();
+    const target = document.getElementById("programs");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <main className="bg-black text-white">
       <section className="relative min-h-[90vh] flex items-center justify-center text-center p-4 pb-32">
-        {/* Replace Next.js <Image> with <img> for static export compatibility */}
         <img
           src="/images/intern1.jpg"
           alt="Interns collaborating"
@@ -135,14 +147,13 @@ export default function InternshipPage() {
             projects that make a genuine difference.
           </motion.p>
           <motion.div variants={itemVariants}>
-            <Link href="#programs">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                className="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-8 md:py-4 md:px-10 rounded-full transition-all duration-300 shadow-lg shadow-pink-800/60"
-              >
-                Explore Programs
-              </motion.button>
-            </Link>
+            <button
+              onClick={handleExploreProgramsClick}
+              className="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-8 md:py-4 md:px-10 rounded-full transition-all duration-300 shadow-lg shadow-pink-800/60"
+              type="button"
+            >
+              Explore Programs
+            </button>
           </motion.div>
         </motion.div>
       </section>
@@ -172,7 +183,6 @@ export default function InternshipPage() {
                   transition={{ duration: 0.8 }}
                   className="relative w-full aspect-[4/3] max-w-lg mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-2xl shadow-pink-900/30"
                 >
-                  {/* Replace Next.js <Image> with <img> for static export compatibility */}
                   <img
                     src="/images/intern2.jpg"
                     alt="A group of interns working together"
@@ -234,7 +244,6 @@ export default function InternshipPage() {
                   className="bg-white rounded-xl flex flex-col border border-gray-200 transition-all duration-300 hover:shadow-xl"
                 >
                   <div className="relative h-56 w-full rounded-t-xl overflow-hidden">
-                    {/* Replace Next.js <Image> with <img> for static export compatibility */}
                     <img
                       src={item.img}
                       alt={item.title}
