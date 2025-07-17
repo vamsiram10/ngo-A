@@ -206,7 +206,6 @@ export default function AboutUsContent() {
         </div>
       </motion.section>
 
-      {/* Extra spacing between sections */}
       <div className="h-20 md:h-32 lg:h-0" />
 
       {/* MEET OUR BOARD SECTION */}
