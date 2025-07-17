@@ -2,7 +2,6 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
-// You can add more images here if you want to make it a carousel
 const images = ["/main.jpg", "/main1.jpg"];
 
 const dropInKeyframes = [
@@ -28,7 +27,6 @@ const arrowStyle = {
   width: "3.5rem",
   height: "3.5rem",
   borderRadius: "50%",
-  cursor: "pointer",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -43,14 +41,12 @@ const HomeOther = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Animate text drop-in
   useEffect(() => {
     if (textRef.current) {
       textRef.current.animate(dropInKeyframes, dropInTiming);
     }
   }, []);
 
-  // Animate marquee
   useEffect(() => {
     if (marqueeRef.current) {
       const marquee = marqueeRef.current;
@@ -73,9 +69,7 @@ const HomeOther = () => {
     }
   }, []);
 
-  // Handle click on background to go to next image
   const handleBgClick = (e) => {
-    // Prevent click if clicking on arrow or marquee
     if (
       e.target.closest(".carousel-arrow") ||
       e.target.closest(".marquee-link")
@@ -85,7 +79,6 @@ const HomeOther = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
   };
 
-  // Handle swipe
   useEffect(() => {
     const bg = bgRef.current;
     if (!bg) return;
@@ -108,12 +101,10 @@ const HomeOther = () => {
       const dy = e.touches[0].clientY - startY;
       if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
         if (dx > 0) {
-          // swipe right
           setCurrentIndex((prev) =>
             prev === 0 ? images.length - 1 : prev - 1
           );
         } else {
-          // swipe left
           setCurrentIndex((prev) => (prev + 1) % images.length);
         }
         isSwiping = false;
@@ -135,7 +126,6 @@ const HomeOther = () => {
     };
   }, []);
 
-  // Keyboard navigation (optional, for accessibility)
   useEffect(() => {
     const onKeyDown = (e) => {
       if (e.key === "ArrowLeft") {
@@ -147,8 +137,6 @@ const HomeOther = () => {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
-
-  // --- Removed renderDots and its usage ---
 
   return (
     <div className="overflow-x-hidden relative h-dvh w-screen">
@@ -162,13 +150,11 @@ const HomeOther = () => {
           backgroundRepeat: "no-repeat",
           width: "100vw",
           minHeight: "100dvh",
-          cursor: "pointer",
           transition: "background-image 0.5s",
         }}
         onClick={handleBgClick}
         tabIndex={-1}
       >
-        {/* Left Arrow */}
         <button
           className="left-4 carousel-arrow"
           style={{ ...arrowStyle, left: "1.5rem" }}
@@ -179,10 +165,7 @@ const HomeOther = () => {
               prev === 0 ? images.length - 1 : prev - 1
             );
           }}
-        >
-          {/* Arrow symbol removed */}
-        </button>
-        {/* Right Arrow */}
+        ></button>
         <button
           className="right-4 carousel-arrow"
           style={{ ...arrowStyle, right: "1.5rem" }}
@@ -191,11 +174,7 @@ const HomeOther = () => {
             e.stopPropagation();
             setCurrentIndex((prev) => (prev + 1) % images.length);
           }}
-        >
-          {/* Arrow symbol removed */}
-        </button>
-        {/* Invisible Dots removed */}
-
+        ></button>
         <div className="flex flex-col items-center justify-center w-full">
           <div className="z-50 relative mb-10">
             <p
@@ -222,7 +201,7 @@ const HomeOther = () => {
             zIndex: 20,
             height: "60px",
             background: "rgba(0,0,0,0.0)",
-            pointerEvents: "auto", // allow pointer events
+            pointerEvents: "auto",
           }}
         >
           <Link
@@ -233,7 +212,7 @@ const HomeOther = () => {
               whiteSpace: "nowrap",
               fontWeight: 100,
               fontSize: "1.5rem",
-              color: "#f9a8d4", // light pink (Tailwind pink-300)
+              color: "#f9a8d4",
               textShadow: "0 2px 8px rgba(0,0,0,0.5)",
               letterSpacing: "0.1em",
               display: "inline-block",
@@ -241,8 +220,7 @@ const HomeOther = () => {
               padding: "1rem",
               userSelect: "none",
               textDecoration: "none",
-              cursor: "pointer",
-              pointerEvents: "auto", // allow pointer events on link
+              pointerEvents: "auto",
             }}
             tabIndex={0}
             scroll={false}

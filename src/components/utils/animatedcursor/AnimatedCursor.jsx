@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 export default function AnimatedCursor() {
   useEffect(() => {
-    const folder = "cursor6";
+    const folder = "cursor2";
     const frameCount = 3;
     const frames = [];
 
