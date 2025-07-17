@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Counter from "@/components/Counter";
+import { useEffect } from "react";
 
 // --- Animation Variants ---
 const containerVariants = {
@@ -42,6 +43,17 @@ const fallbackImg =
   "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80";
 
 export default function VolunteeringPage() {
+  // Add smooth scroll behavior to the page
+  useEffect(() => {
+    // Add smooth scroll to html element
+    const html = document.documentElement;
+    const prevScroll = html.style.scrollBehavior;
+    html.style.scrollBehavior = "smooth";
+    return () => {
+      html.style.scrollBehavior = prevScroll;
+    };
+  }, []);
+
   // Use /public images or fallback to placeholder
   const opportunities = [
     {
@@ -151,6 +163,13 @@ export default function VolunteeringPage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 className="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-8 md:py-4 md:px-10 rounded-full transition-all duration-300 shadow-lg shadow-pink-800/60"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById("opportunities");
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
               >
                 View Opportunities
               </motion.button>
