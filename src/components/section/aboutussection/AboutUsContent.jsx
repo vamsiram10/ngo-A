@@ -50,7 +50,7 @@ export default function AboutUsContent() {
     {
       name: "K. Usha Bhargavi",
       role: "Executive member",
-      desc: "Contributes to decision-making, supports program execution, and upholds the organization&apos;s mission through active involvement.",
+      desc: "Contributes to decision-making, supports program execution, and upholds the organization's mission through active involvement.",
       img: "/team/ajay.jpg",
     },
     {
@@ -68,68 +68,61 @@ export default function AboutUsContent() {
     {
       name: "R.V.R. Vamsi",
       role: "Head of Social Media",
-      desc: "Leads the organization&apos;s digital presence by strategizing, creating, and managing content to amplify outreach and engagement.",
+      desc: "Leads the organization's digital presence by strategizing, creating, and managing content to amplify outreach and engagement.",
       img: "/team/ajay.jpg",
     },
   ];
 
   return (
     <div className="text-white bg-black">
-      {/* Header Section */}
-      <div className="py-16 text-center">
+      <div className="py-16 px-4 text-center sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h1 className="text-4xl font-bold text-pink-400">About Us</h1>
+          <h1 className="text-4xl font-bold text-pink-400 sm:text-5xl">
+            About Us
+          </h1>
         </motion.div>
       </div>
 
-      {/* WHO WE ARE SECTION */}
       <motion.section
         id="who-we-are"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeIn}
-        className="mx-auto px-4 py-12 py-16 max-w-6xl md:px-8"
+        className="mx-auto px-4 py-12 max-w-6xl sm:px-6 lg:px-8"
       >
-        <div className="grid items-center gap-8 md:grid-cols-2">
-          {/* Text */}
+        <div className="grid items-center gap-8 lg:grid-cols-2">
           <div>
-            <h2 className="mb-6 text-3xl font-semibold text-pink-400">
+            <h2 className="mb-6 text-3xl font-semibold text-pink-400 sm:text-4xl">
               Who We Are
             </h2>
-            <p className="mb-4 text-white">
+            <p className="mb-4">
               What began as a heartfelt initiative by{" "}
               <strong className="text-pink-400">V. Radha Priyanka</strong> and
               her close friends in 2022 has now grown into a registered movement
-              of compassion and change. Rooted in Hyderabad, our journey started
-              with simple acts— distributing clothes and food to those in need.
+              of compassion and change.
             </p>
-            <p className="mb-4 text-white">
-              As our vision expanded, so did our reach. We built a dedicated
-              team and extended to Jaipur—taking our mission of care to more
-              communities. From refreshment drives and medical kit distributions
-              to visits to orphanages and old age homes, every effort is driven
-              by the same purpose—to bring hope, dignity, and support.
+            <p className="mb-4">
+              Our journey started with simple acts—distributing clothes and food
+              to those in need. As our vision expanded, so did our reach. Today,
+              we operate in Hyderabad and Jaipur, building a community that
+              cares deeply.
             </p>
-            <p className="text-white">
-              Founded in 2022 and officially incorporated as a{" "}
+            <p>
+              Officially incorporated as a{" "}
               <strong className="text-pink-400">
                 registered NGO in November 2024
-              </strong>
-              , Avasa is registered under the Telangana Societies Registration
-              Act, 2001 with registration number{" "}
-              <strong className="text-pink-400">1108 of 2024</strong>. This
-              recognition enables us to scale our initiatives and deepen our
-              commitment to meaningful, community-driven change.
+              </strong>{" "}
+              under Telangana Societies Registration Act (Reg. No:{" "}
+              <strong className="text-pink-400">1108 of 2024</strong>).
             </p>
           </div>
-          {/* Image */}
-          <div className="overflow-hidden relative h-72 w-full rounded-xl md:h-[400px]">
+          <div className="overflow-hidden relative w-full h-64 rounded-xl sm:h-96">
             <Image
               fill
               src="/images/aboutus1.jpg"
@@ -148,70 +141,53 @@ export default function AboutUsContent() {
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeIn}
-        className="relative mx-auto px-4 py-12 px-8 max-w-6xl md:py-10 lg:py-1"
-        style={{
-          // Remove top: "1px" for better stacking, add marginTop for spacing on small screens
-          marginTop: "10rem",
-        }}
+        className="mx-auto px-4 py-16 max-w-6xl sm:px-6 lg:px-8"
       >
-        <h2 className="mb-10 text-3xl font-semibold text-center text-pink-400">
+        <h2 className="mb-10 text-3xl font-semibold text-center text-pink-400 sm:text-4xl lg:text-5xl">
           What We Do
         </h2>
-        <div className="grid gap-10 md:grid-cols-3">
-          {/* Card 1 */}
-          <div className="p-6 bg-neutral-900 rounded-xl shadow-md">
-            <h3 className="mb-2 text-xl font-semibold text-pink-400">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
+            <h3 className="mb-2 text-xl font-semibold text-pink-400 lg:text-2xl">
               1. Love and Care
             </h3>
-            <p className="text-white">
-              We believe compassion is the foundation of change. Through regular
-              visits to orphanages and old age homes, our volunteers build
-              emotional connections and support holistic well-being.
+            <p className="lg:text-lg">
+              Regular visits to orphanages and old age homes to foster
+              connections and holistic well-being.
             </p>
           </div>
 
-          {/* Card 2 */}
-          <div className="p-6 bg-neutral-900 rounded-xl shadow-md">
-            <h3 className="mb-2 text-xl font-semibold text-pink-400">
-              2. Seasonal &amp; Awareness Drives
+          <div className="p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
+            <h3 className="mb-2 text-xl font-semibold text-pink-400 lg:text-2xl">
+              2. Seasonal & Awareness Drives
             </h3>
-            <ul className="pl-4 text-white list-disc space-y-1">
+            <ul className="list-disc list-inside space-y-1 lg:text-lg">
               <li>
-                <strong className="text-pink-400">Winter:</strong> Sweaters,
-                blankets, and warm clothing
+                <strong className="text-pink-400">Winter:</strong> Warm clothing
               </li>
               <li>
-                <strong className="text-pink-400">Summer:</strong> Refreshments,
-                hydration kits, and cooling supplies
+                <strong className="text-pink-400">Summer:</strong> Hydration
+                kits & refreshments
               </li>
               <li>
-                <strong className="text-pink-400">Medical Kits:</strong>{" "}
-                Especially in underserved areas
-              </li>
-              <li>
-                <strong className="text-pink-400">Period Kits:</strong>{" "}
-                Especially in underserved areas
+                <strong className="text-pink-400">Medical & Period Kits</strong>
               </li>
             </ul>
           </div>
 
-          {/* Card 3 */}
-          <div className="p-6 bg-neutral-900 rounded-xl shadow-md">
-            <h3 className="mb-2 text-xl font-semibold text-pink-400">
+          <div className="p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
+            <h3 className="mb-2 text-xl font-semibold text-pink-400 lg:text-2xl">
               3. Development Support
             </h3>
-            <ul className="pl-4 text-white list-disc space-y-1">
-              <li>Educational aids: projectors, stationery, floor carpets</li>
-              <li>School infrastructure: basic classroom needs</li>
-              <li>Community upliftment for marginalized groups</li>
+            <ul className="list-disc list-inside space-y-1 lg:text-lg">
+              <li>Educational aids: projectors, stationery</li>
+              <li>Basic school infrastructure</li>
+              <li>Community upliftment programs</li>
             </ul>
           </div>
         </div>
       </motion.section>
 
-      <div className="h-0 md:h-10 lg:h-0" />
-
-      {/* MEET OUR BOARD SECTION */}
       <div className="py-20 min-h-[4000px] bg-black sm:min-h-[1900px] md:min-h-[1700px] lg:min-h-[1550px]">
         <motion.section
           id="meet-our-team"
@@ -223,12 +199,11 @@ export default function AboutUsContent() {
           <h2 className="mb-12 text-3xl font-bold text-center text-pink-400 md:text-4xl">
             Meet Our Board
           </h2>
-
-          <div className="grid grid-cols-1 gap-x-6 gap-y-16 mx-auto px-4 px-8 max-w-7xl min-h-[400px] min-h-[500px] min-h-[600px] sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-8 px-4 mx-auto px-6 px-8 max-w-7xl sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {team.map((member, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center p-6 h-full min-h-[350px] text-center bg-neutral-900 rounded-2xl shadow-md md:min-h-[380px] lg:min-h-[400px]"
+                className="flex flex-col items-center p-6 min-h-[350px] text-center bg-neutral-900 rounded-2xl shadow-md md:min-h-[380px] lg:min-h-[400px]"
               >
                 <div className="overflow-hidden mb-4 w-32 h-32 rounded-full">
                   <Image
