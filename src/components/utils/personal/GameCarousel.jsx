@@ -17,8 +17,7 @@ const games = [
   {
     title: "Refreshment Drive",
     image: "/main gallery/b.JPG",
-    description:
-      "Serving smiles and energy through every sip and snack.",
+    description: "Serving smiles and energy through every sip and snack.",
   },
   {
     title: "Beat the Heat Drive",
@@ -46,8 +45,7 @@ const games = [
   {
     title: "Nourish with Love",
     image: "/main gallery/g.JPG",
-    description:
-      "Serving not just food, but kindness and connection.",
+    description: "Serving not just food, but kindness and connection.",
   },
   {
     title: "Steps of Joy",
@@ -99,10 +97,13 @@ const games = [
   },
   {
 
+
     title: "Cool Relief",
     image: "/main gallery/p.JPG",
     description:
       "A small gesture to help beat the heat — refreshing drinks for those in need.",
+
+
   },
   {
     title: "Hygiene for her",
@@ -119,8 +120,7 @@ const games = [
   {
     title: "Little Smiles",
     image: "/main gallery/s.JPG",
-    description:
-      "A day full of fun, friendship, and heartfelt connection.",
+    description: "A day full of fun, friendship, and heartfelt connection.",
   },
   {
     title: "Equip to Learn",
@@ -143,14 +143,12 @@ const games = [
   {
     title: "Care & Connection",
     image: "/main gallery/w.JPG",
-    description:
-      "Lighting up young hearts with time, care, and kindness.",
+    description: "Lighting up young hearts with time, care, and kindness.",
   },
   {
     title: "Heartfelt Hours",
     image: "/main gallery/x.JPG",
-    description:
-      " Time, laughter, and love — all shared in one special visit.",
+    description: " Time, laughter, and love — all shared in one special visit.",
   },
   {
     title: "Timeless Fun",
@@ -171,7 +169,7 @@ const games = [
       "Bringing basic healthcare closer to the slum communities through medical kits.",
   },
   {
-    title: "Jaipur’s First Step",
+    title: "Jaipur's First Step",
     image: "/main gallery/a2.JPG",
     description:
       "Launched our first Jaipur event by connecting with the brightest hearts — the kids.",
