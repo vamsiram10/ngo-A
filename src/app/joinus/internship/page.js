@@ -37,6 +37,8 @@ function handleImgError(e) {
   }
 }
 
+// --- Removed imageWithFallback to fix react-hooks/rules-of-hooks error ---
+
 export default function InternshipPage() {
   const opportunities = [
     {
@@ -197,24 +199,7 @@ export default function InternshipPage() {
     exit: { opacity: 0, x: -50 },
   };
 
-  // Helper for fallback in next/image
-  const imageWithFallback = (props) => {
-    // next/image does not support onError fallback directly, so we use a key to force re-render
-    // when src changes to fallback
-    const { src, alt, className, fill, style, ...rest } = props;
-    const [imgSrc, setImgSrc] = useState(src);
-    return (
-      <Image
-        src={imgSrc}
-        alt={alt}
-        className={className}
-        fill={fill}
-        style={style}
-        onError={() => setImgSrc(fallbackImg)}
-        {...rest}
-      />
-    );
-  };
+  // Removed imageWithFallback to fix react-hooks/rules-of-hooks error
 
   return (
     <main className="bg-black text-white">
