@@ -142,7 +142,6 @@ export default function AboutUsContent() {
         </div>
       </motion.section>
 
-      {/* WHAT WE DO SECTION */}
       <motion.section
         id="what-we-do"
         initial="hidden"
