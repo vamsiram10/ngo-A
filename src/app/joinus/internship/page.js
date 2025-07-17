@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
-import { useEffect } from "react";
-import { motion } from "framer-motion";
-import Counter from "@/components/Counter";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 
+// Fallback image URL
 const fallbackImg =
   "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80";
 
@@ -36,15 +36,6 @@ function handleImgError(e) {
 }
 
 export default function InternshipPage() {
-  useEffect(() => {
-    const html = document.documentElement;
-    const prevScroll = html.style.scrollBehavior;
-    html.style.scrollBehavior = "smooth";
-    return () => {
-      html.style.scrollBehavior = prevScroll;
-    };
-  }, []);
-
   const opportunities = [
     {
       id: 1,
@@ -94,31 +85,113 @@ export default function InternshipPage() {
     {
       number: "03",
       title: "Make a Meaningful Impact",
-      description: "Directly contribute to the betterment of underprivileged communities.",
+      description:
+        "Directly contribute to the betterment of underprivileged communities.",
     },
     {
       number: "04",
       title: "Professional Development",
-      description: "Enhance your teamwork, communication, and organizational skills.",
+      description:
+        "Enhance your teamwork, communication, and organizational skills.",
     },
     {
       number: "05",
       title: "Certificate of Completion",
-      description: "Receive recognition for your dedication after successfully completing the 1-month internship.",
+      description:
+        "Receive recognition for your dedication after successfully completing the 1-month internship.",
     },
     {
       number: "06",
-      title: "Networking Opportunities",
-      description: "Connect with passionate individuals and grow your professional network.",
+      title: "Personal Satisfaction",
+      description:
+        "Experience the joy of giving back and being part of a positive change.",
     },
   ];
 
-  const handleExploreProgramsClick = (e) => {
-    e.preventDefault();
-    const target = document.getElementById("programs");
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
-    }
+  const testimonials = [
+    {
+      id: 1,
+      quote:
+        "This internship was a game-changer! I gained so much hands-on experience and contributed to projects that made a real difference.",
+      name: "Mahalakshmi L",
+      role: "Former Technical Intern",
+      avatar: "/images/avatar1.jpg",
+    },
+    {
+      id: 2,
+      quote:
+        "The mentorship I received was incredible. I felt supported and empowered to take on new challenges and grow as a professional.",
+      name: "Ch.Nikhil",
+      role: "Former Social Media Intern",
+      avatar: "/images/avatar2.jpg",
+    },
+    {
+      id: 3,
+      quote:
+        "A truly rewarding experience. I connected with amazing people and developed skills that are directly applicable to my career goals.",
+      name: "Krishna",
+      role: "Former Fundraising Intern",
+      avatar: "/images/avatar3.jpg",
+    },
+    {
+      id: 4,
+      quote:
+        "An incredible journey of learning and growth. The team was fantastic, and I'm proud of the work we accomplished together.",
+      name: "Manthan jain",
+      role: "Former Content Writing Intern",
+      avatar: "/images/avatar4.jpg",
+    },
+    {
+      id: 5,
+      quote:
+        "I highly recommend this internship to anyone looking to make a difference. It's a fantastic opportunity to apply your skills in a meaningful way.",
+      name: "K Gayathri Devi",
+      role: "Former Social Media Intern",
+      avatar: "/images/avatar5.jpg",
+    },
+    {
+      id: 6,
+      quote:
+        "I highly recommend this internship to anyone looking to make a difference. It's a fantastic opportunity to apply your skills in a meaningful way.",
+      name: "B.Chandrashekar Reddy",
+      role: "Former Social Media Intern",
+      avatar: "/images/avatar6.jpg",
+    },
+    {
+      id: 7,
+      quote:
+        "I highly recommend this internship to anyone looking to make a difference. It's a fantastic opportunity to apply your skills in a meaningful way.",
+      name: "Noman ahmad",
+      role: "Former Social Media Intern",
+      avatar: "/images/avatar7.jpg",
+    },
+  ];
+
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) =>
+      prev === testimonials.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) =>
+      prev === 0 ? testimonials.length - 1 : prev - 1
+    );
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextTestimonial();
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [currentTestimonial]);
+
+  const slideVariants = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: -50 },
   };
 
   return (
@@ -152,78 +225,118 @@ export default function InternshipPage() {
             projects that make a genuine difference.
           </motion.p>
           <motion.div variants={itemVariants}>
-            <button
-              onClick={handleExploreProgramsClick}
-              className="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-8 md:py-4 md:px-10 rounded-full transition-all duration-300 shadow-lg shadow-pink-800/60"
-              type="button"
-            >
-              Explore Programs
-            </button>
+            <Link href="#programs">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                className="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-8 md:py-4 md:px-10 rounded-full transition-all duration-300 shadow-lg shadow-pink-800/60"
+              >
+                Explore Programs
+              </motion.button>
+            </Link>
           </motion.div>
         </motion.div>
       </section>
 
       {/* Main content wrapper */}
       <div className="relative z-20 -mt-24">
-
         {/* Testimonials Carousel Section */}
         <div className="py-20 md:py-28">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold text-pink-500 mb-12">
-                    What Our Interns Say
-                </h2>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-pink-500 mb-12">
+              What Our Interns Say
+            </h2>
 
-                <div className="relative h-80 md:h-64">
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={currentTestimonial}
-                            variants={slideVariants}
-                            initial="hidden"
-                            animate="visible"
-                            exit="exit"
-                            transition={{ duration: 0.5, ease: "easeInOut" }}
-                            className="absolute inset-0 flex items-center justify-center"
-                        >
-                            <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-8 max-w-2xl w-full mx-auto flex flex-col items-center">
-                                <p className="text-neutral-300 text-lg italic mb-6">
-                                    “{testimonials[currentTestimonial].quote}”
-                                </p>
-                                <div className="flex items-center">
-                                    <img
-                                        src={testimonials[currentTestimonial].avatar}
-                                        alt={testimonials[currentTestimonial].name}
-                                        onError={handleImgError}
-                                        className="w-12 h-12 rounded-full object-cover"
-                                    />
-                                    <div className="ml-4 text-left">
-                                        <p className="font-semibold text-white">{testimonials[currentTestimonial].name}</p>
-                                        <p className="text-pink-400 text-sm">{testimonials[currentTestimonial].role}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-                    </AnimatePresence>
+            <div className="relative h-80 md:h-64">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentTestimonial}
+                  variants={slideVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="absolute inset-0 flex items-center justify-center"
+                >
+                  <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-8 max-w-2xl w-full mx-auto flex flex-col items-center">
+                    <p className="text-neutral-300 text-lg italic mb-6">
+                      “{testimonials[currentTestimonial].quote}”
+                    </p>
+                    <div className="flex items-center">
+                      <img
+                        src={testimonials[currentTestimonial].avatar}
+                        alt={testimonials[currentTestimonial].name}
+                        onError={handleImgError}
+                        className="w-12 h-12 rounded-full object-cover"
+                      />
+                      <div className="ml-4 text-left">
+                        <p className="font-semibold text-white">
+                          {testimonials[currentTestimonial].name}
+                        </p>
+                        <p className="text-pink-400 text-sm">
+                          {testimonials[currentTestimonial].role}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
 
-                    {/* Navigation Buttons */}
-                    <button onClick={prevTestimonial} className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300 z-10">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-                    </button>
-                    <button onClick={nextTestimonial} className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300 z-10">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                    </button>
-                </div>
-
-                {/* Indicator Dots */}
-                <div className="flex justify-center gap-2 mt-8">
-                    {testimonials.map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => setCurrentTestimonial(index)}
-                            className={`w-3 h-3 rounded-full transition-colors duration-300 ${currentTestimonial === index ? 'bg-pink-500' : 'bg-neutral-600'}`}
-                        ></button>
-                    ))}
-                </div>
+              {/* Navigation Buttons */}
+              <button
+                onClick={prevTestimonial}
+                className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300 z-10"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+              <button
+                onClick={nextTestimonial}
+                className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300 z-10"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
             </div>
+
+            {/* Indicator Dots */}
+            <div className="flex justify-center gap-2 mt-8">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentTestimonial(index)}
+                  className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                    currentTestimonial === index
+                      ? "bg-pink-500"
+                      : "bg-neutral-600"
+                  }`}
+                ></button>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Benefits Section */}
@@ -233,52 +346,42 @@ export default function InternshipPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-pink-500 mb-12 text-center">
                 What You'll Gain
               </h2>
-              <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
-                <motion.div
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.8 }}
-                  className="relative w-full aspect-[4/3] max-w-lg mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-2xl shadow-pink-900/30"
-                >
-                  <img
-                    src="/images/intern2.jpg"
-                    alt="A group of interns working together"
-                    style={{
-                      objectFit: "cover",
-                      width: "100%",
-                      height: "100%",
-                      position: "absolute",
-                      inset: 0,
-                      borderRadius: "1rem",
-                    }}
-                    onError={handleImgError}
-                  />
-                </motion.div>
-                <motion.div
-                  initial="hidden"
-                  whileInView="visible"
-                  variants={containerVariants}
-                  viewport={{ once: true, amount: 0.3 }}
-                  className="space-y-10"
-                >
-                  {whyJoinFeatures.map((feature) => (
-                    <FeaturePoint
-                      key={feature.number}
-                      number={feature.number}
-                      title={feature.title}
-                    >
-                      {feature.description}
-                    </FeaturePoint>
-                  ))}
-                </motion.div>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.8 }}
+                className="relative w-full aspect-[16/9] max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-pink-900/30 mb-16"
+              >
+                <img
+                  src="/images/intern2.jpg"
+                  alt="A group of interns working together"
+                  onError={handleImgError}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </motion.div>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                variants={containerVariants}
+                viewport={{ once: true, amount: 0.2 }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12"
+              >
+                {whyJoinFeatures.map((feature) => (
+                  <FeaturePoint
+                    key={feature.number}
+                    number={feature.number}
+                    title={feature.title}
+                  >
+                    {feature.description}
+                  </FeaturePoint>
+                ))}
+              </motion.div>
             </div>
           </div>
         </div>
 
-        <br>
-        </br>
+        <br></br>
 
         {/* Programs Section */}
         <div
@@ -318,7 +421,8 @@ export default function InternshipPage() {
                       {item.desc}
                     </p>
                     <p className="text-sm text-gray-500 font-semibold mb-6">
-                      Duration: <span className="text-black">{item.duration}</span>
+                      Duration:{" "}
+                      <span className="text-black">{item.duration}</span>
                     </p>
                     <a
                       href={item.formLink}

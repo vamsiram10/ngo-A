@@ -206,10 +206,10 @@ export default function AboutUsContent() {
         </div>
       </motion.section>
 
-      <div className="h-20 md:h-32 lg:h-0" />
+      <div className="h-0 md:h-10 lg:h-0" />
 
       {/* MEET OUR BOARD SECTION */}
-      <div className="py-28 min-h-[800px] min-h-[4000px] min-h-[1600px] bg-black md:py-40 lg:py-10">
+      <div className="py-20 min-h-[4000px] bg-black sm:min-h-[1900px] md:min-h-[1700px] lg:min-h-[1550px]">
         <motion.section
           id="meet-our-team"
           initial="hidden"
