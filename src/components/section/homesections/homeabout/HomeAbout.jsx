@@ -85,19 +85,28 @@ export default function AboutMatter() {
       </div>
 
       <div className="z-10 relative mt-2 p-4 mx-auto w-full max-w-3xl bg-black/80 rounded-lg shadow-lg sm:mt-4 md:mt-6">
-            <p className="text-[0.75rem] text-gray-200 leading-relaxed text-justify xs:text-sm sm:text-base">
-        In 2022,{" "}
-        <span className="font-semibold text-pink-400">V. Radha Priyanka</span>{" "}
-        and her close friends began a heartfelt initiative in{" "}
-        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
-          Hyderabad </span>, distributing clothes and food to those in need. What started as small acts of kindness soon{" "}
-        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text"> expanded to Jaipur
-        </span>, forming a committed team focused on meaningful change.
-        <br />
-        <br />
-        From refreshment drives to medical kit distributions and visits to orphanages and old age homes, our mission has remained the same: bringing dignity and support to the underserved. In November 2024, we officially became a registered NGO—growing into a family of changemakers, united by empathy and action.
-      </p>
-
+        <p className="text-[0.75rem] text-gray-200 leading-relaxed text-justify xs:text-sm sm:text-base">
+          In 2022,{" "}
+          <span className="font-semibold text-pink-400">V. Radha Priyanka</span>{" "}
+          and her close friends began a heartfelt initiative in{" "}
+          <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+            Hyderabad{" "}
+          </span>
+          , distributing clothes and food to those in need. What started as
+          small acts of kindness soon{" "}
+          <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+            {" "}
+            expanded to Jaipur
+          </span>
+          , forming a committed team focused on meaningful change.
+          <br />
+          <br />
+          From refreshment drives to medical kit distributions and visits to
+          orphanages and old age homes, our mission has remained the same:
+          bringing dignity and support to the underserved. In November 2024, we
+          officially became a registered NGO—growing into a family of
+          changemakers, united by empathy and action.
+        </p>
       </div>
 
       <div className="z-10 relative flex flex-col gap-4 mt-8 mx-auto w-full max-w-3xl">
@@ -105,7 +114,7 @@ export default function AboutMatter() {
         <div className="flex flex-col items-center p-4 w-full text-center rounded-xl border-pink-500 shadow-md shiny-block border">
           <div className="shiny-content">
             <h3 className="flex items-center gap-2 mb-2 text-pink-300 text-lg font-bold animate-bounce drop-shadow-[0_2px_8px_rgba(236,72,153,0.7)] sm:text-xl md:text-2xl">
-              <strong> Mission </strong>
+              <strong>🎯 Mission</strong>
             </h3>
             <p className="text-gray-100 text-sm leading-snug sm:text-base">
               {missionStatement}
@@ -114,10 +123,10 @@ export default function AboutMatter() {
         </div>
 
         {/* Vision Block */}
-        <div className="flex flex-col items-center p-4 w-full text-center rounded-xl border-pink-500 shadow-md shiny-block border">
-          <div className="shiny-content">
-            <h3 className="flex items-center gap-2 mb-2 text-pink-300 text-lg font-bold animate-bounce drop-shadow-[0_2px_8px_rgba(236,72,153,0.7)] sm:text-xl md:text-2xl">
-              <strong> Vision </strong>
+        <div className="flex flex-col items-center p-4 mb-10 w-full text-center rounded-xl border-pink-500 shadow-md shiny-block border">
+          <div className="w-full w-3/4 text-left shiny-content lg:ml-auto">
+            <h3 className="flex items-center justify-start gap-2 mb-2 text-pink-300 text-lg font-bold text-left animate-bounce drop-shadow-[0_2px_8px_rgba(236,72,153,0.7)] sm:text-xl md:text-2xl">
+              <strong>🌈 Vision</strong>
             </h3>
             <p className="text-gray-100 text-sm leading-snug sm:text-base">
               {visionStatement}
