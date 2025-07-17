@@ -11,7 +11,7 @@ const SOCIALS = [
     emoji: "📸",
   },
   {
-    href: "https://www.youtube.com/@avasafoundation",
+    href: "https://www.youtube.com/@avasafoundation-f1q",
     src: "youtube",
     color: "#ff0000",
     emoji: "📺",

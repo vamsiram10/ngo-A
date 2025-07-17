@@ -96,14 +96,10 @@ const games = [
       "Providing essential health kits to support safer and healthier communities.",
   },
   {
-
-
     title: "Cool Relief",
     image: "/main gallery/p.JPG",
     description:
       "A small gesture to help beat the heat — refreshing drinks for those in need.",
-
-
   },
   {
     title: "Hygiene for her",
@@ -218,7 +214,7 @@ export default function GameCarousel() {
   return (
     <section
       className="game-section centered-section"
-      style={{ position: "relative", overflow: "hidden" }}
+      style={{ position: "relative", overflow: "hidden", background: "#000" }}
     >
       {/* Responsive background lines */}
       <div className="background-lines-wrapper">
@@ -320,9 +316,11 @@ export default function GameCarousel() {
           padding: 0 50px;
           position: relative;
           top: -15px;
+          background: #000 !important;
         }
         .game-section {
           padding: 0;
+          background: #000 !important;
         }
         .line-title {
           width: 400px;
@@ -557,6 +555,7 @@ export default function GameCarousel() {
           .centered-section {
             padding: 0 2vw;
             min-height: 100vh;
+            background: #000 !important;
           }
           .line-title {
             width: 290px;
@@ -639,6 +638,9 @@ export default function GameCarousel() {
           .swiper-pagination {
             display: none !important;
           }
+          .centered-section {
+            background: #000 !important;
+          }
         }
         .pink-text,
         .pink-text * {
@@ -704,6 +706,15 @@ export default function GameCarousel() {
           .game-swiper {
             padding-bottom: 10px !important;
           }
+          body {
+            background: #000 !important;
+          }
+        }
+        body {
+          background: #000 !important;
+        }
+        html {
+          background: #000 !important;
         }
       `}</style>
     </section>
