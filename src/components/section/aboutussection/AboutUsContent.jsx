@@ -148,7 +148,11 @@ export default function AboutUsContent() {
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeIn}
-        className="mx-auto px-4 py-12 py-16 max-w-6xl md:px-8"
+        className="relative mx-auto px-4 py-12 px-8 max-w-6xl md:py-10 lg:py-1"
+        style={{
+          // Remove top: "1px" for better stacking, add marginTop for spacing on small screens
+          marginTop: "10rem",
+        }}
       >
         <h2 className="mb-10 text-3xl font-semibold text-center text-pink-400">
           What We Do
