@@ -6,11 +6,10 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-[60vh] overflow-hidden">
-      {/* Background lines as absolute top layer */}
+    <div className="relative flex flex-col items-center justify-center min-h-[60vh] overflow-hidden bg-black">
       <div className="absolute inset-0 z-50 pointer-events-auto flex items-center justify-center">
         <BackgroundLines />
-        {/* Overlay "Coming Soon Loading..." centered on the background lines */}
+
         <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
           <span className="text-3xl md:text-5xl font-bold text-pink-400 animate-pulse mb-4">
             Coming Soon Loading....
@@ -36,7 +35,7 @@ export default function Page() {
               />
             </svg>
           </span>
-          <p className="mt-4 text-neutral-400 text-lg animate-fade-in">
+          <p className="mt-4 text-gray-400 text-lg animate-fade-in">
             Our blog will be live soon. Stay tuned!
           </p>
         </div>
