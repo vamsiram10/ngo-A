@@ -508,14 +508,14 @@ export function Timeline({ data }) {
 
   return (
     <div
-      className="pt-16 w-full font-sans bg-white dark:bg-neutral-950 sm:pt-20 md:px-10"
+      className="pt-16 w-full font-sans text-white bg-black sm:pt-20 md:px-10"
       ref={containerRef}
     >
       <div className="relative mx-auto py-4 px-2 px-4 mt-6 max-w-7xl sm:py-8 md:px-8 lg:px-10">
-        <h2 className="mb-1 max-w-4xl text-base text-black text-lg dark:text-white sm:mb-2 md:text-4xl">
+        <h2 className="mb-1 max-w-4xl text-base text-white text-lg sm:mb-2 md:text-4xl">
           OUR JOURNEY
         </h2>
-        <p className="max-w-sm text-neutral-700 text-xs dark:text-neutral-300 sm:text-sm md:text-base">
+        <p className="max-w-sm text-white text-xs sm:text-sm md:text-base">
           THIS IS HOW IT STARTED
         </p>
       </div>
@@ -536,7 +536,7 @@ export function Timeline({ data }) {
                 <span className="mb-1 text-xl font-extrabold text-purple-600 dark:text-purple-400 sm:text-2xl md:text-3xl">
                   {item.year}
                 </span>
-                <h3 className="text-lg font-bold text-neutral-500 text-5xl dark:text-neutral-500 sm:text-xl md:text-2xl">
+                <h3 className="text-lg font-bold text-white text-5xl sm:text-xl md:text-2xl">
                   {item.title}
                 </h3>
               </div>
