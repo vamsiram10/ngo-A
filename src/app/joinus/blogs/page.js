@@ -13,7 +13,7 @@ export default function Page() {
         {/* Overlay "Coming Soon Loading..." centered on the background lines */}
         <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
           <span className="text-3xl md:text-5xl font-bold text-pink-400 animate-pulse mb-4">
-            Coming Soon Loading...
+            Coming Soon Loading....
           </span>
           <span className="w-12 h-12 flex items-center justify-center mb-2">
             <svg

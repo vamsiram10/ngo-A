@@ -179,7 +179,7 @@ export function Gallery() {
   const items = [
     {
       title: "Literacy",
-      image: "/gallery/1.jpg",
+      image: "/gallery/literacy.jpg",
       className: "absolute",
       style: {
         top: "12%",
@@ -223,7 +223,7 @@ export function Gallery() {
     },
     {
       title: "Winter Drive",
-      image: "/gallery/5.jpg",
+      image: "/gallery/winterdrive.jpg",
       className: "absolute",
       style: {
         top: "28%",
@@ -234,7 +234,7 @@ export function Gallery() {
     },
     {
       title: "Medikit Drive",
-      image: "/gallery/6.jpg",
+      image: "/gallery/medikitdrive.jpg",
       className: "absolute",
       style: {
         top: "32%",
@@ -256,7 +256,7 @@ export function Gallery() {
     },
     {
       title: "Republic Day Celebrations",
-      image: "/gallery/8.jpg",
+      image: "/gallery/republicday.jpg",
       className: "absolute",
       style: {
         bottom: "25%",
