@@ -2,7 +2,8 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Counter from "@/components/Counter";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -38,6 +39,33 @@ function FeaturePoint({ number, title, children }) {
 
 const fallbackImg =
   "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80";
+
+function OptimizedImage({
+  src,
+  alt,
+  fill = false,
+  className = "",
+  style = {},
+  ...props
+}) {
+  // For fallback, we use a state to trigger re-render if error occurs
+  const [imgSrc, setImgSrc] = useState(src);
+
+  return (
+    <Image
+      src={imgSrc}
+      alt={alt}
+      fill={fill}
+      className={className}
+      style={style}
+      onError={() => {
+        if (imgSrc !== fallbackImg) setImgSrc(fallbackImg);
+      }}
+      sizes={fill ? "100vw" : undefined}
+      {...props}
+    />
+  );
+}
 
 export default function VolunteeringPage() {
   useEffect(() => {
@@ -100,29 +128,25 @@ export default function VolunteeringPage() {
     },
   ];
 
-  function handleImgError(e) {
-    if (e.target.src !== fallbackImg) {
-      e.target.src = fallbackImg;
-    }
-  }
+  // handleImgError is no longer needed, handled in OptimizedImage
 
   return (
     <main className="bg-black text-white">
       <section className="relative min-h-[90vh] flex items-center justify-center text-center p-4 pb-32">
         <div className="absolute inset-0 z-0">
-          <img
-            src={heroImg}
-            alt="A group of smiling volunteers"
-            style={{
-              objectFit: "cover",
-              width: "100%",
-              height: "100%",
-              position: "absolute",
-              inset: 0,
-              opacity: 0.4,
-            }}
-            onError={handleImgError}
-          />
+          <div className="w-full h-full absolute inset-0">
+            <OptimizedImage
+              src={heroImg}
+              alt="A group of smiling volunteers"
+              fill
+              style={{
+                objectFit: "cover",
+                opacity: 0.4,
+                zIndex: 0,
+              }}
+              priority
+            />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10"></div>
         </div>
         <motion.div
@@ -189,18 +213,17 @@ export default function VolunteeringPage() {
                   transition={{ duration: 0.8 }}
                   className="relative w-full aspect-[4/3] max-w-lg mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-2xl shadow-pink-900/30"
                 >
-                  <img
-                    src={whyImg}
-                    alt="A volunteer helping the community"
-                    style={{
-                      objectFit: "cover",
-                      width: "100%",
-                      height: "100%",
-                      position: "absolute",
-                      inset: 0,
-                    }}
-                    onError={handleImgError}
-                  />
+                  <div className="absolute inset-0 w-full h-full">
+                    <OptimizedImage
+                      src={whyImg}
+                      alt="A volunteer helping the community"
+                      fill
+                      style={{
+                        objectFit: "cover",
+                        zIndex: 0,
+                      }}
+                    />
+                  </div>
                 </motion.div>
                 <motion.div
                   initial="hidden"
@@ -249,18 +272,17 @@ export default function VolunteeringPage() {
                   className="bg-white rounded-xl flex flex-col border border-gray-200 transition-all duration-300 hover:shadow-xl"
                 >
                   <div className="relative h-48 w-full rounded-t-xl overflow-hidden">
-                    <img
-                      src={item.img}
-                      alt={item.title}
-                      style={{
-                        objectFit: "cover",
-                        width: "100%",
-                        height: "100%",
-                        position: "absolute",
-                        inset: 0,
-                      }}
-                      onError={handleImgError}
-                    />
+                    <div className="absolute inset-0 w-full h-full">
+                      <OptimizedImage
+                        src={item.img}
+                        alt={item.title}
+                        fill
+                        style={{
+                          objectFit: "cover",
+                          zIndex: 0,
+                        }}
+                      />
+                    </div>
                   </div>
                   <div className="p-6 flex flex-col flex-grow">
                     <h3 className="text-xl md:text-2xl font-bold text-black mb-3">
