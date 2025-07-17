@@ -69,7 +69,7 @@ export default function AboutUsContent() {
       name: "R.V.R. Vamsi",
       role: "Head of Social Media",
       desc: "Leads the organization's digital presence by strategizing, creating, and managing content to amplify outreach and engagement.",
-      img: "/team/ajay.jpg",
+      img: "/aboutus/vamsi.jpg",
     },
   ];
 
@@ -149,12 +149,12 @@ export default function AboutUsContent() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {/* Love and Care */}
           <div className="flex flex-col items-center p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
-            <div className="overflow-hidden flex items-center justify-center mb-4 w-32 h-32 bg-neutral-800 rounded-full border-2 border-pink-400">
+            <div className="overflow-hidden flex items-center justify-center mb-4 w-40 h-40 bg-neutral-800 border-2 border-pink-400">
               <Image
-                src="/images/whatwedo-love.jpg"
+                src="/aboutus/love.jpg"
                 alt="Love and Care"
-                width={128}
-                height={128}
+                width={160}
+                height={160}
                 className="object-cover w-full h-full"
               />
             </div>
@@ -169,12 +169,12 @@ export default function AboutUsContent() {
 
           {/* Seasonal & Awareness Drives */}
           <div className="flex flex-col items-center p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
-            <div className="overflow-hidden flex items-center justify-center mb-4 w-32 h-32 bg-neutral-800 rounded-full border-2 border-pink-400">
+            <div className="overflow-hidden flex items-center justify-center mb-4 w-40 h-40 bg-neutral-800 border-2 border-pink-400">
               <Image
-                src="/images/whatwedo-drives.jpg"
+                src="/aboutus/seasonal.jpg"
                 alt="Seasonal & Awareness Drives"
-                width={128}
-                height={128}
+                width={160}
+                height={160}
                 className="object-cover w-full h-full"
               />
             </div>
@@ -197,12 +197,12 @@ export default function AboutUsContent() {
 
           {/* Development Support */}
           <div className="flex flex-col items-center p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
-            <div className="overflow-hidden flex items-center justify-center mb-4 w-32 h-32 bg-neutral-800 rounded-full border-2 border-pink-400">
+            <div className="overflow-hidden flex items-center justify-center mb-4 w-40 h-40 bg-neutral-800 border-2 border-pink-400">
               <Image
-                src="/images/whatwedo-development.jpg"
+                src="/aboutus/development.jpg"
                 alt="Development Support"
-                width={128}
-                height={128}
+                width={160}
+                height={160}
                 className="object-cover w-full h-full"
               />
             </div>
@@ -218,7 +218,7 @@ export default function AboutUsContent() {
         </div>
       </motion.section>
 
-      <div className="py-20 mt-80 min-h-[4000px] bg-black sm:min-h-[1900px] md:min-h-[1700px] lg:min-h-[1550px]">
+      <div className="py-20 mt-110 min-h-[4000px] bg-black sm:min-h-[1900px] md:min-h-[1700px] lg:min-h-[1550px]">
         <motion.section
           id="meet-our-team"
           initial="hidden"
