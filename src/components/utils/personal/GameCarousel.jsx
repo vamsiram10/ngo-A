@@ -214,7 +214,7 @@ export default function GameCarousel() {
   return (
     <section
       className="game-section centered-section"
-      style={{ position: "relative", overflow: "hidden", background: "#000" }}
+      style={{ position: "relative", overflow: "hidden", background: "black" }}
     >
       {/* Responsive background lines */}
       <div className="background-lines-wrapper">
@@ -266,7 +266,7 @@ export default function GameCarousel() {
           {games.map((game, index) => (
             <SwiperSlide
               key={index}
-              style={{ width: "320px", height: "400px" }}
+              style={{ width: "320px", height: "400px", background: "#000" }}
             >
               <div className={`item${index === 0 ? " active" : ""}`}>
                 <div className="item-image-wrapper">
@@ -376,7 +376,7 @@ export default function GameCarousel() {
           height: 400px;
           display: flex;
           align-items: flex-end;
-          background: #343434;
+          background: #000 !important;
           border-radius: 16px;
           overflow: hidden;
           position: relative;
@@ -393,6 +393,7 @@ export default function GameCarousel() {
           display: flex;
           align-items: stretch;
           justify-content: stretch;
+          background: #000 !important;
         }
         .item-image {
           width: 100%;
@@ -402,11 +403,12 @@ export default function GameCarousel() {
           pointer-events: none;
           user-select: none;
           display: block;
-          background: #222;
+          background: #000 !important;
         }
         .custom-carousel .swiper-slide {
           display: flex;
           justify-content: center;
+          background: #000 !important;
         }
         .item {
           left: 50%;
@@ -509,6 +511,7 @@ export default function GameCarousel() {
           z-index: 2;
           transform: translateY(calc(100% - 54px));
           transition: all 0.4s cubic-bezier(0.4, 2, 0.6, 1);
+          background: #000 !important;
         }
         .item.active .item-desc {
           transform: none;
@@ -540,6 +543,7 @@ export default function GameCarousel() {
         }
         .swiper-coverflow .swiper-slide {
           transform-origin: 50% 50% !important;
+          background: #000 !important;
         }
         .swiper-coverflow .swiper-slide {
           transform: scale(0.85) !important;
@@ -564,17 +568,20 @@ export default function GameCarousel() {
           }
           .custom-carousel .swiper-slide {
             justify-content: center;
+            background: #000 !important;
           }
           .item,
           .game-swiper .swiper-slide {
             width: 240px !important;
             height: 340px;
             margin: 0 0px 48px;
+            background: #000 !important;
           }
           .item {
             left: 50%;
             transform: translateX(-50%);
             position: relative;
+            background: #000 !important;
           }
           .item.active {
             width: 320px !important;
@@ -584,6 +591,7 @@ export default function GameCarousel() {
           .item-desc {
             padding: 0 18px 10px;
             transform: translateY(calc(100% - 54px));
+            background: #000 !important;
           }
           .game-swiper {
             padding-bottom: 10px !important;
@@ -593,9 +601,11 @@ export default function GameCarousel() {
           }
           .swiper-coverflow .swiper-slide {
             transform: scale(0.85) !important;
+            background: #000 !important;
           }
           .swiper-coverflow .swiper-slide-active {
             transform: scale(1) !important;
+            background: #000 !important;
           }
           .item-float-bg {
             filter: blur(6px) brightness(1.1);
@@ -613,6 +623,7 @@ export default function GameCarousel() {
             position: absolute !important;
             top: 0 !important;
             left: 0 !important;
+            background: #000 !important;
           }
           .item-image {
             width: 100% !important;
@@ -624,7 +635,7 @@ export default function GameCarousel() {
             display: block !important;
             object-fit: contain !important;
             object-position: center !important;
-            background: #222 !important;
+            background: #000 !important;
           }
         }
         @media (min-width: 768px) {
@@ -651,10 +662,18 @@ export default function GameCarousel() {
         }
       `}</style>
       <style jsx global>{`
+        html,
+        body {
+          background: #000 !important;
+        }
+        body {
+          font-family: "Roboto", sans-serif;
+        }
         .swiper {
           position: relative;
           overflow: hidden;
           z-index: 1;
+          background: #000 !important;
         }
         .swiper-wrapper {
           position: relative;
@@ -664,6 +683,7 @@ export default function GameCarousel() {
           display: flex;
           transition-property: transform;
           box-sizing: content-box;
+          background: #000 !important;
         }
         .swiper-slide {
           flex-shrink: 0;
@@ -672,13 +692,16 @@ export default function GameCarousel() {
           position: relative;
           transition-property: transform;
           display: block;
+          background: #000 !important;
         }
         .swiper-slide-active {
           z-index: 2;
+          background: #000 !important;
         }
         .swiper-slide-next,
         .swiper-slide-prev {
           z-index: 1;
+          background: #000 !important;
         }
         .swiper-pagination,
         .swiper-pagination-bullet,
@@ -687,24 +710,30 @@ export default function GameCarousel() {
         }
         .swiper-coverflow .swiper-wrapper {
           perspective: 1200px;
+          background: #000 !important;
         }
         .swiper-coverflow .swiper-slide {
           transition: transform 0.4s cubic-bezier(0.4, 2, 0.6, 1),
             box-shadow 0.4s cubic-bezier(0.4, 2, 0.6, 1);
+          background: #000 !important;
         }
         .swiper-coverflow .swiper-slide {
           transform: scale(0.85) !important;
+          background: #000 !important;
         }
         .swiper-coverflow .swiper-slide-active {
           transform: scale(1) !important;
+          background: #000 !important;
         }
         @media (max-width: 767px) {
           .swiper-slide {
             width: 240px !important;
             height: 340px !important;
+            background: #000 !important;
           }
           .game-swiper {
             padding-bottom: 10px !important;
+            background: #000 !important;
           }
           body {
             background: #000 !important;
@@ -714,6 +743,25 @@ export default function GameCarousel() {
           background: #000 !important;
         }
         html {
+          background: #000 !important;
+        }
+        [data-theme="light"] body,
+        [data-theme="light"] html,
+        [data-theme="light"] .game-section,
+        [data-theme="light"] .centered-section,
+        [data-theme="light"] .background-lines-wrapper,
+        [data-theme="light"] .custom-carousel,
+        [data-theme="light"] .game-swiper,
+        [data-theme="light"] .item,
+        [data-theme="light"] .item-image-wrapper,
+        [data-theme="light"] .item-image,
+        [data-theme="light"] .item-desc,
+        [data-theme="light"] .swiper,
+        [data-theme="light"] .swiper-wrapper,
+        [data-theme="light"] .swiper-slide,
+        [data-theme="light"] .swiper-slide-active,
+        [data-theme="light"] .swiper-slide-next,
+        [data-theme="light"] .swiper-slide-prev {
           background: #000 !important;
         }
       `}</style>
