@@ -17,7 +17,7 @@ const SOCIALS = [
     emoji: "📺",
   },
   {
-    href: "https://www.facebook.com/avasafoundation",
+    href: "https://www.facebook.com/share/16EjtnRFj8/",
     src: "facebook",
     color: "#1877f3",
     emoji: "👥",

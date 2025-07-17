@@ -19,9 +19,11 @@ export default function HomePage() {
         className="relative min-h-screen w-screen overflow-x-hidden"
       >
         <HomeOther />
+
         <HomeAbout />
-        <HomeTeam />
         <HomeGallery2 />
+        <HomeTeam />
+
         <HomeGallery />
       </main>
     </ReactLenis>
