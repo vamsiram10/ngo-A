@@ -49,7 +49,6 @@ const HomeOther = () => {
   const [prevIndex, setPrevIndex] = useState(null);
   const [isFading, setIsFading] = useState(false);
 
-  // Animate text drop-in
   useEffect(() => {
     if (textRef.current) {
       textRef.current.animate(dropInKeyframes, dropInTiming);
