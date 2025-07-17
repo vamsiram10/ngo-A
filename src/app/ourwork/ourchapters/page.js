@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -158,7 +158,6 @@ const ContentItem = ({ title, description, isFaq = false }) => (
 );
 
 // --- GalleryCard with mobile click-to-activate effect ---
-import { useRef } from "react";
 
 const GalleryCard = ({ image, isActive, onClick, index }) => (
   <motion.div
@@ -295,6 +294,23 @@ export default function OurChaptersPage() {
     ? chapters.find((c) => c.id === hoveredChapterId)
     : null;
 
+  // Ref for the chapters section
+  const chaptersSectionRef = useRef(null);
+
+  // Smooth scroll handler for the "Explore Our Chapters" button
+  const handleSmoothScroll = (e) => {
+    e.preventDefault();
+    if (chaptersSectionRef.current) {
+      chaptersSectionRef.current.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // fallback for SSR or if ref not set, use hash
+      if (typeof window !== "undefined") {
+        const el = document.getElementById("chapters");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <main className="bg-black text-white">
       <div className="overflow-hidden">
@@ -322,14 +338,14 @@ export default function OurChaptersPage() {
               variants={itemVariants}
               className="flex justify-center md:justify-start"
             >
-              <Link href="#chapters">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  className="bg-pink-600 hover:bg-pink-700 px-6 py-3 rounded-full text-white text-base sm:text-lg font-semibold transition"
-                >
-                  Explore Our Chapters
-                </motion.button>
-              </Link>
+              {/* Use a button for smooth scroll */}
+              <button
+                onClick={handleSmoothScroll}
+                className="bg-pink-600 hover:bg-pink-700 px-6 py-3 rounded-full text-white text-base sm:text-lg font-semibold transition"
+                type="button"
+              >
+                Explore Our Chapters
+              </button>
             </motion.div>
           </motion.div>
           <div className="relative w-full md:w-1/2 flex justify-center items-center h-[380px] sm:h-[480px] md:h-[620px] lg:h-[700px]">
@@ -407,6 +423,7 @@ export default function OurChaptersPage() {
 
         <div
           id="chapters"
+          ref={chaptersSectionRef}
           className="bg-black py-16 md:py-24 border-y border-neutral-800"
         >
           <div className="max-w-5xl mx-auto px-4">
