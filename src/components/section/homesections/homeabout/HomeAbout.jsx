@@ -2,9 +2,9 @@
 import { useRef, useEffect } from "react";
 
 const missionStatement =
-  "We empower underprivileged communities by providing access to education, healthcare, and sustainable livelihoods, fostering holistic growth and inclusion.";
+  "At Avasa Foundation, we strive to create lasting social impact by empowering marginalized communities. We focus on education, health, awareness on taboo issues, legal literacy, and women's financial empowerment. Our goal is a just society where everyone can thrive, regardless of their background.";
 const visionStatement =
-  "A world where every individual can realize their full potential, live with dignity, and contribute positively to society.";
+  "Promoting individuality and promoting change for an equally sustainable society.";
 
 const shinyStyle = `
   .shiny-block {
@@ -85,31 +85,19 @@ export default function AboutMatter() {
       </div>
 
       <div className="z-10 relative mt-2 p-4 mx-auto w-full max-w-3xl bg-black/80 rounded-lg shadow-lg sm:mt-4 md:mt-6">
-        <p className="text-[0.75rem] text-gray-200 leading-relaxed text-justify xs:text-sm sm:text-base">
-          In 2022,{" "}
-          <span className="font-semibold text-pink-400">V. Radha Priyanka</span>{" "}
-          and her close friends began a heartfelt initiative in{" "}
-          <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
-            Hyderabad{" "}
-          </span>
-          distributing clothes and food to those in need. These small acts of
-          kindness laid the foundation for a movement rooted in compassion and
-          change. As our vision grew, so did our reach—
-          <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
-            {" "}
-            expanding to Jaipur{" "}
-          </span>
-          and building a dedicated team committed to making a difference.
-          <br />
-          <br />
-          Our efforts have included refreshment drives, medical kit
-          distributions, and visits to orphanages and old age homes, all guided
-          by a single purpose: to bring hope, dignity, and support to those
-          often overlooked. In November 2024, we proudly became a registered
-          NGO, amplifying our impact and enabling us to reach even more lives.
-          Today, we are a growing family of changemakers, united by empathy and
-          driven by action.
-        </p>
+            <p className="text-[0.75rem] text-gray-200 leading-relaxed text-justify xs:text-sm sm:text-base">
+        In 2022,{" "}
+        <span className="font-semibold text-pink-400">V. Radha Priyanka</span>{" "}
+        and her close friends began a heartfelt initiative in{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          Hyderabad </span>, distributing clothes and food to those in need. What started as small acts of kindness soon{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text"> expanded to Jaipur
+        </span>, forming a committed team focused on meaningful change.
+        <br />
+        <br />
+        From refreshment drives to medical kit distributions and visits to orphanages and old age homes, our mission has remained the same: bringing dignity and support to the underserved. In November 2024, we officially became a registered NGO—growing into a family of changemakers, united by empathy and action.
+      </p>
+
       </div>
 
       <div className="z-10 relative flex flex-col gap-4 mt-8 mx-auto w-full max-w-3xl">
@@ -117,7 +105,7 @@ export default function AboutMatter() {
         <div className="flex flex-col items-center p-4 w-full text-center rounded-xl border-pink-500 shadow-md shiny-block border">
           <div className="shiny-content">
             <h3 className="flex items-center gap-2 mb-2 text-pink-300 text-lg font-bold animate-bounce drop-shadow-[0_2px_8px_rgba(236,72,153,0.7)] sm:text-xl md:text-2xl">
-              🎯 Mission
+              <strong> Mission </strong>
             </h3>
             <p className="text-gray-100 text-sm leading-snug sm:text-base">
               {missionStatement}
@@ -129,7 +117,7 @@ export default function AboutMatter() {
         <div className="flex flex-col items-center p-4 w-full text-center rounded-xl border-pink-500 shadow-md shiny-block border">
           <div className="shiny-content">
             <h3 className="flex items-center gap-2 mb-2 text-pink-300 text-lg font-bold animate-bounce drop-shadow-[0_2px_8px_rgba(236,72,153,0.7)] sm:text-xl md:text-2xl">
-              👁️ Vision
+              <strong> Vision </strong>
             </h3>
             <p className="text-gray-100 text-sm leading-snug sm:text-base">
               {visionStatement}
