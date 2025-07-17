@@ -147,21 +147,41 @@ export default function AboutUsContent() {
           What We Do
         </h2>
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
-            <h3 className="mb-2 text-xl font-semibold text-pink-400 lg:text-2xl">
+          {/* Love and Care */}
+          <div className="flex flex-col items-center p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
+            <div className="overflow-hidden flex items-center justify-center mb-4 w-32 h-32 bg-neutral-800 rounded-full border-2 border-pink-400">
+              <Image
+                src="/images/whatwedo-love.jpg"
+                alt="Love and Care"
+                width={128}
+                height={128}
+                className="object-cover w-full h-full"
+              />
+            </div>
+            <h3 className="mb-2 text-xl font-semibold text-pink-400 text-center lg:text-2xl">
               1. Love and Care
             </h3>
-            <p className="lg:text-lg">
+            <p className="text-center lg:text-lg">
               Regular visits to orphanages and old age homes to foster
               connections and holistic well-being.
             </p>
           </div>
 
-          <div className="p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
-            <h3 className="mb-2 text-xl font-semibold text-pink-400 lg:text-2xl">
+          {/* Seasonal & Awareness Drives */}
+          <div className="flex flex-col items-center p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
+            <div className="overflow-hidden flex items-center justify-center mb-4 w-32 h-32 bg-neutral-800 rounded-full border-2 border-pink-400">
+              <Image
+                src="/images/whatwedo-drives.jpg"
+                alt="Seasonal & Awareness Drives"
+                width={128}
+                height={128}
+                className="object-cover w-full h-full"
+              />
+            </div>
+            <h3 className="mb-2 text-xl font-semibold text-pink-400 text-center lg:text-2xl">
               2. Seasonal & Awareness Drives
             </h3>
-            <ul className="list-disc list-inside space-y-1 lg:text-lg">
+            <ul className="text-center list-disc list-inside space-y-1 lg:text-lg">
               <li>
                 <strong className="text-pink-400">Winter:</strong> Warm clothing
               </li>
@@ -175,11 +195,21 @@ export default function AboutUsContent() {
             </ul>
           </div>
 
-          <div className="p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
-            <h3 className="mb-2 text-xl font-semibold text-pink-400 lg:text-2xl">
+          {/* Development Support */}
+          <div className="flex flex-col items-center p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
+            <div className="overflow-hidden flex items-center justify-center mb-4 w-32 h-32 bg-neutral-800 rounded-full border-2 border-pink-400">
+              <Image
+                src="/images/whatwedo-development.jpg"
+                alt="Development Support"
+                width={128}
+                height={128}
+                className="object-cover w-full h-full"
+              />
+            </div>
+            <h3 className="mb-2 text-xl font-semibold text-pink-400 text-center lg:text-2xl">
               3. Development Support
             </h3>
-            <ul className="list-disc list-inside space-y-1 lg:text-lg">
+            <ul className="text-center list-disc list-inside space-y-1 lg:text-lg">
               <li>Educational aids: projectors, stationery</li>
               <li>Basic school infrastructure</li>
               <li>Community upliftment programs</li>
@@ -188,7 +218,7 @@ export default function AboutUsContent() {
         </div>
       </motion.section>
 
-      <div className="py-20 min-h-[4000px] bg-black sm:min-h-[1900px] md:min-h-[1700px] lg:min-h-[1550px]">
+      <div className="py-20 mt-80 min-h-[4000px] bg-black sm:min-h-[1900px] md:min-h-[1700px] lg:min-h-[1550px]">
         <motion.section
           id="meet-our-team"
           initial="hidden"
