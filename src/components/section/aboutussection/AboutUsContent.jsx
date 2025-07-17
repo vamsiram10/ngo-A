@@ -50,7 +50,7 @@ export default function AboutUsContent() {
     {
       name: "K. Usha Bhargavi",
       role: "Executive member",
-      desc: "Contributes to decision-making, supports program execution, and upholds the organization's mission through active involvement.",
+      desc: "Contributes to decision-making, supports program execution, and upholds the organization&apos;s mission through active involvement.",
       img: "/team/ajay.jpg",
     },
     {
@@ -68,7 +68,7 @@ export default function AboutUsContent() {
     {
       name: "R.V.R. Vamsi",
       role: "Head of Social Media",
-      desc: "Leads the organization's digital presence by strategizing, creating, and managing content to amplify outreach and engagement.",
+      desc: "Leads the organization&apos;s digital presence by strategizing, creating, and managing content to amplify outreach and engagement.",
       img: "/team/ajay.jpg",
     },
   ];
@@ -170,7 +170,7 @@ export default function AboutUsContent() {
           {/* Card 2 */}
           <div className="p-6 bg-neutral-900 rounded-xl shadow-md">
             <h3 className="mb-2 text-xl font-semibold text-pink-400">
-              2. Seasonal & Awareness Drives
+              2. Seasonal &amp; Awareness Drives
             </h3>
             <ul className="pl-4 text-white list-disc space-y-1">
               <li>
