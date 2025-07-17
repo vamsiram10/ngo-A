@@ -99,10 +99,10 @@ const games = [
   },
   {
 
-    title: "Hands of Hope",
+    title: "Cool Relief",
     image: "/main gallery/p.JPG",
     description:
-      "to be changed",
+      "A small gesture to help beat the heat — refreshing drinks for those in need.",
   },
   {
     title: "Hygiene for her",
