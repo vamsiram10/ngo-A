@@ -267,7 +267,6 @@ export function Gallery() {
     },
   ];
 
-  // Helper to merge responsive styles for the first ite
   function getCardStyle(item, idx) {
     // Remove any unsupported @media keys from the style object
     const baseStyle = { ...item.style };
