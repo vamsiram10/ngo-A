@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
-const images = ["/main.jpg", "/main1.jpg", "/main gallery/d.jpg"];
+const images = ["/main.jpg", "/main1.jpg"];
 
 const dropInKeyframes = [
   { transform: "translateY(-200px)", opacity: 0 },
