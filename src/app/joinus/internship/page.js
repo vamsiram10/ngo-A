@@ -140,7 +140,7 @@ export default function InternshipPage() {
     {
       id: 4,
       quote:
-        "An incredible journey of learning and growth. The team was fantastic, and I'm proud of the work we accomplished together.",
+        "An incredible journey of learning and growth. The team was fantastic, and I&apos;m proud of the work we accomplished together.",
       name: "Manthan jain",
       role: "Former Content Writing Intern",
       avatar: "/images/avatar4.jpg",
@@ -148,7 +148,7 @@ export default function InternshipPage() {
     {
       id: 5,
       quote:
-        "I highly recommend this internship to anyone looking to make a difference. It's a fantastic opportunity to apply your skills in a meaningful way.",
+        "I highly recommend this internship to anyone looking to make a difference. It&apos;s a fantastic opportunity to apply your skills in a meaningful way.",
       name: "K Gayathri Devi",
       role: "Former Social Media Intern",
       avatar: "/images/avatar5.jpg",
@@ -156,7 +156,7 @@ export default function InternshipPage() {
     {
       id: 6,
       quote:
-        "I highly recommend this internship to anyone looking to make a difference. It's a fantastic opportunity to apply your skills in a meaningful way.",
+        "I highly recommend this internship to anyone looking to make a difference. It&apos;s a fantastic opportunity to apply your skills in a meaningful way.",
       name: "B.Chandrashekar Reddy",
       role: "Former Social Media Intern",
       avatar: "/images/avatar6.jpg",
@@ -164,7 +164,7 @@ export default function InternshipPage() {
     {
       id: 7,
       quote:
-        "I highly recommend this internship to anyone looking to make a difference. It's a fantastic opportunity to apply your skills in a meaningful way.",
+        "I highly recommend this internship to anyone looking to make a difference. It&apos;s a fantastic opportunity to apply your skills in a meaningful way.",
       name: "Noman ahmad",
       role: "Former Social Media Intern",
       avatar: "/images/avatar7.jpg",
@@ -296,7 +296,7 @@ export default function InternshipPage() {
                   >
                     <div className="bg-neutral-900 border border-neutral-800 rounded-2xl w-full h-full flex flex-col justify-center items-center p-6 text-center">
                       <p className="text-neutral-300 text-lg md:text-xl italic mb-6">
-                        “{testimonials[currentTestimonial].quote}”
+                        &ldquo;{testimonials[currentTestimonial].quote}&rdquo;
                       </p>
                       <div className="flex items-center mt-auto">
                         <div className="relative w-20 h-20 md:w-24 md:h-24">
@@ -413,7 +413,7 @@ export default function InternshipPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-neutral-900 rounded-3xl border border-neutral-800 p-8 md:p-16">
               <h2 className="text-3xl md:text-4xl font-bold text-pink-500 mb-12 text-center">
-                What You'll Gain
+                What You&apos;ll Gain
               </h2>
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
