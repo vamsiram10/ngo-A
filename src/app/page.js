@@ -42,7 +42,7 @@ export default function HomePage() {
         <HomeOther />
 
         <HomeAbout />
-        <HomeGallery2 />
+        {/* <HomeGallery2 /> */}
         <HomeTeam />
 
         <HomeGallery />

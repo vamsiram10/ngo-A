@@ -2,6 +2,7 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -110,6 +111,7 @@ const galleryContent = [
   },
 ];
 
+// Make image fully visible in the ChapterCard by using object-contain and a fixed aspect ratio
 const ChapterCard = ({ chapter }) => (
   <motion.div
     variants={itemVariants}
@@ -117,12 +119,15 @@ const ChapterCard = ({ chapter }) => (
     transition={{ type: "spring", stiffness: 250 }}
     className="bg-neutral-900 rounded-2xl border border-neutral-800 shadow-md hover:shadow-pink-600/20 transition-shadow duration-300 overflow-hidden"
   >
-    <div className="relative h-44 sm:h-56 md:h-48 w-full">
-      <img
+    <div className="relative w-full aspect-[4/3] bg-black">
+      <Image
         src={chapter.img}
         alt={`View of ${chapter.name}`}
-        className="object-cover w-full h-full absolute inset-0"
-        style={{ objectFit: "cover" }}
+        fill
+        className="object-contain"
+        style={{ objectFit: "contain" }}
+        sizes="(max-width: 768px) 100vw, 100vw"
+        priority={false}
       />
     </div>
     <div className="p-5 sm:p-6 flex flex-col h-full">
@@ -179,14 +184,17 @@ const GalleryCard = ({ image, isActive, onClick, index }) => (
     }}
     style={{ touchAction: "manipulation" }}
   >
-    <img
+    <Image
       src={image.src}
       alt={image.alt}
-      className={`object-cover w-full h-full absolute inset-0 transition-transform duration-300 group-hover:scale-105
+      fill
+      className={`object-cover transition-transform duration-300 group-hover:scale-105
         ${isActive ? "mobile-gallery-scale" : ""}
       `}
       style={{ objectFit: "cover" }}
       draggable={false}
+      sizes="(max-width: 640px) 288px, 320px"
+      priority={false}
     />
     <div
       className={`
@@ -342,11 +350,14 @@ export default function OurChaptersPage() {
               id="map"
               className="relative w-full max-w-2xl aspect-[4/3] md:aspect-[16/9] border-2 border-pink-500 rounded-2xl overflow-hidden bg-neutral-900/90 shadow-2xl backdrop-blur-lg z-20"
             >
-              <img
+              <Image
                 src="/images/india-map.png"
                 alt="Map of India"
-                className="object-contain opacity-80 saturate-150 absolute inset-0 w-full h-full"
+                fill
+                className="object-contain opacity-80 saturate-150"
                 style={{ objectFit: "contain" }}
+                sizes="(max-width: 1024px) 100vw, 100vw"
+                priority={false}
               />
               {chapters.map((chapter) => (
                 <div
@@ -371,13 +382,14 @@ export default function OurChaptersPage() {
                         : ""
                     } w-10 h-10 sm:w-12 sm:h-12`}
                   >
-                    <img
+                    <Image
                       src="/svg/AVASA.svg"
                       alt="AVASA Logo"
                       width={32}
                       height={32}
                       className="rounded-full object-contain bg-white animate-blink-signal sm:w-10 sm:h-10 w-8 h-8"
                       style={{ objectFit: "contain" }}
+                      priority={false}
                     />
                   </div>
                 </div>
@@ -401,12 +413,17 @@ export default function OurChaptersPage() {
               </AnimatePresence>
             </div>
           </div>
-          <img
-            src="/images/chapter-hero.jpg"
-            alt="Volunteers"
-            className="object-cover z-0 opacity-50 saturate-150 absolute inset-0 pointer-events-none w-full h-full"
-            style={{ objectFit: "cover" }}
-          />
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <Image
+              src="/images/chapter-hero.jpg"
+              alt="Volunteers"
+              fill
+              className="object-cover opacity-50 saturate-150"
+              style={{ objectFit: "cover" }}
+              sizes="100vw"
+              priority={false}
+            />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10 pointer-events-none" />
         </div>
 
