@@ -140,7 +140,7 @@ export default function InternshipPage() {
     {
       id: 4,
       quote:
-        "An incredible journey of learning and growth. The team was fantastic, and I&apos;m proud of the work we accomplished together.",
+        "An incredible journey of learning and growth. The team was fantastic, and I'm proud of the work we accomplished together.",
       name: "Manthan jain",
       role: "Former Content Writing Intern",
       avatar: "/images/avatar4.jpg",
@@ -148,7 +148,7 @@ export default function InternshipPage() {
     {
       id: 5,
       quote:
-        "I highly recommend this internship to anyone looking to make a difference. It&apos;s a fantastic opportunity to apply your skills in a meaningful way.",
+        "I highly recommend this internship to anyone looking to make a difference. It's a fantastic opportunity to apply your skills in a meaningful way.",
       name: "K Gayathri Devi",
       role: "Former Social Media Intern",
       avatar: "/images/avatar5.jpg",
@@ -156,7 +156,7 @@ export default function InternshipPage() {
     {
       id: 6,
       quote:
-        "I highly recommend this internship to anyone looking to make a difference. It&apos;s a fantastic opportunity to apply your skills in a meaningful way.",
+        "I highly recommend this internship to anyone looking to make a difference. It's a fantastic opportunity to apply your skills in a meaningful way.",
       name: "B.Chandrashekar Reddy",
       role: "Former Social Media Intern",
       avatar: "/images/avatar6.jpg",
@@ -164,7 +164,7 @@ export default function InternshipPage() {
     {
       id: 7,
       quote:
-        "I highly recommend this internship to anyone looking to make a difference. It&apos;s a fantastic opportunity to apply your skills in a meaningful way.",
+        "I highly recommend this internship to anyone looking to make a difference. It's a fantastic opportunity to apply your skills in a meaningful way.",
       name: "Noman ahmad",
       role: "Former Social Media Intern",
       avatar: "/images/avatar7.jpg",
@@ -254,54 +254,16 @@ export default function InternshipPage() {
       <div className="relative z-20 -mt-24">
         {/* Testimonials Carousel Section */}
         <div className="py-20 md:py-28">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-pink-500 mb-12">
               What Our Interns Say
             </h2>
 
-            <div className="relative h-80 md:h-64">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentTestimonial}
-                  variants={slideVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className="absolute inset-0 flex items-center justify-center"
-                >
-                  <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-8 max-w-2xl w-full mx-auto flex flex-col items-center">
-                    <p className="text-neutral-300 text-lg italic mb-6">
-                      &ldquo;{testimonials[currentTestimonial].quote}&rdquo;
-                    </p>
-                    <div className="flex items-center">
-                      <div className="relative w-12 h-12">
-                        <Image
-                          src={testimonials[currentTestimonial].avatar}
-                          alt={testimonials[currentTestimonial].name}
-                          fill
-                          className="rounded-full object-cover"
-                          onError={handleImgError}
-                          sizes="48px"
-                        />
-                      </div>
-                      <div className="ml-4 text-left">
-                        <p className="font-semibold text-white">
-                          {testimonials[currentTestimonial].name}
-                        </p>
-                        <p className="text-pink-400 text-sm">
-                          {testimonials[currentTestimonial].role}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-
-              {/* Navigation Buttons */}
+            <div className="flex items-center justify-center">
+              {/* Desktop Prev Button */}
               <button
                 onClick={prevTestimonial}
-                className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300 z-10"
+                className="shrink-0 bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300 z-10 hidden md:block"
                 aria-label="Previous testimonial"
               >
                 <svg
@@ -319,9 +281,52 @@ export default function InternshipPage() {
                   />
                 </svg>
               </button>
+
+              {/* Carousel Viewport */}
+              <div className="relative h-96 md:h-80 w-full max-w-3xl mx-auto md:mx-4 overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentTestimonial}
+                    variants={slideVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                    className="absolute inset-0 flex items-center justify-center p-4"
+                  >
+                    <div className="bg-neutral-900 border border-neutral-800 rounded-2xl w-full h-full flex flex-col justify-center items-center p-6 text-center">
+                      <p className="text-neutral-300 text-lg md:text-xl italic mb-6">
+                        “{testimonials[currentTestimonial].quote}”
+                      </p>
+                      <div className="flex items-center mt-auto">
+                        <div className="relative w-16 h-16">
+                          <Image
+                            src={testimonials[currentTestimonial].avatar}
+                            alt={testimonials[currentTestimonial].name}
+                            fill
+                            className="rounded-full object-cover"
+                            onError={handleImgError}
+                            sizes="64px"
+                          />
+                        </div>
+                        <div className="ml-4 text-left">
+                          <p className="font-semibold text-white text-base">
+                            {testimonials[currentTestimonial].name}
+                          </p>
+                          <p className="text-pink-400 text-sm">
+                            {testimonials[currentTestimonial].role}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Desktop Next Button */}
               <button
                 onClick={nextTestimonial}
-                className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300 z-10"
+                className="shrink-0 bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300 z-10 hidden md:block"
                 aria-label="Next testimonial"
               >
                 <svg
@@ -341,20 +346,64 @@ export default function InternshipPage() {
               </button>
             </div>
 
-            {/* Indicator Dots */}
-            <div className="flex justify-center gap-2 mt-8">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                    currentTestimonial === index
-                      ? "bg-pink-500"
-                      : "bg-neutral-600"
-                  }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                ></button>
-              ))}
+            {/* Indicator Dots & Mobile Nav */}
+            <div className="flex justify-center items-center gap-4 mt-8">
+              <button
+                onClick={prevTestimonial}
+                className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300 md:hidden"
+                aria-label="Previous testimonial"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+
+              <div className="flex justify-center items-center gap-2">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentTestimonial(index)}
+                    className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                      currentTestimonial === index
+                        ? "bg-pink-500"
+                        : "bg-neutral-600"
+                    }`}
+                    aria-label={`Go to testimonial ${index + 1}`}
+                  ></button>
+                ))}
+              </div>
+
+              <button
+                onClick={nextTestimonial}
+                className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300 md:hidden"
+                aria-label="Next testimonial"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
@@ -364,7 +413,7 @@ export default function InternshipPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-neutral-900 rounded-3xl border border-neutral-800 p-8 md:p-16">
               <h2 className="text-3xl md:text-4xl font-bold text-pink-500 mb-12 text-center">
-                What You&apos;ll Gain
+                What You'll Gain
               </h2>
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
