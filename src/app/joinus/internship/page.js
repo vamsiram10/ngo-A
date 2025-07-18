@@ -299,21 +299,21 @@ export default function InternshipPage() {
                         “{testimonials[currentTestimonial].quote}”
                       </p>
                       <div className="flex items-center mt-auto">
-                        <div className="relative w-16 h-16">
+                        <div className="relative w-20 h-20 md:w-24 md:h-24">
                           <Image
                             src={testimonials[currentTestimonial].avatar}
                             alt={testimonials[currentTestimonial].name}
                             fill
                             className="rounded-full object-cover"
                             onError={handleImgError}
-                            sizes="64px"
+                            sizes="(max-width: 768px) 80px, 96px"
                           />
                         </div>
-                        <div className="ml-4 text-left">
-                          <p className="font-semibold text-white text-base">
+                        <div className="ml-6 text-left">
+                          <p className="font-semibold text-white text-base md:text-lg">
                             {testimonials[currentTestimonial].name}
                           </p>
-                          <p className="text-pink-400 text-sm">
+                          <p className="text-pink-400 text-sm md:text-base">
                             {testimonials[currentTestimonial].role}
                           </p>
                         </div>
