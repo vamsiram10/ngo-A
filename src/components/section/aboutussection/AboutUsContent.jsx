@@ -69,7 +69,7 @@ export default function AboutUsContent() {
       name: "R.V.R. Vamsi",
       role: "Head of Social Media",
       desc: "Leads the organization's digital presence by strategizing, creating, and managing content to amplify outreach and engagement.",
-      img: "/aboutus/vamsi.jpg",
+      img: "",
     },
   ];
 
