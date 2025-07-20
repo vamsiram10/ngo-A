@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
-const images = ["/main.jpg", "/main1.jpg"];
+const images = ["/maindesk.jpeg", "/main.jpg"];
 
 const dropInKeyframes = [
   { transform: "translateY(-200px)", opacity: 0 },
@@ -33,6 +33,9 @@ const arrowStyle = {
   transition: "background 0.2s",
   userSelect: "none",
 };
+
+const BG_FADE_DURATION = 700; // ms, adjust for slower/faster fade
+const BG_AUTO_INTERVAL = 4000; // ms, adjust for slower/faster auto change
 
 const HomeOther = () => {
   const textRef = useRef(null);
@@ -72,7 +75,7 @@ const HomeOther = () => {
     }
   }, []);
 
-  // Auto background image change every 2 seconds with smooth fade
+  // Auto background image change with adjustable interval and fade
   useEffect(() => {
     const interval = setInterval(() => {
       setPrevIndex(currentIndex);
@@ -80,8 +83,8 @@ const HomeOther = () => {
       setTimeout(() => {
         setCurrentIndex((prev) => (prev + 1) % images.length);
         setIsFading(false);
-      }, 500); // fade duration
-    }, 2000);
+      }, BG_FADE_DURATION);
+    }, BG_AUTO_INTERVAL);
     return () => clearInterval(interval);
   }, [currentIndex]);
 
@@ -98,7 +101,7 @@ const HomeOther = () => {
     setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
       setIsFading(false);
-    }, 500);
+    }, BG_FADE_DURATION);
   };
 
   // Touch swipe for background
@@ -134,7 +137,7 @@ const HomeOther = () => {
             setCurrentIndex((prev) => (prev + 1) % images.length);
           }
           setIsFading(false);
-        }, 500);
+        }, BG_FADE_DURATION);
         isSwiping = false;
       }
     };
@@ -166,14 +169,14 @@ const HomeOther = () => {
             prev === 0 ? images.length - 1 : prev - 1
           );
           setIsFading(false);
-        }, 500);
+        }, BG_FADE_DURATION);
       } else if (e.key === "ArrowRight") {
         setPrevIndex(currentIndex);
         setIsFading(true);
         setTimeout(() => {
           setCurrentIndex((prev) => (prev + 1) % images.length);
           setIsFading(false);
-        }, 500);
+        }, BG_FADE_DURATION);
       }
     };
     window.addEventListener("keydown", onKeyDown);
@@ -207,7 +210,7 @@ const HomeOther = () => {
         {/* Previous background for fade out */}
         {prevIndex !== null && isFading && (
           <div
-            className="absolute inset-0 transition-opacity duration-500 pointer-events-none"
+            className="absolute inset-0 transition-opacity"
             style={{
               backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${images[prevIndex]}')`,
               backgroundSize: "cover",
@@ -215,13 +218,13 @@ const HomeOther = () => {
               backgroundRepeat: "no-repeat",
               opacity: isFading ? 1 : 0,
               zIndex: 1,
-              transition: "opacity 0.5s",
+              transition: `opacity ${BG_FADE_DURATION}ms`,
             }}
           />
         )}
         {/* Current background for fade in */}
         <div
-          className="absolute inset-0 transition-opacity duration-700"
+          className="absolute inset-0 transition-opacity"
           style={{
             backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('${images[currentIndex]}')`,
             backgroundSize: "cover",
@@ -229,7 +232,7 @@ const HomeOther = () => {
             backgroundRepeat: "no-repeat",
             opacity: isFading ? 0 : 1,
             zIndex: 2,
-            transition: "opacity 0.7s",
+            transition: `opacity ${BG_FADE_DURATION}ms`,
           }}
         />
         {/* Content overlays */}
@@ -246,7 +249,7 @@ const HomeOther = () => {
                 prev === 0 ? images.length - 1 : prev - 1
               );
               setIsFading(false);
-            }, 500);
+            }, BG_FADE_DURATION);
           }}
         ></button>
         <button
@@ -260,7 +263,7 @@ const HomeOther = () => {
             setTimeout(() => {
               setCurrentIndex((prev) => (prev + 1) % images.length);
               setIsFading(false);
-            }, 500);
+            }, BG_FADE_DURATION);
           }}
         ></button>
         <div className="z-10 relative flex flex-col items-center justify-center w-full">
