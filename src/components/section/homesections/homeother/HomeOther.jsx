@@ -2,7 +2,12 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
-const images = ["/maindesk.jpeg", "/main.jpg"];
+// You can add more images for the carousel, including mobile-specific ones if needed
+const images = [
+  "/maindesk.jpeg",
+  "/main.jpg",
+  // "/mainmobile1.jpg", // Example: add a mobile-specific image if you want
+];
 
 const dropInKeyframes = [
   { transform: "translateY(-200px)", opacity: 0 },
@@ -37,6 +42,18 @@ const arrowStyle = {
 const BG_FADE_DURATION = 700; // ms, adjust for slower/faster fade
 const BG_AUTO_INTERVAL = 4000; // ms, adjust for slower/faster auto change
 
+// Helper to detect mobile device
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < breakpoint);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, [breakpoint]);
+  return isMobile;
+}
+
 const HomeOther = () => {
   const textRef = useRef(null);
   const marqueeRef = useRef(null);
@@ -45,6 +62,9 @@ const HomeOther = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState(null);
   const [isFading, setIsFading] = useState(false);
+
+  // Detect if on mobile for background adjustment
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (textRef.current) {
@@ -155,7 +175,6 @@ const HomeOther = () => {
       bg.removeEventListener("touchmove", onTouchMove);
       bg.removeEventListener("touchend", onTouchEnd);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex]);
 
   // Keyboard navigation
@@ -184,6 +203,28 @@ const HomeOther = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex]);
 
+  // Responsive background style for mobile/desktop
+  const getBgStyle = (img, fadeOverlay = 0.4) => {
+    // On mobile, adjust background position and size for better fit
+    if (isMobile) {
+      // Move the background image more to the right on mobile by using backgroundPosition: "80% top"
+      // You can tweak the "80%" value as needed (e.g., "right", "90%", etc.)
+      return {
+        backgroundImage: `linear-gradient(rgba(0,0,0,${fadeOverlay}), rgba(0,0,0,${fadeOverlay})), url('${img}')`,
+        backgroundSize: "cover",
+        backgroundPosition: "10% top", // Move image to the right and from the top on mobile
+        backgroundRepeat: "no-repeat",
+      };
+    }
+    // Desktop default
+    return {
+      backgroundImage: `linear-gradient(rgba(0,0,0,${fadeOverlay}), rgba(0,0,0,${fadeOverlay})), url('${img}')`,
+      backgroundSize: "100%", // Make image somewhat smaller
+      backgroundPosition: "center bottom 65%",
+      backgroundRepeat: "no-repeat",
+    };
+  };
+
   // Render two background layers for crossfade
   return (
     <div className="overflow-x-hidden relative h-dvh w-screen">
@@ -194,6 +235,17 @@ const HomeOther = () => {
           position: "relative",
           width: "100vw",
           minHeight: "100dvh",
+          // On mobile, ensure the background fills the viewport and doesn't scroll
+          ...(isMobile
+            ? {
+                height: "100dvh",
+                minHeight: "100dvh",
+                maxHeight: "100dvh",
+                touchAction: "pan-y",
+                WebkitOverflowScrolling: "touch",
+                // Remove backgroundPosition override here, handled in getBgStyle
+              }
+            : {}),
         }}
         onClick={handleBgClick}
         tabIndex={-1}
@@ -212,10 +264,7 @@ const HomeOther = () => {
           <div
             className="absolute inset-0 transition-opacity"
             style={{
-              backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${images[prevIndex]}')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
+              ...getBgStyle(images[prevIndex], 0.4),
               opacity: isFading ? 1 : 0,
               zIndex: 1,
               transition: `opacity ${BG_FADE_DURATION}ms`,
@@ -226,17 +275,14 @@ const HomeOther = () => {
         <div
           className="absolute inset-0 transition-opacity"
           style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('${images[currentIndex]}')`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
+            ...getBgStyle(images[currentIndex], 0.55),
             opacity: isFading ? 0 : 1,
             zIndex: 2,
             transition: `opacity ${BG_FADE_DURATION}ms`,
           }}
         />
         {/* Content overlays */}
-        <button
+        {/* <button
           className="left-4 carousel-arrow"
           style={{ ...arrowStyle, left: "1.5rem" }}
           aria-label="Previous"
@@ -265,8 +311,13 @@ const HomeOther = () => {
               setIsFading(false);
             }, BG_FADE_DURATION);
           }}
-        ></button>
-        <div className="z-10 relative flex flex-col items-center justify-center w-full">
+        ></button> */}
+        <div
+          className="z-10 relative flex flex-col items-center justify-center w-full"
+          style={{
+            top: isMobile ? "60px" : undefined, // Move down on mobile only
+          }}
+        >
           <div className="z-50 relative mb-10">
             <p
               ref={textRef}
@@ -290,7 +341,8 @@ const HomeOther = () => {
             width: "100vw",
             overflow: "hidden",
             zIndex: 20,
-            height: "60px",
+            height: isMobile ? "44px" : "60px",
+            position: "absolute", // Shorter marquee on mobile
             background: "rgba(0,0,0,0.0)",
             pointerEvents: "auto",
           }}
@@ -302,13 +354,13 @@ const HomeOther = () => {
             style={{
               whiteSpace: "nowrap",
               fontWeight: 100,
-              fontSize: "1.5rem",
+              fontSize: isMobile ? "1.1rem" : "1.5rem",
               color: "#f9a8d4",
               textShadow: "0 2px 8px rgba(0,0,0,0.5)",
               letterSpacing: "0.1em",
               display: "inline-block",
               willChange: "transform",
-              padding: "1rem",
+              padding: isMobile ? "0.5rem" : "1rem",
               userSelect: "none",
               textDecoration: "none",
               pointerEvents: "auto",
