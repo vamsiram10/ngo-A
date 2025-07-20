@@ -236,13 +236,23 @@ export default function AboutUsContent() {
                 className="flex flex-col items-center p-6 min-h-[350px] text-center bg-neutral-900 rounded-2xl shadow-md md:min-h-[380px] lg:min-h-[400px]"
               >
                 <div className="overflow-hidden mb-4 w-32 h-32 rounded-full">
-                  <Image
-                    src={member.img}
-                    alt={member.name}
-                    width={128}
-                    height={128}
-                    className="object-cover w-full h-full"
-                  />
+                  {member.img ? (
+                    <Image
+                      src={member.img}
+                      alt={member.name}
+                      width={128}
+                      height={128}
+                      className="object-cover w-full h-full"
+                    />
+                  ) : (
+                    <div className="flex items-center justify-center w-full h-full text-pink-400 text-4xl font-bold bg-neutral-800">
+                      {member.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")
+                        .slice(0, 2)}
+                    </div>
+                  )}
                 </div>
                 <h3 className="text-xl font-semibold text-white">
                   {member.name}
