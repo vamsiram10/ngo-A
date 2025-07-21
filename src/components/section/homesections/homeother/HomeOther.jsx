@@ -10,7 +10,7 @@ const dropInKeyframes = [
 ];
 
 const dropInTiming = {
-  duration: 900,
+  duration: 2000,
   easing: "cubic-bezier(0.22, 1, 0.36, 1)",
   fill: "forwards",
 };
@@ -34,8 +34,8 @@ const arrowStyle = {
   userSelect: "none",
 };
 
-const BG_FADE_DURATION = 150;
-const BG_AUTO_INTERVAL = 1000;
+const BG_FADE_DURATION = 1000;
+const BG_AUTO_INTERVAL = 2000;
 
 function useIsMobile(breakpoint = 768) {
   const [isMobile, setIsMobile] = useState(false);
