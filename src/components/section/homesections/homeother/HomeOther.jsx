@@ -241,19 +241,20 @@ const HomeOther = () => {
             zIndex: 3,
           }}
         />
-        {/* Previous background for fade out */}
-        {prevIndex !== null && isFading && (
-          <div
-            className="absolute inset-0 transition-opacity"
-            style={{
-              ...getBgStyle(images[prevIndex], 0.4),
-              opacity: isFading ? 1 : 0,
-              zIndex: 1,
-              transition: `opacity ${BG_FADE_DURATION}ms`,
-            }}
-          />
-        )}
-        {/* Current background for fade in */}
+        {/* Always render both prev and current backgrounds, crossfade their opacity */}
+        <div
+          className="absolute inset-0 transition-opacity"
+          style={{
+            ...getBgStyle(
+              prevIndex !== null ? images[prevIndex] : images[currentIndex],
+              0.4
+            ),
+            opacity: isFading ? 1 : 0,
+            zIndex: 1,
+            transition: `opacity ${BG_FADE_DURATION}ms`,
+            pointerEvents: "none",
+          }}
+        />
         <div
           className="absolute inset-0 transition-opacity"
           style={{
@@ -261,6 +262,7 @@ const HomeOther = () => {
             opacity: isFading ? 0 : 1,
             zIndex: 2,
             transition: `opacity ${BG_FADE_DURATION}ms`,
+            pointerEvents: "none",
           }}
         />
         {/* Content overlays */}
