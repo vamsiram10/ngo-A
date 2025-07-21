@@ -343,7 +343,7 @@ const HomeOther = () => {
             overflow: "hidden",
             zIndex: 20,
             height: isMobile ? "44px" : "60px",
-            position: "absolute", // Shorter marquee on mobile
+            position: "absolute",
             background: "rgba(0,0,0,0.0)",
             pointerEvents: "auto",
           }}
