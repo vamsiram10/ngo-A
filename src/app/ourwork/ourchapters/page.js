@@ -66,8 +66,8 @@ const galleryContent = [
       {
         src: "/images/chapter-hyd5.jpg",
         alt: "Hyderabad event 4",
-        title: "Community Joy",
-        description: "Sharing moments of happiness.",
+        title: "Care Serve",
+        description: "Sharing meals and love with the little ones",
       },
     ],
   },
@@ -81,19 +81,22 @@ const galleryContent = [
         src: "/jaipur/j1.jpg",
         alt: "Jaipur event 1",
         title: "Tech Aid",
-        description: "Bridging gaps in learning by supporting government school classrooms",
+        description:
+          "Bridging gaps in learning by supporting government school classrooms",
       },
       {
         src: "/jaipur/j2.jpg",
         alt: "Jaipur event 2",
         title: "Proud Roots",
-        description: "Celebrating the spirit of unity, freedom, and pride on Republic Day.",
+        description:
+          "Celebrating the spirit of unity, freedom, and pride on Republic Day.",
       },
       {
         src: "/jaipur/j3.jpg",
         alt: "Jaipur event 3",
         title: "Winter Drive",
-        description: "Spreading warmth this winter — with blankets, clothes, and compassion.",
+        description:
+          "Spreading warmth this winter — with blankets, clothes, and compassion.",
       },
       {
         src: "/jaipur/j4.jpg",
@@ -105,7 +108,8 @@ const galleryContent = [
         src: "/jaipur/j5.jpg",
         alt: "Jaipur event 4",
         title: "Health Hand",
-        description: "Distributing essential medical kits to support safer, healthier lives.",
+        description:
+          "Distributing essential medical kits to support safer, healthier lives.",
       },
     ],
   },

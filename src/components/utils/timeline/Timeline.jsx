@@ -13,30 +13,124 @@ const timelineData = [
     year: "2022",
     title: "The Beginning of Avasa",
     images: ["/timelinephotos/2022.JPG"],
-    content:
-      "Avasa was founded by <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
-  V Radha Priyanka </span> in Hyderabad with a vision to support the underprivileged. The year saw heartfelt initiatives like clothes donation drives, online awareness sessions on self-confidence, interactions with orphanages, and food distribution for the needy — laying the foundation for a mission rooted in compassion.",
+    content: (
+      <>
+        Avasa was founded by{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          V Radha Priyanka
+        </span>{" "}
+        in Hyderabad with a vision to support the underprivileged. The year saw
+        heartfelt initiatives like clothes donation drives, online awareness
+        sessions on self-confidence, interactions with orphanages, and food
+        distribution for the needy — laying the foundation for a mission rooted
+        in compassion.
+      </>
+    ),
   },
   {
     year: "2023",
-    title: " A New Chapter in Jaipur",
+    title: "A New Chapter in Jaipur",
     images: ["/timelinephotos/2023.JPG"],
-    content:
-      "In 2023, Avasa was reborn in <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">Jaipur </span> with renewed energy. Radha, joined by her university friends and volunteers, expanded outreach through meaningful interactions with <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text"> Naya Sawera Orphanage </span> and <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text"> Sarthak Old Age Home</span>.The team conducted dance classes and bonding sessions with children at <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text"> Matra Chaya Bal Gruh </span> and connected deeply with residents of a nearby village,<span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text"> Chak</span>, understanding their everyday struggles.Efforts included distributing food and warm clothes to those in need, and engaging with students at the government school in Chak, bringing care, creativity, and community to life through every initiative.",
+    content: (
+      <>
+        In 2023, Avasa was reborn in{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          Jaipur
+        </span>{" "}
+        with renewed energy. Radha, joined by her university friends and
+        volunteers, expanded outreach through meaningful interactions with{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          Naya Sawera Orphanage
+        </span>{" "}
+        and{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          Sarthak Old Age Home
+        </span>
+        . The team conducted dance classes and bonding sessions with children at{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          Matra Chaya Bal Gruh
+        </span>{" "}
+        and connected deeply with residents of a nearby village,{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          Chak
+        </span>
+        , understanding their everyday struggles. Efforts included distributing
+        food and warm clothes to those in need, and engaging with students at
+        the government school in Chak, bringing care, creativity, and community
+        to life through every initiative.
+      </>
+    ),
   },
   {
     year: "2024",
     title: "A Year of Recognition & Formal Milestone",
     images: ["/timelinephotos/2024.JPG"],
-    content:
-      "In 2024, Avasa Foundation was officially registered under the <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text"> Telangana Societies Registration Act (Reg. No. 1108 of 2024)</span>, marking a major step in our organizational journey.We celebrated New Year’s with both an orphanage and an old age home, and were honored to be invited by the Chak Government School for their Republic Day and Annual Day celebrations, where we distributed stationery kits and continued regular student engagement.Our ongoing association with Sarthak Old Age Home strengthened, while our <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">Beat the Heat </span> - Summer refreshment drive distributed <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text"> 1,000 buttermilk packets </span> across underserved areas.Other initiatives included <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text"> food donation</span> with Naya Sawera NGO, <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">period kits </span> for women in Chak village, and <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text"> medical kit distribution </span> in Vaishali Nagar slums — reinforcing our commitment to community wellness and dignity.",
+    content: (
+      <>
+        In 2024, Avasa Foundation was officially registered under the{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          Telangana Societies Registration Act (Reg. No. 1108 of 2024)
+        </span>
+        , marking a major step in our organizational journey. We celebrated New
+        Year’s with both an orphanage and an old age home, and were honored to
+        be invited by the Chak Government School for their Republic Day and
+        Annual Day celebrations, where we distributed stationery kits and
+        continued regular student engagement. Our ongoing association with
+        Sarthak Old Age Home strengthened, while our{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          Beat the Heat
+        </span>{" "}
+        - Summer refreshment drive distributed{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          1,000 buttermilk packets
+        </span>{" "}
+        across underserved areas. Other initiatives included{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          food donation
+        </span>{" "}
+        with Naya Sawera NGO,{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          period kits
+        </span>{" "}
+        for women in Chak village, and{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          medical kit distribution
+        </span>{" "}
+        in Vaishali Nagar slums — reinforcing our commitment to community
+        wellness and dignity.
+      </>
+    ),
   },
   {
     year: "2025",
     title: "Innovation, Expansion & Continued Commitment",
     images: ["/timelinephotos/2025.JPG"],
-    content:
-      "In 2025, Avasa Foundation continued its mission with renewed energy and innovation.We were honored once again to join the Republic Day celebrations at Chak Government School, where we strengthened our commitment to education by providing a projector, offering much-needed <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">technical support </span> to enhance classroom learning.Building on the success of the previous year, our summer <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text"> Beat the Heat drive </span> returned with greater scale — distributing over <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text"> 1,500 buttermilk packets</span> to individuals battling the harsh summer heat across underserved areas.With every initiative, Avasa continues to evolve — combining <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text"> compassion, community, and sustainable support </span> to uplift lives across generations.",
+    content: (
+      <>
+        In 2025, Avasa Foundation continued its mission with renewed energy and
+        innovation. We were honored once again to join the Republic Day
+        celebrations at Chak Government School, where we strengthened our
+        commitment to education by providing a projector, offering much-needed{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          technical support
+        </span>{" "}
+        to enhance classroom learning. Building on the success of the previous
+        year, our summer{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          Beat the Heat drive
+        </span>{" "}
+        returned with greater scale — distributing over{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          1,500 buttermilk packets
+        </span>{" "}
+        to individuals battling the harsh summer heat across underserved areas.
+        With every initiative, Avasa continues to evolve — combining{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          compassion, community, and sustainable support
+        </span>{" "}
+        to uplift lives across generations.
+      </>
+    ),
   },
 ];
 
