@@ -2,13 +2,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
-// You can add more images for the carousel, including mobile-specific ones if needed
-const images = [
-  "/maindesk.jpeg",
-  "/maindesk3.jpg",
-  "/main.jpg",
-  // "/mainmobile1.jpg", // Example: add a mobile-specific image if you want
-];
+const images = ["/maindesk.jpeg", "/maindesk3.jpg", "/main.jpg"];
 
 const dropInKeyframes = [
   { transform: "translateY(-200px)", opacity: 0 },
@@ -40,10 +34,9 @@ const arrowStyle = {
   userSelect: "none",
 };
 
-const BG_FADE_DURATION = 700; // ms, adjust for slower/faster fade
-const BG_AUTO_INTERVAL = 4000; // ms, adjust for slower/faster auto change
+const BG_FADE_DURATION = 150;
+const BG_AUTO_INTERVAL = 1000;
 
-// Helper to detect mobile device
 function useIsMobile(breakpoint = 768) {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -64,7 +57,6 @@ const HomeOther = () => {
   const [prevIndex, setPrevIndex] = useState(null);
   const [isFading, setIsFading] = useState(false);
 
-  // Detect if on mobile for background adjustment
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -73,7 +65,6 @@ const HomeOther = () => {
     }
   }, []);
 
-  // Marquee animation
   useEffect(() => {
     if (marqueeRef.current) {
       const marquee = marqueeRef.current;
@@ -96,7 +87,6 @@ const HomeOther = () => {
     }
   }, []);
 
-  // Auto background image change with adjustable interval and fade
   useEffect(() => {
     const interval = setInterval(() => {
       setPrevIndex(currentIndex);
@@ -109,7 +99,6 @@ const HomeOther = () => {
     return () => clearInterval(interval);
   }, [currentIndex]);
 
-  // Click handler for background
   const handleBgClick = (e) => {
     if (
       e.target.closest(".carousel-arrow") ||
@@ -178,7 +167,6 @@ const HomeOther = () => {
     };
   }, [currentIndex]);
 
-  // Keyboard navigation
   useEffect(() => {
     const onKeyDown = (e) => {
       if (e.key === "ArrowLeft") {
@@ -201,32 +189,27 @@ const HomeOther = () => {
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex]);
 
-  // Responsive background style for mobile/desktop
   const getBgStyle = (img, fadeOverlay = 0.4) => {
-    // On mobile, adjust background position and size for better fit
     if (isMobile) {
-      // Move the background image more to the right on mobile by using backgroundPosition: "80% top"
-      // You can tweak the "80%" value as needed (e.g., "right", "90%", etc.)
+      //for mobile guys
       return {
         backgroundImage: `linear-gradient(rgba(0,0,0,${fadeOverlay}), rgba(0,0,0,${fadeOverlay})), url('${img}')`,
         backgroundSize: "cover",
-        backgroundPosition: "10% top", // Move image to the right and from the top on mobile
+        backgroundPosition: "10% top",
         backgroundRepeat: "no-repeat",
       };
     }
-    // Desktop default
+    //desktop
     return {
       backgroundImage: `linear-gradient(rgba(0,0,0,${fadeOverlay}), rgba(0,0,0,${fadeOverlay})), url('${img}')`,
-      backgroundSize: "100%", // Make image somewhat smaller
+      backgroundSize: "100%",
       backgroundPosition: "center bottom 65%",
       backgroundRepeat: "no-repeat",
     };
   };
 
-  // Render two background layers for crossfade
   return (
     <div className="overflow-x-hidden relative h-dvh w-screen">
       <div
@@ -236,7 +219,7 @@ const HomeOther = () => {
           position: "relative",
           width: "100vw",
           minHeight: "100dvh",
-          // On mobile, ensure the background fills the viewport and doesn't scroll
+
           ...(isMobile
             ? {
                 height: "100dvh",
@@ -244,7 +227,6 @@ const HomeOther = () => {
                 maxHeight: "100dvh",
                 touchAction: "pan-y",
                 WebkitOverflowScrolling: "touch",
-                // Remove backgroundPosition override here, handled in getBgStyle
               }
             : {}),
         }}
@@ -257,7 +239,6 @@ const HomeOther = () => {
           style={{
             background: "rgba(0,0,0,0.25)",
             zIndex: 3,
-            // zIndex above backgrounds, below overlays
           }}
         />
         {/* Previous background for fade out */}
