@@ -34,7 +34,7 @@ const arrowStyle = {
   userSelect: "none",
 };
 
-const BG_FADE_DURATION = 1000;
+const BG_FADE_DURATION = 500;
 const BG_AUTO_INTERVAL = 2000;
 
 function useIsMobile(breakpoint = 768) {
