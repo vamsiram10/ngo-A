@@ -192,6 +192,7 @@ export default function GameCarousel() {
   const swiperRef = useRef(null);
 
   useEffect(() => {
+    // Handle click to activate/deactivate carousel items
     const handleClick = (e) => {
       const items = document.querySelectorAll(".custom-carousel .item");
       if (e.currentTarget.classList.contains("active")) {
@@ -206,8 +207,22 @@ export default function GameCarousel() {
       el.addEventListener("click", handleClick);
       if (idx === 0) el.classList.add("active");
     });
+
+    // Keyboard navigation for Swiper
+    const handleKeyDown = (e) => {
+      // Only left/right arrows
+      if (!swiperRef.current || !swiperRef.current.swiper) return;
+      if (e.key === "ArrowLeft") {
+        swiperRef.current.swiper.slidePrev();
+      } else if (e.key === "ArrowRight") {
+        swiperRef.current.swiper.slideNext();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+
     return () => {
       items.forEach((el) => el.removeEventListener("click", handleClick));
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 

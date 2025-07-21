@@ -118,7 +118,6 @@ const HomeOther = () => {
     }, BG_FADE_DURATION);
   };
 
-  // Touch swipe for background
   useEffect(() => {
     const bg = bgRef.current;
     if (!bg) return;
@@ -218,8 +217,6 @@ const HomeOther = () => {
     };
   };
 
-  // Only show prev background if isFading and prevIndex !== null
-  // Always show current background, but fade in/out
   return (
     <div className="overflow-x-hidden relative h-dvh w-screen">
       <div
@@ -278,7 +275,7 @@ const HomeOther = () => {
         <div
           className="z-10 relative flex flex-col items-center justify-center w-full"
           style={{
-            top: isMobile ? "60px" : undefined, // Move down on mobile only
+            top: isMobile ? "60px" : undefined,
           }}
         >
           <div className="z-50 relative mb-10">
