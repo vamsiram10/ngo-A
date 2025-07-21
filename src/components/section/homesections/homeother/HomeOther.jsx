@@ -87,9 +87,11 @@ const HomeOther = () => {
     }
   }, []);
 
+  // Fix: Only auto-advance if not fading, and always use the latest index
   useEffect(() => {
+    if (isFading) return;
     const interval = setInterval(() => {
-      setPrevIndex(currentIndex);
+      setPrevIndex((prev) => currentIndex);
       setIsFading(true);
       setTimeout(() => {
         setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -97,7 +99,8 @@ const HomeOther = () => {
       }, BG_FADE_DURATION);
     }, BG_AUTO_INTERVAL);
     return () => clearInterval(interval);
-  }, [currentIndex]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentIndex, isFading]);
 
   const handleBgClick = (e) => {
     if (
@@ -106,6 +109,7 @@ const HomeOther = () => {
     ) {
       return;
     }
+    if (isFading) return;
     setPrevIndex(currentIndex);
     setIsFading(true);
     setTimeout(() => {
@@ -136,6 +140,7 @@ const HomeOther = () => {
       const dx = e.touches[0].clientX - startX;
       const dy = e.touches[0].clientY - startY;
       if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+        if (isFading) return;
         setPrevIndex(currentIndex);
         setIsFading(true);
         setTimeout(() => {
@@ -165,10 +170,12 @@ const HomeOther = () => {
       bg.removeEventListener("touchmove", onTouchMove);
       bg.removeEventListener("touchend", onTouchEnd);
     };
-  }, [currentIndex]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentIndex, isFading]);
 
   useEffect(() => {
     const onKeyDown = (e) => {
+      if (isFading) return;
       if (e.key === "ArrowLeft") {
         setPrevIndex(currentIndex);
         setIsFading(true);
@@ -189,7 +196,8 @@ const HomeOther = () => {
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [currentIndex]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentIndex, isFading]);
 
   const getBgStyle = (img, fadeOverlay = 0.4) => {
     if (isMobile) {
@@ -210,6 +218,8 @@ const HomeOther = () => {
     };
   };
 
+  // Only show prev background if isFading and prevIndex !== null
+  // Always show current background, but fade in/out
   return (
     <div className="overflow-x-hidden relative h-dvh w-screen">
       <div
@@ -241,20 +251,19 @@ const HomeOther = () => {
             zIndex: 3,
           }}
         />
-        {/* Always render both prev and current backgrounds, crossfade their opacity */}
-        <div
-          className="absolute inset-0 transition-opacity"
-          style={{
-            ...getBgStyle(
-              prevIndex !== null ? images[prevIndex] : images[currentIndex],
-              0.4
-            ),
-            opacity: isFading ? 1 : 0,
-            zIndex: 1,
-            transition: `opacity ${BG_FADE_DURATION}ms`,
-            pointerEvents: "none",
-          }}
-        />
+        {/* Crossfade: Only show prev bg if fading, otherwise don't render it at all */}
+        {isFading && prevIndex !== null && (
+          <div
+            className="absolute inset-0 transition-opacity"
+            style={{
+              ...getBgStyle(images[prevIndex], 0.4),
+              opacity: 1,
+              zIndex: 1,
+              transition: `opacity ${BG_FADE_DURATION}ms`,
+              pointerEvents: "none",
+            }}
+          />
+        )}
         <div
           className="absolute inset-0 transition-opacity"
           style={{
@@ -266,36 +275,6 @@ const HomeOther = () => {
           }}
         />
         {/* Content overlays */}
-        {/* <button
-          className="left-4 carousel-arrow"
-          style={{ ...arrowStyle, left: "1.5rem" }}
-          aria-label="Previous"
-          onClick={(e) => {
-            e.stopPropagation();
-            setPrevIndex(currentIndex);
-            setIsFading(true);
-            setTimeout(() => {
-              setCurrentIndex((prev) =>
-                prev === 0 ? images.length - 1 : prev - 1
-              );
-              setIsFading(false);
-            }, BG_FADE_DURATION);
-          }}
-        ></button>
-        <button
-          className="right-4 carousel-arrow"
-          style={{ ...arrowStyle, right: "1.5rem" }}
-          aria-label="Next"
-          onClick={(e) => {
-            e.stopPropagation();
-            setPrevIndex(currentIndex);
-            setIsFading(true);
-            setTimeout(() => {
-              setCurrentIndex((prev) => (prev + 1) % images.length);
-              setIsFading(false);
-            }, BG_FADE_DURATION);
-          }}
-        ></button> */}
         <div
           className="z-10 relative flex flex-col items-center justify-center w-full"
           style={{
