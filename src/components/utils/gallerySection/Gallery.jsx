@@ -190,7 +190,7 @@ export function Gallery() {
     },
     {
       title: "Beat the Heat",
-      image: "/gallery/2.jpg",
+      image: "/gallery/heat.jpg",
       className: "absolute",
       style: {
         top: "18%",
