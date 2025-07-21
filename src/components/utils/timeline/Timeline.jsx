@@ -298,6 +298,7 @@ const AvasaLogoSVG = (props) => (
   </svg>
 );
 
+// MODIFIED: Make images circular and use object-fit: contain for full image
 const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
   const [active, setActive] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -307,10 +308,10 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
   if (!images || images.length === 0) return null;
 
   if (images.length === 1) {
-    // Make the image fill the available place
+    // Make the image fill the available place, circular, and fully visible (contain)
     return (
       <div
-        className={`relative ${imageSize}`}
+        className={`relative ${imageSize || ""}`}
         style={{
           aspectRatio: "1 / 1",
           background: "#fff",
@@ -324,12 +325,13 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          borderRadius: "9999px", // fully rounded
         }}
       >
         <img
           src={images[0]}
           alt={altTexts[0] || "Gallery image"}
-          className={`object-cover object-center absolute inset-0 w-full h-full rounded-lg border-neutral-200 border dark:border-neutral-700 shadow`}
+          className={`object-contain object-center absolute inset-0 w-full h-full border-neutral-200 border dark:border-neutral-700 shadow`}
           style={{
             aspectRatio: "1 / 1",
             background: "#fff",
@@ -342,6 +344,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
             objectPosition: "center",
             position: "absolute",
             inset: 0,
+            borderRadius: "9999px", // fully rounded
           }}
           draggable={false}
         />
@@ -369,14 +372,16 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
         md:w-[160px] md:h-[160px] md:min-w-[160px] md:min-h-[160px]
         lg:w-[200px] lg:h-[200px] lg:min-w-[200px] lg:min-h-[200px]
         xl:w-[220px] xl:h-[220px] xl:min-w-[220px] xl:min-h-[220px]
-        2xl:w-[320px] 2xl:h-[260px] 2xl:min-w-[320px] 2xl:min-h-[260px]
-        aspect-square 2xl:aspect-[32/26]
+        2xl:w-[320px] 2xl:h-[320px] 2xl:min-w-[320px] 2xl:min-h-[320px]
+        aspect-square
       `}
       style={{
         maxWidth: "320px",
-        maxHeight: "260px",
+        maxHeight: "320px",
         width: "100%",
         height: "auto",
+        borderRadius: "9999px", // fully rounded
+        overflow: "hidden",
       }}
     >
       <span
@@ -388,6 +393,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
           zIndex: 0,
           display: "block",
           opacity: 1,
+          borderRadius: "9999px",
         }}
         aria-hidden="true"
       >
@@ -407,6 +413,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
               inset: 0,
               zIndex: 0,
               pointerEvents: "none",
+              borderRadius: "9999px",
             }}
             draggable={false}
             aria-hidden="true"
@@ -422,6 +429,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
               position: "absolute",
               inset: 0,
               zIndex: 0,
+              borderRadius: "9999px",
             }}
             className="w-full h-full"
           />
@@ -457,6 +465,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
           height: "100%",
           width: "100%",
           overflow: "hidden",
+          borderRadius: "9999px",
         }}
       >
         <img
@@ -468,7 +477,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
           width={400}
           height={400}
           draggable={false}
-          className={`object-cover object-center w-full h-full rounded-xl border-gray-200 shadow-md border dark:border-neutral-800`}
+          className={`object-contain object-center w-full h-full border-gray-200 shadow-md border dark:border-neutral-800`}
           style={{
             opacity: 0.3,
             filter: "blur(3px)",
@@ -477,8 +486,10 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
             maxWidth: "100%",
             maxHeight: "100%",
             display: "block",
-            objectFit: "cover",
+            objectFit: "contain",
             objectPosition: "center",
+            borderRadius: "9999px",
+            background: "#fff",
           }}
         />
       </motion.div>
@@ -503,6 +514,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            borderRadius: "9999px",
           }}
         >
           <img
@@ -512,7 +524,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
             height={500}
             draggable={false}
             className={`
-              object-cover object-center w-full h-full rounded-2xl border-gray-200 shadow-lg border dark:border-neutral-800
+              object-contain object-center w-full h-full border-gray-200 shadow-lg border dark:border-neutral-800
             `}
             style={{
               aspectRatio: "1 / 1",
@@ -522,8 +534,9 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
               maxWidth: "100%",
               maxHeight: "100%",
               display: "block",
-              objectFit: "cover",
+              objectFit: "contain",
               objectPosition: "center",
+              borderRadius: "9999px",
             }}
           />
         </motion.div>
