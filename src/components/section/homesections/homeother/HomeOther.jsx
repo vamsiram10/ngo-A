@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 // You can add more images for the carousel, including mobile-specific ones if needed
 const images = [
   "/maindesk.jpeg",
+  "/maindesk3.jpg",
   "/main.jpg",
   // "/mainmobile1.jpg", // Example: add a mobile-specific image if you want
 ];
