@@ -105,7 +105,7 @@ const ContactUsSection = () => {
   };
 
   return (
-    <div className="overflow-hidden relative top-0 flex items-center justify-center py-12 px-4 min-h-[100vh]">
+    <div className="overflow-hidden relative top-0 flex items-center justify-center py-12 px-4 min-h-[110vh]">
       {/* Animated background lines */}
       <BackgroundLines className="z-0 absolute inset-0" />
 
@@ -127,7 +127,7 @@ const ContactUsSection = () => {
         variants={paperVariants}
         initial="initial"
         animate="animate"
-        className="z-10 relative top-10 p-10 w-full max-w-md min-h-[500px] bg-white/90 rounded-2xl border-pink-200 shadow-2xl dark:bg-neutral-900/90 backdrop-blur-md border dark:border-pink-900"
+        className="z-10 relative top-2 p-10 w-full max-w-md min-h-[500px] bg-white/90 rounded-2xl border-pink-200 shadow-2xl dark:bg-neutral-900/90 backdrop-blur-md border dark:border-pink-900"
         autoComplete="off"
       >
         {/* Animated envelope icon */}
