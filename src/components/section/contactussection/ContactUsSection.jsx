@@ -5,7 +5,6 @@ import emailjs from "@emailjs/browser";
 import React, { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Animation variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i = 1) => ({
@@ -106,10 +105,8 @@ const ContactUsSection = () => {
 
   return (
     <div className="overflow-hidden relative top-0 flex items-center justify-center py-12 px-4 min-h-[110vh]">
-      {/* Animated background lines */}
       <BackgroundLines className="z-0 absolute inset-0" />
 
-      {/* Animated floating pink blobs for extra visual appeal */}
       <motion.div
         className="z-0 absolute w-72 h-72 bg-pink-400/30 rounded-full blur-3xl -top-60 -left-20"
         animate={{ y: [0, 30, 0], x: [0, 20, 0] }}
@@ -130,7 +127,6 @@ const ContactUsSection = () => {
         className="z-10 relative top-2 p-10 w-full max-w-md min-h-[500px] bg-white/90 rounded-2xl border-pink-200 shadow-2xl dark:bg-neutral-900/90 backdrop-blur-md border dark:border-pink-900"
         autoComplete="off"
       >
-        {/* Animated envelope icon */}
         <motion.div
           initial={{ scale: 0, rotate: -20, opacity: 0 }}
           animate={{ scale: 1, rotate: 0, opacity: 1 }}
