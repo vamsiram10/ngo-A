@@ -128,7 +128,6 @@ const ContactUsPage = () => {
         </div>
       </div>
     </main>
-    // <ContactUsSection />
   );
 };
 
