@@ -45,7 +45,7 @@ const navLinks = {
           title: "Map Location",
           path: "/contactus/map",
         },
-        { id: 2, title: "FAQs", path: "/" },
+        { id: 2, title: "FAQs", path: "/contactus/faqss" },
       ],
     },
   ],
