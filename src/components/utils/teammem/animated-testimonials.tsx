@@ -13,23 +13,23 @@ type Testimonial = {
 const DEFAULT_TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "This is a sample testimonial written here in five lines. The team exceeded all my expectations and delivered outstanding results. Their professionalism and creativity truly set them apart from others. I would highly recommend working with them for any project. Thank you for your dedication and hard work.",
+      "With the support of Avasa Foundation, I was able to continue my education and complete my 10th standard. They helped me with the resources I needed for school. I’m thankful for their support and hope to continue my studies further.",
     name: "Mr.Rasool Ahmed",
-    designation: "10th passed",
+    designation: "10th standard pursued",
     src: "/testimonials/rasool.jpg",
   },
   {
     quote:
-      "Being a part of this journey has been truly transformative. Every project we undertake brings us closer as a team and allows us to make a real difference in the community. The dedication and passion everyone brings is inspiring. I am grateful for the opportunity to contribute and grow alongside such amazing people. Together, we are building something meaningful.",
+      "Avasa Foundation has been regularly visiting our children’s shelter and old-age home, providing meals and spending time with the residents. They have also supported the construction of our new old-age home through their kind donations. We sincerely appreciate their continued support and care.",
     name: "Mr.Akhilesh Maheshwari",
-    designation: "Founder(naya sawera)",
+    designation: "Founder (Naya Sawera NGO)",
     src: "/testimonials/Mr.Akhilesh Maheshwari.jpg",
   },
   {
     quote:
-      "Joining this team has been one of the best decisions I've made. The collaborative spirit and unwavering support from everyone make every challenge feel achievable. Each initiative is a step towards positive change, and I am proud to be part of it. The friendships and memories we've created are invaluable. Looking forward to many more milestones together.",
+      "Avasa Foundation has been actively involved in our school activities, regularly participating in events and annual functions. They often engage with our students, sharing knowledge and encouragement. Their support in promoting digital education— gifting a projector— has made a meaningful impact on our classrooms. We truly value their contribution to our students’ growth.",
     name: "Head Master",
-    designation: "Govt school, Chak Charanwas",
+    designation: "Govt School, Chak Charanwas",
     src: "/testimonials/h3.jpg",
   },
   // {
