@@ -88,61 +88,45 @@ export default function AboutUsContent() {
         </motion.div>
       </div>
 
-      <motion.section
-        id="who-we-are"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeIn}
-        className="mx-auto px-4 py-12 max-w-6xl sm:px-6 lg:px-8"
-      >
-        <div className="grid items-center gap-8 lg:grid-cols-2">
-          <div>
-            <h2 className="mb-6 text-3xl font-semibold text-pink-400 sm:text-4xl">
-              Who We Are
-            </h2>
-            <p className="mb-4">
-              What began as a heartfelt initiative by{" "}
-              <strong className="text-pink-400">V. Radha Priyanka</strong> and
-              her close friends in 2022 has now grown into a registered movement
-              of compassion and change.
-            </p>
-            <p className="mb-4">
-              Our journey started with simple acts—distributing clothes and food
-              to those in need. As our vision expanded, so did our reach. Today,
-              we operate in Hyderabad and Jaipur, building a community that
-              cares deeply.
-            </p>
-            <p>
-              Officially incorporated as a{" "}
-              <strong className="text-pink-400">
-                registered NGO in November 2024
-              </strong>{" "}
-              under Telangana Societies Registration Act (Reg. No:{" "}
-              <strong className="text-pink-400">1108 of 2024</strong>).
-            </p>
-          </div>
-          <div className="overflow-hidden relative w-full h-64 rounded-xl sm:h-96">
-            <Image
-              fill
-              src="/images/aboutus1.jpg"
-              alt="Avasa NGO team members"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-              priority
-            />
-          </div>
+      <div className="grid items-center gap-8 px-4 sm:px-40 lg:grid-cols-2">
+        <div>
+          <h2 className="mb-6 text-3xl font-semibold text-pink-400 sm:text-4xl">
+            Who We Are
+          </h2>
+          <p className="mb-4">
+            What began as a heartfelt initiative by{" "}
+            <strong className="text-pink-400">V. Radha Priyanka</strong> and her
+            close friends in 2022 has now grown into a registered movement of
+            compassion and change.
+          </p>
+          <p className="mb-4">
+            Our journey started with simple acts—distributing clothes and food
+            to those in need. As our vision expanded, so did our reach. Today,
+            we operate in Hyderabad and Jaipur, building a community that cares
+            deeply.
+          </p>
+          <p>
+            Officially incorporated as a{" "}
+            <strong className="text-pink-400">
+              registered NGO in November 2024
+            </strong>{" "}
+            under Telangana Societies Registration Act (Reg. No:{" "}
+            <strong className="text-pink-400">1108 of 2024</strong>).
+          </p>
         </div>
-      </motion.section>
+        <div className="overflow-hidden relative w-full h-64 rounded-xl sm:h-96">
+          <Image
+            fill
+            src="/images/aboutus1.jpg"
+            alt="Avasa NGO team members"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover"
+            priority
+          />
+        </div>
+      </div>
 
-      <motion.section
-        id="what-we-do"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeIn}
-        className="mx-auto px-4 py-16 max-w-6xl sm:px-6 lg:px-8"
-      >
+      <div className="relative px-4 py-12 py-20 sm:px-40">
         <h2 className="mb-10 text-3xl font-semibold text-center text-pink-400 sm:text-4xl lg:text-5xl">
           What We Do
         </h2>
@@ -216,55 +200,43 @@ export default function AboutUsContent() {
             </ul>
           </div>
         </div>
-      </motion.section>
+      </div>
 
-      <div className="py-20 mt-110 min-h-[4000px] bg-black sm:min-h-[1900px] md:min-h-[1700px] lg:min-h-[1550px]">
-        <motion.section
-          id="meet-our-team"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeIn}
-        >
-          <h2 className="mb-12 text-3xl font-bold text-center text-pink-400 md:text-4xl">
-            Meet Our Board
-          </h2>
-          <div className="grid grid-cols-1 gap-8 px-4 mx-auto px-6 px-8 max-w-7xl sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {team.map((member, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center p-6 min-h-[350px] text-center bg-neutral-900 rounded-2xl shadow-md md:min-h-[380px] lg:min-h-[400px]"
-              >
-                <div className="overflow-hidden mb-4 w-32 h-32 rounded-full">
-                  {member.img ? (
-                    <Image
-                      src={member.img}
-                      alt={member.name}
-                      width={128}
-                      height={128}
-                      className="object-cover w-full h-full"
-                    />
-                  ) : (
-                    <div className="flex items-center justify-center w-full h-full text-pink-400 text-4xl font-bold bg-neutral-800">
-                      {member.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")
-                        .slice(0, 2)}
-                    </div>
-                  )}
+      <h2 className="relative mb-15 text-3xl font-bold text-center text-pink-400 md:text-4xl">
+        Meet Our Board
+      </h2>
+      <div className="grid grid-cols-1 gap-8 px-17 mx-auto px-6 px-8 max-w-7xl sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {team.map((member, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-center p-6 mb-10 min-h-[350px] text-center bg-neutral-900 rounded-2xl shadow-md md:min-h-[380px] lg:min-h-[200px]"
+          >
+            <div className="overflow-hidden mb-4 w-32 h-32 rounded-full">
+              {member.img ? (
+                <Image
+                  src={member.img}
+                  alt={member.name}
+                  width={128}
+                  height={128}
+                  className="object-cover w-full h-full"
+                />
+              ) : (
+                <div className="flex items-center justify-center w-full h-full text-pink-400 text-4xl font-bold bg-neutral-800">
+                  {member.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")
+                    .slice(0, 2)}
                 </div>
-                <h3 className="text-xl font-semibold text-white">
-                  {member.name}
-                </h3>
-                <p className="mb-2 text-sm font-medium text-pink-400">
-                  {member.role}
-                </p>
-                <p className="text-sm text-white">{member.desc}</p>
-              </div>
-            ))}
+              )}
+            </div>
+            <h3 className="text-xl font-semibold text-white">{member.name}</h3>
+            <p className="mb-2 text-sm font-medium text-pink-400">
+              {member.role}
+            </p>
+            <p className="text-sm text-white">{member.desc}</p>
           </div>
-        </motion.section>
+        ))}
       </div>
     </div>
   );
