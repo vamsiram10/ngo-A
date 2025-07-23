@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import emailjs from "emailjs-com";
 
-const Contact = () => {
+const ContactUsSection = () => {
   const formRef = useRef();
 
   const sendEmail = (e) => {
@@ -104,19 +104,19 @@ const Contact = () => {
               <input
                 type="text"
                 name="user_name"
-                placeholder="Your Name"
-                className="w-full rounded-lg border border-gray-700 bg-[#2b2b2b] p-4 text-sm font-normal text-white placeholder-gray-400 shadow-sm focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
+                placeholder = "Your Name"
+                className = "w-full rounded-lg border border-gray-700 bg-[#2b2b2b] p-4 text-sm font-normal text-white placeholder-gray-400 shadow-sm focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
               />
               <input
                 type="email"
                 name="user_email"
-                placeholder="Your Email"
+                placeholder ="Your Email"
                 className="w-full rounded-lg border border-gray-700 bg-[#2b2b2b] p-4 text-sm font-normal text-white placeholder-gray-400 shadow-sm focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
               />
               <textarea
-                rows="5"
-                name="message"
-                placeholder="Your Message"
+                rows = "5"
+                name = "message"
+                placeholder = "Your Message"
                 className="w-full resize-none rounded-lg border border-gray-700 bg-[#2b2b2b] p-4 text-sm font-normal text-white placeholder-gray-400 shadow-sm focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
               ></textarea>
               <button
