@@ -48,7 +48,7 @@ const timelineData = [
         </span>
         . The team conducted dance classes and bonding sessions with children at{" "}
         <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
-          Matra Chaya Bal Gruh
+          Matra Chaya Bal Grah
         </span>{" "}
         and connected deeply with residents of a nearby village,{" "}
         <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
