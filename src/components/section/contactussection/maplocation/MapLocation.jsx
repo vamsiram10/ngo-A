@@ -97,9 +97,9 @@ const AVASA_ICON_URL = "/svg/AVASA.svg";
 const FIXED_LOCATION = {
   id: "fixed-location",
   name: " AVASA HQ",
-  coords: [17.494898, 78.363327],
+  coords: [17.4276, 78.4572],
   iconUrl: AVASA_ICON_URL,
-  popup: "<b> AVASA HQ</b>",
+  popup: "<b>AVASA HQ</b>",
 };
 const OTHER_LOCATIONS = [
   {

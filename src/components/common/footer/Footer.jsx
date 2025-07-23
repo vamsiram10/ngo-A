@@ -38,15 +38,13 @@ const QUICK_LINKS = [
 ];
 
 const ADDRESS = (
-  <>
-    Flat No.402, H No.3-98/Srr/402, Mayuri Nagar,
-    <span className="hidden sm:inline"> Raghava Residency,</span>
-    <br className="sm:hidden" />
-    <span className="sm:hidden">Raghava Residency,</span>
-    Miyapur, Serilingampally,
-    <br className="sm:hidden" />
-    Rangareddy, Telangana, India
-  </>
+  <span className="block text-left">
+    H.no.6-3-1100/A-1, ground floor,
+    <br />
+    near matrika hospital, Thyagaraja nagar,
+    <br />
+    Somajiguda, Hyderabad -500080.
+  </span>
 );
 
 const Footer = () => {
@@ -149,8 +147,8 @@ const Footer = () => {
         <div className="flex flex-col items-center justify-center gap-1 mt-2 text-xs text-gray-500">
           <span>Registered NGO: AVASA FOUNDATION, Reg. No. 1108</span>
           <span className="max-w-xs break-words sm:max-w-none">
-            Flat No.402, H No.3-98/Srr/402, Mayuri Nagar, Raghava Residency,
-            Miyapur, Serilingampally, Rangareddy, Telangana, India
+            H.no.6-3-1100/A-1, ground floor, near matrika hospital, Thyagaraja
+            nagar, Somajiguda, Hyderabad -500080.
           </span>
         </div>
       </div>
