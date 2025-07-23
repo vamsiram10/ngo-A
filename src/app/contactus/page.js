@@ -1,6 +1,6 @@
+"use client";
 import React from "react";
 import ContactUsSection from "@/components/section/contactussection/ContactUsSection";
-// import Image from "next/image"; // Remove next/image for external images
 
 const ContactUsPage = () => {
   return (
@@ -8,6 +8,9 @@ const ContactUsPage = () => {
       <h1 className="text-white text-6xl font-bold text-center mt-[5.5rem]">
         Contact Us
       </h1>
+
+      <ContactUsSection />
+
 
       <div className="landing_page">
         <div className="responsive-container-block big-container relative">
@@ -127,6 +130,7 @@ const ContactUsPage = () => {
           </div>
         </div>
       </div>
+
     </main>
   );
 };
