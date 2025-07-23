@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 const faqs = [
   {
@@ -55,13 +55,37 @@ const faqs = [
 
 const Faqs = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const faqRefs = useRef([]);
 
   const toggleFAQ = (index) => {
     setActiveIndex(index === activeIndex ? null : index);
   };
 
+  // Scroll to the opened FAQ if it is opened
+  useEffect(() => {
+    if (
+      activeIndex !== null &&
+      faqRefs.current[activeIndex] &&
+      typeof window !== "undefined"
+    ) {
+      // Only scroll if the opened FAQ is not fully visible
+      const rect = faqRefs.current[activeIndex].getBoundingClientRect();
+      const isVisible =
+        rect.top >= 0 &&
+        rect.bottom <=
+          (window.innerHeight || document.documentElement.clientHeight);
+
+      if (!isVisible) {
+        faqRefs.current[activeIndex].scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }
+  }, [activeIndex]);
+
   return (
-    <section className="py-16 min-h-[160vh] text-white font-sans bg-black sm:min-h-[120vh] md:min-h-[130vh] lg:min-h-[100vh]">
+    <section className="py-16 min-h-[200vh] text-white font-sans bg-black sm:min-h-[120vh] md:min-h-[180vh] lg:min-h-[100vh]">
       <div className="container relative top-18 mx-auto px-6 lg:px-20">
         <h2 className="mb-12 text-4xl font-bold text-center text-pink-500 tracking-wide uppercase">
           Frequently Asked Questions
@@ -70,6 +94,7 @@ const Faqs = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
+              ref={(el) => (faqRefs.current[index] = el)}
               className="p-6 bg-[#2b2b2b] rounded-lg border-[#333] shadow-lg transition-all duration-300 border"
             >
               <button
