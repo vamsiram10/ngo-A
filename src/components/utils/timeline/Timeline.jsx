@@ -298,7 +298,7 @@ const AvasaLogoSVG = (props) => (
   </svg>
 );
 
-// MODIFIED: Make images circular and use object-fit: contain for full image
+// MODIFIED: Make images square and use object-fit: contain for full image
 const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
   const [active, setActive] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -308,7 +308,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
   if (!images || images.length === 0) return null;
 
   if (images.length === 1) {
-    // Make the image fill the available place, circular, and fully visible (contain)
+    // Make the image fill the available place, square, and fully visible (contain)
     return (
       <div
         className={`relative ${imageSize || ""}`}
@@ -325,7 +325,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          borderRadius: "9999px", // fully rounded
+          borderRadius: "0px", // square
         }}
       >
         <img
@@ -344,7 +344,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
             objectPosition: "center",
             position: "absolute",
             inset: 0,
-            borderRadius: "9999px", // fully rounded
+            borderRadius: "0px", // square
           }}
           draggable={false}
         />
@@ -380,7 +380,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
         maxHeight: "320px",
         width: "100%",
         height: "auto",
-        borderRadius: "9999px", // fully rounded
+        borderRadius: "0px", // square
         overflow: "hidden",
       }}
     >
@@ -393,7 +393,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
           zIndex: 0,
           display: "block",
           opacity: 1,
-          borderRadius: "9999px",
+          borderRadius: "0px", // square
         }}
         aria-hidden="true"
       >
@@ -413,7 +413,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
               inset: 0,
               zIndex: 0,
               pointerEvents: "none",
-              borderRadius: "9999px",
+              borderRadius: "0px", // square
             }}
             draggable={false}
             aria-hidden="true"
@@ -429,7 +429,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
               position: "absolute",
               inset: 0,
               zIndex: 0,
-              borderRadius: "9999px",
+              borderRadius: "0px", // square
             }}
             className="w-full h-full"
           />
@@ -465,7 +465,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
           height: "100%",
           width: "100%",
           overflow: "hidden",
-          borderRadius: "9999px",
+          borderRadius: "0px", // square
         }}
       >
         <img
@@ -488,7 +488,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
             display: "block",
             objectFit: "contain",
             objectPosition: "center",
-            borderRadius: "9999px",
+            borderRadius: "0px", // square
             background: "#fff",
           }}
         />
@@ -514,7 +514,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            borderRadius: "9999px",
+            borderRadius: "0px", // square
           }}
         >
           <img
@@ -536,7 +536,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
               display: "block",
               objectFit: "contain",
               objectPosition: "center",
-              borderRadius: "9999px",
+              borderRadius: "0px", // square
             }}
           />
         </motion.div>
