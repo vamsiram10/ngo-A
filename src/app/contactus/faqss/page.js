@@ -1,6 +1,10 @@
-import Faq from "@/components/section/contactussection/faqsss/faq";
+import Faqs from "@/components/section/Faqs";
 
 const FaqssPage = () => {
-  return <>{/* <Faq /> */}</>;
+  return (
+    <>
+      <Faqs />
+    </>
+  );
 };
 export default FaqssPage;
