@@ -500,7 +500,7 @@ export default function OurChaptersPage() {
               <ContentItem
                 title="What's the impact of Avasa Foundation's Hyderabad and Jaipur chapters?
 "
-                description="Our Hyderabad and Jaipur chapters are making a tangible difference by empowering disadvantaged people in the society .We work in three areas mainly: Love and Care, Seasonal and Awareness Drives and Development and Support "
+                description="Our Hyderabad and Jaipur chapters are making a tangible difference by empowering disadvantaged people in the society .We work in three areas mainly: Love and Care, Seasonal and Awareness Drives and Development and Support. "
                 isFaq
               />
               <ContentItem
