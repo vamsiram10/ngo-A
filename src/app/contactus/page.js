@@ -31,10 +31,7 @@ const ContactUsPage = () => {
 
                     Contact us to colloborate for a cause greater than all of us. Our team will get back to you.
 
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis volupta
-
+                   
                   </p>
                   <div className="icons-container flex space-x-4">
                     <a className="share-icon" href="#">
