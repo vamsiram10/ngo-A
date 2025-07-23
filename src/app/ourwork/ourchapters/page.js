@@ -141,7 +141,7 @@ const ChapterCard = ({ chapter }) => (
       <p className="text-neutral-400 mb-4 text-sm sm:text-base">
         {chapter.volunteers}+ Active Volunteers
       </p>
-      <Link href={`mailto:${chapter.contact}`}>
+      <Link href="/contactus">
         <motion.button
           whileHover={{ scale: 1.05 }}
           className="w-full mt-auto bg-gradient-to-r from-pink-600 to-violet-600 hover:from-pink-500 hover:to-violet-500 text-white font-semibold py-2.5 sm:py-3 rounded-lg text-sm sm:text-base transition-all duration-300"
@@ -419,7 +419,7 @@ export default function OurChaptersPage() {
           </div>
           <div className="absolute inset-0 z-0 pointer-events-none">
             <Image
-              src="/images/chapter-hero.jpg"
+              src="/images/chapter-hero.jpeg"
               alt="Volunteers"
               fill
               className="object-cover opacity-50 saturate-150"
@@ -498,22 +498,18 @@ export default function OurChaptersPage() {
               className="space-y-5"
             >
               <ContentItem
-                title="What's the impact of Avasa Foundation's Hyderabad and Jaipur chapters?
-"
-                description="Our Hyderabad and Jaipur chapters are making a tangible difference by empowering disadvantaged people in the society .We work in three areas mainly: Love and Care, Seasonal and Awareness Drives and Development and Support. "
+                title="What is the first step to starting a chapter?"
+                description="Contact us through our contact page! We’ll provide a starter kit and help you build a local team."
                 isFaq
               />
               <ContentItem
-                title="How can I start a new Avasa Foundation chapter in my city?
-"
-                description=" If you're passionate about our mission, please contact us! We have specific guidelines and a process for establishing new chapters, ensuring alignment with our vision and values.
-"
+                title="How many people do I need to start a chapter?"
+                description="Just 3–5 dedicated members can kickstart a chapter. Passion matters more than numbers!"
                 isFaq
               />
               <ContentItem
-                title="How many people are required to start a new Avasa Foundation chapter?
-"
-                description="Generally, it can range from 5-7 people along with a committed core team. We'll provide detailed requirements during the application process."
+                title="What support do I get?"
+                description="Branding, mentorship, access to our tools, and step-by-step support from our leadership team."
                 isFaq
               />
             </motion.div>

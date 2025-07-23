@@ -43,7 +43,7 @@ export default function InternshipPage() {
   const opportunities = [
     {
       id: 1,
-      img: "/images/intern1.jpg",
+      img: "/images/Technical Intern.jpg",
       title: "Technical Intern",
       desc: "Help with website maintenance, data management, and IT support to keep our digital infrastructure strong and efficient.",
       duration: "3-6 months",
@@ -51,7 +51,7 @@ export default function InternshipPage() {
     },
     {
       id: 2,
-      img: "/images/intern2.jpg",
+      img: "/images/Social Media Intern.png",
       title: "Social Media Intern",
       desc: "Create engaging content, manage our online presence, and connect with our community across various social platforms.",
       duration: "3-4 months",
@@ -59,7 +59,7 @@ export default function InternshipPage() {
     },
     {
       id: 3,
-      img: "/images/intern1.jpg",
+      img: "/images/Fundraising Intern.jpg",
       title: "Fundraising Intern",
       desc: "Support our fundraising efforts through research, outreach, and campaign assistance to help us reach our financial goals.",
       duration: "4-6 months",
@@ -67,7 +67,7 @@ export default function InternshipPage() {
     },
     {
       id: 4,
-      img: "/images/intern2.jpg",
+      img: "/images/Content Writing Intern.jpg",
       title: "Content Writing Intern",
       desc: "Craft compelling articles, blog posts, and website content to share our story and the impact of our work.",
       duration: "3-5 months",
@@ -116,58 +116,58 @@ export default function InternshipPage() {
     {
       id: 1,
       quote:
-        "This internship was a game-changer! I gained so much hands-on experience and contributed to projects that made a real difference.",
+        "My online content writing internship with Avasa Foundation taught me to write on complex social issues with sensitivity and impact.",
       name: "Mahalakshmi L",
-      role: "Former Technical Intern",
+      role: "Former Content Writing Intern",
       avatar: "/images/avatar1.jpg",
     },
     {
       id: 2,
       quote:
-        "The mentorship I received was incredible. I felt supported and empowered to take on new challenges and grow as a professional.",
+        "I learned HTML, CSS, and Responsive Design, which helped improve my technical and problem-solving skills.",
       name: "Ch.Nikhil",
-      role: "Former Social Media Intern",
+      role: "Former Technical Intern",
       avatar: "/images/avatar2.jpg",
     },
     {
       id: 3,
       quote:
-        "A truly rewarding experience. I connected with amazing people and developed skills that are directly applicable to my career goals.",
-      name: "Krishna",
-      role: "Former Fundraising Intern",
+        "It was great working with Avasa Foundation; the guidance and environment here encouraged me to work harder. It was phenomenal, and I look forward to working here again",
+      name: "Krishna Swami",
+      role: "Former Content Writing Intern",
       avatar: "/images/avatar3.jpg",
     },
     {
       id: 4,
       quote:
-        "An incredible journey of learning and growth. The team was fantastic, and I&apos;m proud of the work we accomplished together.",
+        "This internship allowed me to discover my graphic design skills. I'm truly grateful to be a part of Avasa.",
       name: "Manthan jain",
-      role: "Former Content Writing Intern",
+      role: "Former Social Media Intern",
       avatar: "/images/avatar4.jpg",
     },
     {
       id: 5,
       quote:
-        "I highly recommend this internship to anyone looking to make a difference. It&apos;s a fantastic opportunity to apply your skills in a meaningful way.",
+        "I learned how to tailor my content impactfully. Heartfelt thanks to Team Avasa for this invaluable opportunity",
       name: "K Gayathri Devi",
-      role: "Former Social Media Intern",
+      role: "Former Content Writing Intern",
       avatar: "/images/avatar5.jpg",
     },
     {
       id: 6,
       quote:
-        "I highly recommend this internship to anyone looking to make a difference. It&apos;s a fantastic opportunity to apply your skills in a meaningful way.",
+        "An amazing experience as a technical support intern at Avasa; it significantly boosted my confidence and allowed me to grow technically and professionally.",
       name: "B.Chandrashekar Reddy",
-      role: "Former Social Media Intern",
+      role: "Former Technical Intern",
       avatar: "/images/avatar6.jpg",
     },
     {
       id: 7,
       quote:
-        "I highly recommend this internship to anyone looking to make a difference. It&apos;s a fantastic opportunity to apply your skills in a meaningful way.",
-      name: "Noman ahmad",
-      role: "Former Social Media Intern",
-      avatar: "/images/avatar7.jpg",
+        "A great learning experience as a content writing intern. Analyzing Avasa's past work was both challenging and memorable.",
+      name: "Drishti Wacchani",
+      role: "Former Content Writing Intern",
+      avatar: "/images/avatar7.jpeg",
     },
   ];
 
@@ -423,7 +423,7 @@ export default function InternshipPage() {
                 className="relative w-full aspect-[16/9] max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-pink-900/30 mb-16"
               >
                 <Image
-                  src="/images/intern2.jpg"
+                  src="/images/certificate.png"
                   alt="A group of interns working together"
                   fill
                   className="absolute inset-0 w-full h-full object-cover"

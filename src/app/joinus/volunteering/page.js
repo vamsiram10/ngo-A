@@ -48,7 +48,6 @@ function OptimizedImage({
   style = {},
   ...props
 }) {
-  // For fallback, we use a state to trigger re-render if error occurs
   const [imgSrc, setImgSrc] = useState(src);
 
   return (
@@ -104,8 +103,8 @@ export default function VolunteeringPage() {
     },
   ];
 
-  const heroImg = "/images/volunteer-hero.jpg";
-  const whyImg = "/images/volunteer2.jpg";
+  const heroImg = "/images/volunteer-hero.jpeg";
+  const whyImg = "/images/Why Your Help Matters.jpeg"; 
 
   const whyJoinFeatures = [
     {
@@ -127,8 +126,6 @@ export default function VolunteeringPage() {
         "Connect with like-minded individuals who share your passion for social good.",
     },
   ];
-
-  // handleImgError is no longer needed, handled in OptimizedImage
 
   return (
     <main className="bg-black text-white">
@@ -291,10 +288,7 @@ export default function VolunteeringPage() {
                     <p className="text-gray-600 text-base mb-4 flex-grow leading-relaxed">
                       {item.desc}
                     </p>
-                    <p className="text-sm text-gray-500 font-semibold mb-6">
-                      Commitment:{" "}
-                      <span className="text-black">{item.time}</span>
-                    </p>
+                    {/* The commitment line below has been removed */}
                     <a
                       href={item.formLink}
                       target="_blank"
