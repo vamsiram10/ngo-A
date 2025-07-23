@@ -1,5 +1,4 @@
 "use client";
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -17,18 +16,6 @@ const fadeIn = {
 };
 
 export default function AboutUsContent() {
-  // Fix for mobile scroll not working: ensure touch-action and overflow are set
-  useEffect(() => {
-    // Add styles to body to ensure scrolling is enabled on mobile
-    document.body.style.overflow = "auto";
-    document.body.style.touchAction = "auto";
-    // Clean up on unmount
-    return () => {
-      document.body.style.overflow = "";
-      document.body.style.touchAction = "";
-    };
-  }, []);
-
   const team = [
     {
       name: "V. Radha Priyanka",
@@ -87,14 +74,7 @@ export default function AboutUsContent() {
   ];
 
   return (
-    <div
-      className="relative top-8 text-white bg-black"
-      style={{
-        WebkitOverflowScrolling: "touch",
-        touchAction: "auto",
-        overflow: "auto",
-      }}
-    >
+    <div className="mt-8 w-full min-h-screen text-white bg-black">
       <div className="py-16 px-4 text-center sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
