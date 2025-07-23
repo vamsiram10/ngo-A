@@ -21,7 +21,7 @@ export default function AboutUsContent() {
       name: "V. Radha Priyanka",
       role: "Founder/ President",
       desc: "Visionary and compassionate, she leads Avasa with purpose, heart, and unwavering commitment to its mission.",
-      img: "/team/vinathi.jpg",
+      img: "/meet/radha.jpg",
     },
     {
       name: "V. Keerthi Sri",
@@ -63,7 +63,7 @@ export default function AboutUsContent() {
       name: "Ch. Vinathi",
       role: "Head of Finance",
       desc: "Oversees financial planning, budgeting, and compliance to ensure fiscal responsibility and sustainability.",
-      img: "/team/ajay.jpg",
+      img: "/meet/vinathi.jpg",
     },
     {
       name: "R.V.R. Vamsi",
