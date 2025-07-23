@@ -74,7 +74,7 @@ export default function AboutUsContent() {
   ];
 
   return (
-    <div className="text-white bg-black">
+    <div className="relative top-8 text-white bg-black">
       <div className="py-16 px-4 text-center sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -82,7 +82,7 @@ export default function AboutUsContent() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h1 className="text-4xl font-bold text-pink-400 sm:text-5xl">
+          <h1 className="text-4xl font-bold text-transparent bg-pink-500 bg-clip-text sm:text-5xl">
             About Us
           </h1>
         </motion.div>
@@ -90,7 +90,7 @@ export default function AboutUsContent() {
 
       <div className="grid items-center gap-8 px-4 sm:px-40 lg:grid-cols-2">
         <div>
-          <h2 className="mb-6 text-3xl font-semibold text-pink-400 sm:text-4xl">
+          <h2 className="mb-6 text-3xl font-semibold text-transparent bg-pink-300 bg-clip-text sm:text-4xl">
             Who We Are
           </h2>
           <p className="mb-4">
@@ -127,7 +127,7 @@ export default function AboutUsContent() {
       </div>
 
       <div className="relative px-4 py-12 py-20 sm:px-40">
-        <h2 className="mb-10 text-3xl font-semibold text-center text-pink-400 sm:text-4xl lg:text-5xl">
+        <h2 className="mb-10 text-3xl font-semibold text-center text-pink-300 sm:text-4xl lg:text-4xl">
           What We Do
         </h2>
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
@@ -202,7 +202,7 @@ export default function AboutUsContent() {
         </div>
       </div>
 
-      <h2 className="relative mb-15 text-3xl font-bold text-center text-pink-400 md:text-4xl">
+      <h2 className="relative mb-15 text-3xl font-bold text-center text-pink-300 md:text-4xl">
         Meet Our Board
       </h2>
       <div className="grid grid-cols-1 gap-8 px-17 mx-auto px-6 px-8 max-w-7xl sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
