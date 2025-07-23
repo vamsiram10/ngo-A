@@ -1,9 +1,12 @@
 "use client";
 
-import React, { useRef, useState } from "react";
-import { BackgroundLines } from "@/components/utils/background/background-lines";
-import emailjs from "@emailjs/browser";
-import { motion, AnimatePresence } from "framer-motion";
+const React = require("react");
+const { useRef, useState } = React;
+const {
+  BackgroundLines,
+} = require("@/components/utils/background/background-lines");
+const emailjs = require("@emailjs/browser");
+const { motion, AnimatePresence } = require("framer-motion");
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -421,4 +424,4 @@ const ContactUsSection = () => {
   );
 };
 
-export default ContactUsSection;
+module.exports = ContactUsSection;
