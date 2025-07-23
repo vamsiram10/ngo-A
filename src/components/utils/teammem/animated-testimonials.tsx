@@ -14,7 +14,7 @@ const DEFAULT_TESTIMONIALS: Testimonial[] = [
   {
     quote:
       "This is a sample testimonial written here in five lines. The team exceeded all my expectations and delivered outstanding results. Their professionalism and creativity truly set them apart from others. I would highly recommend working with them for any project. Thank you for your dedication and hard work.",
-    name: "Rasool ahmed",
+    name: "Mr.Rasool Ahmed",
     designation: "10th passed",
     src: "/testimonials/rasool.jpg",
   },
