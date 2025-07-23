@@ -30,7 +30,7 @@ const DEFAULT_TESTIMONIALS: Testimonial[] = [
       "Joining this team has been one of the best decisions I've made. The collaborative spirit and unwavering support from everyone make every challenge feel achievable. Each initiative is a step towards positive change, and I am proud to be part of it. The friendships and memories we've created are invaluable. Looking forward to many more milestones together.",
     name: "Head Master",
     designation: "Govt school, Chak Charanwas",
-    src: "/testimonials/hm.jpg",
+    src: "/testimonials/h3.jpg",
   },
   // {
   //   quote:
