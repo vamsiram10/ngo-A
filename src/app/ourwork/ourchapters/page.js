@@ -498,18 +498,22 @@ export default function OurChaptersPage() {
               className="space-y-5"
             >
               <ContentItem
-                title="What is the first step to starting a chapter?"
-                description="Contact us through our contact page! We’ll provide a starter kit and help you build a local team."
+                title="What's the impact of Avasa Foundation's Hyderabad and Jaipur chapters?
+"
+                description="Our Hyderabad and Jaipur chapters are making a tangible difference by empowering disadvantaged people in the society .We work in three areas mainly: Love and Care, Seasonal and Awareness Drives and Development and Support "
                 isFaq
               />
               <ContentItem
-                title="How many people do I need to start a chapter?"
-                description="Just 3–5 dedicated members can kickstart a chapter. Passion matters more than numbers!"
+                title="How can I start a new Avasa Foundation chapter in my city?
+"
+                description=" If you're passionate about our mission, please contact us! We have specific guidelines and a process for establishing new chapters, ensuring alignment with our vision and values.
+"
                 isFaq
               />
               <ContentItem
-                title="What support do I get?"
-                description="Branding, mentorship, access to our tools, and step-by-step support from our leadership team."
+                title="How many people are required to start a new Avasa Foundation chapter?
+"
+                description="Generally, it can range from 5-7 people along with a committed core team. We'll provide detailed requirements during the application process."
                 isFaq
               />
             </motion.div>
