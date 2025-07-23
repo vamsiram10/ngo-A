@@ -14,45 +14,45 @@ const DEFAULT_TESTIMONIALS: Testimonial[] = [
   {
     quote:
       "This is a sample testimonial written here in five lines. The team exceeded all my expectations and delivered outstanding results. Their professionalism and creativity truly set them apart from others. I would highly recommend working with them for any project. Thank you for your dedication and hard work.",
-    name: "V.Radha Priyanka",
-    designation: "CEO, Example Inc.",
-    src: "https://images3.alphacoders.com/134/1342304.jpeg",
+    name: "Mr.Rasool Ahmed",
+    designation: "10th passed",
+    src: "/testimonials/rasool.jpg",
   },
   {
     quote:
       "Being a part of this journey has been truly transformative. Every project we undertake brings us closer as a team and allows us to make a real difference in the community. The dedication and passion everyone brings is inspiring. I am grateful for the opportunity to contribute and grow alongside such amazing people. Together, we are building something meaningful.",
-    name: "RVR",
-    designation: "Core Team Member",
-    src: "https://images2.alphacoders.com/136/thumbbig-1369365.webp",
+    name: "Mr.Akhilesh Maheshwari",
+    designation: "Founder(naya sawera)",
+    src: "/testimonials/Mr.Akhilesh Maheshwari.jpg",
   },
   {
     quote:
       "Joining this team has been one of the best decisions I've made. The collaborative spirit and unwavering support from everyone make every challenge feel achievable. Each initiative is a step towards positive change, and I am proud to be part of it. The friendships and memories we've created are invaluable. Looking forward to many more milestones together.",
-    name: "Vamsi",
-    designation: "Operations Lead",
-    src: "https://images7.alphacoders.com/132/thumbbig-1329456.webp",
+    name: "Head Master",
+    designation: "Govt school, Chak Charanwas",
+    src: "/testimonials/h3.jpg",
   },
-  {
-    quote:
-      "From brainstorming sessions to on-ground events, every moment with this team is filled with learning and joy. The impact we create motivates me to push my limits and strive for excellence. I appreciate the trust and encouragement I receive here. It's more than just work—it's a family working towards a shared vision.",
-    name: "Vinathi",
-    designation: "Event Coordinator",
-    src: "https://images2.alphacoders.com/136/thumb-440-1360490.webp",
-  },
-  {
-    quote:
-      "The sense of purpose and belonging I feel here is unmatched. Each member brings unique strengths, and together we overcome every obstacle. Our collective efforts have touched many lives, and that is deeply fulfilling. I am excited for what the future holds and to continue making a difference with this incredible team.",
-    name: "Aneesh",
-    designation: "Community Outreach",
-    src: "https://images3.alphacoders.com/134/1342304.jpeg",
-  },
-  {
-    quote:
-      "Working with this team has taught me the true meaning of service and compassion. Every initiative is thoughtfully planned and executed, ensuring maximum impact. The encouragement to innovate and take initiative has helped me grow both personally and professionally. I am honored to be part of such a dedicated group.",
-    name: "Anannya",
-    designation: "Volunteer Coordinator",
-    src: "https://images8.alphacoders.com/135/thumbbig-1359642.webp",
-  },
+  // {
+  //   quote:
+  //     "From brainstorming sessions to on-ground events, every moment with this team is filled with learning and joy. The impact we create motivates me to push my limits and strive for excellence. I appreciate the trust and encouragement I receive here. It's more than just work—it's a family working towards a shared vision.",
+  //   name: "Vinathi",
+  //   designation: "Event Coordinator",
+  //   src: "https://images2.alphacoders.com/136/thumb-440-1360490.webp",
+  // },
+  // {
+  //   quote:
+  //     "The sense of purpose and belonging I feel here is unmatched. Each member brings unique strengths, and together we overcome every obstacle. Our collective efforts have touched many lives, and that is deeply fulfilling. I am excited for what the future holds and to continue making a difference with this incredible team.",
+  //   name: "Aneesh",
+  //   designation: "Community Outreach",
+  //   src: "https://images3.alphacoders.com/134/1342304.jpeg",
+  // },
+  // {
+  //   quote:
+  //     "Working with this team has taught me the true meaning of service and compassion. Every initiative is thoughtfully planned and executed, ensuring maximum impact. The encouragement to innovate and take initiative has helped me grow both personally and professionally. I am honored to be part of such a dedicated group.",
+  //   name: "Anannya",
+  //   designation: "Volunteer Coordinator",
+  //   src: "https://images8.alphacoders.com/135/thumbbig-1359642.webp",
+  // },
 ];
 
 interface AnimatedTestimonialsProps {
@@ -227,6 +227,8 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
               minHeight: imageSize,
               maxWidth: imageSize,
               maxHeight: imageSize,
+              overflow: "hidden", // Ensure image is fully contained
+              background: "#fff", // Optional: background for better contrast
             }}
           >
             <motion.div
@@ -262,7 +264,7 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
                 width={imageSize}
                 height={imageSize}
                 draggable={false}
-                className="object-cover object-center w-full h-full rounded-xl shadow-md"
+                className="object-contain object-center w-full h-full rounded-xl shadow-md"
                 style={{ opacity: 0.3, filter: "blur(3px)" }}
                 priority={false}
               />
@@ -303,7 +305,7 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
                   width={imageSize}
                   height={imageSize}
                   draggable={false}
-                  className="object-cover object-center w-full h-full rounded-2xl shadow-lg"
+                  className="object-contain object-center w-full h-full rounded-2xl shadow-lg"
                   priority={true}
                 />
               </motion.div>

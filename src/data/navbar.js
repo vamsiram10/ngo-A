@@ -28,11 +28,11 @@ const navLinks = {
     {
       id: 3,
       label: "Join us",
-      url: "/joinus",
+      url: "/",
       dialog: [
         { id: 1, title: "volunteering  ", path: "/joinus/volunteering" },
         { id: 2, title: "internship", path: "/joinus/internship" },
-        { id: 3, title: "blogs", path: "/" },
+        { id: 3, title: "blogs", path: "/joinus/blogs" },
       ],
     },
     {
@@ -45,7 +45,7 @@ const navLinks = {
           title: "Map Location",
           path: "/contactus/map",
         },
-        { id: 2, title: "FAQs", path: "/" },
+        { id: 2, title: "FAQs", path: "/contactus/faqss" },
       ],
     },
   ],

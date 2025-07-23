@@ -1,45 +1,60 @@
+"use client";
 import React, { useRef, useEffect } from "react";
 
 const videos = [
   {
-    src: "/vedios/1.mp4",
-    type: "video/mp4",
-    poster: "/vedios/1.jpg",
+    src: "/videos/00.gif",
+    type: "image/gif",
+    poster: "/videos/00.gif",
+    isImage: true,
   },
   {
-    src: "/vedios/02.mp4",
-    type: "video/mp4",
-    poster: "/vedios/2.jpg",
+    src: "/videos/01.gif",
+    type: "image/gif",
+    poster: "/videos/01.gif",
+    isImage: true,
   },
   {
-    src: "/vedios/03.mp4",
-    type: "video/mp4",
-    poster: "/vedios/3.jpg",
+    src: "/videos/02.gif",
+    type: "image/gif",
+    poster: "/videos/02.gif",
+    isImage: true,
   },
   {
-    src: "/vedios/04.mp4",
-    type: "video/mp4",
-    poster: "/vedios/4.jpg",
+    src: "/videos/03.gif",
+    type: "image/gif",
+    poster: "/videos/03.gif",
+    isImage: true,
   },
   {
-    src: "/vedios/5.mp4",
-    type: "video/mp4",
-    poster: "/vedios/5.jpg",
+    src: "/videos/04.gif",
+    type: "image/gif",
+    poster: "/videos/04.gif",
+    isImage: true,
   },
   {
-    src: "/vedios/06.mp4",
-    type: "video/mp4",
-    poster: "/vedios/6.jpg",
+    src: "/videos/05.gif",
+    type: "image/gif",
+    poster: "/videos/05.gif",
+    isImage: true,
   },
   {
-    src: "/vedios/07.mp4",
-    type: "video/mp4",
-    poster: "/vedios/7.jpg",
+    src: "/videos/06.gif",
+    type: "image/gif",
+    poster: "/videos/06.gif",
+    isImage: true,
   },
   {
-    src: "/vedios/08.mp4",
-    type: "video/mp4",
-    poster: "/vedios/8.jpg",
+    src: "/videos/07.gif",
+    type: "image/gif",
+    poster: "/videos/07.gif",
+    isImage: true,
+  },
+  {
+    src: "/videos/08.gif",
+    type: "image/gif",
+    poster: "/videos/08.gif",
+    isImage: true,
   },
 ];
 
@@ -71,7 +86,7 @@ const HomeGallery2 = () => {
       videos.length * VIDEO_WIDTH + (videos.length - 1) * GAP;
 
     const velocity = 700;
-    let lastTime = performance.now();
+    let lastTime = typeof window !== "undefined" ? performance.now() : 0;
 
     if (scrollContainer) {
       scrollContainer.scrollLeft = singleSetWidth;
@@ -79,7 +94,7 @@ const HomeGallery2 = () => {
 
     function animate() {
       if (!animationActive) return;
-      const now = performance.now();
+      const now = typeof window !== "undefined" ? performance.now() : 0;
       const delta = now - lastTime;
       lastTime = now;
 
@@ -97,11 +112,15 @@ const HomeGallery2 = () => {
         scrollContainer.scrollLeft = nextScrollLeft;
       }
 
-      requestAnimationFrame(animate);
+      if (typeof window !== "undefined") {
+        requestAnimationFrame(animate);
+      }
     }
 
     animationActive = true;
-    requestAnimationFrame(animate);
+    if (typeof window !== "undefined") {
+      requestAnimationFrame(animate);
+    }
 
     const handleMouseEnter = () => {
       isHovered = true;

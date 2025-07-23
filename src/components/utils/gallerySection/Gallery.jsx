@@ -178,8 +178,8 @@ export const DraggableCardContainer = ({ className, children }) => {
 export function Gallery() {
   const items = [
     {
-      title: "Explorer",
-      image: "/gallery/1.jpg",
+      title: "Literacy",
+      image: "/gallery/literacy.jpg",
       className: "absolute",
       style: {
         top: "12%",
@@ -189,8 +189,8 @@ export function Gallery() {
       },
     },
     {
-      title: "Storyteller",
-      image: "/gallery/2.jpg",
+      title: "Beat the Heat",
+      image: "/gallery/heat.jpg",
       className: "absolute",
       style: {
         top: "18%",
@@ -200,7 +200,7 @@ export function Gallery() {
       },
     },
     {
-      title: "Aurora",
+      title: "Naya Sawera NGO",
       image: "/gallery/3.jpg",
       className: "absolute",
       style: {
@@ -211,7 +211,7 @@ export function Gallery() {
       },
     },
     {
-      title: "Sakura",
+      title: "Sarthak Oldage Home",
       image: "/gallery/4.jpg",
       className: "absolute",
       style: {
@@ -222,8 +222,8 @@ export function Gallery() {
       },
     },
     {
-      title: "Fjord",
-      image: "/gallery/5.jpg",
+      title: "Winter Drive",
+      image: "/gallery/winterdrive.jpg",
       className: "absolute",
       style: {
         top: "28%",
@@ -233,8 +233,8 @@ export function Gallery() {
       },
     },
     {
-      title: "Carnival",
-      image: "/gallery/6.jpg",
+      title: "Medikit Drive",
+      image: "/gallery/medikitdrive.jpg",
       className: "absolute",
       style: {
         top: "32%",
@@ -244,7 +244,7 @@ export function Gallery() {
       },
     },
     {
-      title: "Outback",
+      title: "Food Donation Drive",
       image: "/gallery/7.jpg",
       className: "absolute",
       style: {
@@ -255,8 +255,8 @@ export function Gallery() {
       },
     },
     {
-      title: "Maple",
-      image: "/gallery/8.jpg",
+      title: "Republic Day Celebrations",
+      image: "/gallery/republicday.jpg",
       className: "absolute",
       style: {
         bottom: "25%",
@@ -267,7 +267,6 @@ export function Gallery() {
     },
   ];
 
-  // Helper to merge responsive styles for the first item
   function getCardStyle(item, idx) {
     // Remove any unsupported @media keys from the style object
     const baseStyle = { ...item.style };

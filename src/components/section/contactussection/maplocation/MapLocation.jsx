@@ -97,9 +97,9 @@ const AVASA_ICON_URL = "/svg/AVASA.svg";
 const FIXED_LOCATION = {
   id: "fixed-location",
   name: " AVASA HQ",
-  coords: [17.494898, 78.363327],
+  coords: [17.4276, 78.4572],
   iconUrl: AVASA_ICON_URL,
-  popup: "<b> AVASA HQ</b>",
+  popup: "<b>AVASA HQ</b>",
 };
 const OTHER_LOCATIONS = [
   {
@@ -588,8 +588,8 @@ const MapLocation = () => {
         className={cn(
           "absolute inset-0",
           "[background-size:50px_50px]",
-          "[background-image:linear-gradient(to_right,#bdbdbd_1.5px,transparent_1.5px),linear-gradient(to_bottom,#bdbdbd_1.5px,transparent_1.5px)]",
-          "dark:[background-image:linear-gradient(to_right,#444_1.5px,transparent_1.5px),linear-gradient(to_bottom,#444_1.5px,transparent_1.5px)]"
+          // Always use black grid lines, regardless of light/dark mode
+          "[background-image:linear-gradient(to_right,#222_1.5px,transparent_1.5px),linear-gradient(to_bottom,#222_1.5px,transparent_1.5px)]"
         )}
         style={{
           opacity: 0.4,

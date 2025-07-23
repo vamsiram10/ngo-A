@@ -1,10 +1,10 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Counter from "@/components/Counter";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 
-// --- Animation Variants ---
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
@@ -14,7 +14,6 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
-// --- Reusable Components ---
 function Stat({ to, suffix, label }) {
   return (
     <div className="text-center">
@@ -38,17 +37,51 @@ function FeaturePoint({ number, title, children }) {
   );
 }
 
+const fallbackImg =
+  "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80";
+
+function OptimizedImage({
+  src,
+  alt,
+  fill = false,
+  className = "",
+  style = {},
+  ...props
+}) {
+  // For fallback, we use a state to trigger re-render if error occurs
+  const [imgSrc, setImgSrc] = useState(src);
+
+  return (
+    <Image
+      src={imgSrc}
+      alt={alt}
+      fill={fill}
+      className={className}
+      style={style}
+      onError={() => {
+        if (imgSrc !== fallbackImg) setImgSrc(fallbackImg);
+      }}
+      sizes={fill ? "100vw" : undefined}
+      {...props}
+    />
+  );
+}
+
 export default function VolunteeringPage() {
-  // Fix: Use static imports for images to avoid runtime file not found errors in Next.js
-  // If you want to use the /public directory, ensure images exist at /public/images/volunteer1.jpg, etc.
-  // If not, use placeholder images or update the paths accordingly.
-  // For demonstration, let's use placeholder images if the originals are missing.
+  useEffect(() => {
+    const html = document.documentElement;
+    const prevScroll = html.style.scrollBehavior;
+    html.style.scrollBehavior = "smooth";
+    return () => {
+      html.style.scrollBehavior = prevScroll;
+    };
+  }, []);
 
   const opportunities = [
     {
       id: 1,
       img: "/images/volunteer1.jpg",
-      title: "Design & Media",
+      title: "Hyderabad",
       desc: "Craft compelling visuals and social content.",
       time: "5-10 hrs/week",
       formLink: "https://forms.gle/gcmvF29bSx6FkxnG7",
@@ -56,7 +89,7 @@ export default function VolunteeringPage() {
     {
       id: 2,
       img: "/images/volunteer2.jpg",
-      title: "Community Outreach",
+      title: "Jaipur",
       desc: "Be the face of our mission. Plan and lead campaigns.",
       time: "Flexible",
       formLink: "https://forms.gle/gcmvF29bSx6FkxnG7",
@@ -64,7 +97,7 @@ export default function VolunteeringPage() {
     {
       id: 3,
       img: "/images/volunteer3.jpg",
-      title: "Research & Impact",
+      title: "Remote",
       desc: "Help us measure what matters. Analyze our social impact.",
       time: "8-12 hrs/week",
       formLink: "https://forms.gle/gcmvF29bSx6FkxnG7",
@@ -93,32 +126,27 @@ export default function VolunteeringPage() {
       description:
         "Connect with like-minded individuals who share your passion for social good.",
     },
-    {
-      number: "04",
-      title: "Flexible Commitment",
-      description:
-        "Find roles that fit your schedule, from one-day events to ongoing projects.",
-    },
   ];
+
+  // handleImgError is no longer needed, handled in OptimizedImage
 
   return (
     <main className="bg-black text-white">
-      {/* --- Hero Section with bottom padding --- */}
       <section className="relative min-h-[90vh] flex items-center justify-center text-center p-4 pb-32">
         <div className="absolute inset-0 z-0">
-          <Image
-            src={heroImg}
-            alt="A group of smiling volunteers"
-            fill
-            style={{ objectFit: "cover" }}
-            className="opacity-40"
-            priority
-            onError={(e) => {
-              // fallback to placeholder if image not found
-              e.target.src =
-                "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80";
-            }}
-          />
+          <div className="w-full h-full absolute inset-0">
+            <OptimizedImage
+              src={heroImg}
+              alt="A group of smiling volunteers"
+              fill
+              style={{
+                objectFit: "cover",
+                opacity: 0.4,
+                zIndex: 0,
+              }}
+              priority
+            />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10"></div>
         </div>
         <motion.div
@@ -145,6 +173,13 @@ export default function VolunteeringPage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 className="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-8 md:py-4 md:px-10 rounded-full transition-all duration-300 shadow-lg shadow-pink-800/60"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById("opportunities");
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
               >
                 View Opportunities
               </motion.button>
@@ -153,20 +188,17 @@ export default function VolunteeringPage() {
         </motion.div>
       </section>
 
-      {/* --- CORRECTED: Wrapper for all content below the hero, pulled up to overlap --- */}
       <div className="relative z-20" style={{ transform: "translateY(-96px)" }}>
-        {/* Stats Card */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white/5 border border-white/10 backdrop-blur-lg rounded-2xl py-12">
             <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-y-0 md:gap-x-4">
-              <Stat to={100} suffix="+" label="Volunteers Engaged" />
+              <Stat to={90} suffix="+" label="Volunteers Engaged" />
               <Stat to={8} label="Active Projects" />
-              <Stat to={2000} suffix="+" label="Lives Impacted" />
+              <Stat to={2000} suffix="+" label="Smiles Ignited" />
             </div>
           </div>
         </div>
 
-        {/* "Why Your Help Matters" Section */}
         <div className="bg-black pt-20 md:pt-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-neutral-900 rounded-3xl border border-neutral-800 p-8 md:p-16">
@@ -181,16 +213,17 @@ export default function VolunteeringPage() {
                   transition={{ duration: 0.8 }}
                   className="relative w-full aspect-[4/3] max-w-lg mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-2xl shadow-pink-900/30"
                 >
-                  <Image
-                    src={whyImg}
-                    alt="A volunteer helping the community"
-                    fill
-                    style={{ objectFit: "cover" }}
-                    onError={(e) => {
-                      e.target.src =
-                        "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80";
-                    }}
-                  />
+                  <div className="absolute inset-0 w-full h-full">
+                    <OptimizedImage
+                      src={whyImg}
+                      alt="A volunteer helping the community"
+                      fill
+                      style={{
+                        objectFit: "cover",
+                        zIndex: 0,
+                      }}
+                    />
+                  </div>
                 </motion.div>
                 <motion.div
                   initial="hidden"
@@ -217,7 +250,6 @@ export default function VolunteeringPage() {
         <br />
         <br />
 
-        {/* Opportunities Section with New Card Design */}
         <div
           id="opportunities"
           className="bg-neutral-950 pt-20 pb-24 md:pt-24 md:pb-32 border-t border-neutral-800"
@@ -240,16 +272,17 @@ export default function VolunteeringPage() {
                   className="bg-white rounded-xl flex flex-col border border-gray-200 transition-all duration-300 hover:shadow-xl"
                 >
                   <div className="relative h-48 w-full rounded-t-xl overflow-hidden">
-                    <Image
-                      src={item.img}
-                      alt={item.title}
-                      fill
-                      style={{ objectFit: "cover" }}
-                      onError={(e) => {
-                        e.target.src =
-                          "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80";
-                      }}
-                    />
+                    <div className="absolute inset-0 w-full h-full">
+                      <OptimizedImage
+                        src={item.img}
+                        alt={item.title}
+                        fill
+                        style={{
+                          objectFit: "cover",
+                          zIndex: 0,
+                        }}
+                      />
+                    </div>
                   </div>
                   <div className="p-6 flex flex-col flex-grow">
                     <h3 className="text-xl md:text-2xl font-bold text-black mb-3">

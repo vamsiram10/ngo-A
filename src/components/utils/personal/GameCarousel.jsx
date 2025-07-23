@@ -15,16 +15,15 @@ const games = [
     description: "Serving smiles and lunch at Nayasawera NGO, Jaipur.",
   },
   {
-    title: "Elder Aid",
+    title: "Refreshment Drive",
     image: "/main gallery/b.JPG",
-    description:
-      "Sharing love, one meal at a time with the golden hearts of the old age home.",
+    description: "Serving smiles and energy through every sip and snack.",
   },
   {
-    title: "Hearts Aligned",
+    title: "Beat the Heat Drive",
     image: "/main gallery/c.JPG",
     description:
-      "  A day of shared smiles between the youngest dreams and the wisest hearts.",
+      "Bringing cool relief to warm days — serving hydration with heart.",
   },
   {
     title: "Golden Bonds ",
@@ -32,148 +31,144 @@ const games = [
     description: "Sharing smiles and stories with the golden generation.",
   },
   {
-    title: "Bright Beginnings",
+    title: "Threads of Kindness",
     image: "/main gallery/e.JPG",
     description:
-      "Igniting young minds with care, curiosity, and joyful connection.",
-  },
-  {
-    title: "Joy in Every Smile",
-    image: "/main gallery/f.JPG",
-    description:
-      "A day filled with laughter, play, and pure happiness with the little stars.",
-  },
-  {
-    title: "Steps of Joy",
-    image: "/main gallery/g.JPG",
-    description:
-      "Dancing beyond limits, spreading joy and confidence with every move.",
-  },
-  {
-    title: "Learning Lights",
-    image: "/main gallery/h.JPG",
-    description:
-      "Empowering young minds through knowledge, one lesson at a time.",
-  },
-  {
-    title: "Cool Kindness",
-    image: "/main gallery/i.JPG",
-    description:
-      "Cooling hearts and hands—serving buttermilk with care and compassion.",
-  },
-  {
-    title: "Pride in Every Heart",
-    image: "/main gallery/j.JPG",
-    description:
-      "Celebrating the spirit of the nation with young patriots and bright smiles.",
-  },
-  {
-    title: "Cool for a Cause",
-    image: "/main gallery/k.JPG",
-    description:
-      "Quenching thirst with kindness — a refreshing gesture on a warm day.",
-  },
-  {
-    title: "Sip of Care",
-    image: "/main gallery/l.JPG",
-    description:
-      "Serving smiles in every glass — spreading cool comfort on a sunny day.",
-  },
-  {
-    title: "Beat the Heat Drive",
-    image: "/main gallery/m.JPG",
-    description:
-      "Bringing cool relief to warm days — serving hydration with heart.",
-  },
-  {
-    title: "Hope in Every Corner",
-    image: "/main gallery/n.JPG",
-    description:
-      "Spreading warmth, listening hearts, and building bonds in the heart of the community.",
-  },
-  {
-    title: "Refresh & Reach",
-    image: "/main gallery/o.JPG",
-    description:
-      "Spreading smiles and energy—sharing refreshments with love and care.",
-  },
-  {
-    title: "Hands of Hope",
-    image: "/main gallery/p.jpg",
-    description:
-      "Extending compassion where it’s needed most—standing by those who need us.",
-  },
-  {
-    title: "Tech for Tomorrow",
-    image: "/main gallery/q.JPG",
-    description:
-      "Empowering young minds with tools for a brighter, smarter future.",
-  },
-  {
-    title: "Quenching Thirst",
-    image: "/main gallery/r.JPG",
-    description:
-      "A small sip, a big relief — serving cool comfort with care and compassion.",
-  },
-  {
-    title: "Refreshment Drive",
-    image: "/main gallery/s.JPG",
-    description:
-      "Serving smiles with every sip and bite — a small act of kindness to lift the day.",
+      "From our hearts to their hands — a gesture of warmth and dignity",
   },
   {
     title: "Health in Hand",
-    image: "/main gallery/t.JPG",
+    image: "/main gallery/f.JPG",
     description:
       "Distributing essential medical kits — a step towards safer, healthier lives.",
   },
   {
-    title: "Gratitude Moments",
+    title: "Nourish with Love",
+    image: "/main gallery/g.JPG",
+    description: "Serving not just food, but kindness and connection.",
+  },
+  {
+    title: "Steps of Joy",
+    image: "/main gallery/h.JPG",
+    description:
+      "Dancing beyond limits, spreading joy and confidence with every move.",
+  },
+  {
+    title: "Golden Moments",
+    image: "/main gallery/i.JPG",
+    description:
+      "Spreading joy and warmth while celebrating with the wise hearts of our community.",
+  },
+  {
+    title: "Little lights",
+    image: "/main gallery/j.JPG",
+    description:
+      "Sharing laughter, stories, and unforgettable moments with the bright stars of tomorrow.",
+  },
+  {
+    title: "Meals that matter",
+    image: "/main gallery/k.JPG",
+    description:
+      "Extending a helping hand with every meal to those who need it most.",
+  },
+  {
+    title: "Milestone Moment",
+    image: "/main gallery/l.JPG",
+    description:
+      "Celebrating our official registration — a new chapter of purpose and impact begins.",
+  },
+  {
+    title: "Meals of Kindness",
+    image: "/main gallery/m.JPG",
+    description:
+      "Joining hands to serve nourishing meals with love at the NGO.",
+  },
+  {
+    title: "Young Connections",
+    image: "/main gallery/n.JPG",
+    description:
+      "Spreading smiles and inspiration while engaging with bright young minds at the government school.",
+  },
+  {
+    title: "Medikit Drive",
+    image: "/main gallery/o.JPG",
+    description:
+      "Providing essential health kits to support safer and healthier communities.",
+  },
+  {
+    title: "Cool Relief",
+    image: "/main gallery/p.JPG",
+    description:
+      "A small gesture to help beat the heat — refreshing drinks for those in need.",
+  },
+  {
+    title: "Hygiene for her",
+    image: "/main gallery/q.JPG",
+    description:
+      "Empowering women with access to menstrual hygiene and dignity.",
+  },
+  {
+    title: "Joyful Bonds",
+    image: "/main gallery/r.JPG",
+    description:
+      "Creating joyful memories through laughter, love, and learning with the kids at the NGO.",
+  },
+  {
+    title: "Little Smiles",
+    image: "/main gallery/s.JPG",
+    description: "A day full of fun, friendship, and heartfelt connection.",
+  },
+  {
+    title: "Equip to Learn",
+    image: "/main gallery/t.JPG",
+    description:
+      "Equipping young minds with the tools to learn, dream, and grow",
+  },
+  {
+    title: "Wellness for Women",
     image: "/main gallery/u.JPG",
     description:
-      "Honored with heartfelt appreciation — a reminder that every small act creates lasting impact.",
+      "Spreading awareness and distributing sanitary pads to support women's hygiene and dignity in the village",
   },
   {
-    title: "Bonds Beyond Books",
+    title: "Lunch with Love",
     image: "/main gallery/v.JPG",
     description:
-      "Laughs, learning, and love — creating joyful moments with curious young minds.",
+      "Spending heartfelt moments over lunch, laughter, and stories with the elderly.",
   },
   {
-    title: "Support in Service",
+    title: "Care & Connection",
     image: "/main gallery/w.JPG",
-    description:
-      "Standing beside our traffic heroes — lending a hand to those who keep our roads safe.",
+    description: "Lighting up young hearts with time, care, and kindness.",
   },
   {
-    title: "Helping Our Helpers",
+    title: "Heartfelt Hours",
     image: "/main gallery/x.JPG",
-    description:
-      "A gesture of gratitude for those who protect and serve us daily — because care goes both ways.",
+    description: " Time, laughter, and love — all shared in one special visit.",
   },
   {
-    title: "Hygiene for Her",
+    title: "Timeless Fun",
     image: "/main gallery/y.JPG",
     description:
-      "Empowering women with access to hygiene and self-care essentials.",
+      "From carrom to conversations, every moment was filled with laughter and light.",
   },
   {
-    title: "Threads of Kindness",
+    title: "Roots of Change",
     image: "/main gallery/z.JPG",
     description:
-      "From our hearts to their hands — a gesture of warmth and dignity.",
+      "Sharing thoughts, solutions, and support with inspiring women in the village.",
   },
   {
-    title: "Joyful Gatherings",
+    title: "Wellness Outreach",
     image: "/main gallery/a1.JPG",
     description:
-      "Bringing communities together — sharing laughter, stories, and support.",
+      "Bringing basic healthcare closer to the slum communities through medical kits.",
   },
   {
-    title: "Seeds of Hope",
+    title: "Jaipur's First Step",
     image: "/main gallery/a2.JPG",
     description:
-      "Planting the promise of a greener tomorrow, one sapling at a time.",
+      "Launched our first Jaipur event by connecting with the brightest hearts — the kids.",
   },
 ];
 
@@ -197,6 +192,7 @@ export default function GameCarousel() {
   const swiperRef = useRef(null);
 
   useEffect(() => {
+    // Handle click to activate/deactivate carousel items
     const handleClick = (e) => {
       const items = document.querySelectorAll(".custom-carousel .item");
       if (e.currentTarget.classList.contains("active")) {
@@ -211,15 +207,29 @@ export default function GameCarousel() {
       el.addEventListener("click", handleClick);
       if (idx === 0) el.classList.add("active");
     });
+
+    // Keyboard navigation for Swiper
+    const handleKeyDown = (e) => {
+      // Only left/right arrows
+      if (!swiperRef.current || !swiperRef.current.swiper) return;
+      if (e.key === "ArrowLeft") {
+        swiperRef.current.swiper.slidePrev();
+      } else if (e.key === "ArrowRight") {
+        swiperRef.current.swiper.slideNext();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+
     return () => {
       items.forEach((el) => el.removeEventListener("click", handleClick));
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 
   return (
     <section
       className="game-section centered-section"
-      style={{ position: "relative", overflow: "hidden" }}
+      style={{ position: "relative", overflow: "hidden", background: "black" }}
     >
       {/* Responsive background lines */}
       <div className="background-lines-wrapper">
@@ -321,9 +331,11 @@ export default function GameCarousel() {
           padding: 0 50px;
           position: relative;
           top: -15px;
+          background: #000 !important;
         }
         .game-section {
           padding: 0;
+          background: #000 !important;
         }
         .line-title {
           width: 400px;
@@ -558,6 +570,7 @@ export default function GameCarousel() {
           .centered-section {
             padding: 0 2vw;
             min-height: 100vh;
+            background: #000 !important;
           }
           .line-title {
             width: 290px;
@@ -640,6 +653,9 @@ export default function GameCarousel() {
           .swiper-pagination {
             display: none !important;
           }
+          .centered-section {
+            background: #000 !important;
+          }
         }
         .pink-text,
         .pink-text * {
@@ -705,6 +721,15 @@ export default function GameCarousel() {
           .game-swiper {
             padding-bottom: 10px !important;
           }
+          body {
+            background: #000 !important;
+          }
+        }
+        body {
+          background: #000 !important;
+        }
+        html {
+          background: #000 !important;
         }
       `}</style>
     </section>

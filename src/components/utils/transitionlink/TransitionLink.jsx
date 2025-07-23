@@ -1,9 +1,13 @@
 "use client";
 import Link from "next/link";
-import React, { useCallback, useRef } from "react";
+import React, { useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { useLenis } from "@studio-freight/react-lenis";
 import { useEffect, useState } from "react";
+
+// ---- TRANSITION DURATION CONTROL ----
+// To change the transition duration, edit this value (in milliseconds):
+const TRANSITION_DURATION_MS = 1500; // 700ms = 0.7s. Change this to your desired duration (e.g., 1000 for 1s)
 
 // Utility to escape double and single quotes for HTML attributes/text
 function escapeHtml(str) {
@@ -15,16 +19,16 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function addSlideUpOverlay() {
+function addSlideRightOverlay() {
   if (typeof document === "undefined") return;
-  const old = document.getElementById("page-transition-slide-up");
+  const old = document.getElementById("page-transition-slide-right");
   if (old) old.remove();
 
   const overlay = document.createElement("div");
-  overlay.id = "page-transition-slide-up";
-  overlay.className = "page-transition-slide-up";
+  overlay.id = "page-transition-slide-right";
+  overlay.className = "page-transition-slide-right";
   overlay.style.background = "#fff";
-  overlay.style.animationDuration = "0.7s";
+  overlay.style.animationDuration = `${TRANSITION_DURATION_MS / 1000}s`;
   overlay.style.animationTimingFunction = "cubic-bezier(0.77, 0, 0.175, 1)";
   overlay.style.display = "flex";
   overlay.style.alignItems = "center";
@@ -34,23 +38,23 @@ function addSlideUpOverlay() {
   overlay.style.inset = "0";
   overlay.style.zIndex = "9999";
 
-  // SVG for a curved top edge (horizontal curve)
+  // SVG for a curved right edge (vertical curve)
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  svg.setAttribute("width", "100%");
-  svg.setAttribute("height", "18vh");
-  svg.setAttribute("viewBox", "0 0 100 18");
+  svg.setAttribute("width", "18vw");
+  svg.setAttribute("height", "100%");
+  svg.setAttribute("viewBox", "0 0 18 100");
   svg.setAttribute("preserveAspectRatio", "none");
   svg.style.position = "absolute";
-  svg.style.left = "0";
+  svg.style.right = "0";
   svg.style.top = "0";
-  svg.style.width = "100%";
-  svg.style.height = "18vh";
+  svg.style.width = "18vw";
+  svg.style.height = "100%";
   svg.style.pointerEvents = "none";
   svg.style.zIndex = "10001";
 
   const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  // This path creates a curve on the top edge
-  path.setAttribute("d", "M0,0 Q50,18 100,0 L100,0 L0,0 Z");
+  // This path creates a curve on the right edge
+  path.setAttribute("d", "M18,0 Q0,50 18,100 L18,100 L18,0 Z");
   path.setAttribute("fill", "#fff");
   svg.appendChild(path);
 
@@ -69,19 +73,19 @@ function addSlideUpOverlay() {
   document.body.appendChild(overlay);
 }
 
-function removeSlideUpOverlay() {
+function removeSlideRightOverlay() {
   if (typeof document === "undefined") return;
-  const overlay = document.getElementById("page-transition-slide-up");
+  const overlay = document.getElementById("page-transition-slide-right");
   if (overlay) overlay.remove();
 }
 
 function ensureTransitionStyle() {
   if (typeof window === "undefined" || typeof document === "undefined") return;
-  if (!document.getElementById("page-transition-slide-up-style")) {
+  if (!document.getElementById("page-transition-slide-right-style")) {
     const style = document.createElement("style");
-    style.id = "page-transition-slide-up-style";
+    style.id = "page-transition-slide-right-style";
     style.innerHTML = `
-      .page-transition-slide-up {
+      .page-transition-slide-right {
         pointer-events: none;
         position: fixed;
         inset: 0;
@@ -90,33 +94,35 @@ function ensureTransitionStyle() {
         display: flex;
         align-items: center;
         justify-content: center;
-        animation: slideInFromBottomCurved 0.7s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+        animation: slideInFromRightCurved ${
+          TRANSITION_DURATION_MS / 1000
+        }s cubic-bezier(0.77, 0, 0.175, 1) forwards;
         overflow: hidden;
       }
-      .page-transition-slide-up img {
+      .page-transition-slide-right img {
         width: 80px;
         height: 80px;
         object-fit: contain;
         display: block;
         z-index: 10002;
       }
-      .page-transition-slide-up svg {
+      .page-transition-slide-right svg {
         position: absolute;
-        left: 0;
+        right: 0;
         top: 0;
-        width: 100%;
-        height: 18vh;
+        width: 18vw;
+        height: 100%;
         z-index: 10001;
         pointer-events: none;
         display: block;
       }
-      @keyframes slideInFromBottomCurved {
+      @keyframes slideInFromRightCurved {
         0% {
-          transform: translateY(100%);
+          transform: translateX(100%);
           opacity: 1;
         }
         100% {
-          transform: translateY(0%);
+          transform: translateX(0%);
           opacity: 1;
         }
       }
@@ -214,13 +220,14 @@ export const TransitionLink = ({ children, href, ...props }) => {
         await sleep(20);
       }
 
-      addSlideUpOverlay();
+      addSlideRightOverlay();
 
-      await sleep(650);
+      // Wait for the transition duration before navigating
+      await sleep(TRANSITION_DURATION_MS - 50); // 50ms less to account for overlay setup
 
       router.push(navHref);
 
-      setTimeout(removeSlideUpOverlay, 500);
+      setTimeout(removeSlideRightOverlay, 500);
     },
     [router, clientHref, rewrittenHref, lenis]
   );

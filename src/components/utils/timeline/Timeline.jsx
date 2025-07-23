@@ -11,44 +11,126 @@ import {
 const timelineData = [
   {
     year: "2022",
-    title: "Discovered Anime",
-    images: [
-      "https://w0.peakpx.com/wallpaper/571/269/HD-wallpaper-a-silent-voice-anime-goals-koe-no-katachi-love-random.jpg",
-      "https://w0.peakpx.com/wallpaper/513/42/HD-wallpaper-tenki-no-ko-anime-art-random-sky-waifu.jpg",
-      "https://w0.peakpx.com/wallpaper/894/73/HD-wallpaper-tenki-no-ko-anime-art-goals-random-waifu.jpg",
-    ],
-    content:
-      "Started watching anime and fell in love with the art and stories. I remember the first time I watched 'A Silent Voice'—the emotional depth and beautiful animation left a lasting impression on me. I began exploring different genres, from slice-of-life to action-packed shonen, and found myself eagerly anticipating each new episode. Anime quickly became more than just entertainment; ",
+    title: "The Beginning of Avasa",
+    images: ["/timelinephotos/2022.JPG"],
+    content: (
+      <>
+        Avasa was founded by{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          V Radha Priyanka
+        </span>{" "}
+        in Hyderabad with a vision to support the underprivileged. The year saw
+        heartfelt initiatives like clothes donation drives, online awareness
+        sessions on self-confidence, interactions with orphanages, and food
+        distribution for the needy — laying the foundation for a mission rooted
+        in compassion.
+      </>
+    ),
   },
   {
     year: "2023",
-    title: "Joined Anime Club",
-    images: [
-      "https://w0.peakpx.com/wallpaper/894/73/HD-wallpaper-tenki-no-ko-anime-art-goals-random-waifu.jpg",
-      "https://w0.peakpx.com/wallpaper/733/129/HD-wallpaper-kimetsu-no-yaiba-anime-art-demon-slayer-fantasy-random.jpg",
-    ],
-    content:
-      "Became a member of the local anime club and made new friends. Attending weekly meetups, I participated in group watch parties, lively discussions, and even trivia nights. The club organized themed events, such as cosplay contests and manga drawing workshops, which allowed me to express my creativity and learn new skills. Through these activities, I formed close bonds with people who shared my enthusiasm for anime and Japanese culture. We often collaborated on fan projects, exchanged merchandise, and supported each other at conventions. The sense of belonging and camaraderie I found in the club made this year truly special.",
+    title: "A New Chapter in Jaipur",
+    images: ["/timelinephotos/2023.JPG"],
+    content: (
+      <>
+        In 2023, Avasa was reborn in{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          Jaipur
+        </span>{" "}
+        with renewed energy. Radha, joined by her university friends and
+        volunteers, expanded outreach through meaningful interactions with{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          Naya Sawera Orphanage
+        </span>{" "}
+        and{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          Sarthak Old Age Home
+        </span>
+        . The team conducted dance classes and bonding sessions with children at{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          Matra Chaya Bal Gruh
+        </span>{" "}
+        and connected deeply with residents of a nearby village,{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          Chak
+        </span>
+        , understanding their everyday struggles. Efforts included distributing
+        food and warm clothes to those in need, and engaging with students at
+        the government school in Chak, bringing care, creativity, and community
+        to life through every initiative.
+      </>
+    ),
   },
   {
     year: "2024",
-    title: "Cosplayed at Convention",
-    images: [
-      "https://w0.peakpx.com/wallpaper/514/165/HD-wallpaper-a-silent-voice-anime-girl-goals-koe-no-katachi-love-random-waifu.jpg",
-      "https://w0.peakpx.com/wallpaper/891/288/HD-wallpaper-silent-voice-anime-art-koe-no-katachi-love-random.jpg",
-    ],
-    content:
-      "Attended my first anime convention and cosplayed as my favorite character. The experience was exhilarating—I spent weeks preparing my costume, learning makeup techniques, and perfecting every detail. Walking through the convention halls, I was amazed by the creativity and dedication of fellow cosplayers. I participated in photoshoots, joined panel discussions, and met some of my favorite voice actors. The event also featured exclusive screenings, artist alleys, and merchandise booths, making it a paradise for any anime fan. Sharing this adventure with friends from the anime club made it even more memorable, and I left with unforgettable memories and new connections.",
+    title: "A Year of Recognition & Formal Milestone",
+    images: ["/timelinephotos/2024.JPG"],
+    content: (
+      <>
+        In 2024, Avasa Foundation was officially registered under the{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          Telangana Societies Registration Act (Reg. No. 1108 of 2024)
+        </span>
+        , marking a major step in our organizational journey. We celebrated New
+        Year’s with both an orphanage and an old age home, and were honored to
+        be invited by the Chak Government School for their Republic Day and
+        Annual Day celebrations, where we distributed stationery kits and
+        continued regular student engagement. Our ongoing association with
+        Sarthak Old Age Home strengthened, while our{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          Beat the Heat
+        </span>{" "}
+        - Summer refreshment drive distributed{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          1,000 buttermilk packets
+        </span>{" "}
+        across underserved areas. Other initiatives included{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          food donation
+        </span>{" "}
+        with Naya Sawera NGO,{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          period kits
+        </span>{" "}
+        for women in Chak village, and{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          medical kit distribution
+        </span>{" "}
+        in Vaishali Nagar slums — reinforcing our commitment to community
+        wellness and dignity.
+      </>
+    ),
   },
   {
     year: "2025",
-    title: "Started Drawing Anime",
-    images: [
-      "https://w0.peakpx.com/wallpaper/41/192/HD-wallpaper-silent-voice-anime-koe-no-kstschi-love-random.jpg",
-      "https://w0.peakpx.com/wallpaper/1009/985/HD-wallpaper-chuunibyou-anime-art-beatiful-girl-random-waifu.jpg",
-    ],
-    content:
-      "Began drawing my own anime characters and sharing them online. Inspired by the incredible artists I followed, I dedicated time each day to practice sketching, inking, and digital coloring. I posted my artwork on social media and received encouraging feedback from the community, which motivated me to improve further. I also joined online art challenges and collaborated with other creators on fan comics and illustrations. Over time, I developed my unique style and even started taking commissions. This creative journey not only enhanced my artistic skills but also boosted my confidence and opened up new opportunities in the world of anime art.",
+    title: "Innovation, Expansion & Continued Commitment",
+    images: ["/timelinephotos/2025.jpg"],
+    content: (
+      <>
+        In 2025, Avasa Foundation continued its mission with renewed energy and
+        innovation. We were honored once again to join the Republic Day
+        celebrations at Chak Government School, where we strengthened our
+        commitment to education by providing a projector, offering much-needed{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          technical support
+        </span>{" "}
+        to enhance classroom learning. Building on the success of the previous
+        year, our summer{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          Beat the Heat drive
+        </span>{" "}
+        returned with greater scale — distributing over{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          1,500 buttermilk packets
+        </span>{" "}
+        to individuals battling the harsh summer heat across underserved areas.
+        With every initiative, Avasa continues to evolve — combining{" "}
+        <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+          compassion, community, and sustainable support
+        </span>{" "}
+        to uplift lives across generations.
+      </>
+    ),
   },
 ];
 
@@ -216,6 +298,7 @@ const AvasaLogoSVG = (props) => (
   </svg>
 );
 
+// MODIFIED: Make images square and use object-fit: contain for full image
 const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
   const [active, setActive] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -225,9 +308,10 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
   if (!images || images.length === 0) return null;
 
   if (images.length === 1) {
+    // Make the image fill the available place, square, and fully visible (contain)
     return (
       <div
-        className={`relative ${imageSize}`}
+        className={`relative ${imageSize || ""}`}
         style={{
           aspectRatio: "1 / 1",
           background: "#fff",
@@ -236,17 +320,18 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
           maxWidth: "220px",
           maxHeight: "220px",
           width: "100%",
-          height: "auto",
+          height: "100%",
           overflow: "hidden",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          borderRadius: "0px", // square
         }}
       >
         <img
           src={images[0]}
           alt={altTexts[0] || "Gallery image"}
-          className={`object-cover object-center w-full h-full rounded-lg border-neutral-200 border dark:border-neutral-700 shadow`}
+          className={`object-contain object-center absolute inset-0 w-full h-full border-neutral-200 border dark:border-neutral-700 shadow`}
           style={{
             aspectRatio: "1 / 1",
             background: "#fff",
@@ -255,8 +340,11 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
             maxWidth: "100%",
             maxHeight: "100%",
             display: "block",
-            objectFit: "cover",
+            objectFit: "contain",
             objectPosition: "center",
+            position: "absolute",
+            inset: 0,
+            borderRadius: "0px", // square
           }}
           draggable={false}
         />
@@ -284,14 +372,16 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
         md:w-[160px] md:h-[160px] md:min-w-[160px] md:min-h-[160px]
         lg:w-[200px] lg:h-[200px] lg:min-w-[200px] lg:min-h-[200px]
         xl:w-[220px] xl:h-[220px] xl:min-w-[220px] xl:min-h-[220px]
-        2xl:w-[320px] 2xl:h-[260px] 2xl:min-w-[320px] 2xl:min-h-[260px]
-        aspect-square 2xl:aspect-[32/26]
+        2xl:w-[320px] 2xl:h-[320px] 2xl:min-w-[320px] 2xl:min-h-[320px]
+        aspect-square
       `}
       style={{
         maxWidth: "320px",
-        maxHeight: "260px",
+        maxHeight: "320px",
         width: "100%",
         height: "auto",
+        borderRadius: "0px", // square
+        overflow: "hidden",
       }}
     >
       <span
@@ -303,6 +393,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
           zIndex: 0,
           display: "block",
           opacity: 1,
+          borderRadius: "0px", // square
         }}
         aria-hidden="true"
       >
@@ -322,6 +413,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
               inset: 0,
               zIndex: 0,
               pointerEvents: "none",
+              borderRadius: "0px", // square
             }}
             draggable={false}
             aria-hidden="true"
@@ -337,6 +429,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
               position: "absolute",
               inset: 0,
               zIndex: 0,
+              borderRadius: "0px", // square
             }}
             className="w-full h-full"
           />
@@ -372,6 +465,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
           height: "100%",
           width: "100%",
           overflow: "hidden",
+          borderRadius: "0px", // square
         }}
       >
         <img
@@ -383,7 +477,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
           width={400}
           height={400}
           draggable={false}
-          className={`object-cover object-center w-full h-full rounded-xl border-gray-200 shadow-md border dark:border-neutral-800`}
+          className={`object-contain object-center w-full h-full border-gray-200 shadow-md border dark:border-neutral-800`}
           style={{
             opacity: 0.3,
             filter: "blur(3px)",
@@ -392,8 +486,10 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
             maxWidth: "100%",
             maxHeight: "100%",
             display: "block",
-            objectFit: "cover",
+            objectFit: "contain",
             objectPosition: "center",
+            borderRadius: "0px", // square
+            background: "#fff",
           }}
         />
       </motion.div>
@@ -418,6 +514,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            borderRadius: "0px", // square
           }}
         >
           <img
@@ -427,7 +524,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
             height={500}
             draggable={false}
             className={`
-              object-cover object-center w-full h-full rounded-2xl border-gray-200 shadow-lg border dark:border-neutral-800
+              object-contain object-center w-full h-full border-gray-200 shadow-lg border dark:border-neutral-800
             `}
             style={{
               aspectRatio: "1 / 1",
@@ -437,8 +534,9 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
               maxWidth: "100%",
               maxHeight: "100%",
               display: "block",
-              objectFit: "cover",
+              objectFit: "contain",
               objectPosition: "center",
+              borderRadius: "0px", // square
             }}
           />
         </motion.div>
@@ -518,14 +616,14 @@ export function Timeline({ data }) {
 
   return (
     <div
-      className="pt-16 w-full font-sans bg-white dark:bg-neutral-950 sm:pt-20 md:px-10"
+      className="pt-16 w-full font-sans text-white bg-black sm:pt-20 md:px-10"
       ref={containerRef}
     >
       <div className="relative mx-auto py-4 px-2 px-4 mt-6 max-w-7xl sm:py-8 md:px-8 lg:px-10">
-        <h2 className="mb-1 max-w-4xl text-base text-black text-lg dark:text-white sm:mb-2 md:text-4xl">
+        <h2 className="mb-1 max-w-4xl text-base text-white text-lg sm:mb-2 md:text-4xl">
           OUR JOURNEY
         </h2>
-        <p className="max-w-sm text-neutral-700 text-xs dark:text-neutral-300 sm:text-sm md:text-base">
+        <p className="max-w-sm text-white text-xs sm:text-sm md:text-base">
           THIS IS HOW IT STARTED
         </p>
       </div>
@@ -546,7 +644,7 @@ export function Timeline({ data }) {
                 <span className="mb-1 text-xl font-extrabold text-purple-600 dark:text-purple-400 sm:text-2xl md:text-3xl">
                   {item.year}
                 </span>
-                <h3 className="text-lg font-bold text-neutral-500 text-5xl dark:text-neutral-500 sm:text-xl md:text-2xl">
+                <h3 className="text-lg font-bold text-white text-5xl sm:text-xl md:text-2xl">
                   {item.title}
                 </h3>
               </div>

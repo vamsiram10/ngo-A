@@ -97,17 +97,17 @@ if (typeof window !== "undefined") {
 
 export default function EventUpdatesPage() {
   return (
-    <div className="overflow-x-hidden relative flex items-center justify-center min-h-screen w-full font-sans text-white bg-white dark:bg-black">
+    <div className="overflow-x-hidden relative flex items-center justify-center min-h-screen w-full font-sans text-white bg-black">
       {/* Grid background */}
       <div className={cn("absolute inset-0 z-0 event-grid-bg")} />
       {/* Radial gradient for faded look */}
-      <div className="z-10 absolute inset-0 flex items-center justify-center bg-white pointer-events-none [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div>
+      <div className="z-10 absolute inset-0 flex items-center justify-center bg-black pointer-events-none [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       {/* Extra gradient overlay for color pop */}
       <div className="z-20 absolute inset-0 bg-gradient-to-tr from-pink-500 via-black to-white opacity-10 blur-2xl pointer-events-none animate-gradient"></div>
       {/* Main content */}
       <div className="z-30 relative px-4 py-16 mx-auto max-w-4xl w-full sm:px-6">
         <h1
-          className="mt-16 mb-8 text-center text-white font-bold tracking-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
+          className="mt-16 mb-8 text-center text-pink-400 font-bold tracking-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
           style={{
             marginTop: "4rem",
             marginBottom: "2rem",
@@ -119,7 +119,7 @@ export default function EventUpdatesPage() {
           {events.map((event, i) => (
             <motion.div
               key={i}
-              className="p-4 bg-white/10 border-pink-500/20 rounded-3xl shadow-lg transition-all duration-300 backdrop-blur-md border hover:shadow-pink-400/30 sm:p-6"
+              className="p-4 bg-black/70 border-pink-500/40 rounded-3xl shadow-lg transition-all duration-300 backdrop-blur-md border hover:shadow-pink-400/30 sm:p-6"
               custom={i}
               variants={cardVariant}
               initial="hidden"
@@ -129,7 +129,7 @@ export default function EventUpdatesPage() {
               <p className="mb-2 text-xs text-pink-300 sm:text-sm">
                 📅 {event.date} | ⏰ {event.time}
               </p>
-              <h2 className="mb-2 text-lg font-bold text-white sm:text-2xl">
+              <h2 className="mb-2 text-lg font-bold text-pink-400 sm:text-2xl">
                 {event.name}
               </h2>
               <p className="flex items-center gap-1 mb-1 text-xs text-pink-200 sm:text-sm">
@@ -145,7 +145,7 @@ export default function EventUpdatesPage() {
                 </span>
                 <Link
                   href={`/contactus/map`}
-                  className="transition-colors underline hover:text-pink-400"
+                  className="text-pink-200 transition-colors underline hover:text-pink-400"
                 >
                   {event.address}
                 </Link>
@@ -176,7 +176,7 @@ export default function EventUpdatesPage() {
                   <div className="relative flex items-center justify-center">
                     <span className="z-10 absolute w-16 h-16 rounded-full border-2 border-pink-700/70 animate-ping-signal"></span>
                     <span className="z-0 absolute w-24 h-24 rounded-full border-2 border-pink-900/60 animate-ping-signal2"></span>
-                    <span className="z-20 absolute w-12 h-12 bg-white/80 rounded-full shadow-lg"></span>
+                    <span className="z-20 absolute w-12 h-12 bg-black/80 rounded-full shadow-lg"></span>
                     <Image
                       src="/svg/AVASA.svg"
                       alt="Avasa Map Marker"
@@ -228,7 +228,7 @@ export default function EventUpdatesPage() {
                   For better and exact location, refer to{" "}
                   <Link
                     href="/contactus/map"
-                    className="underline hover:text-pink-400"
+                    className="text-pink-200 underline hover:text-pink-400"
                   >
                     map location in Contact Us page
                   </Link>

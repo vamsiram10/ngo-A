@@ -90,7 +90,7 @@ const FlyingBirdLogo = ({
     return Math.sin(frame * speed + i * 0.5 + phase) * amplitude;
   };
 
-  const server404 = "server down  404 ";
+  const server404 = "Updates will be announced soon. Stay tuned!";
   const server404Color = "orange";
 
   const tagX = 70;
@@ -115,20 +115,7 @@ const FlyingBirdLogo = ({
           zIndex: 10,
           pointerEvents: "auto",
         }}
-      >
-        <span
-          style={{
-            color: "#e11d48",
-            fontWeight: "bold",
-            fontSize: 24,
-            background: "rgba(255,255,255,0.8)",
-            borderRadius: 6,
-            padding: "2px 10px",
-          }}
-        >
-          server 404
-        </span>
-      </div>
+      ></div>
       <svg
         width={width}
         height={height}

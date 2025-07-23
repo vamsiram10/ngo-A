@@ -1,8 +1,8 @@
 "use client";
-import { useState } from "react";
-import Image from "next/image";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -33,31 +33,89 @@ const chapters = [
 ];
 
 const galleryContent = [
-    {
-        id: 'hyd',
-        title: 'Hyderabad Chapter',
-        description: 'Our Hyderabad chapter has been at the forefront of community engagement, organizing everything from educational drives to health camps. These moments capture the spirit of our volunteers and the vibrant communities we serve.',
-        images: [
-            { src: "/images/chapter-hyd1.jpg", alt: "Hyderabad event 1", title: "Street Smarts", description: "An awareness campaign in full swing." },
-            { src: "/images/chapter-hyd2.jpg", alt: "Hyderabad event 2", title: "Health Drive", description: "Providing essential health services." },
-            { src: "/images/chapter-hyd3.jpg", alt: "Hyderabad event 3", title: "Educational Outreach", description: "Supporting local schools." },
-            { src: "/images/chapter-hyd4.jpg", alt: "Hyderabad event 4", title: "Community Joy", description: "Sharing moments of happiness." },
-        ],
-    },
-    {
-        id: 'jaipur',
-        title: 'Jaipur Chapter',
-        description: 'In the heart of the Pink City, our Jaipur chapter brings smiles and support to many. From local clean-up initiatives to celebrating festivals with underprivileged children, our volunteers create lasting bonds and beautiful memories.',
-        images: [
-            { src: "/images/chapter-jaipur.jpg", alt: "Jaipur event 1", title: "Shared Smiles", description: "Moments of connection and joy." },
-            { src: "/images/chapter-jaipur.jpg", alt: "Jaipur event 2", title: "Art for a Cause", description: "Creative workshops for local youth." },
-            { src: "/images/chapter-jaipur.jpg", alt: "Jaipur event 3", title: "Community Cleanup", description: "Working together for a cleaner city." },
-            { src: "/images/chapter-jaipur.jpg", alt: "Jaipur event 4", title: "Festival Fun", description: "Celebrating with the community." },
-        ],
-    },
+  {
+    id: "hyd",
+    title: "Hyderabad Chapter",
+    description:
+      "Our Hyderabad chapter has been at the forefront of community engagement, organizing everything from educational drives to health camps. These moments capture the spirit of our volunteers and the vibrant communities we serve.",
+    images: [
+      {
+        src: "/images/chapter-hyd1.jpg",
+        alt: "Hyderabad event 1",
+        title: "Food Drive",
+        description: "Sharing warm meals and warmer smiles with those in need.",
+      },
+      {
+        src: "/images/chapter-hyd2.jpg",
+        alt: "Hyderabad event 2",
+        title: "Health Drive",
+        description: "Providing essential health services.",
+      },
+      {
+        src: "/images/chapter-hyd3.jpg",
+        alt: "Hyderabad event 3",
+        title: "Summer Reach",
+        description: "Spreading relief and smiles in summer .",
+      },
+      {
+        src: "/images/chapter-hyd4.jpg",
+        alt: "Hyderabad event 4",
+        title: "Community Joy",
+        description: "Sharing moments of happiness.",
+      },
+      {
+        src: "/images/chapter-hyd5.jpg",
+        alt: "Hyderabad event 4",
+        title: "Care Serve",
+        description: "Sharing meals and love with the little ones",
+      },
+    ],
+  },
+  {
+    id: "jaipur",
+    title: "Jaipur Chapter",
+    description:
+      "In the heart of the Pink City, our Jaipur chapter brings smiles and support to many. From local clean-up initiatives to celebrating festivals with underprivileged children, our volunteers create lasting bonds and beautiful memories.",
+    images: [
+      {
+        src: "/jaipur/j1.jpg",
+        alt: "Jaipur event 1",
+        title: "Tech Aid",
+        description:
+          "Bridging gaps in learning by supporting government school classrooms",
+      },
+      {
+        src: "/jaipur/j2.jpg",
+        alt: "Jaipur event 2",
+        title: "Proud Roots",
+        description:
+          "Celebrating the spirit of unity, freedom, and pride on Republic Day.",
+      },
+      {
+        src: "/jaipur/j3.jpg",
+        alt: "Jaipur event 3",
+        title: "Winter Drive",
+        description:
+          "Spreading warmth this winter — with blankets, clothes, and compassion.",
+      },
+      {
+        src: "/jaipur/j4.jpg",
+        alt: "Jaipur event 4",
+        title: "Cool Relief",
+        description: "Beating the heat with refreshing drinks and kindness.",
+      },
+      {
+        src: "/jaipur/j5.jpg",
+        alt: "Jaipur event 4",
+        title: "Health Hand",
+        description:
+          "Distributing essential medical kits to support safer, healthier lives.",
+      },
+    ],
+  },
 ];
 
-
+// Make image fully visible in the ChapterCard by using object-contain and a fixed aspect ratio
 const ChapterCard = ({ chapter }) => (
   <motion.div
     variants={itemVariants}
@@ -65,14 +123,29 @@ const ChapterCard = ({ chapter }) => (
     transition={{ type: "spring", stiffness: 250 }}
     className="bg-neutral-900 rounded-2xl border border-neutral-800 shadow-md hover:shadow-pink-600/20 transition-shadow duration-300 overflow-hidden"
   >
-    <div className="relative h-44 sm:h-56 md:h-48 w-full">
-      <Image src={chapter.img} alt={`View of ${chapter.name}`} fill className="object-cover" sizes="100vw" />
+    <div className="relative w-full aspect-[4/3] bg-black">
+      <Image
+        src={chapter.img}
+        alt={`View of ${chapter.name}`}
+        fill
+        className="object-contain"
+        style={{ objectFit: "contain" }}
+        sizes="(max-width: 768px) 100vw, 100vw"
+        priority={false}
+      />
     </div>
     <div className="p-5 sm:p-6 flex flex-col h-full">
-      <h3 className="text-xl sm:text-2xl font-semibold text-pink-400 mb-2">{chapter.name}</h3>
-      <p className="text-neutral-400 mb-4 text-sm sm:text-base">{chapter.volunteers}+ Active Volunteers</p>
+      <h3 className="text-xl sm:text-2xl font-semibold text-pink-400 mb-2">
+        {chapter.name}
+      </h3>
+      <p className="text-neutral-400 mb-4 text-sm sm:text-base">
+        {chapter.volunteers}+ Active Volunteers
+      </p>
       <Link href={`mailto:${chapter.contact}`}>
-        <motion.button whileHover={{ scale: 1.05 }} className="w-full mt-auto bg-gradient-to-r from-pink-600 to-violet-600 hover:from-pink-500 hover:to-violet-500 text-white font-semibold py-2.5 sm:py-3 rounded-lg text-sm sm:text-base transition-all duration-300">
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          className="w-full mt-auto bg-gradient-to-r from-pink-600 to-violet-600 hover:from-pink-500 hover:to-violet-500 text-white font-semibold py-2.5 sm:py-3 rounded-lg text-sm sm:text-base transition-all duration-300"
+        >
           Contact Chapter
         </motion.button>
       </Link>
@@ -81,87 +154,299 @@ const ChapterCard = ({ chapter }) => (
 );
 
 const ContentItem = ({ title, description, isFaq = false }) => (
-  <motion.div variants={itemVariants} className="border-t border-neutral-800 py-5 sm:py-6">
-    <h3 className={`font-semibold mb-2 ${isFaq ? "text-white" : "text-pink-400"} text-base sm:text-lg`}>{title}</h3>
-    <p className="text-neutral-400 text-sm sm:text-base leading-relaxed">{description}</p>
+  <motion.div
+    variants={itemVariants}
+    className="border-t border-neutral-800 py-5 sm:py-6"
+  >
+    <h3
+      className={`font-semibold mb-2 ${
+        isFaq ? "text-white" : "text-pink-400"
+      } text-base sm:text-lg`}
+    >
+      {title}
+    </h3>
+    <p className="text-neutral-400 text-sm sm:text-base leading-relaxed">
+      {description}
+    </p>
   </motion.div>
 );
 
-const GalleryCard = ({ image }) => (
-    <motion.div variants={itemVariants} whileHover="hover" transition={{ type: "spring", stiffness: 250 }} className="group relative aspect-square rounded-2xl overflow-hidden shadow-lg hover:shadow-pink-600/30 transition-shadow duration-300">
-      <Image src={image.src} alt={image.alt} fill className="object-cover transition-transform duration-300 group-hover:scale-105" sizes="(max-width: 768px) 80vw, 300px" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 text-white">
-        <motion.h3 initial={{ y: 10, opacity: 0 }} variants={{ hover: { y: 0, opacity: 1 } }} transition={{ delay: 0.1, ease: "easeOut" }} className="font-bold text-lg sm:text-xl">{image.title}</motion.h3>
-        <motion.p initial={{ y: 10, opacity: 0 }} variants={{ hover: { y: 0, opacity: 1 } }} transition={{ delay: 0.15, ease: "easeOut" }} className="text-sm text-neutral-300">{image.description}</motion.p>
-      </div>
-    </motion.div>
+const GalleryCard = ({ image, isActive, onClick, index }) => (
+  <motion.div
+    variants={itemVariants}
+    whileHover="hover"
+    transition={{ type: "spring", stiffness: 250 }}
+    className={`group relative aspect-square rounded-2xl overflow-hidden shadow-lg hover:shadow-pink-600/30 transition-shadow duration-300
+      ${isActive ? "mobile-gallery-active" : ""}
+    `}
+    onClick={onClick}
+    tabIndex={0}
+    role="button"
+    aria-pressed={isActive}
+    onKeyDown={(e) => {
+      if (e.key === "Enter" || e.key === " ") onClick();
+    }}
+    style={{ touchAction: "manipulation" }}
+  >
+    <Image
+      src={image.src}
+      alt={image.alt}
+      fill
+      className={`object-cover transition-transform duration-300 group-hover:scale-105
+        ${isActive ? "mobile-gallery-scale" : ""}
+      `}
+      style={{ objectFit: "cover" }}
+      draggable={false}
+      sizes="(max-width: 640px) 288px, 320px"
+      priority={false}
+    />
+    <div
+      className={`
+        absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300
+        ${isActive ? "mobile-gallery-opacity" : ""}
+      `}
+    />
+    <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 text-white pointer-events-none">
+      <motion.h3
+        initial={{ y: 10, opacity: 0 }}
+        variants={{ hover: { y: 0, opacity: 1 } }}
+        animate={isActive ? "hover" : undefined}
+        transition={{ delay: 0.1, ease: "easeOut" }}
+        className="font-bold text-lg sm:text-xl"
+      >
+        {image.title}
+      </motion.h3>
+      <motion.p
+        initial={{ y: 10, opacity: 0 }}
+        variants={{ hover: { y: 0, opacity: 1 } }}
+        animate={isActive ? "hover" : undefined}
+        transition={{ delay: 0.15, ease: "easeOut" }}
+        className="text-sm text-neutral-300"
+      >
+        {image.description}
+      </motion.p>
+    </div>
+    {isActive && (
+      <div
+        className="fixed inset-0 z-40 sm:hidden"
+        style={{ cursor: "pointer" }}
+        onClick={(e) => {
+          e.stopPropagation();
+          if (typeof window !== "undefined" && window.innerWidth < 640) {
+            onClick();
+          }
+        }}
+      />
+    )}
+  </motion.div>
 );
 
-const ChapterGallery = ({ title, description, images }) => (
+const ChapterGallery = ({ title, description, images }) => {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const isMobile = () =>
+    typeof window !== "undefined" && window.innerWidth < 640;
+
+  return (
     <motion.div variants={itemVariants} className="mb-16 last:mb-0">
-        <div className="max-w-3xl mx-auto text-center mb-8 px-4">
-            <h3 className="text-2xl sm:text-3xl font-bold text-pink-400 mb-3">{title}</h3>
-            <p className="text-neutral-300 text-base sm:text-lg">{description}</p>
-        </div>
-        <div className="custom-scrollbar flex overflow-x-auto space-x-4 md:space-x-6 py-4 pl-4 pr-4 sm:pl-8 sm:pr-8">
-            {images.map((image, index) => (
-                <div key={index} className="flex-shrink-0 w-72 sm:w-80">
-                    <GalleryCard image={image} />
-                </div>
-            ))}
-        </div>
+      <div className="max-w-3xl mx-auto text-center mb-8 px-4">
+        <h3 className="text-2xl sm:text-3xl font-bold text-pink-400 mb-3">
+          {title}
+        </h3>
+        <p className="text-neutral-300 text-base sm:text-lg">{description}</p>
+      </div>
+      <div className="custom-scrollbar flex overflow-x-auto space-x-4 md:space-x-6 py-4 pl-4 pr-4 sm:pl-8 sm:pr-8">
+        {images.map((image, index) => (
+          <div key={index} className="flex-shrink-0 w-72 sm:w-80">
+            <GalleryCard
+              image={image}
+              index={index}
+              isActive={activeIndex === index}
+              onClick={() => {
+                if (typeof window !== "undefined" && window.innerWidth < 640) {
+                  setActiveIndex(activeIndex === index ? null : index);
+                }
+              }}
+            />
+          </div>
+        ))}
+      </div>
+      <style jsx global>{`
+        @media (max-width: 639px) {
+          .mobile-gallery-active {
+            z-index: 50;
+            box-shadow: 0 8px 32px 0 rgba(236, 72, 153, 0.25),
+              0 1.5px 8px 0 rgba(236, 72, 153, 0.15);
+          }
+          .mobile-gallery-scale {
+            transform: scale(1.05);
+            transition: transform 0.3s;
+          }
+          .mobile-gallery-opacity {
+            opacity: 1 !important;
+            transition: opacity 0.3s;
+          }
+        }
+      `}</style>
     </motion.div>
-);
+  );
+};
 
 export default function OurChaptersPage() {
   const [hoveredChapterId, setHoveredChapterId] = useState(null);
-  
-  const chapterToShow = hoveredChapterId ? chapters.find((c) => c.id === hoveredChapterId) : null;
+
+  const chapterToShow = hoveredChapterId
+    ? chapters.find((c) => c.id === hoveredChapterId)
+    : null;
+
+  const chaptersSectionRef = useRef(null);
+
+  const handleSmoothScroll = (e) => {
+    e.preventDefault();
+    if (chaptersSectionRef.current) {
+      chaptersSectionRef.current.scrollIntoView({ behavior: "smooth" });
+    } else {
+      if (typeof window !== "undefined") {
+        const el = document.getElementById("chapters");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   return (
     <main className="bg-black text-white">
       <div className="overflow-hidden">
         <div className="relative flex flex-col md:flex-row items-center justify-center px-4 min-h-[100vh] sm:min-h-[80vh] md:min-h-[100vh]">
-          <motion.div initial="hidden" animate="visible" variants={containerVariants} className="relative z-20 max-w-2xl w-full text-center md:text-left md:w-1/2 py-16 md:py-0">
-            <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-bold mb-4">Our Roots, <span className="text-pink-500">Your Community</span></motion.h1>
-            <motion.p variants={itemVariants} className="text-lg text-neutral-300 mb-6 sm:mb-10">From bustling metros to local neighborhoods, our mission is powered by dedicated chapters across India. Find yours today.</motion.p>
-            <motion.div variants={itemVariants} className="flex justify-center md:justify-start">
-              <Link href="#chapters">
-                <motion.button whileHover={{ scale: 1.05 }} className="bg-pink-600 hover:bg-pink-700 px-6 py-3 rounded-full text-white text-base sm:text-lg font-semibold transition">
-                  Explore Our Chapters
-                </motion.button>
-              </Link>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            className="relative z-20 max-w-2xl w-full text-center md:text-left md:w-1/2 py-16 md:py-0"
+          >
+            <motion.h1
+              variants={itemVariants}
+              className="text-4xl md:text-6xl font-bold mb-4"
+            >
+              Our Roots, <span className="text-pink-500">Your Community</span>
+            </motion.h1>
+            <motion.p
+              variants={itemVariants}
+              className="text-lg text-neutral-300 mb-6 sm:mb-10"
+            >
+              From bustling metros to local neighborhoods, our mission is
+              powered by dedicated chapters across India. Find yours today.
+            </motion.p>
+            <motion.div
+              variants={itemVariants}
+              className="flex justify-center md:justify-start"
+            >
+              <button
+                onClick={handleSmoothScroll}
+                className="bg-pink-600 hover:bg-pink-700 px-6 py-3 rounded-full text-white text-base sm:text-lg font-semibold transition"
+                type="button"
+              >
+                Explore Our Chapters
+              </button>
             </motion.div>
           </motion.div>
           <div className="relative w-full md:w-1/2 flex justify-center items-center h-[380px] sm:h-[480px] md:h-[620px] lg:h-[700px]">
-            <div id="map" className="relative w-full max-w-2xl aspect-[4/3] md:aspect-[16/9] border-2 border-pink-500 rounded-2xl overflow-hidden bg-neutral-900/90 shadow-2xl backdrop-blur-lg z-20">
-              <Image src="/images/india-map.png" alt="Map of India" fill className="object-contain opacity-80 saturate-150" priority sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 900px" />
+            <div
+              id="map"
+              className="relative w-full max-w-2xl aspect-[4/3] md:aspect-[16/9] border-2 border-pink-500 rounded-2xl overflow-hidden bg-neutral-900/90 shadow-2xl backdrop-blur-lg z-20"
+            >
+              <Image
+                src="/images/india-map.png"
+                alt="Map of India"
+                fill
+                className="object-contain opacity-80 saturate-150"
+                style={{ objectFit: "contain" }}
+                sizes="(max-width: 1024px) 100vw, 100vw"
+                priority={false}
+              />
               {chapters.map((chapter) => (
-                <div key={chapter.id} onMouseEnter={() => setHoveredChapterId(chapter.id)} onMouseLeave={() => setHoveredChapterId(null)} onTouchStart={() => setHoveredChapterId(chapter.id)} onTouchEnd={() => setTimeout(() => setHoveredChapterId(null), 800)} className="absolute z-30 cursor-pointer" style={{ left: chapter.position.left, top: chapter.position.top, transform: "translate(-50%, -50%)" }}>
-                  <div className={`rounded-full border-2 sm:border-4 border-pink-500 bg-white flex items-center justify-center shadow-lg transition-all duration-300 ${hoveredChapterId === chapter.id ? "ring-2 sm:ring-4 ring-pink-300/60 scale-110" : ""} w-10 h-10 sm:w-12 sm:h-12`}>
-                    <Image src="/svg/AVASA.svg" alt="AVASA Logo" width={32} height={32} className="rounded-full object-contain bg-white animate-blink-signal sm:w-10 sm:h-10 w-8 h-8" />
+                <div
+                  key={chapter.id}
+                  onMouseEnter={() => setHoveredChapterId(chapter.id)}
+                  onMouseLeave={() => setHoveredChapterId(null)}
+                  onTouchStart={() => setHoveredChapterId(chapter.id)}
+                  onTouchEnd={() =>
+                    setTimeout(() => setHoveredChapterId(null), 800)
+                  }
+                  className="absolute z-30 cursor-pointer"
+                  style={{
+                    left: chapter.position.left,
+                    top: chapter.position.top,
+                    transform: "translate(-50%, -50%)",
+                  }}
+                >
+                  <div
+                    className={`rounded-full border-2 sm:border-4 border-pink-500 bg-white flex items-center justify-center shadow-lg transition-all duration-300 ${
+                      hoveredChapterId === chapter.id
+                        ? "ring-2 sm:ring-4 ring-pink-300/60 scale-110"
+                        : ""
+                    } w-10 h-10 sm:w-12 sm:h-12`}
+                  >
+                    <Image
+                      src="/svg/AVASA.svg"
+                      alt="AVASA Logo"
+                      width={32}
+                      height={32}
+                      className="rounded-full object-contain bg-white animate-blink-signal sm:w-10 sm:h-10 w-8 h-8"
+                      style={{ objectFit: "contain" }}
+                      priority={false}
+                    />
                   </div>
                 </div>
               ))}
               <AnimatePresence>
                 {chapterToShow && (
-                  <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8 }} className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 p-3 sm:p-5 bg-black/80 backdrop-blur-lg rounded-xl border border-pink-500/30 text-left z-40">
-                    <h3 className="text-pink-400 font-semibold text-base sm:text-lg md:text-xl">{chapterToShow.name}</h3>
-                    <p className="text-neutral-200 text-xs sm:text-sm">{chapterToShow.volunteers}+ Volunteers</p>
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 p-3 sm:p-5 bg-black/80 backdrop-blur-lg rounded-xl border border-pink-500/30 text-left z-40"
+                  >
+                    <h3 className="text-pink-400 font-semibold text-base sm:text-lg md:text-xl">
+                      {chapterToShow.name}
+                    </h3>
+                    <p className="text-neutral-200 text-xs sm:text-sm">
+                      {chapterToShow.volunteers}+ Volunteers
+                    </p>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
           </div>
-          <Image src="/images/chapter-hero.jpg" alt="Volunteers" fill className="object-cover z-0 opacity-50 saturate-150 absolute inset-0 pointer-events-none" priority />
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <Image
+              src="/images/chapter-hero.jpg"
+              alt="Volunteers"
+              fill
+              className="object-cover opacity-50 saturate-150"
+              style={{ objectFit: "cover" }}
+              sizes="100vw"
+              priority={false}
+            />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10 pointer-events-none" />
         </div>
 
-        <div id="chapters" className="bg-black py-16 md:py-24 border-y border-neutral-800">
+        <div
+          id="chapters"
+          ref={chaptersSectionRef}
+          className="bg-black py-16 md:py-24 border-y border-neutral-800"
+        >
           <div className="max-w-5xl mx-auto px-4">
-            <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-pink-500 mb-8 sm:mb-12 text-center">Our Chapters</h2>
-            <motion.div initial="hidden" whileInView="visible" variants={containerVariants} viewport={{ once: true, amount: 0.2 }} className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-pink-500 mb-8 sm:mb-12 text-center">
+              Our Chapters
+            </h2>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              variants={containerVariants}
+              viewport={{ once: true, amount: 0.2 }}
+              className="grid grid-cols-1 gap-8 md:grid-cols-2"
+            >
               {chapters.map((chapter) => (
                 <div key={chapter.id} className="w-full max-w-sm mx-auto">
                   <ChapterCard chapter={chapter} />
@@ -170,38 +455,85 @@ export default function OurChaptersPage() {
             </motion.div>
           </div>
         </div>
-        
+
         <div className="bg-black py-16 sm:py-24 border-b border-neutral-800">
-            <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-12 px-4">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-pink-500 mb-3">Moments That Define Us</h2>
-                    <p className="text-neutral-400 text-base sm:text-lg max-w-3xl mx-auto">A glimpse into the lifeblood of our mission—the events, drives, and smiles from our chapters nationwide.</p>
-                </div>
-                <motion.div initial="hidden" whileInView="visible" variants={containerVariants} viewport={{ once: true, amount: 0.1 }}>
-                    {galleryContent.map((chapter) => (
-                        <ChapterGallery key={chapter.id} title={chapter.title} description={chapter.description} images={chapter.images} />
-                    ))}
-                </motion.div>
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12 px-4">
+              <h2 className="text-3xl sm:text-4xl font-bold text-pink-500 mb-3">
+                Moments That Define Us
+              </h2>
+              <p className="text-neutral-400 text-base sm:text-lg max-w-3xl mx-auto">
+                A glimpse into the lifeblood of our mission—the events, drives,
+                and smiles from our chapters nationwide.
+              </p>
             </div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              variants={containerVariants}
+              viewport={{ once: true, amount: 0.1 }}
+            >
+              {galleryContent.map((chapter) => (
+                <ChapterGallery
+                  key={chapter.id}
+                  title={chapter.title}
+                  description={chapter.description}
+                  images={chapter.images}
+                />
+              ))}
+            </motion.div>
+          </div>
         </div>
 
         <div className="bg-neutral-950 py-16 sm:py-24 border-b border-neutral-800">
           <div className="max-w-2xl mx-auto px-4">
-            <h2 className="text-3xl sm:text-4xl font-bold text-pink-500 mb-10 text-center">Starting a Chapter: FAQs</h2>
-            <motion.div initial="hidden" whileInView="visible" variants={containerVariants} viewport={{ once: true, amount: 0.1 }} className="space-y-5">
-              <ContentItem title="What is the first step to starting a chapter?" description="Contact us through our contact page! We’ll provide a starter kit and help you build a local team." isFaq />
-              <ContentItem title="How many people do I need to start a chapter?" description="Just 3–5 dedicated members can kickstart a chapter. Passion matters more than numbers!" isFaq />
-              <ContentItem title="What support do I get?" description="Branding, mentorship, access to our tools, and step-by-step support from our leadership team." isFaq />
+            <h2 className="text-3xl sm:text-4xl font-bold text-pink-500 mb-10 text-center">
+              Starting a Chapter: FAQs
+            </h2>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              variants={containerVariants}
+              viewport={{ once: true, amount: 0.1 }}
+              className="space-y-5"
+            >
+              <ContentItem
+                title="What's the impact of Avasa Foundation's Hyderabad and Jaipur chapters?
+"
+                description="Our Hyderabad and Jaipur chapters are making a tangible difference by empowering disadvantaged people in the society .We work in three areas mainly: Love and Care, Seasonal and Awareness Drives and Development and Support. "
+                isFaq
+              />
+              <ContentItem
+                title="How can I start a new Avasa Foundation chapter in my city?
+"
+                description=" If you're passionate about our mission, please contact us! We have specific guidelines and a process for establishing new chapters, ensuring alignment with our vision and values.
+"
+                isFaq
+              />
+              <ContentItem
+                title="How many people are required to start a new Avasa Foundation chapter?
+"
+                description="Generally, it can range from 5-7 people along with a committed core team. We'll provide detailed requirements during the application process."
+                isFaq
+              />
             </motion.div>
           </div>
         </div>
 
         <div className="py-16 sm:py-24 text-center">
           <div className="max-w-2xl mx-auto px-4">
-            <h2 className="text-3xl sm:text-4xl font-bold text-pink-500 mb-4">Ready to Lead the Change?</h2>
-            <p className="text-neutral-300 mb-8 text-base sm:text-lg">Be a pioneer in your community. We’ll support you every step of the way to launch your chapter.</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-pink-500 mb-4">
+              Ready to Lead the Change?
+            </h2>
+            <p className="text-neutral-300 mb-8 text-base sm:text-lg">
+              Be a pioneer in your community. We’ll support you every step of
+              the way to launch your chapter.
+            </p>
             <Link href="/contactus">
-              <motion.button whileHover={{ scale: 1.05 }} className="bg-gradient-to-r from-pink-600 to-violet-600 hover:from-pink-500 hover:to-violet-500 text-white font-bold py-3 px-8 rounded-full text-base sm:text-lg transition">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                className="bg-gradient-to-r from-pink-600 to-violet-600 hover:from-pink-500 hover:to-violet-500 text-white font-bold py-3 px-8 rounded-full text-base sm:text-lg transition"
+              >
                 Start a Chapter
               </motion.button>
             </Link>

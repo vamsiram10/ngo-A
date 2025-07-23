@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const fadeIn = {
@@ -51,7 +50,7 @@ export default function AboutUsContent() {
     {
       name: "K. Usha Bhargavi",
       role: "Executive member",
-      desc: "Contributes to decision-making, supports program execution, and upholds the organization’s mission through active involvement.",
+      desc: "Contributes to decision-making, supports program execution, and upholds the organization's mission through active involvement.",
       img: "/team/ajay.jpg",
     },
     {
@@ -69,194 +68,183 @@ export default function AboutUsContent() {
     {
       name: "R.V.R. Vamsi",
       role: "Head of Social Media",
-      desc: "Leads the organization’s digital presence by strategizing, creating, and managing content to amplify outreach and engagement.",
-      img: "/team/ajay.jpg",
+      desc: "Leads the organization's digital presence by strategizing, creating, and managing content to amplify outreach and engagement.",
+      img: "",
     },
   ];
 
-  const [minHeight, setMinHeight] = useState(undefined);
-
-  useEffect(() => {
-    function handleResize() {
-      if (typeof window !== "undefined") {
-        if (window.innerWidth < 768) {
-          setMinHeight("450vh");
-        } else {
-          setMinHeight(undefined);
-        }
-      }
-    }
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
-    <div
-      className="px-4 py-12 mt-10 text-white bg-black space-y-20 sm:px-6 md:px-10 lg:px-16"
-      style={minHeight ? { minHeight } : undefined}
-    >
-      {/* Section: Hero Banner Full Screen */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="overflow-hidden relative flex items-center justify-center mt-10"
-      >
-        {/* Centered Heading */}
-        <div className="z-10 text-center">
-          <h1 className="text-5xl font-extrabold text-white drop-shadow-lg sm:text-6xl">
-            About Us
-          </h1>
+    <motion.section>
+      <div className="relative top-8 text-white bg-black">
+        <div className="py-16 px-4 text-center sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <h1 className="text-4xl font-bold text-transparent bg-pink-500 bg-clip-text sm:text-5xl">
+              About Us
+            </h1>
+          </motion.div>
         </div>
-      </motion.div>
 
-      {/* Section: Who We Are */}
-      <motion.section
-        id="who-we-are"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeIn}
-      >
-        <div className="flex justify-around items-center bg-[#fb64b6]/10 rounded-xl shadow-md hover:shadow-lg transition">
-          <div className="flex-1/2">
-            <h2 className="mb-6 text-3xl font-bold text-[#fb64b6] text-center sm:text-4xl">
+        <div className="grid items-center gap-8 px-4 sm:px-40 lg:grid-cols-2">
+          <div>
+            <h2 className="mb-6 text-3xl font-semibold text-transparent bg-pink-300 bg-clip-text sm:text-4xl">
               Who We Are
             </h2>
-            <p className="mx-auto px-2 text-center leading-relaxed text-white text-lg sm:px-14">
+            <p className="mb-4">
               What began as a heartfelt initiative by{" "}
-              <strong className="text-[#fb64b6]">V. Radha Priyanka</strong> and
+              <strong className="text-pink-400">V. Radha Priyanka</strong> and
               her close friends in 2022 has now grown into a registered movement
-              of compassion and change. Rooted in Hyderabad, our journey started
-              with simple acts—distributing clothes and food to those in need.
-              <br />
-              <br />
-              As our vision expanded, so did our reach. We built a dedicated
-              team and extended to Jaipur—taking our mission of care to more
-              communities. From refreshment drives and medical kit distributions
-              to visits to orphanages and old age homes, every effort is driven
-              by the same purpose—to bring hope, dignity, and support.
-              <br />
-              <br />
-              Founded in 2022 and officially incorporated as a{" "}
-              <strong className="text-[#fb64b6]">
+              of compassion and change.
+            </p>
+            <p className="mb-4">
+              Our journey started with simple acts—distributing clothes and food
+              to those in need. As our vision expanded, so did our reach. Today,
+              we operate in Hyderabad and Jaipur, building a community that
+              cares deeply.
+            </p>
+            <p>
+              Officially incorporated as a{" "}
+              <strong className="text-pink-400">
                 registered NGO in November 2024
-              </strong>
-              , Avasa is registered under the Telangana Societies Registration
-              Act, 2001 with registration number{" "}
-              <strong className="text-[#fb64b6]">1108 of 2024</strong>. This
-              recognition enables us to scale our initiatives and deepen our
-              commitment to meaningful, community-driven change.
+              </strong>{" "}
+              under Telangana Societies Registration Act (Reg. No:{" "}
+              <strong className="text-pink-400">1108 of 2024</strong>).
             </p>
           </div>
-          <Image
-            className="m-10 rounded-2xl"
-            width={550}
-            height={300}
-            alt="image"
-            src="/images/aboutus1.jpg"
-          />
-        </div>
-      </motion.section>
-
-      {/* Section: What We Do */}
-      <motion.section
-        id="what-we-do"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeIn}
-      >
-        <h2 className="mb-6 text-3xl font-bold text-[#fb64b6] text-center sm:text-4xl">
-          What We Do
-        </h2>
-        <div className="mx-auto px-2 max-w-4xl max-w-5xl text-white space-y-8 space-y-10 sm:px-0">
-          <div className="p-5 bg-[#fb64b6]/10 rounded-xl shadow-md hover:shadow-lg transition sm:p-6">
-            <h3 className="mb-2 text-xl font-semibold text-[#fb64b6] sm:text-2xl">
-              1. Love and Care
-            </h3>
-            <p className="text-base sm:text-lg">
-              We believe compassion is the foundation of change. Through regular
-              visits to orphanages and old age homes, our volunteers build
-              emotional connections and support holistic well-being.
-            </p>
-          </div>
-
-          <div className="p-5 bg-[#fb64b6]/10 rounded-xl shadow-md hover:shadow-lg transition sm:p-6">
-            <h3 className="mb-2 text-xl font-semibold text-[#fb64b6] sm:text-2xl">
-              2. Seasonal & Awareness Drives
-            </h3>
-            <ul className="text-base list-disc list-inside space-y-1 sm:text-lg">
-              <li>
-                <strong>Winter:</strong> Sweaters, blankets, and warm clothing
-              </li>
-              <li>
-                <strong>Summer:</strong> Refreshments, hydration kits, and
-                cooling supplies
-              </li>
-              <li>
-                <strong>Medical Kits:</strong> Especially in underserved areas
-              </li>
-              <li>
-                <strong>Period Kits:</strong> Especially in underserved areas
-              </li>
-            </ul>
-          </div>
-
-          <div className="p-5 bg-[#fb64b6]/10 rounded-xl shadow-md hover:shadow-lg transition sm:p-6">
-            <h3 className="mb-2 text-xl font-semibold text-[#fb64b6] sm:text-2xl">
-              3. Development Support
-            </h3>
-            <ul className="text-base list-disc list-inside space-y-1 sm:text-lg">
-              <li>Educational aids: projectors, stationery, floor carpets</li>
-              <li>School infrastructure: basic classroom needs</li>
-              <li>Community upliftment for marginalized groups</li>
-            </ul>
+          <div className="overflow-hidden relative w-full h-64 rounded-xl sm:h-96">
+            <Image
+              fill
+              src="/images/aboutus1.jpg"
+              alt="Avasa NGO team members"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+              priority
+            />
           </div>
         </div>
-      </motion.section>
 
-      {/* Section: Meet Our Team */}
-      <motion.section
-        id="meet-our-team"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeIn}
-        className="relative min-h-[380vh] sm:min-h-[200vh] md:min-h-[130vh] lg:min-h-[140vh]"
-      >
-        <div className="mt-16 mx-20 sm:mt-20 md:mt-24 lg:mt-32">
-          <h2 className="text-3xl font-bold text-[#fb64b6] text-center sm:text-4xl">
-            Meet Our Board
+        <div className="relative px-4 py-12 py-20 sm:px-40">
+          <h2 className="mb-10 text-3xl font-semibold text-center text-pink-300 sm:text-4xl lg:text-4xl">
+            What We Do
           </h2>
-
-          <div className="flex flex-wrap justify-center gap-6 mt-8 px-2 mt-10 px-0 sm:gap-8">
-            {team.map((member, index) => (
-              <div
-                key={index}
-                className="p-5 w-[85vw] w-[280px] text-center bg-[#fb64b6]/10 rounded-xl shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg sm:p-6 md:w-[300px] lg:w-[320px]"
-              >
-                <img
-                  src={member.img}
-                  alt={member.name}
-                  className="object-cover mx-auto mb-4 w-24 h-24 w-28 rounded-full border-4 border-[#fb64b6] sm:h-28"
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Love and Care */}
+            <div className="flex flex-col items-center p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
+              <div className="overflow-hidden flex items-center justify-center mb-4 w-40 h-40 bg-neutral-800 border-2 border-pink-400">
+                <Image
+                  src="/aboutus/love.jpg"
+                  alt="Love and Care"
+                  width={160}
+                  height={160}
+                  className="object-cover w-full h-full"
                 />
-                <h3 className="text-lg font-semibold text-[#fb64b6] sm:text-xl">
-                  {member.name}
-                </h3>
-                <p className="mt-1 text-sm text-white sm:text-base">
-                  {member.role}
-                </p>
-                <p className="mt-2 text-xs text-white sm:text-sm">
-                  {member.desc}
-                </p>
               </div>
-            ))}
+              <h3 className="mb-2 text-xl font-semibold text-pink-400 text-center lg:text-2xl">
+                1. Love and Care
+              </h3>
+              <p className="text-center lg:text-lg">
+                Regular visits to orphanages and old age homes to foster
+                connections and holistic well-being.
+              </p>
+            </div>
+
+            {/* Seasonal & Awareness Drives */}
+            <div className="flex flex-col items-center p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
+              <div className="overflow-hidden flex items-center justify-center mb-4 w-40 h-40 bg-neutral-800 border-2 border-pink-400">
+                <Image
+                  src="/aboutus/seasonal.jpg"
+                  alt="Seasonal & Awareness Drives"
+                  width={160}
+                  height={160}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <h3 className="mb-2 text-xl font-semibold text-pink-400 text-center lg:text-2xl">
+                2. Seasonal & Awareness Drives
+              </h3>
+              <ul className="text-center list-disc list-inside space-y-1 lg:text-lg">
+                <li>
+                  <strong className="text-pink-400">Winter:</strong> Warm
+                  clothing
+                </li>
+                <li>
+                  <strong className="text-pink-400">Summer:</strong> Hydration
+                  kits & refreshments
+                </li>
+                <li>
+                  <strong className="text-pink-400">
+                    Medical & Period Kits
+                  </strong>
+                </li>
+              </ul>
+            </div>
+
+            {/* Development Support */}
+            <div className="flex flex-col items-center p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
+              <div className="overflow-hidden flex items-center justify-center mb-4 w-40 h-40 bg-neutral-800 border-2 border-pink-400">
+                <Image
+                  src="/aboutus/development.jpg"
+                  alt="Development Support"
+                  width={160}
+                  height={160}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <h3 className="mb-2 text-xl font-semibold text-pink-400 text-center lg:text-2xl">
+                3. Development Support
+              </h3>
+              <ul className="text-center list-disc list-inside space-y-1 lg:text-lg">
+                <li>Educational aids: projectors, stationery</li>
+                <li>Basic school infrastructure</li>
+                <li>Community upliftment programs</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </motion.section>
-    </div>
+
+        <h2 className="relative mb-15 text-3xl font-bold text-center text-pink-300 md:text-4xl">
+          Meet Our Board
+        </h2>
+        <div className="grid grid-cols-1 gap-8 px-17 mx-auto px-6 px-8 max-w-7xl sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {team.map((member, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center p-6 mb-10 min-h-[350px] text-center bg-neutral-900 rounded-2xl shadow-md md:min-h-[380px] lg:min-h-[200px]"
+            >
+              <div className="overflow-hidden mb-4 w-32 h-32 rounded-full">
+                {member.img ? (
+                  <Image
+                    src={member.img}
+                    alt={member.name}
+                    width={128}
+                    height={128}
+                    className="object-cover w-full h-full"
+                  />
+                ) : (
+                  <div className="flex items-center justify-center w-full h-full text-pink-400 text-4xl font-bold bg-neutral-800">
+                    {member.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")
+                      .slice(0, 2)}
+                  </div>
+                )}
+              </div>
+              <h3 className="text-xl font-semibold text-white">
+                {member.name}
+              </h3>
+              <p className="mb-2 text-sm font-medium text-pink-400">
+                {member.role}
+              </p>
+              <p className="text-sm text-white">{member.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </motion.section>
   );
 }
