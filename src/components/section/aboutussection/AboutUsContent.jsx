@@ -93,6 +93,7 @@ export default function AboutUsContent() {
           <h2 className="mb-6 text-3xl font-semibold text-transparent bg-pink-300 bg-clip-text sm:text-4xl">
             Who We Are
           </h2>
+         <div className="space-y-4">
           <p>
             What began as a heartfelt initiative by{" "}
             <strong className="text-[#fb64b6]">V. Radha Priyanka</strong> and
@@ -100,6 +101,7 @@ export default function AboutUsContent() {
             of compassion and change. Rooted in Hyderabad, our journey started
             with simple acts—distributing clothes and food to those in need.
           </p>
+        
           <p>
             As our vision expanded, so did our reach. We built a dedicated team
             and extended to Jaipur—taking our mission of care to more
@@ -107,20 +109,18 @@ export default function AboutUsContent() {
             to visits to orphanages and old age homes, every effort is driven by
             the same purpose—to bring hope, dignity, and support.
           </p>
+        
           <p>
             Founded in 2022 and officially incorporated as a{" "}
-            <strong className="text-[#fb64b6]">
-              registered NGO in November 2024
-            </strong>
-            , Avasa is registered under the{" "}
-            <strong className="text-[#fb64b6]">
-              Telangana Societies Registration Act, 2001
-            </strong>{" "}
+            <strong className="text-[#fb64b6]">registered NGO in November 2024</strong>,
+            Avasa is registered under the{" "}
+            <strong className="text-[#fb64b6]">Telangana Societies Registration Act, 2001</strong>{" "}
             with registration number{" "}
             <strong className="text-[#fb64b6]">1108 of 2024</strong>. This
             recognition enables us to scale our initiatives and deepen our
             commitment to meaningful, community-driven change.
           </p>
+        </div>
         </div>
         <div className="overflow-hidden relative w-full h-64 rounded-xl sm:h-96">
           <Image
