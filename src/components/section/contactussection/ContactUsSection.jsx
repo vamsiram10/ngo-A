@@ -1,8 +1,8 @@
 "use client";
 
+import React, { useRef, useState } from "react";
 import { BackgroundLines } from "@/components/utils/background/background-lines";
 import emailjs from "@emailjs/browser";
-import React, { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const fadeInUp = {
@@ -96,7 +96,7 @@ const ContactUsSection = () => {
           setMessageInput("");
           if (form.current) form.current.reset();
         },
-        (error) => {
+        () => {
           setError("Failed to send message, please try again later.");
           setSending(false);
         }
