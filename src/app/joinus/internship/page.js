@@ -207,7 +207,7 @@ export default function InternshipPage() {
       <section className="relative min-h-[90vh] flex items-center justify-center text-center p-4 pb-32">
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="/images/internmain.jpg"
+            src="/images/innternmain1.jpg"
             alt="Interns collaborating"
             fill
             className="object-cover opacity-30 z-0"
