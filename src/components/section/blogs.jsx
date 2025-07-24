@@ -24,7 +24,7 @@ const blogs = [
   },
 ];
 
-const BlogsPage = () => {
+const Blogs = () => {
   const [expandedId, setExpandedId] = useState(null);
 
   const toggleBlog = (id) => {
@@ -68,4 +68,4 @@ const BlogsPage = () => {
   );
 };
 
-export default BlogsPage;
+export default Blogs;
