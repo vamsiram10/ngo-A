@@ -211,7 +211,7 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
           }}
         />
       </div>
-      <h2 className={titleClass}>Testimonials</h2>
+      <h2 className={`${titleClass} text-white`}>Testimonials</h2>
       <div className="flex flex-col items-center justify-center gap-10 w-full md:flex-row lg:gap-45">
         <div
           className="flex flex-col flex-shrink-0 items-center"
