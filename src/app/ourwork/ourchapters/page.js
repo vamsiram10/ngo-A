@@ -417,18 +417,29 @@ export default function OurChaptersPage() {
               </AnimatePresence>
             </div>
           </div>
+          {/* Responsive background image and overlay for desktop and mobile */}
           <div className="absolute inset-0 z-0 pointer-events-none">
             <Image
-              src="/images/chapter-hero.jpeg"
+              src="/images/vm.jpg"
               alt="Volunteers"
               fill
               className="object-cover opacity-50 saturate-150"
-              style={{ objectFit: "cover" }}
+              style={{
+                objectFit: "cover",
+                objectPosition: "center 30%", // Show more of the top on mobile
+              }}
               sizes="100vw"
               priority={false}
             />
+            <style jsx global>{`
+              @media (min-width: 1024px) {
+                .object-cover {
+                  object-position: center 15% !important; /* Show more of the top on desktop */
+                }
+              }
+            `}</style>
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10 pointer-events-none" />
+          {/* <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10 pointer-events-none" /> */}
         </div>
 
         <div
