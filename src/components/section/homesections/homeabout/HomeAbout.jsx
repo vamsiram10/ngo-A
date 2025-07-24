@@ -4,7 +4,7 @@ import { useRef, useEffect } from "react";
 const missionStatement =
   "Avasa Foundation is dedicated to holistic outreach, creating sustainable positive impact in the lives of the most vulnerable. From nurturing emotional well-being in care homes to providing lifeline resources for the homeless and needy, and fostering educational empowerment in government schools, slums, and rural communities, we are committed to building a more equitable and caring world.";
 const visionStatement =
-  "Promoting individuality and promoting change for an equally sustainable society.";
+  "A world where every individual, regardless of circumstance, lives with dignity, feels deeply cared for, and has the opportunity to flourish.";
 
 const shinyStyle = `
   .shiny-block {
