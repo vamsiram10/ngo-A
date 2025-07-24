@@ -32,26 +32,29 @@ const BlogsPage = () => {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-[#1f1f1f] to-[#2e2e2e] py-20 font-sans text-white">
+    <section className="py-20 min-h-screen font-sans text-white bg-black">
       <div className="container mx-auto px-4">
-        <h2 className="mb-12 text-4xl font-bold text-center text-pink-500 uppercase">Avasa Blog Page</h2>
+        <h2 className="mb-12 text-4xl font-bold text-center text-pink-500 uppercase">
+          Avasa Blog Page
+        </h2>
         <div className="flex flex-col gap-10">
           {blogs.map((blog) => {
             const isExpanded = expandedId === blog.id;
             return (
-              <div
-                key={blog.id}
-                className="w-full"
-              >
-                <div className="bg-[#2b2b2b] p-6 rounded-xl shadow-lg transition-all duration-300 border border-pink-500/10">
-                  <h3 className="text-xl font-semibold text-white mb-1">{blog.title}</h3>
-                  <p className="text-sm text-pink-400 mb-3 italic">By {blog.author}</p>
+              <div key={blog.id} className="w-full">
+                <div className="p-6 bg-[#2b2b2b] rounded-xl border-pink-500/10 shadow-lg transition-all duration-300 border">
+                  <h3 className="mb-1 text-xl font-semibold text-white">
+                    {blog.title}
+                  </h3>
+                  <p className="mb-3 text-sm text-pink-400 italic">
+                    By {blog.author}
+                  </p>
                   <p className="text-gray-300 leading-relaxed">
                     {isExpanded ? blog.content : blog.excerpt}
                   </p>
                   <button
                     onClick={() => toggleBlog(blog.id)}
-                    className="mt-4 inline-block text-pink-400 hover:underline text-sm font-medium"
+                    className="inline-block mt-4 text-pink-400 text-sm font-medium hover:underline"
                   >
                     {isExpanded ? "Show Less" : "Read More"}
                   </button>
