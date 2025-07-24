@@ -4,9 +4,9 @@
 
 // const faqs = [
 //   {
-//     question: "How can I contact your support team?",
+//     question: "How can I contact your team?",
 //     answer:
-//       "You can reach our support team by filling out the contact form on this page or by emailing us directly at support@example.com.",
+//       "You can reach our support team by filling out the contact form on this page or by emailing us directly at avasafoundation28@gmail.com.",
 //   },
 //   {
 //     question: "What is your response time?",
@@ -16,17 +16,17 @@
 //   {
 //     question: "Where are you located?",
 //     answer:
-//       "Our main office is located in New York City, but we serve clients worldwide.",
+//       "We are located in both Hyderabad and Jaipur, we will be expanding in the future. If you are interested in opening a chapter of Avasa in your city, contact us.",
 //   },
 //   {
-//     question: "Can I schedule a meeting?",
+//     question: "Can I volunteer?",
 //     answer:
-//       "Absolutely! Please use the contact form to request a meeting, and our team will get back to you to arrange a suitable time.",
+//       "Absolutely! Please use the contact form to request a meeting, and our team will get back to you to arrange the further process.",
 //   },
 //   {
 //     question: "Is my information safe with you?",
 //     answer:
-//       "Yes, we take your privacy seriously and use industry-standard security measures to protect your data.",
+//       "Yes, we take your privacy seriously, our technical team takes care of Data ethics so you can feel safe with us.",
 //   },
 // ];
 
