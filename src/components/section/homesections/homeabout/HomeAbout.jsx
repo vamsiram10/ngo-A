@@ -85,7 +85,7 @@ export default function AboutMatter() {
       </div>
 
       <div className="z-10 relative mt-2 p-4 mx-auto w-full max-w-3xl bg-black/80 rounded-lg shadow-lg sm:mt-4 md:mt-6">
-        <p className="text-[0.75rem] text-gray-200 leading-relaxed text-justify xs:text-sm sm:text-base">
+        <p className="text-gray-200 leading-relaxed text-justify text-sm sm:text-base">
           Founded in 2022 by{" "}
           <span className="font-semibold text-pink-400">V. Radha Priyanka</span>{" "}
           and friends, our journey began in{" "}
