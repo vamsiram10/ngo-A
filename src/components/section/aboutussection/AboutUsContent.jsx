@@ -51,7 +51,7 @@ export default function AboutUsContent() {
       name: "K. Usha Bhargavi",
       role: "Executive member",
       desc: "Contributes to decision-making, supports program execution, and upholds the organization's mission through active involvement.",
-      img: "/team/ajay.jpg",
+      img: "/meet/usha.jpg",
     },
     {
       name: "V. Sai Harini",
