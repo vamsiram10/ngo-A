@@ -27,7 +27,7 @@ export default function AboutUsContent() {
       name: "V. Keerthi Sri",
       role: "Vice President",
       desc: "Provides strategic oversight, ensuring organizational alignment, operational excellence, and effective implementation of programs.",
-      img: "/team/vinathi.jpg",
+      img: "/meet/Keerti3.jpg",
     },
     {
       name: "Ananya Pandey",
