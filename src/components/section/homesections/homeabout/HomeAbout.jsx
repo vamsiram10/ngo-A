@@ -2,7 +2,7 @@
 import { useRef, useEffect } from "react";
 
 const missionStatement =
-  "At Avasa Foundation, we strive to create lasting social impact by empowering marginalized communities. We focus on education, health, awareness on taboo issues, legal literacy, and women's financial empowerment. Our goal is a just society where everyone can thrive, regardless of their background.";
+  "Avasa Foundation is dedicated to holistic outreach, creating sustainable positive impact in the lives of the most vulnerable. From nurturing emotional well-being in care homes to providing lifeline resources for the homeless and needy, and fostering educational empowerment in government schools, slums, and rural communities, we are committed to building a more equitable and caring world.";
 const visionStatement =
   "Promoting individuality and promoting change for an equally sustainable society.";
 
@@ -86,13 +86,26 @@ export default function AboutMatter() {
 
       <div className="z-10 relative mt-2 p-4 mx-auto w-full max-w-3xl bg-black/80 rounded-lg shadow-lg sm:mt-4 md:mt-6">
         <p className="text-[0.75rem] text-gray-200 leading-relaxed text-justify xs:text-sm sm:text-base">
-      Founded in 2022 by <span className="font-semibold text-pink-400">V. Radha Priyanka</span> and friends, our journey began in <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">Hyderabad</span> with small acts of kindness. From food drives to health support, we’ve expanded to <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">Jaipur</span> and beyond. Now a registered NGO, we’re united by empathy, action, and a mission to uplift lives. Our work continues to bring dignity and care to the underserved.
-      </p>
+          Founded in 2022 by{" "}
+          <span className="font-semibold text-pink-400">V. Radha Priyanka</span>{" "}
+          and friends, our journey began in{" "}
+          <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+            Hyderabad
+          </span>{" "}
+          with small acts of kindness. From food drives to health support, we’ve
+          expanded to{" "}
+          <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
+            Jaipur
+          </span>{" "}
+          and beyond. Now a registered NGO, we’re united by empathy, action, and
+          a mission to uplift lives. Our work continues to bring dignity and
+          care to the underserved.
+        </p>
       </div>
 
       <div className="z-10 relative flex flex-col gap-4 mt-8 mx-auto w-full max-w-3xl">
         {/* Mission Block */}
-        <div className="flex flex-col items-center p-4 w-full text-center rounded-xl border-pink-500 shadow-md shiny-block border">
+        <div className="flex flex-col items-center p-4 w-full text-left rounded-xl border-pink-500 shadow-md shiny-block border">
           <div className="shiny-content">
             <h3 className="flex items-center gap-2 mb-2 text-pink-300 text-lg font-bold animate-bounce drop-shadow-[0_2px_8px_rgba(236,72,153,0.7)] sm:text-xl md:text-2xl">
               <strong> Mission</strong>
