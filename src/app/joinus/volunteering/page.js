@@ -79,7 +79,7 @@ export default function VolunteeringPage() {
   const opportunities = [
     {
       id: 1,
-      img: "/images/volunteer1.jpg",
+      img: "/images/hydc.jpg",
       title: "Hyderabad",
       desc: "Craft compelling visuals and social content.",
       time: "5-10 hrs/week",
@@ -87,7 +87,7 @@ export default function VolunteeringPage() {
     },
     {
       id: 2,
-      img: "/images/volunteer2.jpg",
+      img: "/images/cjaipur.jpeg",
       title: "Jaipur",
       desc: "Be the face of our mission. Plan and lead campaigns.",
       time: "Flexible",
@@ -95,7 +95,7 @@ export default function VolunteeringPage() {
     },
     {
       id: 3,
-      img: "/images/volunteer3.jpg",
+      img: "/images/remote.jpg",
       title: "Remote",
       desc: "Help us measure what matters. Analyze our social impact.",
       time: "8-12 hrs/week",
@@ -103,8 +103,8 @@ export default function VolunteeringPage() {
     },
   ];
 
-  const heroImg = "/images/volunteer-hero.jpeg";
-  const whyImg = "/images/Why Your Help Matters.jpeg"; 
+  const heroImg = "/images/vm.jpeg";
+  const whyImg = "/images/Why Your Help Matters.jpeg";
 
   const whyJoinFeatures = [
     {
@@ -127,24 +127,38 @@ export default function VolunteeringPage() {
     },
   ];
 
+  const heroImgStyle = {
+    objectFit: "cover",
+    opacity: 0.4,
+    zIndex: 0,
+    objectPosition: "center 30%", // Moves image down, showing more of the top
+  };
+
+  const heroImgResponsiveStyle = `
+    @media (min-width: 768px) {
+      .custom-hero-img {
+        object-position: center 10% !important;
+      }
+    }
+  `;
+
   return (
     <main className="bg-black text-white">
-      <section className="relative min-h-[90vh] flex items-center justify-center text-center p-4 pb-32">
+      {/* Inject responsive style for hero image */}
+      <style>{heroImgResponsiveStyle}</style>
+      <section className="relative min-h-[100vh] flex items-center justify-center text-center p-4 pb-32">
         <div className="absolute inset-0 z-0">
           <div className="w-full h-full absolute inset-0">
             <OptimizedImage
               src={heroImg}
               alt="A group of smiling volunteers"
               fill
-              style={{
-                objectFit: "cover",
-                opacity: 0.4,
-                zIndex: 0,
-              }}
+              className="custom-hero-img"
+              style={heroImgStyle}
               priority
             />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10"></div>
+          {/* Removed black fade overlay */}
         </div>
         <motion.div
           initial="hidden"
