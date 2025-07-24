@@ -159,6 +159,7 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
   const getPrevIndex = () =>
     (active - 1 + testimonials.length) % testimonials.length;
 
+  // Make the "Testimonials" word white by adding text-white (already present) and removing any style overrides
   const titleClass =
     "mb-4 w-full text-2xl font-bold text-white tracking-tight text-center sm:text-3xl md:text-5xl md:mb-6";
   const matterBlockClass =
