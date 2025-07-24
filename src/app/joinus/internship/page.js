@@ -208,11 +208,10 @@ export default function InternshipPage() {
         <div className="absolute inset-0 w-full h-full">
           <Image
             src="/images/internmain.jpg"
-            style={{ objectFit: "cover", objectPosition: "center 15%" }}
             alt="Interns collaborating"
             fill
             className="object-cover opacity-30 z-0"
-            style={{ objectFit: "cover" }}
+            style={{ objectFit: "cover", objectPosition: "center 15%" }}
             onError={handleImgError}
             priority
             sizes="100vw"
@@ -431,7 +430,7 @@ export default function InternshipPage() {
                   style={{ objectFit: "cover" }}
                   onError={handleImgError}
                   sizes="(max-width: 768px) 100vw, 800px"
-                  priority={false}
+                  // priority={false} // Removed duplicate prop
                 />
               </motion.div>
               <motion.div
@@ -488,7 +487,7 @@ export default function InternshipPage() {
                       style={{ objectFit: "cover" }}
                       onError={handleImgError}
                       sizes="(max-width: 768px) 100vw, 600px"
-                      priority={false}
+                      // priority={false} // Removed duplicate prop
                     />
                   </div>
                   <div className="p-6 flex flex-col flex-grow">
