@@ -512,9 +512,9 @@ export function Timeline({ data }) {
       ref={containerRef}
     >
       <div className="relative mx-auto py-4 px-2 px-4 mt-6 max-w-7xl sm:py-8 md:px-8 lg:px-10">
-        <h2 className="mb-1 max-w-4xl text-base text-white text-lg sm:mb-2 md:text-4xl">
+        <h1 className="mb-1 max-w-4xl text-base text-white text-lg sm:mb-2 md:text-4xl">
           OUR JOURNEY
-        </h2>
+        </h1>
         <p className="max-w-sm text-white text-xs sm:text-sm md:text-base">
           THIS IS HOW IT STARTED
         </p>
