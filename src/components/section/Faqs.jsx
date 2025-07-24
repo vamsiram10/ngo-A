@@ -61,7 +61,6 @@ const Faqs = () => {
     setActiveIndex(index === activeIndex ? null : index);
   };
 
-  // Scroll to the opened FAQ if it is opened
   useEffect(() => {
     if (
       activeIndex !== null &&
