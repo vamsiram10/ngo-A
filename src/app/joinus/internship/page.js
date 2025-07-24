@@ -207,7 +207,8 @@ export default function InternshipPage() {
       <section className="relative min-h-[90vh] flex items-center justify-center text-center p-4 pb-32">
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="/images/intern1.jpg"
+            src="/images/internmain.jpg"
+            style={{ objectFit: "cover", objectPosition: "center 15%" }}
             alt="Interns collaborating"
             fill
             className="object-cover opacity-30 z-0"
@@ -217,7 +218,7 @@ export default function InternshipPage() {
             sizes="100vw"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10"></div>
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10"></div> */}
         <motion.div
           initial="hidden"
           animate="visible"
