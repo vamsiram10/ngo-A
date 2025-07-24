@@ -104,7 +104,7 @@ const timelineData = [
   {
     year: "2025",
     title: "Innovation, Expansion & Continued Commitment",
-    images: ["/timelinephotos/2025.jpg"],
+    images: ["/timelinephotos/2025.JPG"],
     content: (
       <>
         In 2025, Avasa Foundation continued its mission with renewed energy and
