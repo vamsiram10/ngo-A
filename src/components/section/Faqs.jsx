@@ -10,12 +10,12 @@ const faqs = [
   {
     question: "Who runs AVASA?",
     answer:
-      "AVASA is completely youth-driven and run by volunteers passionate about change. You can find out about board members though about us section",
+      "Avasa is a youth-led NGO creating impact by focusing on fostering well-being and empowering vulnerable communities through love and care for those in orphanages and old age homes, seasonal and awareness support for the homeless and needy, and development initiatives in education and community upliftment with a special emphasis on SDGs. ",
   },
   {
     question: "What are your key initiatives?",
     answer:
-      "We run projects in school transformations, child shelters, old-age homes, digital literacy, medical support, and environmental care.",
+      "We run projects in school transformations, child shelters, old-age homes, digital literacy, medical support, and other services for the underprivileged.",
   },
   {
     question: "How can I volunteer?",
