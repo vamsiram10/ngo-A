@@ -95,7 +95,7 @@ export default function VolunteeringPage() {
     },
     {
       id: 3,
-      img: "/images/remote.jpg",
+      img: "/images/remote3.jpg",
       title: "Remote",
       desc: "Help us measure what matters. Analyze our social impact.",
       time: "8-12 hrs/week",
@@ -146,7 +146,7 @@ export default function VolunteeringPage() {
     <main className="bg-black text-white">
       {/* Inject responsive style for hero image */}
       <style>{heroImgResponsiveStyle}</style>
-      <section className="relative min-h-[100vh] flex items-center justify-center text-center p-4 pb-32">
+      <section className="relative min-h-[90vh] flex items-center justify-center text-center p-4 pb-32">
         <div className="absolute inset-0 z-0">
           <div className="w-full h-full absolute inset-0">
             <OptimizedImage
