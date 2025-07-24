@@ -161,7 +161,7 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
 
   // Make the "Testimonials" word white by adding text-white and ensuring no style overrides
   const titleClass =
-    "mb-4 w-full text-2xl font-bold tracking-tight text-center sm:text-3xl md:text-5xl md:mb-6";
+    "relative top-[-3rem] w-full text-2xl font-bold tracking-tight text-center sm:text-3xl md:text-5xl md:mb-6";
 
   const matterBlockClass =
     "relative flex flex-col flex-1 items-center gap-4 px-2 py-3 min-h-[120px] max-w-xs w-full bg-white/80 rounded-2xl shadow-lg dark:bg-neutral-900/80 md:flex-row md:gap-8 md:px-8 md:py-8 md:min-h-[220px] md:max-w-3xl";
