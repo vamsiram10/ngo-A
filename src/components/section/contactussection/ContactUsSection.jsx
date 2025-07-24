@@ -38,7 +38,7 @@ const ContactUsSection = () => {
   };
 
   return (
-    <section className="z-10 overflow-hidden relative py-20 min-h-[1300px] font-sans bg-black md:min-h-[700px] lg:py-[120px]">
+    <section className="z-10 overflow-hidden relative py-20 min-h-[1400px] font-sans bg-black md:min-h-[700px] lg:py-[120px]">
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap items-start justify-between gap-10">
           <div className="w-full lg:w-1/2 xl:w-6/12">
@@ -159,28 +159,35 @@ const ContactUsSection = () => {
           </div>
 
           <div
-            className="relative top-15 p-8 w-full bg-[#1f1f1f] rounded-lg shadow-lg lg:w-1/2 xl:w-5/12"
+            className="relative top-15 p-8 w-full min-h-[500px] bg-[#1f1f1f] rounded-lg shadow-lg lg:w-1/2 xl:w-5/12"
             style={{ top: "0.1rem" }}
           >
             <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
               <input
                 type="text"
                 name="user_name"
-                placeholder="Your Name"
+                placeholder="Full Name "
                 className="p-4 placeholder-gray-400 w-full text-sm font-normal text-white bg-[#2b2b2b] rounded-lg border-gray-700 shadow-sm border focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
                 required
               />
               <input
                 type="email"
                 name="user_email"
-                placeholder="Your Email"
+                placeholder="Email Address (e.g. you@email.com)"
+                className="p-4 placeholder-gray-400 w-full text-sm font-normal text-white bg-[#2b2b2b] rounded-lg border-gray-700 shadow-sm border focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
+                required
+              />
+              <input
+                type="text"
+                name="subject"
+                placeholder="Subject"
                 className="p-4 placeholder-gray-400 w-full text-sm font-normal text-white bg-[#2b2b2b] rounded-lg border-gray-700 shadow-sm border focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
                 required
               />
               <textarea
-                rows="5"
+                rows="7"
                 name="message"
-                placeholder="Your Message"
+                placeholder="Type your message here (at least 20 characters)..."
                 className="p-4 placeholder-gray-400 w-full text-sm font-normal text-white bg-[#2b2b2b] rounded-lg border-gray-700 shadow-sm resize-none border focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
                 required
               ></textarea>
