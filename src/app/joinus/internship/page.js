@@ -46,7 +46,7 @@ export default function InternshipPage() {
       img: "/images/Technical Intern.jpg",
       title: "Technical Intern",
       desc: "Help with website maintenance, data management, and IT support to keep our digital infrastructure strong and efficient.",
-      duration: "3-6 months",
+      duration: "1-3 months",
       formLink: "https://forms.gle/eM8hh64etLhw2fAy5",
     },
     {
@@ -54,7 +54,7 @@ export default function InternshipPage() {
       img: "/images/Social Media Intern.png",
       title: "Social Media Intern",
       desc: "Create engaging content, manage our online presence, and connect with our community across various social platforms.",
-      duration: "3-4 months",
+      duration: "1-3 months",
       formLink: "https://forms.gle/eM8hh64etLhw2fAy5",
     },
     {
@@ -62,7 +62,7 @@ export default function InternshipPage() {
       img: "/images/Fundraising Intern.jpg",
       title: "Fundraising Intern",
       desc: "Support our fundraising efforts through research, outreach, and campaign assistance to help us reach our financial goals.",
-      duration: "4-6 months",
+      duration: "1-3 months",
       formLink: "https://forms.gle/eM8hh64etLhw2fAy5",
     },
     {
@@ -70,7 +70,7 @@ export default function InternshipPage() {
       img: "/images/Content Writing Intern.jpg",
       title: "Content Writing Intern",
       desc: "Craft compelling articles, blog posts, and website content to share our story and the impact of our work.",
-      duration: "3-5 months",
+      duration: "1-3 months",
       formLink: "https://forms.gle/eM8hh64etLhw2fAy5",
     },
   ];
