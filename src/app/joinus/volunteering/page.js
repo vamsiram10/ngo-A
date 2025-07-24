@@ -103,7 +103,7 @@ export default function VolunteeringPage() {
     },
   ];
 
-  const heroImg = "/images/vm.jpeg";
+  const heroImg = "/images/volunteer5.jpeg";
   const whyImg = "/images/Why Your Help Matters.jpeg";
 
   const whyJoinFeatures = [
