@@ -14,7 +14,7 @@ const timelineData = [
     title: "The Beginning of Avasa",
     images: ["/timelinephotos/2022.JPG"],
     content: (
-      <>
+      <div className="text-justify">
         Avasa was founded by{" "}
         <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
           V Radha Priyanka
@@ -24,7 +24,7 @@ const timelineData = [
         sessions on self-confidence, interactions with orphanages, and food
         distribution for the needy — laying the foundation for a mission rooted
         in compassion.
-      </>
+      </div>
     ),
   },
   {
@@ -32,7 +32,7 @@ const timelineData = [
     title: "A New Chapter in Jaipur",
     images: ["/timelinephotos/2023.JPG"],
     content: (
-      <>
+      <div className="text-justify">
         In 2023, Avasa was reborn in{" "}
         <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
           Jaipur
@@ -58,7 +58,7 @@ const timelineData = [
         food and warm clothes to those in need, and engaging with students at
         the government school in Chak, bringing care, creativity, and community
         to life through every initiative.
-      </>
+      </div>
     ),
   },
   {
@@ -66,7 +66,7 @@ const timelineData = [
     title: "A Year of Recognition & Formal Milestone",
     images: ["/timelinephotos/2024.JPG"],
     content: (
-      <>
+      <div className="text-justify">
         In 2024, Avasa Foundation was officially registered under the{" "}
         <span className="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text">
           Telangana Societies Registration Act (Reg. No. 1108 of 2024)
@@ -98,7 +98,7 @@ const timelineData = [
         </span>{" "}
         in Vaishali Nagar slums — reinforcing our commitment to community
         wellness and dignity.
-      </>
+      </div>
     ),
   },
   {
@@ -106,7 +106,7 @@ const timelineData = [
     title: "Innovation, Expansion & Continued Commitment",
     images: ["/timelinephotos/2025.JPG"],
     content: (
-      <>
+      <div className="text-justify">
         In 2025, Avasa Foundation continued its mission with renewed energy and
         innovation. We were honored once again to join the Republic Day
         celebrations at Chak Government School, where we strengthened our
@@ -129,7 +129,7 @@ const timelineData = [
           compassion, community, and sustainable support
         </span>{" "}
         to uplift lives across generations.
-      </>
+      </div>
     ),
   },
 ];
