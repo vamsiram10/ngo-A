@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 
-// Fallback image URL
 const fallbackImg =
   "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80";
 
@@ -30,14 +29,11 @@ function FeaturePoint({ number, title, children }) {
   );
 }
 
-// Custom image error handler for next/image fallback
 function handleImgError(e) {
   if (e.target.src !== fallbackImg) {
     e.target.src = fallbackImg;
   }
 }
-
-// --- Removed imageWithFallback to fix react-hooks/rules-of-hooks error ---
 
 export default function InternshipPage() {
   const opportunities = [
@@ -173,7 +169,6 @@ export default function InternshipPage() {
 
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-  // useCallback to avoid missing dependency warning
   const nextTestimonial = useCallback(() => {
     setCurrentTestimonial((prev) =>
       prev === testimonials.length - 1 ? 0 : prev + 1
@@ -199,11 +194,8 @@ export default function InternshipPage() {
     exit: { opacity: 0, x: -50 },
   };
 
-  // Removed imageWithFallback to fix react-hooks/rules-of-hooks error
-
   return (
     <main className="bg-black text-white">
-      {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center text-center p-4 pb-32">
         <div className="absolute inset-0 w-full h-full">
           <Image
@@ -217,7 +209,6 @@ export default function InternshipPage() {
             sizes="100vw"
           />
         </div>
-        {/* <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10"></div> */}
         <motion.div
           initial="hidden"
           animate="visible"
@@ -250,9 +241,7 @@ export default function InternshipPage() {
         </motion.div>
       </section>
 
-      {/* Main content wrapper */}
       <div className="relative z-20 ">
-        {/* Testimonials Carousel Section */}
         <div className="py-20 md:py-28">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-pink-500 mb-12">
@@ -260,7 +249,6 @@ export default function InternshipPage() {
             </h2>
 
             <div className="flex items-center justify-center">
-              {/* Desktop Prev Button */}
               <button
                 onClick={prevTestimonial}
                 className="shrink-0 bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300 z-10 hidden md:block"
@@ -282,7 +270,6 @@ export default function InternshipPage() {
                 </svg>
               </button>
 
-              {/* Carousel Viewport */}
               <div className="relative h-96 md:h-80 w-full max-w-3xl mx-auto md:mx-4 overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -323,7 +310,6 @@ export default function InternshipPage() {
                 </AnimatePresence>
               </div>
 
-              {/* Desktop Next Button */}
               <button
                 onClick={nextTestimonial}
                 className="shrink-0 bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300 z-10 hidden md:block"
@@ -346,7 +332,6 @@ export default function InternshipPage() {
               </button>
             </div>
 
-            {/* Indicator Dots & Mobile Nav */}
             <div className="flex justify-center items-center gap-4 mt-8">
               <button
                 onClick={prevTestimonial}
@@ -408,7 +393,6 @@ export default function InternshipPage() {
           </div>
         </div>
 
-        {/* Benefits Section */}
         <div className="bg-black pt-20 md:pt-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-neutral-900 rounded-3xl border border-neutral-800 p-8 md:p-16">
@@ -430,7 +414,6 @@ export default function InternshipPage() {
                   style={{ objectFit: "cover" }}
                   onError={handleImgError}
                   sizes="(max-width: 768px) 100vw, 800px"
-                  // priority={false} // Removed duplicate prop
                 />
               </motion.div>
               <motion.div
@@ -456,7 +439,6 @@ export default function InternshipPage() {
 
         <br />
 
-        {/* Programs Section */}
         <div
           id="programs"
           className="bg-neutral-950 py-20 md:py-24 pb-24 md:pb-32 border-t border-neutral-800"
@@ -487,7 +469,6 @@ export default function InternshipPage() {
                       style={{ objectFit: "cover" }}
                       onError={handleImgError}
                       sizes="(max-width: 768px) 100vw, 600px"
-                      // priority={false} // Removed duplicate prop
                     />
                   </div>
                   <div className="p-6 flex flex-col flex-grow">
