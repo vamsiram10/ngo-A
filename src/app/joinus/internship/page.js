@@ -7,7 +7,6 @@ import Image from "next/image";
 const fallbackImg =
   "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80";
 
-// Simplified container variants for the hero section only
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
@@ -18,7 +17,6 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
-// FeaturePoint is a simple, static component for performance
 function FeaturePoint({ number, title, children }) {
   return (
     <div className="relative pl-14">
@@ -54,7 +52,6 @@ export default function InternshipPage() {
     { number: "06", title: "Personal Satisfaction", description: "Experience the joy of giving back and being part of a positive change." },
   ];
 
-  // Restored full testimonials list
   const testimonials = [
     { id: 1, quote: "My online content writing internship with Avasa Foundation taught me to write on complex social issues with sensitivity and impact.", name: "Mahalakshmi L", role: "Former Content Writing Intern", avatar: "/images/avatar1.jpg" },
     { id: 2, quote: "I learned HTML, CSS, and Responsive Design, which helped improve my technical and problem-solving skills.", name: "Ch.Nikhil", role: "Former Technical Intern", avatar: "/images/avatar2.jpg" },
@@ -65,7 +62,6 @@ export default function InternshipPage() {
     { id: 7, quote: "A great learning experience as a content writing intern. Analyzing Avasa's past work was both challenging and memorable.", name: "Drishti Wacchani", role: "Former Content Writing Intern", avatar: "/images/avatar7.jpeg" },
   ];
 
-  // Restored state and functionality for the testimonial slider
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const nextTestimonial = useCallback(() => {
@@ -83,7 +79,6 @@ export default function InternshipPage() {
     return () => clearInterval(timer);
   }, [nextTestimonial]);
 
-  // Using a performant fade transition for the testimonials
   const testimonialVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 0.5 } },
@@ -94,52 +89,32 @@ export default function InternshipPage() {
     <main className="bg-black text-white">
       <section className="relative min-h-[90vh] flex items-center justify-center text-center p-4 pb-32">
         <div className="absolute inset-0 w-full h-full">
-          <Image
-            src="/images/innternmain1.jpg"
-            alt="Interns collaborating"
-            fill
-            className="object-cover opacity-30 z-0"
-            style={{ objectFit: "cover", objectPosition: "center 15%" }}
-            onError={handleImgError}
-            priority
-            sizes="100vw"
-          />
+          <Image src="/images/innternmain1.jpg" alt="Interns collaborating" fill className="object-cover opacity-30 z-0" style={{ objectFit: "cover", objectPosition: "center 15%" }} onError={handleImgError} priority sizes="100vw" />
         </div>
         <motion.div initial="hidden" animate="visible" variants={containerVariants} className="relative z-20">
-          <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Launch Your <span className="text-pink-500">Career</span>
-          </motion.h1>
-          <motion.p variants={itemVariants} className="text-lg md:text-xl text-neutral-200 mx-auto max-w-3xl mb-10 leading-relaxed">
-            Gain real-world experience, build your portfolio, and work on projects that make a genuine difference.
-          </motion.p>
+          <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-bold text-white mb-6">Launch Your <span className="text-pink-500">Career</span></motion.h1>
+          <motion.p variants={itemVariants} className="text-lg md:text-xl text-neutral-200 mx-auto max-w-3xl mb-10 leading-relaxed">Gain real-world experience, build your portfolio, and work on projects that make a genuine difference.</motion.p>
           <motion.div variants={itemVariants}>
             <Link href="#programs">
-              <motion.button whileHover={{ scale: 1.05 }} className="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-8 md:py-4 md:px-10 rounded-full transition-all duration-300 shadow-lg shadow-pink-800/60">
-                Explore Programs
-              </motion.button>
+              <motion.button whileHover={{ scale: 1.05 }} className="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-8 md:py-4 md:px-10 rounded-full transition-all duration-300 shadow-lg shadow-pink-800/60">Explore Programs</motion.button>
             </Link>
           </motion.div>
         </motion.div>
       </section>
 
       <div className="relative z-20 ">
-        {/* --- RESTORED ANIMATED TESTIMONIAL SECTION --- */}
         <div className="py-20 md:py-28">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-pink-500 mb-12">What Our Interns Say</h2>
             <div className="flex items-center justify-center">
-              <button onClick={prevTestimonial} className="shrink-0 bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300 z-10 hidden md:block" aria-label="Previous testimonial">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-              </button>
+              <button onClick={prevTestimonial} className="shrink-0 bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300 z-10 hidden md:block" aria-label="Previous testimonial"><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg></button>
               <div className="relative h-96 md:h-80 w-full max-w-3xl mx-auto md:mx-4 overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.div key={currentTestimonial} variants={testimonialVariants} initial="hidden" animate="visible" exit="exit" className="absolute inset-0 flex items-center justify-center p-4">
                     <div className="bg-neutral-900 border border-neutral-800 rounded-2xl w-full h-full flex flex-col justify-center items-center p-6 text-center">
                       <p className="text-neutral-300 text-lg md:text-xl italic mb-6">“{testimonials[currentTestimonial].quote}”</p>
                       <div className="flex items-center mt-auto">
-                        <div className="relative w-20 h-20 md:w-24 md:h-24">
-                          <Image src={testimonials[currentTestimonial].avatar} alt={testimonials[currentTestimonial].name} fill className="rounded-full object-cover" onError={handleImgError} sizes="(max-width: 768px) 80px, 96px" />
-                        </div>
+                        <div className="relative w-20 h-20 md:w-24 md:h-24"><Image src={testimonials[currentTestimonial].avatar} alt={testimonials[currentTestimonial].name} fill className="rounded-full object-cover" onError={handleImgError} sizes="(max-width: 768px) 80px, 96px" /></div>
                         <div className="ml-6 text-left">
                           <p className="font-semibold text-white text-base md:text-lg">{testimonials[currentTestimonial].name}</p>
                           <p className="text-pink-400 text-sm md:text-base">{testimonials[currentTestimonial].role}</p>
@@ -149,9 +124,7 @@ export default function InternshipPage() {
                   </motion.div>
                 </AnimatePresence>
               </div>
-              <button onClick={nextTestimonial} className="shrink-0 bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300 z-10 hidden md:block" aria-label="Next testimonial">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-              </button>
+              <button onClick={nextTestimonial} className="shrink-0 bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300 z-10 hidden md:block" aria-label="Next testimonial"><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg></button>
             </div>
             <div className="flex justify-center items-center gap-4 mt-8">
               <button onClick={prevTestimonial} className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300 md:hidden" aria-label="Previous testimonial"><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg></button>
@@ -161,30 +134,25 @@ export default function InternshipPage() {
           </div>
         </div>
 
-        {/* --- STATIC "WHAT YOU'LL GAIN" SECTION --- */}
         <div className="bg-black pt-20 md:pt-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-neutral-900 rounded-3xl border border-neutral-800 p-8 md:p-16">
               <h2 className="text-3xl md:text-4xl font-bold text-pink-500 mb-12 text-center">What You'll Gain</h2>
-              <div className="relative w-full aspect-[16/9] max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-pink-900/30 mb-16">
-                <Image src="/images/certificate.png" alt="A group of interns working together" fill className="absolute inset-0 w-full h-full object-cover" style={{ objectFit: "cover" }} onError={handleImgError} sizes="(max-width: 768px) 100vw, 800px" />
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-                {whyJoinFeatures.map((feature) => (<FeaturePoint key={feature.number} number={feature.number} title={feature.title}>{feature.description}</FeaturePoint>))}
-              </div>
+              <div className="relative w-full aspect-[16/9] max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-pink-900/30 mb-16"><Image src="/images/certificate.png" alt="A group of interns working together" fill className="absolute inset-0 w-full h-full object-cover" style={{ objectFit: "cover" }} onError={handleImgError} sizes="(max-width: 768px) 100vw, 800px" /></div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">{whyJoinFeatures.map((feature) => (<FeaturePoint key={feature.number} number={feature.number} title={feature.title}>{feature.description}</FeaturePoint>))}</div>
             </div>
           </div>
         </div>
 
         <br />
 
-        {/* --- STATIC AND OPTIMIZED INTERNSHIP PROGRAMS SECTION --- */}
+        {/* --- MAXIMALLY OPTIMIZED INTERNSHIP PROGRAMS SECTION --- */}
         <div id="programs" className="bg-neutral-950 py-20 md:py-24 pb-24 md:pb-32 border-t border-neutral-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl md:text-4xl font-bold text-pink-500 mb-12 text-center">Internship Programs</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
               {opportunities.map((item) => (
-                <div key={item.id} className="bg-white rounded-xl flex flex-col border border-gray-200 transition-all duration-300 hover:shadow-xl">
+                <div key={item.id} className="bg-white rounded-xl flex flex-col border border-gray-200 hover:shadow-xl transition-shadow duration-300">
                   <div className="relative h-56 w-full rounded-t-xl overflow-hidden">
                     <Image src={item.img} alt={item.title} fill className="absolute inset-0 w-full h-full object-cover" style={{ objectFit: "cover" }} onError={handleImgError} sizes="(max-width: 640px) 100vw, 50vw" quality={75} />
                   </div>
@@ -192,10 +160,14 @@ export default function InternshipPage() {
                     <h3 className="text-xl md:text-2xl font-bold text-black mb-3">{item.title}</h3>
                     <p className="text-gray-600 text-base mb-4 flex-grow leading-relaxed">{item.desc}</p>
                     <p className="text-sm text-gray-500 font-semibold mb-6">Duration: <span className="text-black">{item.duration}</span></p>
-                    <a href={item.formLink} target="_blank" rel="noopener noreferrer" className="block w-full mt-auto">
-                      <motion.button whileHover={{ scale: 1.05 }} className="w-full bg-black hover:bg-gray-800 text-white font-bold py-3 rounded-lg transition-all duration-300">
-                        Apply Now
-                      </motion.button>
+                    {/* Replaced motion.button with a standard <a> tag for max performance */}
+                    <a
+                      href={item.formLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full mt-auto bg-black hover:bg-gray-800 text-white font-bold py-3 rounded-lg transition-colors duration-300 text-center"
+                    >
+                      Apply Now
                     </a>
                   </div>
                 </div>
