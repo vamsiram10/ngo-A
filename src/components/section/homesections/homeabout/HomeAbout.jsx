@@ -4,7 +4,7 @@ import { useRef, useEffect } from "react";
 const missionStatement =
   "Avasa Foundation is dedicated to holistic outreach, creating sustainable positive impact in the lives of the most vulnerable. From nurturing emotional well-being in care homes to providing lifeline resources for the homeless and needy, and fostering educational empowerment in government schools, slums, and rural communities, we are committed to building a more equitable and caring world.";
 const visionStatement =
-  "Promoting individuality and promoting change for an equally sustainable society.";
+  "To see a world where dignity, deep care, and the opportunity to flourish are universal rights, not privileges, for all individuals, regardless of their situation.";
 
 const shinyStyle = `
   .shiny-block {
@@ -85,7 +85,7 @@ export default function AboutMatter() {
       </div>
 
       <div className="z-10 relative mt-2 p-4 mx-auto w-full max-w-3xl bg-black/80 rounded-lg shadow-lg sm:mt-4 md:mt-6">
-        <p className="text-[0.75rem] text-gray-200 leading-relaxed text-justify xs:text-sm sm:text-base">
+        <p className="text-gray-200 leading-relaxed text-justify text-sm sm:text-base">
           Founded in 2022 by{" "}
           <span className="font-semibold text-pink-400">V. Radha Priyanka</span>{" "}
           and friends, our journey began in{" "}

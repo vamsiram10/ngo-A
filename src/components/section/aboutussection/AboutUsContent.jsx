@@ -27,7 +27,7 @@ export default function AboutUsContent() {
       name: "V. Keerthi Sri",
       role: "Vice President",
       desc: "Provides strategic oversight, ensuring organizational alignment, operational excellence, and effective implementation of programs.",
-      img: "/meet/keerthi.jpg",
+      img: "/meet/keert.jpg",
     },
     {
       name: "Ananya Pandey",
@@ -51,13 +51,13 @@ export default function AboutUsContent() {
       name: "K. Usha Bhargavi",
       role: "Executive member",
       desc: "Contributes to decision-making, supports program execution, and upholds the organization's mission through active involvement.",
-      img: "/team/ajay.jpg",
+      img: "/meet/usha.jpg",
     },
     {
       name: "V. Sai Harini",
       role: "Executive member",
       desc: "Contributes in organizational activities, offering insights and assistance to drive impactful initiatives forward.",
-      img: "/team/ajay.jpg",
+      img: "/meet/harini.jpg",
     },
     {
       name: "Ch. Vinathi",
@@ -65,12 +65,12 @@ export default function AboutUsContent() {
       desc: "Oversees financial planning, budgeting, and compliance to ensure fiscal responsibility and sustainability.",
       img: "/meet/vinathi.jpg",
     },
-    {
-      name: "R.V.R. Vamsi",
-      role: "Head of Social Media",
-      desc: "Leads the organization's digital presence by strategizing, creating, and managing content to amplify outreach and engagement.",
-      img: "",
-    },
+    // {
+    //   name: "R.V.R. Vamsi",
+    //   role: "Head of Social Media",
+    //   desc: "Leads the organization's digital presence by strategizing, creating, and managing content to amplify outreach and engagement.",
+    //   img: "",
+    // },
   ];
 
   return (
@@ -93,7 +93,7 @@ export default function AboutUsContent() {
           <h2 className="mb-6 text-3xl font-semibold text-transparent bg-pink-300 bg-clip-text sm:text-4xl">
             Who We Are
           </h2>
-          <div className="space-y-4">
+          <div className="text-justify space-y-4">
             <p>
               What began as a heartfelt initiative by{" "}
               <strong className="text-[#fb64b6]">V. Radha Priyanka</strong> and
@@ -217,13 +217,13 @@ export default function AboutUsContent() {
       <h2 className="relative mb-15 text-3xl font-bold text-center text-pink-300 md:text-4xl">
         Meet Our Board
       </h2>
-      <div className="grid grid-cols-1 gap-8 px-17 mx-auto px-6 px-8 max-w-7xl sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-8 mx-auto px-6 max-w-7xl sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {team.map((member, index) => (
           <div
             key={index}
             className="flex flex-col items-center p-6 mb-10 min-h-[350px] text-center bg-neutral-900 rounded-2xl shadow-md md:min-h-[380px] lg:min-h-[200px]"
           >
-            <div className="overflow-hidden mb-4 w-32 h-32 rounded-full">
+            <div className="overflow-hidden flex items-center justify-center mb-4 mx-auto w-32 h-32 rounded-full">
               {member.img ? (
                 <Image
                   src={member.img}

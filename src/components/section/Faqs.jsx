@@ -5,51 +5,51 @@ const faqs = [
   {
     question: "What is AVASA Foundation?",
     answer:
-      "AVASA is a youth-led NGO creating impact through education, healthcare, gender awareness, sustainability and tech initiatives.",
+      "AVASA is a youth-led NGO creating impact through education, gender awareness, sustainability through tech initiatives focusing on the SDGs.",
   },
   {
     question: "Who runs AVASA?",
     answer:
-      "AVASA is completely youth-driven and run by volunteers passionate about change.",
+      "Avasa is a youth-led NGO creating impact by focusing on fostering well-being and empowering vulnerable communities through love and care for those in orphanages and old age homes, seasonal and awareness support for the homeless and needy, and development initiatives in education and community upliftment with a special emphasis on SDGs. ",
   },
   {
     question: "What are your key initiatives?",
     answer:
-      "We run projects in menstrual hygiene, school transformations, digital literacy, medical support, and environmental care.",
+      "We run projects in school transformations, child shelters, old-age homes, digital literacy, medical support, and other services for the underprivileged.",
   },
   {
     question: "How can I volunteer?",
     answer:
-      "Visit our Instagram @avasa.foundation or LinkedIn to apply. We welcome passionate individuals from all backgrounds.",
+      "Visit our Volunteering page or you can also contact on our social media: Instagram @avasa.foundation or  use LinkedIn to apply. We welcome passionate individuals from all backgrounds.",
   },
   {
     question: "Do you work only in Hyderabad?",
     answer:
-      "We are based in Hyderabad but aim to scale and replicate our model across other cities.",
+      "We are based in Hyderabad and Jaipur but aim to scale and replicate our model across other cities. Contact us if you can help us out",
   },
   {
     question: "What are some successful past projects?",
     answer:
-      "We've revamped government schools, distributed over 1,500 menstrual kits, and planted 3,000+ trees.",
+      "We've revamped government schools, distributed over 1,500 relief packets during summer and several sweaters and winter-wears during extreme cold weather in Rajasthan, funded the education of underpriviliged kids.",
   },
   {
     question: "Can I donate to support AVASA?",
     answer:
-      "Yes! We accept donations to fund our initiatives. Contact us via email or social media.",
+      "As we completely depend on donations as a Non-profit organization you can click on donate now button on homepage or contact us directly.",
   },
   {
     question: "Are you a registered NGO?",
-    answer: "Yes, AVASA Foundation is a registered non-profit organization.",
+    answer: "Yes, AVASA Foundation is a registered non-profit organization. ",
   },
   {
     question: "How do you ensure transparency?",
     answer:
-      "We maintain transparency via regular updates on our social platforms and public reporting of project impacts.",
+      "We maintain transparency via regular updates on our social platforms and public reporting of project impacts, as well as having a channel for donors so we can regularly update them on our initiatives.",
   },
   {
     question: "What does 'AVASA' mean?",
     answer:
-      "AVASA means 'shelter' or 'space' — symbolizing our commitment to creating safe, inclusive spaces for growth.",
+      "AVASA means 'shelter' or 'space' — symbolizing our commitment to creating safe, inclusive spaces for development.",
   },
 ];
 
@@ -61,7 +61,6 @@ const Faqs = () => {
     setActiveIndex(index === activeIndex ? null : index);
   };
 
-  // Scroll to the opened FAQ if it is opened
   useEffect(() => {
     if (
       activeIndex !== null &&
