@@ -137,7 +137,7 @@ export default function InternshipPage() {
     {
       id: 4,
       quote:
-        "This internship allowed me to discover my graphic design skills. I'm truly grateful to be a part of Avasa.",
+        "This internship allowed me to discover my graphic design skills. I&apos;m truly grateful to be a part of Avasa.",
       name: "Manthan jain",
       role: "Former Social Media Intern",
       avatar: "/images/avatar4.jpg",
@@ -161,7 +161,7 @@ export default function InternshipPage() {
     {
       id: 7,
       quote:
-        "A great learning experience as a content writing intern. Analyzing Avasa's past work was both challenging and memorable.",
+        "A great learning experience as a content writing intern. Analyzing Avasa&apos;s past work was both challenging and memorable.",
       name: "Drishti Wacchani",
       role: "Former Content Writing Intern",
       avatar: "/images/avatar7.jpeg",
@@ -281,7 +281,7 @@ export default function InternshipPage() {
                   >
                     <div className="bg-neutral-900 border border-neutral-800 rounded-2xl w-full h-full flex flex-col justify-center items-center p-6 text-center">
                       <p className="text-neutral-300 text-lg md:text-xl italic mb-6">
-                        “{testimonials[currentTestimonial].quote}”
+                        &ldquo;{testimonials[currentTestimonial].quote}&rdquo;
                       </p>
                       <div className="flex items-center mt-auto">
                         <div className="relative w-20 h-20 md:w-24 md:h-24">
@@ -391,7 +391,7 @@ export default function InternshipPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-neutral-900 rounded-3xl border border-neutral-800 p-8 md:p-16">
               <h2 className="text-3xl md:text-4xl font-bold text-pink-500 mb-12 text-center">
-                What You'll Gain
+                What You&apos;ll Gain
               </h2>
               <div className="relative w-full aspect-[16/9] max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-pink-900/30 mb-16">
                 <Image
