@@ -84,21 +84,24 @@ function Blogs() {
                   </button>
                 </div>
                 <div
-                  className="overflow-hidden flex flex-col w-full max-h-[80vh] bg-black border-neutral-800 border rounded aspect-[4/5] md:max-h-[70vh]"
+                  className="overflow-hidden flex flex-col w-full bg-black border-neutral-800 border rounded"
                   style={{
-                    // On desktop, limit the preview to a max height and allow scroll if needed
-                    height: "auto",
+                    height: "70vh",
+                    maxHeight: "80vh",
                   }}
                 >
                   <iframe
                     src={blog.pdfUrl}
                     title={blog.title}
-                    className="w-full h-[60vh] min-h-[400px] min-h-[500px] max-h-[70vh] bg-black rounded md:h-[70vh]"
+                    className="w-full h-full bg-black rounded"
                     style={{
                       border: "none",
-                      // On desktop, limit the height to avoid overflow
-                      maxHeight: "70vh",
+                      width: "100%",
+                      height: "100%",
+                      minHeight: "60vh",
+                      maxHeight: "80vh",
                     }}
+                    allowFullScreen
                   />
                 </div>
                 <a
