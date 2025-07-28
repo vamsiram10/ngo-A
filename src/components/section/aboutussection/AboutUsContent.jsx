@@ -73,6 +73,13 @@ export default function AboutUsContent() {
     // },
   ];
 
+  // Example PDF preview section for full PDF preview
+  // You can use this component wherever you want to preview a PDF fully
+  // For demonstration, let's add a sample PDF preview below the "What We Do" section
+
+  // You can replace this URL with your actual PDF file path
+  const samplePdfUrl = "/blogs/linkedin post.pdf";
+
   return (
     <div className="mt-8 w-full min-h-screen text-white bg-black">
       <div className="py-16 px-4 text-center sm:px-6 lg:px-8">
@@ -211,6 +218,37 @@ export default function AboutUsContent() {
               <li>Community upliftment programs</li>
             </ul>
           </div>
+        </div>
+      </div>
+
+      {/* PDF Preview Section - Shows the full PDF, not just the first page */}
+      <div className="relative px-4 py-12 sm:px-40">
+        <h2 className="mb-6 text-2xl font-semibold text-center text-pink-400">
+          PDF Preview (Full Document)
+        </h2>
+        <div className="flex flex-col items-center">
+          <div className="overflow-hidden w-full max-w-3xl h-[80vh] bg-neutral-900 border-2 border-pink-400 rounded-lg shadow-lg">
+            <iframe
+              src={`${samplePdfUrl}#toolbar=1&navpanes=1&scrollbar=1`}
+              title="PDF Preview"
+              width="100%"
+              height="100%"
+              style={{
+                minHeight: "80vh",
+                width: "100%",
+                border: "none",
+              }}
+              allowFullScreen
+            />
+          </div>
+          <a
+            href={samplePdfUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 text-pink-400 text-sm hover:underline"
+          >
+            Open PDF in new tab
+          </a>
         </div>
       </div>
 
