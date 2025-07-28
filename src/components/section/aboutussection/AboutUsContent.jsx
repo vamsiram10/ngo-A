@@ -15,6 +15,21 @@ const fadeIn = {
   }),
 };
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+};
+
+const fadeLeft = {
+  hidden: { opacity: 0, x: 40 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } },
+};
+
+const fadeRight = {
+  hidden: { opacity: 0, x: -40 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } },
+};
+
 export default function AboutUsContent() {
   const team = [
     {
@@ -89,35 +104,64 @@ export default function AboutUsContent() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h1 className="text-4xl font-bold text-transparent bg-pink-500 bg-clip-text sm:text-5xl">
+          <motion.h1
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="text-4xl font-bold text-transparent bg-pink-500 bg-clip-text sm:text-5xl"
+          >
             About Us
-          </h1>
+          </motion.h1>
         </motion.div>
       </div>
 
       <div className="grid items-center gap-8 px-4 sm:px-40 lg:grid-cols-2">
-        <div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeLeft}
+        >
           <h2 className="mb-6 text-3xl font-semibold text-transparent bg-pink-300 bg-clip-text sm:text-4xl">
             Who We Are
           </h2>
           <div className="text-justify space-y-4">
-            <p>
+            <motion.p
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              transition={{ delay: 0.1 }}
+            >
               What began as a heartfelt initiative by{" "}
               <strong className="text-[#fb64b6]">V. Radha Priyanka</strong> and
               her close friends in 2022 has now grown into a registered movement
               of compassion and change. Rooted in Hyderabad, our journey started
               with simple acts—distributing clothes and food to those in need.
-            </p>
+            </motion.p>
 
-            <p>
+            <motion.p
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              transition={{ delay: 0.2 }}
+            >
               As our vision expanded, so did our reach. We built a dedicated
               team and extended to Jaipur—taking our mission of care to more
               communities. From refreshment drives and medical kit distributions
               to visits to orphanages and old age homes, every effort is driven
               by the same purpose—to bring hope, dignity, and support.
-            </p>
+            </motion.p>
 
-            <p>
+            <motion.p
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              transition={{ delay: 0.3 }}
+            >
               Founded in 2022 and officially incorporated as a{" "}
               <strong className="text-[#fb64b6]">
                 registered NGO in November 2024
@@ -130,10 +174,16 @@ export default function AboutUsContent() {
               <strong className="text-[#fb64b6]">1108 of 2024</strong>. This
               recognition enables us to scale our initiatives and deepen our
               commitment to meaningful, community-driven change.
-            </p>
+            </motion.p>
           </div>
-        </div>
-        <div className="overflow-hidden relative w-full h-64 rounded-xl sm:h-96">
+        </motion.div>
+        <motion.div
+          className="overflow-hidden relative w-full h-64 rounded-xl sm:h-96"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeRight}
+        >
           <Image
             fill
             src="/images/aboutus1.jpg"
@@ -142,17 +192,34 @@ export default function AboutUsContent() {
             className="object-cover"
             priority
           />
-        </div>
+        </motion.div>
       </div>
 
       <div className="relative px-4 py-12 py-20 sm:px-40">
-        <h2 className="mb-10 text-3xl font-semibold text-center text-pink-300 sm:text-4xl lg:text-4xl">
+        <motion.h2
+          className="mb-10 text-3xl font-semibold text-center text-pink-300 sm:text-4xl lg:text-4xl"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
           What We Do
-        </h2>
+        </motion.h2>
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {/* Love and Care */}
-          <div className="flex flex-col items-center p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
-            <div className="overflow-hidden flex items-center justify-center mb-4 w-40 h-40 bg-neutral-800 border-2 border-pink-400">
+          <motion.div
+            className="flex flex-col items-center p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+            custom={1}
+          >
+            <motion.div
+              className="overflow-hidden flex items-center justify-center mb-4 w-40 h-40 bg-neutral-800 border-2 border-pink-400"
+              whileHover={{ scale: 1.07, rotate: 2 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            >
               <Image
                 src="/aboutus/love.jpg"
                 alt="Love and Care"
@@ -160,7 +227,7 @@ export default function AboutUsContent() {
                 height={160}
                 className="object-cover w-full h-full"
               />
-            </div>
+            </motion.div>
             <h3 className="mb-2 text-xl font-semibold text-pink-400 text-center lg:text-2xl">
               1. Love and Care
             </h3>
@@ -168,11 +235,22 @@ export default function AboutUsContent() {
               Regular visits to orphanages and old age homes to foster
               connections and holistic well-being.
             </p>
-          </div>
+          </motion.div>
 
           {/* Seasonal & Awareness Drives */}
-          <div className="flex flex-col items-center p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
-            <div className="overflow-hidden flex items-center justify-center mb-4 w-40 h-40 bg-neutral-800 border-2 border-pink-400">
+          <motion.div
+            className="flex flex-col items-center p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+            custom={2}
+          >
+            <motion.div
+              className="overflow-hidden flex items-center justify-center mb-4 w-40 h-40 bg-neutral-800 border-2 border-pink-400"
+              whileHover={{ scale: 1.07, rotate: -2 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            >
               <Image
                 src="/aboutus/seasonal.jpg"
                 alt="Seasonal & Awareness Drives"
@@ -180,7 +258,7 @@ export default function AboutUsContent() {
                 height={160}
                 className="object-cover w-full h-full"
               />
-            </div>
+            </motion.div>
             <h3 className="mb-2 text-xl font-semibold text-pink-400 text-center lg:text-2xl">
               2. Seasonal & Awareness Drives
             </h3>
@@ -196,11 +274,22 @@ export default function AboutUsContent() {
                 <strong className="text-pink-400">Medical & Period Kits</strong>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Development Support */}
-          <div className="flex flex-col items-center p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
-            <div className="overflow-hidden flex items-center justify-center mb-4 w-40 h-40 bg-neutral-800 border-2 border-pink-400">
+          <motion.div
+            className="flex flex-col items-center p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+            custom={3}
+          >
+            <motion.div
+              className="overflow-hidden flex items-center justify-center mb-4 w-40 h-40 bg-neutral-800 border-2 border-pink-400"
+              whileHover={{ scale: 1.07, rotate: 1 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            >
               <Image
                 src="/aboutus/development.jpg"
                 alt="Development Support"
@@ -208,7 +297,7 @@ export default function AboutUsContent() {
                 height={160}
                 className="object-cover w-full h-full"
               />
-            </div>
+            </motion.div>
             <h3 className="mb-2 text-xl font-semibold text-pink-400 text-center lg:text-2xl">
               3. Development Support
             </h3>
@@ -217,17 +306,30 @@ export default function AboutUsContent() {
               <li>Basic school infrastructure</li>
               <li>Community upliftment programs</li>
             </ul>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* PDF Preview Section - Shows the full PDF, not just the first page */}
-      <div className="relative px-4 py-12 sm:px-40">
+      <motion.div
+        className="relative px-4 py-12 sm:px-40"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeUp}
+      >
         <h2 className="mb-6 text-2xl font-semibold text-center text-pink-400">
           PDF Preview (Full Document)
         </h2>
-        <div className="flex flex-col items-center">
-          <div className="overflow-hidden w-full max-w-3xl h-[80vh] bg-neutral-900 border-2 border-pink-400 rounded-lg shadow-lg">
+        {/* Center the preview using flex utilities */}
+        <div className="flex flex-col items-center justify-center">
+          <motion.div
+            className="overflow-hidden flex items-center justify-center mx-auto w-full max-w-3xl h-[80vh] bg-neutral-900 border-2 border-pink-400 rounded-lg shadow-lg"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
             <iframe
               src={`${samplePdfUrl}#toolbar=1&navpanes=1&scrollbar=1`}
               title="PDF Preview"
@@ -237,31 +339,54 @@ export default function AboutUsContent() {
                 minHeight: "80vh",
                 width: "100%",
                 border: "none",
+                display: "block",
+                margin: "0 auto",
               }}
               allowFullScreen
             />
-          </div>
-          <a
+          </motion.div>
+          <motion.a
             href={samplePdfUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-4 text-pink-400 text-sm hover:underline"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
             Open PDF in new tab
-          </a>
+          </motion.a>
         </div>
-      </div>
+      </motion.div>
 
-      <h2 className="relative mb-15 text-3xl font-bold text-center text-pink-300 md:text-4xl">
+      <motion.h2
+        className="relative mb-15 text-3xl font-bold text-center text-pink-300 md:text-4xl"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeUp}
+      >
         Meet Our Board
-      </h2>
+      </motion.h2>
       <div className="grid grid-cols-1 gap-8 mb-20 mx-auto px-6 max-w-7xl sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {team.map((member, index) => (
-          <div
+          <motion.div
             key={index}
             className="flex flex-col items-center p-6 mb-5 min-h-[350px] text-center bg-neutral-900 rounded-2xl shadow-md md:min-h-[380px] lg:min-h-[200px]"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+            custom={index + 1}
+            whileHover={{ scale: 1.04, boxShadow: "0 8px 32px #fb64b633" }}
+            transition={{ type: "spring", stiffness: 180 }}
           >
-            <div className="overflow-hidden flex items-center justify-center mb-10 mx-auto w-32 h-32 rounded-full">
+            <motion.div
+              className="overflow-hidden flex items-center justify-center mb-10 mx-auto w-32 h-32 rounded-full"
+              whileHover={{ scale: 1.08, rotate: 2 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            >
               {member.img ? (
                 <Image
                   src={member.img}
@@ -279,13 +404,35 @@ export default function AboutUsContent() {
                     .slice(0, 2)}
                 </div>
               )}
-            </div>
-            <h3 className="text-xl font-semibold text-white">{member.name}</h3>
-            <p className="mb-2 text-sm font-medium text-pink-400">
+            </motion.div>
+            <motion.h3
+              className="text-xl font-semibold text-white"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1, duration: 0.4 }}
+            >
+              {member.name}
+            </motion.h3>
+            <motion.p
+              className="mb-2 text-sm font-medium text-pink-400"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15, duration: 0.4 }}
+            >
               {member.role}
-            </p>
-            <p className="text-sm text-white">{member.desc}</p>
-          </div>
+            </motion.p>
+            <motion.p
+              className="text-sm text-white"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.4 }}
+            >
+              {member.desc}
+            </motion.p>
+          </motion.div>
         ))}
       </div>
     </div>
