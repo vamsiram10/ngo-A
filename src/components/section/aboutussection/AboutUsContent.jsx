@@ -33,19 +33,19 @@ export default function AboutUsContent() {
       name: "Ananya Pandey",
       role: "General Secretary",
       desc: "Manages administrative affairs, ensures clear communication, and upholds governance with integrity.",
-      img: "/team/priyanka.jpg",
+      // img: "/team/priyanka.jpg",
     },
     {
       name: "M.V. Nageswara Rao",
       role: "Joint Secretary",
       desc: "Supports administrative functions and streamlines coordination to ensure operational efficiency.",
-      img: "/team/ajay.jpg",
+      // img: "/team/ajay.jpg",
     },
     {
       name: "V. Lakshmi Prasanna",
       role: "Treasurer",
       desc: "Manages financial operations, maintains transparent records, and ensures accountable use of funds.",
-      img: "/team/priyanka.jpg",
+      // img: "/meet/prasanna.jpg",
     },
     {
       name: "K. Usha Bhargavi",
@@ -217,13 +217,13 @@ export default function AboutUsContent() {
       <h2 className="relative mb-15 text-3xl font-bold text-center text-pink-300 md:text-4xl">
         Meet Our Board
       </h2>
-      <div className="grid grid-cols-1 gap-8 mx-auto px-6 max-w-7xl sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-8 mb-20 mx-auto px-6 max-w-7xl sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {team.map((member, index) => (
           <div
             key={index}
-            className="flex flex-col items-center p-6 mb-10 min-h-[350px] text-center bg-neutral-900 rounded-2xl shadow-md md:min-h-[380px] lg:min-h-[200px]"
+            className="flex flex-col items-center p-6 mb-5 min-h-[350px] text-center bg-neutral-900 rounded-2xl shadow-md md:min-h-[380px] lg:min-h-[200px]"
           >
-            <div className="overflow-hidden flex items-center justify-center mb-4 mx-auto w-32 h-32 rounded-full">
+            <div className="overflow-hidden flex items-center justify-center mb-10 mx-auto w-32 h-32 rounded-full">
               {member.img ? (
                 <Image
                   src={member.img}
