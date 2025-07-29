@@ -45,7 +45,7 @@ export default function AboutUsContent() {
       name: "V. Lakshmi Prasanna",
       role: "Treasurer",
       desc: "Manages financial operations, maintains transparent records, and ensures accountable use of funds.",
-      // img: "/meet/prasanna.jpg",
+      img: "/meet/prasanna2.jpg",
     },
     {
       name: "K. Usha Bhargavi",
@@ -57,7 +57,7 @@ export default function AboutUsContent() {
       name: "V. Sai Harini",
       role: "Executive member",
       desc: "Contributes in organizational activities, offering insights and assistance to drive impactful initiatives forward.",
-      img: "/meet/harini.jpg",
+      img: "/meet/harini2.jpg",
     },
     {
       name: "Ch. Vinathi",

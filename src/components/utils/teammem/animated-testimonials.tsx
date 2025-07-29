@@ -55,11 +55,6 @@ const DEFAULT_TESTIMONIALS: Testimonial[] = [
   // },
 ];
 
-interface AnimatedTestimonialsProps {
-  testimonials?: Testimonial[];
-  autoplay?: boolean;
-}
-
 const IMAGE_SIZE = 384;
 const IMAGE_SIZE_MD_LG = 320;
 const IMAGE_SIZE_SM_LG = 280;
@@ -84,7 +79,7 @@ const useResponsiveImageSize = () => {
   return size;
 };
 
-const Shimmer: React.FC = () => (
+const Shimmer = () => (
   <span
     className="z-10 absolute inset-0 pointer-events-none"
     aria-hidden="true"
@@ -121,11 +116,11 @@ const Shimmer: React.FC = () => (
   </span>
 );
 
-const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
+const AnimatedTestimonials = ({
   testimonials = DEFAULT_TESTIMONIALS,
   autoplay = false,
 }) => {
-  const [active, setActive] = useState<number>(0);
+  const [active, setActive] = useState(0);
   const imageSize = useResponsiveImageSize();
 
   const handleNext = useCallback(() => {
@@ -175,16 +170,16 @@ const AnimatedTestimonials: React.FC<AnimatedTestimonialsProps> = ({
     "text-sm text-gray-700 leading-relaxed dark:text-neutral-300 md:text-lg";
 
   // Helper to render image, using <img> for external URLs
-  const TestimonialImage: React.FC<{
-    src: string;
-    alt: string;
-    className?: string;
-    style?: React.CSSProperties;
-    width: number;
-    height: number;
-    draggable?: boolean;
-    priority?: boolean;
-  }> = ({ src, alt, className, style, width, height, draggable, priority }) => (
+  const TestimonialImage = ({
+    src,
+    alt,
+    className,
+    style,
+    width,
+    height,
+    draggable,
+    priority,
+  }) => (
     <img
       src={src}
       alt={alt}
