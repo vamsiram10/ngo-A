@@ -1,20 +1,19 @@
 import React from "react";
 
-export default function Blogs() {
+export default function BlogsComingSoon() {
   return (
-    <div className="absolute top-2 left-150 flex items-center min-h-screen bg-black">
-      <div className="flex flex-col items-center justify-center w-full">
-        {/* Rotating Loader */}
-        <div className="flex items-center justify-center mb-8 w-20 h-20">
-          <span
-            className="inline-block w-16 h-16 border-4 border-pink-400 border-t-transparent rounded-full animate-spin"
-            style={{ borderTopColor: "transparent" }}
-            aria-label="Loading"
-          ></span>
-        </div>
-        <h1 className="text-4xl font-extrabold text-transparent text-center tracking-wider bg-gradient-to-r from-pink-400 via-pink-500 to-fuchsia-400 bg-clip-text select-none animate-pulse">
-          Coming Soon
-        </h1>
+    <div className="flex flex-col items-center justify-center min-h-[90vh] text-white bg-black">
+      <div className="flex flex-col items-center">
+        <div className="mb-4 w-12 h-12 border-4 border-pink-500 border-t-transparent rounded-full animate-spin"></div>
+        <span className="text-lg text-pink-400 font-semibold">Loading...</span>
+      </div>
+      <div className="flex flex-col items-center mt-8">
+        <h2 className="mb-2 text-3xl font-bold text-pink-500">Coming Soon</h2>
+        <p className="max-w-md text-gray-300 text-center">
+          Our Blogs section is under construction.
+          <br />
+          Stay tuned for inspiring stories, updates, and more!
+        </p>
       </div>
     </div>
   );
