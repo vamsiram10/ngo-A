@@ -4,7 +4,6 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 
-// Dynamically import framer-motion only when needed
 const MotionDiv = dynamic(
   () => import("framer-motion").then((mod) => mod.motion.div),
   { ssr: false }
@@ -125,11 +124,9 @@ const galleryContent = [
   },
 ];
 
-// Utility to replace .jpg with .webp, but leave .png and .jpeg unchanged
 const toWebpIfJpg = (src) =>
   typeof src === "string" ? src.replace(/\.jpg$/i, ".webp") : src;
 
-// Lightweight ChapterCard without framer-motion unless visible
 function ChapterCard({ chapter }) {
   return (
     <Suspense fallback={<div className="bg-neutral-900 rounded-2xl h-64" />}>
@@ -196,7 +193,6 @@ function ContentItem({ title, description, isFaq = false }) {
   );
 }
 
-// GalleryCard with framer-motion only loaded when visible
 function GalleryCard({ image, isActive, onClick, index }) {
   return (
     <Suspense
@@ -349,6 +345,9 @@ export default function OurChaptersPage() {
     }
   };
 
+  const indiaMapWidth = 1200;
+  const indiaMapHeight = 900;
+
   return (
     <main className="bg-black text-white">
       <div className="overflow-hidden">
@@ -393,77 +392,88 @@ export default function OurChaptersPage() {
               </MotionDiv>
             </MotionDiv>
           </Suspense>
-          <div className="relative w-full md:w-1/2 flex justify-center items-center h-[380px] sm:h-[480px] md:h-[620px] lg:h-[700px]">
+          <div className="relative w-full md:w-1/2 flex justify-center items-center h-[380px] sm:h-[480px] md:h-[700px] lg:h-[850px]">
             <div
               id="map"
-              className="relative w-full max-w-2xl aspect-[4/3] md:aspect-[16/9] border-2 border-pink-500 rounded-2xl overflow-hidden bg-neutral-900/90 shadow-2xl backdrop-blur-lg z-20"
+              className="relative w-full max-w-2xl md:max-w-4xl aspect-[4/3] md:aspect-[16/9] border-2 border-pink-500 rounded-2xl overflow-hidden bg-neutral-900/90 shadow-2xl backdrop-blur-lg z-20"
+              style={{
+                minWidth: 0,
+                minHeight: 0,
+              }}
             >
-              <Image
-                src={toWebpIfJpg("/images/india-map.png")}
-                alt="Map of India"
-                fill
-                className="object-contain opacity-80 saturate-150"
-                style={{ objectFit: "contain" }}
-                sizes="(max-width: 1024px) 100vw, 100vw"
-                priority={false}
-              />
-              {chapters.map((chapter) => (
-                <div
-                  key={chapter.id}
-                  onMouseEnter={() => setHoveredChapterId(chapter.id)}
-                  onMouseLeave={() => setHoveredChapterId(null)}
-                  onTouchStart={() => setHoveredChapterId(chapter.id)}
-                  onTouchEnd={() =>
-                    setTimeout(() => setHoveredChapterId(null), 800)
-                  }
-                  className="absolute z-30 cursor-pointer"
-                  style={{
-                    left: chapter.position.left,
-                    top: chapter.position.top,
-                    transform: "translate(-50%, -50%)",
-                  }}
-                >
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  position: "relative",
+                }}
+              >
+                <Image
+                  src={toWebpIfJpg("/images/india-map.png")}
+                  alt="Map of India"
+                  fill
+                  className="object-contain opacity-80 saturate-150"
+                  style={{ objectFit: "contain" }}
+                  sizes="(max-width: 1024px) 100vw, 100vw"
+                  priority={true}
+                />
+                {chapters.map((chapter) => (
                   <div
-                    className={`rounded-full border-2 sm:border-4 border-pink-500 bg-white flex items-center justify-center shadow-lg transition-all duration-300 ${
-                      hoveredChapterId === chapter.id
-                        ? "ring-2 sm:ring-4 ring-pink-300/60 scale-110"
-                        : ""
-                    } w-10 h-10 sm:w-12 sm:h-12`}
+                    key={chapter.id}
+                    onMouseEnter={() => setHoveredChapterId(chapter.id)}
+                    onMouseLeave={() => setHoveredChapterId(null)}
+                    onTouchStart={() => setHoveredChapterId(chapter.id)}
+                    onTouchEnd={() =>
+                      setTimeout(() => setHoveredChapterId(null), 800)
+                    }
+                    className="absolute z-30 cursor-pointer"
+                    style={{
+                      left: chapter.position.left,
+                      top: chapter.position.top,
+                      transform: "translate(-50%, -50%)",
+                    }}
                   >
-                    <Image
-                      src={toWebpIfJpg("/svg/AVASA.svg")}
-                      alt="AVASA Logo"
-                      width={32}
-                      height={32}
-                      className="rounded-full object-contain bg-white animate-blink-signal sm:w-10 sm:h-10 w-8 h-8"
-                      style={{ objectFit: "contain" }}
-                      priority={false}
-                    />
-                  </div>
-                </div>
-              ))}
-              <Suspense fallback={null}>
-                <AnimatePresence>
-                  {chapterToShow && (
-                    <MotionDiv
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 8 }}
-                      className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 p-3 sm:p-5 bg-black/80 backdrop-blur-lg rounded-xl border border-pink-500/30 text-left z-40"
+                    <div
+                      className={`rounded-full border-2 sm:border-4 border-pink-500 bg-white flex items-center justify-center shadow-lg transition-all duration-300 ${
+                        hoveredChapterId === chapter.id
+                          ? "ring-2 sm:ring-4 ring-pink-300/60 scale-110"
+                          : ""
+                      } w-10 h-10 sm:w-12 sm:h-12`}
                     >
-                      <h3 className="text-pink-400 font-semibold text-base sm:text-lg md:text-xl">
-                        {chapterToShow.name}
-                      </h3>
-                      <p className="text-neutral-200 text-xs sm:text-sm">
-                        {chapterToShow.volunteers}+ Volunteers
-                      </p>
-                    </MotionDiv>
-                  )}
-                </AnimatePresence>
-              </Suspense>
+                      <Image
+                        src={toWebpIfJpg("/svg/AVASA.svg")}
+                        alt="AVASA Logo"
+                        width={32}
+                        height={32}
+                        className="rounded-full object-contain bg-white animate-blink-signal sm:w-10 sm:h-10 w-8 h-8"
+                        style={{ objectFit: "contain" }}
+                        priority={false}
+                      />
+                    </div>
+                  </div>
+                ))}
+                <Suspense fallback={null}>
+                  <AnimatePresence>
+                    {chapterToShow && (
+                      <MotionDiv
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 8 }}
+                        className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 p-3 sm:p-5 bg-black/80 backdrop-blur-lg rounded-xl border border-pink-500/30 text-left z-40"
+                      >
+                        <h3 className="text-pink-400 font-semibold text-base sm:text-lg md:text-xl">
+                          {chapterToShow.name}
+                        </h3>
+                        <p className="text-neutral-200 text-xs sm:text-sm">
+                          {chapterToShow.volunteers}+ Volunteers
+                        </p>
+                      </MotionDiv>
+                    )}
+                  </AnimatePresence>
+                </Suspense>
+              </div>
             </div>
           </div>
-          {/* Responsive background image and overlay for desktop and mobile */}
           <div className="absolute inset-0 z-0 pointer-events-none">
             <Image
               src={toWebpIfJpg("/images/vm.jpg")}
@@ -472,7 +482,7 @@ export default function OurChaptersPage() {
               className="object-cover opacity-50 saturate-150"
               style={{
                 objectFit: "cover",
-                objectPosition: "center 30%", // Show more of the top on mobile
+                objectPosition: "center 30%",
               }}
               sizes="100vw"
               priority={false}
@@ -480,7 +490,7 @@ export default function OurChaptersPage() {
             <style jsx global>{`
               @media (min-width: 1024px) {
                 .object-cover {
-                  object-position: center 15% !important; /* Show more of the top on desktop */
+                  object-position: center 15% !important;
                 }
               }
             `}</style>
