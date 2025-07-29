@@ -1,13 +1,24 @@
 "use client";
-import React, { useRef, useEffect, useState } from "react";
+import React, {
+  useRef,
+  useState,
+  Suspense,
+  lazy,
+  useEffect,
+  useCallback,
+} from "react";
 import "@/app/globals.css";
-import { Swiper, SwiperSlide } from "swiper/react";
+
+// Directly import Swiper and SwiperSlide for correct SSR/client usage
+import { Swiper as SwiperCore, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Keyboard } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
-import { EffectCoverflow } from "swiper/modules";
-import BackgroundLines from "@/components/utils/background/background-lines";
 
-// NOTE: If you are developing this React app, consider installing the React DevTools for a better development experience: https://react.dev/link/react-devtools
+// Lazy load BackgroundLines as well
+const BackgroundLines = lazy(() =>
+  import("@/components/utils/background/background-lines")
+);
 
 const games = [
   {
@@ -193,11 +204,36 @@ export default function GameCarousel() {
   const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  // Only load Swiper modules when the carousel is visible (client-side)
+  const [swiperReady, setSwiperReady] = useState(false);
+
+  useEffect(() => {
+    setSwiperReady(true);
+  }, []);
+
   const handleSlideChange = (s) => setActiveIndex(s.realIndex);
 
-  // Remove useEffect that adds a global keydown event listener,
-  // as it can prevent bfcache restoration due to global side effects.
-  // Swiper's built-in keyboard navigation is enabled via the keyboard prop.
+  // Keyboard navigation for left/right arrow keys
+  const handleKeyDown = useCallback((e) => {
+    if (!swiperRef.current || !swiperRef.current.swiper) return;
+    if (e.key === "ArrowLeft") {
+      swiperRef.current.swiper.slidePrev();
+      e.preventDefault();
+    } else if (e.key === "ArrowRight") {
+      swiperRef.current.swiper.slideNext();
+      e.preventDefault();
+    }
+  }, []);
+
+  // Attach keydown listener when carousel is mounted
+  useEffect(() => {
+    if (!swiperReady) return;
+    // Attach to the document for global navigation, or to the carousel for scoped navigation
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [swiperReady, handleKeyDown]);
 
   return (
     <section
@@ -205,7 +241,9 @@ export default function GameCarousel() {
       style={{ position: "relative", overflow: "hidden", background: "black" }}
     >
       <div className="background-lines-wrapper">
-        <BackgroundLines />
+        <Suspense fallback={null}>
+          <BackgroundLines />
+        </Suspense>
       </div>
       <h2
         className="line-title animated-title pink-text"
@@ -231,53 +269,56 @@ export default function GameCarousel() {
         <AnimatedWord word="GALLERY" />
       </h2>
       <div className="custom-carousel">
-        <Swiper
-          ref={swiperRef}
-          effect="coverflow"
-          grabCursor
-          centeredSlides
-          slidesPerView="auto"
-          loop
-          coverflowEffect={{
-            rotate: 0,
-            stretch: 0,
-            depth: 200,
-            modifier: 1,
-            slideShadows: false,
-            scale: 0.85,
-          }}
-          spaceBetween={30}
-          modules={[EffectCoverflow]}
-          className="game-swiper"
-          onSlideChange={handleSlideChange}
-          keyboard={{ enabled: true }}
-          initialSlide={0}
-        >
-          {games.map((g, i) => (
-            <SwiperSlide key={i} style={{ width: "320px", height: "400px" }}>
-              <div
-                className={`item${activeIndex === i ? " active" : ""}`}
-                tabIndex={0}
-                aria-selected={activeIndex === i}
-              >
-                <div className="item-image-wrapper">
-                  <img
-                    src={g.image}
-                    alt={g.title}
-                    className="item-image"
-                    draggable={false}
-                  />
+        {swiperReady && (
+          <SwiperCore
+            ref={swiperRef}
+            effect="coverflow"
+            grabCursor
+            centeredSlides
+            slidesPerView="auto"
+            loop
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 200,
+              modifier: 1,
+              slideShadows: false,
+              scale: 0.85,
+            }}
+            spaceBetween={30}
+            modules={[EffectCoverflow, Keyboard]}
+            className="game-swiper"
+            onSlideChange={handleSlideChange}
+            keyboard={{ enabled: true, onlyInViewport: false }}
+            initialSlide={0}
+          >
+            {games.map((g, i) => (
+              <SwiperSlide key={i} style={{ width: "320px", height: "400px" }}>
+                <div
+                  className={`item${activeIndex === i ? " active" : ""}`}
+                  tabIndex={0}
+                  aria-selected={activeIndex === i}
+                >
+                  <div className="item-image-wrapper">
+                    <img
+                      src={g.image}
+                      alt={g.title}
+                      className="item-image"
+                      draggable={false}
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="item-float-bg" />
+                  <div className="item-desc pink-text">
+                    <h3 className="item-title-animated pink-text">{g.title}</h3>
+                    <p className="game-desc-white">{g.description}</p>
+                  </div>
+                  <div className="item-glow" />
                 </div>
-                <div className="item-float-bg" />
-                <div className="item-desc pink-text">
-                  <h3 className="item-title-animated pink-text">{g.title}</h3>
-                  <p className="game-desc-white">{g.description}</p>
-                </div>
-                <div className="item-glow" />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+              </SwiperSlide>
+            ))}
+          </SwiperCore>
+        )}
       </div>
       <style jsx>{`
         * {
