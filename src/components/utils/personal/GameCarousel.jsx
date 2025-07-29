@@ -1,12 +1,13 @@
 "use client";
-
-import React, { useEffect, useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "@/app/globals.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import { EffectCoverflow } from "swiper/modules";
-import BackgroundLines from "@/components/utils/background/background-lines"; // Adjust path as needed
+import BackgroundLines from "@/components/utils/background/background-lines";
+
+// NOTE: If you are developing this React app, consider installing the React DevTools for a better development experience: https://react.dev/link/react-devtools
 
 const games = [
   {
@@ -175,11 +176,11 @@ const games = [
 function AnimatedWord({ word }) {
   return (
     <span className="animated-word">
-      {word.split("").map((char, idx) => (
+      {word.split("").map((char, i) => (
         <span
-          key={idx}
+          key={i}
           className="animated-letter"
-          style={{ animationDelay: `${idx * 0.08}s` }}
+          style={{ animationDelay: `${i * 0.08}s` }}
         >
           {char === " " ? "\u00A0" : char}
         </span>
@@ -190,48 +191,19 @@ function AnimatedWord({ word }) {
 
 export default function GameCarousel() {
   const swiperRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  useEffect(() => {
-    // Handle click to activate/deactivate carousel items
-    const handleClick = (e) => {
-      const items = document.querySelectorAll(".custom-carousel .item");
-      if (e.currentTarget.classList.contains("active")) {
-        items.forEach((el) => el.classList.remove("active"));
-      } else {
-        items.forEach((el) => el.classList.remove("active"));
-        e.currentTarget.classList.add("active");
-      }
-    };
-    const items = document.querySelectorAll(".custom-carousel .item");
-    items.forEach((el, idx) => {
-      el.addEventListener("click", handleClick);
-      if (idx === 0) el.classList.add("active");
-    });
+  const handleSlideChange = (s) => setActiveIndex(s.realIndex);
 
-    // Keyboard navigation for Swiper
-    const handleKeyDown = (e) => {
-      // Only left/right arrows
-      if (!swiperRef.current || !swiperRef.current.swiper) return;
-      if (e.key === "ArrowLeft") {
-        swiperRef.current.swiper.slidePrev();
-      } else if (e.key === "ArrowRight") {
-        swiperRef.current.swiper.slideNext();
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      items.forEach((el) => el.removeEventListener("click", handleClick));
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
+  // Remove useEffect that adds a global keydown event listener,
+  // as it can prevent bfcache restoration due to global side effects.
+  // Swiper's built-in keyboard navigation is enabled via the keyboard prop.
 
   return (
     <section
       className="game-section centered-section"
       style={{ position: "relative", overflow: "hidden", background: "black" }}
     >
-      {/* Responsive background lines */}
       <div className="background-lines-wrapper">
         <BackgroundLines />
       </div>
@@ -261,11 +233,11 @@ export default function GameCarousel() {
       <div className="custom-carousel">
         <Swiper
           ref={swiperRef}
-          effect={"coverflow"}
-          grabCursor={true}
-          centeredSlides={true}
-          slidesPerView={"auto"}
-          loop={true}
+          effect="coverflow"
+          grabCursor
+          centeredSlides
+          slidesPerView="auto"
+          loop
           coverflowEffect={{
             rotate: 0,
             stretch: 0,
@@ -277,27 +249,29 @@ export default function GameCarousel() {
           spaceBetween={30}
           modules={[EffectCoverflow]}
           className="game-swiper"
+          onSlideChange={handleSlideChange}
+          keyboard={{ enabled: true }}
+          initialSlide={0}
         >
-          {games.map((game, index) => (
-            <SwiperSlide
-              key={index}
-              style={{ width: "320px", height: "400px" }}
-            >
-              <div className={`item${index === 0 ? " active" : ""}`}>
+          {games.map((g, i) => (
+            <SwiperSlide key={i} style={{ width: "320px", height: "400px" }}>
+              <div
+                className={`item${activeIndex === i ? " active" : ""}`}
+                tabIndex={0}
+                aria-selected={activeIndex === i}
+              >
                 <div className="item-image-wrapper">
                   <img
-                    src={game.image}
-                    alt={game.title}
+                    src={g.image}
+                    alt={g.title}
                     className="item-image"
                     draggable={false}
                   />
                 </div>
                 <div className="item-float-bg" />
                 <div className="item-desc pink-text">
-                  <h3 className="item-title-animated pink-text">
-                    {game.title}
-                  </h3>
-                  <p className="game-desc-white">{game.description}</p>
+                  <h3 className="item-title-animated pink-text">{g.title}</h3>
+                  <p className="game-desc-white">{g.description}</p>
                 </div>
                 <div className="item-glow" />
               </div>
@@ -359,7 +333,6 @@ export default function GameCarousel() {
             transform: translateY(0) scale(1);
           }
         }
-        /* Animated word heading styles */
         .animated-word {
           display: inline-block;
         }
@@ -383,8 +356,6 @@ export default function GameCarousel() {
         .custom-carousel {
           width: 100%;
         }
-        .game-swiper {
-        }
         .item {
           margin: 0 0px 60px;
           width: 320px;
@@ -397,6 +368,8 @@ export default function GameCarousel() {
           position: relative;
           transition: all 0.4s cubic-bezier(0.4, 2, 0.6, 1);
           cursor: pointer;
+          left: 50%;
+          transform: translateX(-50%);
         }
         .item-image-wrapper {
           position: absolute;
@@ -422,11 +395,6 @@ export default function GameCarousel() {
         .custom-carousel .swiper-slide {
           display: flex;
           justify-content: center;
-        }
-        .item {
-          left: 50%;
-          transform: translateX(-50%);
-          position: relative;
         }
         .item.active {
           width: 500px !important;
@@ -472,7 +440,7 @@ export default function GameCarousel() {
         }
         @keyframes floatBg {
           0% {
-            transform: scale(1) translateY(0px);
+            transform: scale(1) translateY(0);
           }
           100% {
             transform: scale(1.04) translateY(-10px);
@@ -536,8 +504,6 @@ export default function GameCarousel() {
         .item.active .item-desc p {
           opacity: 1;
           transform: translateY(0);
-        }
-        .item.active .item-desc p {
           animation: fadeInText 0.6s 0.2s both;
         }
         @keyframes fadeInText {
@@ -555,8 +521,6 @@ export default function GameCarousel() {
         }
         .swiper-coverflow .swiper-slide {
           transform-origin: 50% 50% !important;
-        }
-        .swiper-coverflow .swiper-slide {
           transform: scale(0.85) !important;
         }
         .swiper-coverflow .swiper-slide-active {
@@ -706,8 +670,6 @@ export default function GameCarousel() {
         .swiper-coverflow .swiper-slide {
           transition: transform 0.4s cubic-bezier(0.4, 2, 0.6, 1),
             box-shadow 0.4s cubic-bezier(0.4, 2, 0.6, 1);
-        }
-        .swiper-coverflow .swiper-slide {
           transform: scale(0.85) !important;
         }
         .swiper-coverflow .swiper-slide-active {
