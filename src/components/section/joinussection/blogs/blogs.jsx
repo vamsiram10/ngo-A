@@ -1,124 +1,21 @@
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 
-function Blogs() {
-  const [selectedBlog, setSelectedBlog] = useState(null);
-  const previewRef = useRef(null);
-
-  // Example blog data; replace with your own or fetch from an API
-  const blogs = [
-    {
-      id: 1,
-      title: "The Power of Kindness",
-      description:
-        "A short essay on the impact of kindness in our daily lives.",
-      pdfUrl: "/blogs/Blog by krishna.pdf",
-    },
-    {
-      id: 2,
-      title: "Volunteering: A Life-Changing Experience",
-      description: "Reflections on volunteering and its benefits.",
-      pdfUrl: "/blogs/linkedin post.pdf",
-    },
-    {
-      id: 3,
-      title: "Sustainable Living Tips",
-      description: "Practical advice for a more sustainable lifestyle.",
-      pdfUrl: "/pdfs/sustainable-living.pdf",
-    },
-  ];
-
-  // Toggle logic for Read Blog button
-  const handleReadBlog = (blog) => {
-    if (selectedBlog && selectedBlog.id === blog.id) {
-      setSelectedBlog(null);
-    } else {
-      setSelectedBlog(blog);
-    }
-  };
-
-  // Scroll to the preview when a blog is opened (desktop only)
-  useEffect(() => {
-    if (selectedBlog && previewRef.current) {
-      // Only scroll on desktop screens
-      if (window.innerWidth >= 768) {
-        previewRef.current.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-        });
-      }
-    }
-  }, [selectedBlog]);
-
+export default function Blogs() {
   return (
-    <div className="py-5 px-2 min-h-screen bg-neutral-950">
-      <h1 className="mb-10 text-3xl font-bold text-pink-500 text-center md:text-4xl">
-        BLOGS
-      </h1>
-      <div className="flex flex-col gap-8 mx-auto max-w-3xl">
-        {blogs.map((blog) => (
-          <div
-            key={blog.id}
-            className="flex flex-col p-6 bg-neutral-900 border-neutral-800 rounded-xl shadow-lg border"
-          >
-            <h2 className="mb-2 text-xl font-semibold text-white">
-              {blog.title}
-            </h2>
-            <p className="flex-grow mb-4 text-neutral-400">
-              {blog.description}
-            </p>
-            <button
-              onClick={() => handleReadBlog(blog)}
-              className="py-2 px-4 text-white font-bold bg-pink-600 transition-colors duration-200 hover:bg-pink-700 rounded"
-            >
-              Read Blog
-            </button>
-            {selectedBlog && selectedBlog.id === blog.id && (
-              <div className="mt-6" ref={previewRef}>
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-pink-400 font-semibold">Preview</span>
-                  <button
-                    onClick={() => setSelectedBlog(null)}
-                    className="text-sm text-neutral-400 hover:text-pink-400"
-                  >
-                    Close
-                  </button>
-                </div>
-                <div
-                  className="overflow-hidden flex flex-col w-full bg-black border-neutral-800 border rounded"
-                  style={{
-                    height: "70vh",
-                    maxHeight: "80vh",
-                  }}
-                >
-                  <iframe
-                    src={blog.pdfUrl}
-                    title={blog.title}
-                    className="w-full h-full bg-black rounded"
-                    style={{
-                      border: "none",
-                      width: "100%",
-                      height: "100%",
-                      minHeight: "60vh",
-                      maxHeight: "80vh",
-                    }}
-                    allowFullScreen
-                  />
-                </div>
-                <a
-                  href={blog.pdfUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block mt-4 text-pink-500 text-sm hover:underline"
-                >
-                  Open in new tab
-                </a>
-              </div>
-            )}
-          </div>
-        ))}
+    <div className="absolute top-2 left-150 flex items-center min-h-screen bg-black">
+      <div className="flex flex-col items-center justify-center w-full">
+        {/* Rotating Loader */}
+        <div className="flex items-center justify-center mb-8 w-20 h-20">
+          <span
+            className="inline-block w-16 h-16 border-4 border-pink-400 border-t-transparent rounded-full animate-spin"
+            style={{ borderTopColor: "transparent" }}
+            aria-label="Loading"
+          ></span>
+        </div>
+        <h1 className="text-4xl font-extrabold text-transparent text-center tracking-wider bg-gradient-to-r from-pink-400 via-pink-500 to-fuchsia-400 bg-clip-text select-none animate-pulse">
+          Coming Soon
+        </h1>
       </div>
     </div>
   );
 }
-
-export default Blogs;
