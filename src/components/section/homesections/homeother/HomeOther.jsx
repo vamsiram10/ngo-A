@@ -2,7 +2,6 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
-// Images for HomeOther section
 const images = ["/maindesk.jpeg", "/maindesk3.jpg", "/main.jpg"];
 
 const dropInKeyframes = [
@@ -41,7 +40,6 @@ const HomeOther = () => {
 
   const isMobile = useIsMobile();
 
-  // Animate the main text in
   useEffect(() => {
     if (textRef.current) {
       textRef.current.animate(dropInKeyframes, dropInTiming);
