@@ -1,9 +1,11 @@
-/** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig = {
-  output: "export", // 👈 important
+  output: "export",
   images: {
-    unoptimized: true, // ✅ required for static export
+    unoptimized: true,
   },
+  assetPrefix: isProd ? "https://avasafoundation.org" : "",
 };
 
 export default nextConfig;
