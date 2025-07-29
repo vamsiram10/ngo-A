@@ -84,7 +84,7 @@ const Faqs = () => {
   }, [activeIndex]);
 
   return (
-    <section className="py-16 min-h-[200vh] text-white font-sans bg-black sm:min-h-[120vh] md:min-h-[180vh] lg:min-h-[100vh]">
+    <section className="py-16 mb-30 min-h-[200vh] text-white font-sans bg-black sm:min-h-[120vh] md:min-h-[180vh] lg:min-h-[100vh]">
       <div className="container relative top-18 mx-auto px-6 lg:px-20">
         <h2 className="mb-12 text-4xl font-bold text-center text-pink-500 tracking-wide uppercase">
           Frequently Asked Questions

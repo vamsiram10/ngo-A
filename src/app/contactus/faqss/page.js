@@ -1,4 +1,4 @@
-import Faqs from "@/components/section/Faqs";
+import Faqs from "@/components/section/contactussection/faqsss/faq";
 
 const FaqssPage = () => {
   return (
@@ -7,4 +7,5 @@ const FaqssPage = () => {
     </>
   );
 };
+
 export default FaqssPage;
