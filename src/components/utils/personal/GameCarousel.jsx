@@ -11,162 +11,162 @@ import BackgroundLines from "@/components/utils/background/background-lines"; //
 const games = [
   {
     title: "Care Meal",
-    image: "/main gallery/a.JPG",
+    image: "/main gallery/a.webp",
     description: "Serving smiles and lunch at Nayasawera NGO, Jaipur.",
   },
   {
     title: "Refreshment Drive",
-    image: "/main gallery/b.JPG",
+    image: "/main gallery/b.webp",
     description: "Serving smiles and energy through every sip and snack.",
   },
   {
     title: "Beat the Heat Drive",
-    image: "/main gallery/c.JPG",
+    image: "/main gallery/c.webp",
     description:
       "Bringing cool relief to warm days — serving hydration with heart.",
   },
   {
     title: "Golden Bonds ",
-    image: "/main gallery/d.JPG",
+    image: "/main gallery/d.webp",
     description: "Sharing smiles and stories with the golden generation.",
   },
   {
     title: "Threads of Kindness",
-    image: "/main gallery/e.JPG",
+    image: "/main gallery/e.webp",
     description:
       "From our hearts to their hands — a gesture of warmth and dignity",
   },
   {
     title: "Health in Hand",
-    image: "/main gallery/f.JPG",
+    image: "/main gallery/f.webp",
     description:
       "Distributing essential medical kits — a step towards safer, healthier lives.",
   },
   {
     title: "Nourish with Love",
-    image: "/main gallery/g.JPG",
+    image: "/main gallery/g.webp",
     description: "Serving not just food, but kindness and connection.",
   },
   {
     title: "Steps of Joy",
-    image: "/main gallery/h.JPG",
+    image: "/main gallery/h.webp",
     description:
       "Dancing beyond limits, spreading joy and confidence with every move.",
   },
   {
     title: "Golden Moments",
-    image: "/main gallery/i.JPG",
+    image: "/main gallery/i.webp",
     description:
       "Spreading joy and warmth while celebrating with the wise hearts of our community.",
   },
   {
     title: "Little lights",
-    image: "/main gallery/j.JPG",
+    image: "/main gallery/j.webp",
     description:
       "Sharing laughter, stories, and unforgettable moments with the bright stars of tomorrow.",
   },
   {
     title: "Meals that matter",
-    image: "/main gallery/k.JPG",
+    image: "/main gallery/k.webp",
     description:
       "Extending a helping hand with every meal to those who need it most.",
   },
   {
     title: "Milestone Moment",
-    image: "/main gallery/l.JPG",
+    image: "/main gallery/l.webp",
     description:
       "Celebrating our official registration — a new chapter of purpose and impact begins.",
   },
   {
     title: "Meals of Kindness",
-    image: "/main gallery/m.JPG",
+    image: "/main gallery/m.webp",
     description:
       "Joining hands to serve nourishing meals with love at the NGO.",
   },
   {
     title: "Young Connections",
-    image: "/main gallery/n.JPG",
+    image: "/main gallery/n.webp",
     description:
       "Spreading smiles and inspiration while engaging with bright young minds at the government school.",
   },
   {
     title: "Medikit Drive",
-    image: "/main gallery/o.JPG",
+    image: "/main gallery/o.webp",
     description:
       "Providing essential health kits to support safer and healthier communities.",
   },
   {
     title: "Cool Relief",
-    image: "/main gallery/p.JPG",
+    image: "/main gallery/p.webp",
     description:
       "A small gesture to help beat the heat — refreshing drinks for those in need.",
   },
   {
     title: "Hygiene for her",
-    image: "/main gallery/q.JPG",
+    image: "/main gallery/q.webp",
     description:
       "Empowering women with access to menstrual hygiene and dignity.",
   },
   {
     title: "Joyful Bonds",
-    image: "/main gallery/r.JPG",
+    image: "/main gallery/r.webp",
     description:
       "Creating joyful memories through laughter, love, and learning with the kids at the NGO.",
   },
   {
     title: "Little Smiles",
-    image: "/main gallery/s.JPG",
+    image: "/main gallery/s.webp",
     description: "A day full of fun, friendship, and heartfelt connection.",
   },
   {
     title: "Equip to Learn",
-    image: "/main gallery/t.JPG",
+    image: "/main gallery/t.webp",
     description:
       "Equipping young minds with the tools to learn, dream, and grow",
   },
   {
     title: "Wellness for Women",
-    image: "/main gallery/u.JPG",
+    image: "/main gallery/u.webp",
     description:
       "Spreading awareness and distributing sanitary pads to support women's hygiene and dignity in the village",
   },
   {
     title: "Lunch with Love",
-    image: "/main gallery/v.JPG",
+    image: "/main gallery/v.webp",
     description:
       "Spending heartfelt moments over lunch, laughter, and stories with the elderly.",
   },
   {
     title: "Care & Connection",
-    image: "/main gallery/w.JPG",
+    image: "/main gallery/w.webp",
     description: "Lighting up young hearts with time, care, and kindness.",
   },
   {
     title: "Heartfelt Hours",
-    image: "/main gallery/x.JPG",
+    image: "/main gallery/x.webp",
     description: " Time, laughter, and love — all shared in one special visit.",
   },
   {
     title: "Timeless Fun",
-    image: "/main gallery/y.JPG",
+    image: "/main gallery/y.webp",
     description:
       "From carrom to conversations, every moment was filled with laughter and light.",
   },
   {
     title: "Roots of Change",
-    image: "/main gallery/z.JPG",
+    image: "/main gallery/z.webp",
     description:
       "Sharing thoughts, solutions, and support with inspiring women in the village.",
   },
   {
     title: "Wellness Outreach",
-    image: "/main gallery/a1.JPG",
+    image: "/main gallery/a1.webp",
     description:
       "Bringing basic healthcare closer to the slum communities through medical kits.",
   },
   {
     title: "Jaipur's First Step",
-    image: "/main gallery/a2.JPG",
+    image: "/main gallery/a2.webp",
     description:
       "Launched our first Jaipur event by connecting with the brightest hearts — the kids.",
   },

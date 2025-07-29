@@ -40,6 +40,14 @@ function FeaturePoint({ number, title, children }) {
 const fallbackImg =
   "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80";
 
+// Helper function to convert .jpg to .webp, but leave .jpeg and .png unchanged
+function convertJpgToWebp(src) {
+  if (typeof src === "string" && src.endsWith(".jpg")) {
+    return src.replace(/\.jpg$/, ".webp");
+  }
+  return src;
+}
+
 function OptimizedImage({
   src,
   alt,
@@ -48,7 +56,7 @@ function OptimizedImage({
   style = {},
   ...props
 }) {
-  const [imgSrc, setImgSrc] = useState(src);
+  const [imgSrc, setImgSrc] = useState(convertJpgToWebp(src));
 
   return (
     <Image
@@ -79,32 +87,35 @@ export default function VolunteeringPage() {
   const opportunities = [
     {
       id: 1,
-      img: "/images/hydc.jpg",
+      img: "/images/hydc.webp", // changed from .jpg to .webp
       title: "Hyderabad",
       desc: "Join our dedicated team in Hyderabad to drive local initiatives and make a tangible impact in the community.",
-      longDesc: "As a volunteer with our Hyderabad chapter, you'll have the opportunity to participate in a wide range of activities based on current needs. This could include organizing community events, assisting with local awareness campaigns, or supporting our ongoing projects on the ground. It's a chance to build connections and see the direct results of your efforts in your city.",
+      longDesc:
+        "As a volunteer with our Hyderabad chapter, you'll have the opportunity to participate in a wide range of activities based on current needs. This could include organizing community events, assisting with local awareness campaigns, or supporting our ongoing projects on the ground. It's a chance to build connections and see the direct results of your efforts in your city.",
       formLink: "https://forms.gle/gcmvF29bSx6FkxnG7",
     },
     {
       id: 2,
-      img: "/images/cjaipur.jpeg",
+      img: "/images/cjaipur.jpeg", // unchanged, .jpeg remains
       title: "Jaipur",
       desc: "Become a key part of our Jaipur chapter, helping to organize events and support campaigns that strengthen the community.",
-       longDesc: "Volunteering with the Jaipur chapter places you at the heart of our community efforts in the city. You'll work alongside other passionate individuals on diverse tasks, from on-ground event support to helping with the logistics of our local drives. This is a perfect opportunity for anyone looking to contribute their skills to a meaningful cause in Jaipur.",
+      longDesc:
+        "Volunteering with the Jaipur chapter places you at the heart of our community efforts in the city. You'll work alongside other passionate individuals on diverse tasks, from on-ground event support to helping with the logistics of our local drives. This is a perfect opportunity for anyone looking to contribute their skills to a meaningful cause in Jaipur.",
       formLink: "https://forms.gle/gcmvF29bSx6FkxnG7",
     },
     {
       id: 3,
-      img: "/images/remote3.jpg",
+      img: "/images/remote3.webp", // changed from .jpg to .webp
       title: "Remote",
       desc: "Contribute your skills from anywhere. Support our core digital operations, from social media to research.",
-      longDesc: "Our remote volunteers are crucial to our national success. You'll collaborate with our central team to support all our chapters and help us grow our digital footprint.",
+      longDesc:
+        "Our remote volunteers are crucial to our national success. You'll collaborate with our central team to support all our chapters and help us grow our digital footprint.",
       formLink: "https://forms.gle/gcmvF29bSx6FkxnG7",
     },
   ];
 
-  const heroImg = "/images/volunteer5.jpeg";
-  const whyImg = "/images/Why Your Help Matters.jpeg";
+  const heroImg = "/images/volunteer5.jpeg"; // unchanged, .jpeg remains
+  const whyImg = "/images/Why Your Help Matters.jpeg"; // unchanged, .jpeg remains
 
   const whyJoinFeatures = [
     {

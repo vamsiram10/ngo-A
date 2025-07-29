@@ -22,22 +22,6 @@ body {
   overflow-y: auto; /* ensures vertical scroll */
 }
 
-/* main {
-  padding-bottom: 35rem !important;
-} */
-
-/* img,
-svg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-} */
-
-/* button svg {
-  width: 1em;
-  height: 1em;
-} */
-
 section {
   width: 100%;
   height: 100vh;

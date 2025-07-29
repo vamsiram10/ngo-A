@@ -17,7 +17,7 @@ const chapters = [
   {
     id: "jaipur",
     name: "Jaipur",
-    img: "/images/chapter-jaipur.jpg",
+    img: "/images/chapter-jaipur.webp",
     volunteers: 70,
     contact: "jaipur@ngo-a.org",
     position: { top: "34%", left: "36%" },
@@ -25,7 +25,7 @@ const chapters = [
   {
     id: "hyd",
     name: "Hyderabad",
-    img: "/images/chapter-hyd.jpg",
+    img: "/images/chapter-hyd.webp",
     volunteers: 25,
     contact: "hyd@ngo-a.org",
     position: { top: "62%", left: "44%" },
@@ -40,31 +40,31 @@ const galleryContent = [
       "Our Hyderabad chapter has been at the forefront of community engagement, organizing everything from educational drives to health camps. These moments capture the spirit of our volunteers and the vibrant communities we serve.",
     images: [
       {
-        src: "/images/chapter-hyd1.jpg",
+        src: "/images/chapter-hyd1.webp",
         alt: "Hyderabad event 1",
         title: "Food Drive",
         description: "Sharing warm meals and warmer smiles with those in need.",
       },
       {
-        src: "/images/chapter-hyd2.jpg",
+        src: "/images/chapter-hyd2.webp",
         alt: "Hyderabad event 2",
         title: "Health Drive",
         description: "Providing essential health services.",
       },
       {
-        src: "/images/chapter-hyd3.jpg",
+        src: "/images/chapter-hyd3.webp",
         alt: "Hyderabad event 3",
         title: "Summer Reach",
         description: "Spreading relief and smiles in summer .",
       },
       {
-        src: "/images/chapter-hyd4.jpg",
+        src: "/images/chapter-hyd4.webp",
         alt: "Hyderabad event 4",
         title: "Community Joy",
         description: "Sharing moments of happiness.",
       },
       {
-        src: "/images/chapter-hyd5.jpg",
+        src: "/images/chapter-hyd5.webp",
         alt: "Hyderabad event 4",
         title: "Care Serve",
         description: "Sharing meals and love with the little ones",
@@ -78,34 +78,34 @@ const galleryContent = [
       "In the heart of the Pink City, our Jaipur chapter brings smiles and support to many. From local clean-up initiatives to celebrating festivals with underprivileged children, our volunteers create lasting bonds and beautiful memories.",
     images: [
       {
-        src: "/jaipur/j1.jpg",
+        src: "/jaipur/j1.webp",
         alt: "Jaipur event 1",
         title: "Tech Aid",
         description:
           "Bridging gaps in learning by supporting government school classrooms",
       },
       {
-        src: "/jaipur/j2.jpg",
+        src: "/jaipur/j2.webp",
         alt: "Jaipur event 2",
         title: "Proud Roots",
         description:
           "Celebrating the spirit of unity, freedom, and pride on Republic Day.",
       },
       {
-        src: "/jaipur/j3.jpg",
+        src: "/jaipur/j3.webp",
         alt: "Jaipur event 3",
         title: "Winter Drive",
         description:
           "Spreading warmth this winter — with blankets, clothes, and compassion.",
       },
       {
-        src: "/jaipur/j4.jpg",
+        src: "/jaipur/j4.webp",
         alt: "Jaipur event 4",
         title: "Cool Relief",
         description: "Beating the heat with refreshing drinks and kindness.",
       },
       {
-        src: "/jaipur/j5.jpg",
+        src: "/jaipur/j5.webp",
         alt: "Jaipur event 4",
         title: "Health Hand",
         description:
@@ -116,6 +116,10 @@ const galleryContent = [
 ];
 
 // Make image fully visible in the ChapterCard by using object-contain and a fixed aspect ratio
+// Utility to replace .jpg with .webp, but leave .png and .jpeg unchanged
+const toWebpIfJpg = (src) =>
+  typeof src === "string" ? src.replace(/\.jpg$/i, ".webp") : src;
+
 const ChapterCard = ({ chapter }) => (
   <motion.div
     variants={itemVariants}
@@ -125,7 +129,7 @@ const ChapterCard = ({ chapter }) => (
   >
     <div className="relative w-full aspect-[4/3] bg-black">
       <Image
-        src={chapter.img}
+        src={toWebpIfJpg(chapter.img)}
         alt={`View of ${chapter.name}`}
         fill
         className="object-contain"
@@ -189,7 +193,7 @@ const GalleryCard = ({ image, isActive, onClick, index }) => (
     style={{ touchAction: "manipulation" }}
   >
     <Image
-      src={image.src}
+      src={toWebpIfJpg(image.src)}
       alt={image.alt}
       fill
       className={`object-cover transition-transform duration-300 group-hover:scale-105
@@ -355,7 +359,7 @@ export default function OurChaptersPage() {
               className="relative w-full max-w-2xl aspect-[4/3] md:aspect-[16/9] border-2 border-pink-500 rounded-2xl overflow-hidden bg-neutral-900/90 shadow-2xl backdrop-blur-lg z-20"
             >
               <Image
-                src="/images/india-map.png"
+                src={toWebpIfJpg("/images/india-map.png")}
                 alt="Map of India"
                 fill
                 className="object-contain opacity-80 saturate-150"
@@ -387,7 +391,7 @@ export default function OurChaptersPage() {
                     } w-10 h-10 sm:w-12 sm:h-12`}
                   >
                     <Image
-                      src="/svg/AVASA.svg"
+                      src={toWebpIfJpg("/svg/AVASA.svg")}
                       alt="AVASA Logo"
                       width={32}
                       height={32}
@@ -420,7 +424,7 @@ export default function OurChaptersPage() {
           {/* Responsive background image and overlay for desktop and mobile */}
           <div className="absolute inset-0 z-0 pointer-events-none">
             <Image
-              src="/images/vm.jpg"
+              src={toWebpIfJpg("/images/vm.jpg")}
               alt="Volunteers"
               fill
               className="object-cover opacity-50 saturate-150"

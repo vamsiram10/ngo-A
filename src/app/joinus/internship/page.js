@@ -35,11 +35,19 @@ function handleImgError(e) {
   }
 }
 
+// Helper function to replace only .jpg with .webp, leave .jpeg and .png unchanged
+function convertJpgToWebp(src) {
+  if (typeof src === "string" && src.endsWith(".jpg")) {
+    return src.replace(/\.jpg$/, ".webp");
+  }
+  return src;
+}
+
 export default function InternshipPage() {
   const opportunities = [
     {
       id: 1,
-      img: "/images/Technical Intern.jpg",
+      img: "/images/Technical Intern.webp", // changed from .jpg to .webp
       title: "Technical Intern",
       desc: "Help with website maintenance, data management, and IT support to keep our digital infrastructure strong and efficient.",
       duration: "1-3 months",
@@ -47,7 +55,7 @@ export default function InternshipPage() {
     },
     {
       id: 2,
-      img: "/images/Social Media Intern.png",
+      img: "/images/Social Media Intern.png", // unchanged
       title: "Social Media Intern",
       desc: "Create engaging content, manage our online presence, and connect with our community across various social platforms.",
       duration: "1-3 months",
@@ -55,7 +63,7 @@ export default function InternshipPage() {
     },
     {
       id: 3,
-      img: "/images/Fundraising Intern.jpg",
+      img: "/images/Fundraising Intern.webp", // changed from .jpg to .webp
       title: "Fundraising Intern",
       desc: "Support our fundraising efforts through research, outreach, and campaign assistance to help us reach our financial goals.",
       duration: "1-3 months",
@@ -63,7 +71,7 @@ export default function InternshipPage() {
     },
     {
       id: 4,
-      img: "/images/Content Writing Intern.jpg",
+      img: "/images/Content Writing Intern.webp", // changed from .jpg to .webp
       title: "Content Writing Intern",
       desc: "Craft compelling articles, blog posts, and website content to share our story and the impact of our work.",
       duration: "1-3 months",
@@ -116,7 +124,7 @@ export default function InternshipPage() {
         "My online content writing internship with Avasa Foundation taught me to write on complex social issues with sensitivity and impact.",
       name: "Mahalakshmi L",
       role: "Former Content Writing Intern",
-      avatar: "/images/avatar1.jpg",
+      avatar: "/images/avatar1.webp", // changed from .jpg to .webp
     },
     {
       id: 2,
@@ -124,7 +132,7 @@ export default function InternshipPage() {
         "I learned HTML, CSS, and Responsive Design, which helped improve my technical and problem-solving skills.",
       name: "Ch.Nikhil",
       role: "Former Technical Intern",
-      avatar: "/images/avatar2.jpg",
+      avatar: "/images/avatar2.webp", // changed from .jpg to .webp
     },
     {
       id: 3,
@@ -132,7 +140,7 @@ export default function InternshipPage() {
         "It was great working with Avasa Foundation; the guidance and environment here encouraged me to work harder. It was phenomenal, and I look forward to working here again",
       name: "Krishna Swami",
       role: "Former Content Writing Intern",
-      avatar: "/images/avatar3.jpg",
+      avatar: "/images/avatar3.webp", // changed from .jpg to .webp
     },
     {
       id: 4,
@@ -140,7 +148,7 @@ export default function InternshipPage() {
         "This internship allowed me to discover my graphic design skills. I&apos;m truly grateful to be a part of Avasa.",
       name: "Manthan jain",
       role: "Former Social Media Intern",
-      avatar: "/images/avatar4.jpg",
+      avatar: "/images/avatar4.webp", // changed from .jpg to .webp
     },
     {
       id: 5,
@@ -148,7 +156,7 @@ export default function InternshipPage() {
         "I learned how to tailor my content impactfully. Heartfelt thanks to Team Avasa for this invaluable opportunity",
       name: "K Gayathri Devi",
       role: "Former Content Writing Intern",
-      avatar: "/images/avatar5.jpg",
+      avatar: "/images/avatar5.webp", // changed from .jpg to .webp
     },
     {
       id: 6,
@@ -156,7 +164,7 @@ export default function InternshipPage() {
         "An amazing experience as a technical support intern at Avasa; it significantly boosted my confidence and allowed me to grow technically and professionally.",
       name: "B.Chandrashekar Reddy",
       role: "Former Technical Intern",
-      avatar: "/images/avatar6.jpg",
+      avatar: "/images/avatar6.webp", // changed from .jpg to .webp
     },
     {
       id: 7,
@@ -164,7 +172,7 @@ export default function InternshipPage() {
         "A great learning experience as a content writing intern. Analyzing Avasa&apos;s past work was both challenging and memorable.",
       name: "Drishti Wacchani",
       role: "Former Content Writing Intern",
-      avatar: "/images/avatar7.jpeg",
+      avatar: "/images/avatar7.jpeg", // unchanged
     },
   ];
 
@@ -200,7 +208,7 @@ export default function InternshipPage() {
       <section className="relative min-h-[90vh] flex items-center justify-center text-center p-4 pb-32">
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="/images/innternmain1.jpg"
+            src={convertJpgToWebp("/images/innternmain1.jpg")}
             alt="Interns collaborating"
             fill
             className="object-cover opacity-30 z-0"
@@ -286,7 +294,9 @@ export default function InternshipPage() {
                       <div className="flex items-center mt-auto">
                         <div className="relative w-20 h-20 md:w-24 md:h-24">
                           <Image
-                            src={testimonials[currentTestimonial].avatar}
+                            src={convertJpgToWebp(
+                              testimonials[currentTestimonial].avatar
+                            )}
                             alt={testimonials[currentTestimonial].name}
                             fill
                             className="rounded-full object-cover"
@@ -438,7 +448,7 @@ export default function InternshipPage() {
                 >
                   <div className="relative h-56 w-full rounded-t-xl overflow-hidden">
                     <Image
-                      src={item.img}
+                      src={convertJpgToWebp(item.img)}
                       alt={item.title}
                       fill
                       className="absolute inset-0 w-full h-full object-cover"

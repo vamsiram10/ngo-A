@@ -9,7 +9,7 @@ import {
   animate,
   useVelocity,
   useAnimationControls,
-} from "motion/react";
+} from "framer-motion"; // <-- FIX: use 'framer-motion' instead of 'motion/react'
 
 export const DraggableCardBody = ({ className, children, style }) => {
   const mouseX = useMotionValue(0);
@@ -179,7 +179,7 @@ export function Gallery() {
   const items = [
     {
       title: "Literacy",
-      image: "/gallery/literacy.jpg",
+      image: "/gallery/literacy.webp",
       className: "absolute",
       style: {
         top: "12%",
@@ -190,7 +190,7 @@ export function Gallery() {
     },
     {
       title: "Beat the Heat",
-      image: "/gallery/heat.jpg",
+      image: "/gallery/heat.webp",
       className: "absolute",
       style: {
         top: "18%",
@@ -201,7 +201,7 @@ export function Gallery() {
     },
     {
       title: "Naya Sawera NGO",
-      image: "/gallery/3.jpg",
+      image: "/gallery/3.webp",
       className: "absolute",
       style: {
         bottom: "18%",
@@ -212,7 +212,7 @@ export function Gallery() {
     },
     {
       title: "Sarthak Oldage Home",
-      image: "/gallery/4.jpg",
+      image: "/gallery/4.webp",
       className: "absolute",
       style: {
         bottom: "10%",
@@ -223,7 +223,7 @@ export function Gallery() {
     },
     {
       title: "Winter Drive",
-      image: "/gallery/winterdrive.jpg",
+      image: "/gallery/winterdrive.webp",
       className: "absolute",
       style: {
         top: "28%",
@@ -234,7 +234,7 @@ export function Gallery() {
     },
     {
       title: "Medikit Drive",
-      image: "/gallery/medikitdrive.jpg",
+      image: "/gallery/medikitdrive.webp",
       className: "absolute",
       style: {
         top: "32%",
@@ -245,7 +245,7 @@ export function Gallery() {
     },
     {
       title: "Food Donation Drive",
-      image: "/gallery/7.jpg",
+      image: "/gallery/7.webp",
       className: "absolute",
       style: {
         bottom: "22%",
@@ -256,7 +256,7 @@ export function Gallery() {
     },
     {
       title: "Republic Day Celebrations",
-      image: "/gallery/republicday.jpg",
+      image: "/gallery/republicday.webp",
       className: "absolute",
       style: {
         bottom: "25%",

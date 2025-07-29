@@ -5,8 +5,8 @@ import { gsap } from "gsap";
 // Images for HomeOther section
 const images = [
   "/homeother/maindesk.jpeg",
-  "/homeother/maindesk3.jpg",
-  "/homeother/main.jpg",
+  "/homeother/maindesk3.webp",
+  "/homeother/main.webp",
 ];
 
 const dropInKeyframes = [

@@ -21,49 +21,49 @@ export default function AboutUsContent() {
       name: "V. Radha Priyanka",
       role: "Founder/ President",
       desc: "Visionary and compassionate, she leads Avasa with purpose, heart, and unwavering commitment to its mission.",
-      img: "/meet/radha.jpg",
+      img: "/meet/radha.webp",
     },
     {
       name: "V. Keerthi Sri",
       role: "Vice President",
       desc: "Provides strategic oversight, ensuring organizational alignment, operational excellence, and effective implementation of programs.",
-      img: "/meet/keert.jpg",
+      img: "/meet/keert.webp",
     },
     {
       name: "Ananya Pandey",
       role: "General Secretary",
       desc: "Manages administrative affairs, ensures clear communication, and upholds governance with integrity.",
-      // img: "/team/priyanka.jpg",
+      // img: "/team/priyanka.webp",
     },
     {
       name: "M.V. Nageswara Rao",
       role: "Joint Secretary",
       desc: "Supports administrative functions and streamlines coordination to ensure operational efficiency.",
-      // img: "/team/ajay.jpg",
+      // img: "/team/ajay.webp",
     },
     {
       name: "V. Lakshmi Prasanna",
       role: "Treasurer",
       desc: "Manages financial operations, maintains transparent records, and ensures accountable use of funds.",
-      img: "/meet/prasanna2.jpg",
+      img: "/meet/prasanna2.webp",
     },
     {
       name: "K. Usha Bhargavi",
       role: "Executive member",
       desc: "Contributes to decision-making, supports program execution, and upholds the organization's mission through active involvement.",
-      img: "/meet/usha.jpg",
+      img: "/meet/usha.webp",
     },
     {
       name: "V. Sai Harini",
       role: "Executive member",
       desc: "Contributes in organizational activities, offering insights and assistance to drive impactful initiatives forward.",
-      img: "/meet/harini2.jpg",
+      img: "/meet/harini2.webp",
     },
     {
       name: "Ch. Vinathi",
       role: "Head of Finance",
       desc: "Oversees financial planning, budgeting, and compliance to ensure fiscal responsibility and sustainability.",
-      img: "/meet/vinathi.jpg",
+      img: "/meet/vinathi.webp",
     },
     {
       name: "R.V.R. Vamsi",
@@ -129,7 +129,7 @@ export default function AboutUsContent() {
         <div className="overflow-hidden relative w-full h-64 rounded-xl sm:h-96">
           <Image
             fill
-            src="/images/aboutus1.jpg"
+            src="/images/aboutus1.webp"
             alt="Avasa NGO team members"
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
@@ -147,7 +147,7 @@ export default function AboutUsContent() {
           <div className="flex flex-col items-center p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
             <div className="overflow-hidden flex items-center justify-center mb-4 w-40 h-40 bg-neutral-800 border-2 border-pink-400">
               <Image
-                src="/aboutus/love.jpg"
+                src="/aboutus/love.webp"
                 alt="Love and Care"
                 width={160}
                 height={160}
@@ -167,7 +167,7 @@ export default function AboutUsContent() {
           <div className="flex flex-col items-center p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
             <div className="overflow-hidden flex items-center justify-center mb-4 w-40 h-40 bg-neutral-800 border-2 border-pink-400">
               <Image
-                src="/aboutus/seasonal.jpg"
+                src="/aboutus/seasonal.webp"
                 alt="Seasonal & Awareness Drives"
                 width={160}
                 height={160}
@@ -195,7 +195,7 @@ export default function AboutUsContent() {
           <div className="flex flex-col items-center p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
             <div className="overflow-hidden flex items-center justify-center mb-4 w-40 h-40 bg-neutral-800 border-2 border-pink-400">
               <Image
-                src="/aboutus/development.jpg"
+                src="/aboutus/development.webp"
                 alt="Development Support"
                 width={160}
                 height={160}
