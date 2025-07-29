@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         style={{ backgroundColor: "black" }}
       >
         <NavBar />
-        <AnimatedCursor />
+        {/* <AnimatedCursor /> */}
         <main className="flex-grow">{children}</main>
         <Footer />
       </body>
