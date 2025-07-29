@@ -65,12 +65,12 @@ export default function AboutUsContent() {
       desc: "Oversees financial planning, budgeting, and compliance to ensure fiscal responsibility and sustainability.",
       img: "/meet/vinathi.jpg",
     },
-    // {
-    //   name: "R.V.R. Vamsi",
-    //   role: "Head of Social Media",
-    //   desc: "Leads the organization's digital presence by strategizing, creating, and managing content to amplify outreach and engagement.",
-    //   img: "",
-    // },
+    {
+      name: "R.V.R. Vamsi",
+      role: "Head of Social Media",
+      desc: "Leads the organization's digital presence by strategizing, creating, and managing content to amplify outreach and engagement.",
+      // img: "",
+    },
   ];
 
   return (
