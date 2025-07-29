@@ -282,10 +282,6 @@ export function Gallery() {
     return baseStyle;
   }
 
-  // For the first card, add a responsive class for md:top-[16%] md:left-[18%] md:[rotate:-14deg]
-  // We'll use Tailwind's arbitrary values for top/left/rotate
-  // See: https://tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values
-
   return (
     <DraggableCardContainer className="overflow-clip relative flex items-center justify-center min-h-screen w-full">
       <p className="absolute top-1/2 mx-auto max-w-sm text-center text-4xl font-black text-pink-500 pointer-events-none select-none -translate-y-3/4 dark:text-pink-400 md:text-6xl lg:text-8xl">
