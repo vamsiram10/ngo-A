@@ -1,8 +1,18 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, Suspense, lazy } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import dynamic from "next/dynamic";
 import Image from "next/image";
+
+// Dynamically import framer-motion only when needed
+const MotionDiv = dynamic(
+  () => import("framer-motion").then((mod) => mod.motion.div),
+  { ssr: false }
+);
+const AnimatePresence = dynamic(
+  () => import("framer-motion").then((mod) => mod.AnimatePresence),
+  { ssr: false }
+);
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -115,186 +125,208 @@ const galleryContent = [
   },
 ];
 
-// Make image fully visible in the ChapterCard by using object-contain and a fixed aspect ratio
 // Utility to replace .jpg with .webp, but leave .png and .jpeg unchanged
 const toWebpIfJpg = (src) =>
   typeof src === "string" ? src.replace(/\.jpg$/i, ".webp") : src;
 
-const ChapterCard = ({ chapter }) => (
-  <motion.div
-    variants={itemVariants}
-    whileHover={{ scale: 1.03 }}
-    transition={{ type: "spring", stiffness: 250 }}
-    className="bg-neutral-900 rounded-2xl border border-neutral-800 shadow-md hover:shadow-pink-600/20 transition-shadow duration-300 overflow-hidden"
-  >
-    <div className="relative w-full aspect-[4/3] bg-black">
-      <Image
-        src={toWebpIfJpg(chapter.img)}
-        alt={`View of ${chapter.name}`}
-        fill
-        className="object-contain"
-        style={{ objectFit: "contain" }}
-        sizes="(max-width: 768px) 100vw, 100vw"
-        priority={false}
-      />
-    </div>
-    <div className="p-5 sm:p-6 flex flex-col h-full">
-      <h3 className="text-xl sm:text-2xl font-semibold text-pink-400 mb-2">
-        {chapter.name}
-      </h3>
-      <p className="text-neutral-400 mb-4 text-sm sm:text-base">
-        {chapter.volunteers}+ Active Volunteers
-      </p>
-      <Link href="/contactus">
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          className="w-full mt-auto bg-gradient-to-r from-pink-600 to-violet-600 hover:from-pink-500 hover:to-violet-500 text-white font-semibold py-2.5 sm:py-3 rounded-lg text-sm sm:text-base transition-all duration-300"
-        >
-          Contact Chapter
-        </motion.button>
-      </Link>
-    </div>
-  </motion.div>
-);
-
-const ContentItem = ({ title, description, isFaq = false }) => (
-  <motion.div
-    variants={itemVariants}
-    className="border-t border-neutral-800 py-5 sm:py-6"
-  >
-    <h3
-      className={`font-semibold mb-2 ${
-        isFaq ? "text-white" : "text-pink-400"
-      } text-base sm:text-lg`}
-    >
-      {title}
-    </h3>
-    <p className="text-neutral-400 text-sm sm:text-base leading-relaxed">
-      {description}
-    </p>
-  </motion.div>
-);
-
-const GalleryCard = ({ image, isActive, onClick, index }) => (
-  <motion.div
-    variants={itemVariants}
-    whileHover="hover"
-    transition={{ type: "spring", stiffness: 250 }}
-    className={`group relative aspect-square rounded-2xl overflow-hidden shadow-lg hover:shadow-pink-600/30 transition-shadow duration-300
-      ${isActive ? "mobile-gallery-active" : ""}
-    `}
-    onClick={onClick}
-    tabIndex={0}
-    role="button"
-    aria-pressed={isActive}
-    onKeyDown={(e) => {
-      if (e.key === "Enter" || e.key === " ") onClick();
-    }}
-    style={{ touchAction: "manipulation" }}
-  >
-    <Image
-      src={toWebpIfJpg(image.src)}
-      alt={image.alt}
-      fill
-      className={`object-cover transition-transform duration-300 group-hover:scale-105
-        ${isActive ? "mobile-gallery-scale" : ""}
-      `}
-      style={{ objectFit: "cover" }}
-      draggable={false}
-      sizes="(max-width: 640px) 288px, 320px"
-      priority={false}
-    />
-    <div
-      className={`
-        absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300
-        ${isActive ? "mobile-gallery-opacity" : ""}
-      `}
-    />
-    <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 text-white pointer-events-none">
-      <motion.h3
-        initial={{ y: 10, opacity: 0 }}
-        variants={{ hover: { y: 0, opacity: 1 } }}
-        animate={isActive ? "hover" : undefined}
-        transition={{ delay: 0.1, ease: "easeOut" }}
-        className="font-bold text-lg sm:text-xl"
-      >
-        {image.title}
-      </motion.h3>
-      <motion.p
-        initial={{ y: 10, opacity: 0 }}
-        variants={{ hover: { y: 0, opacity: 1 } }}
-        animate={isActive ? "hover" : undefined}
-        transition={{ delay: 0.15, ease: "easeOut" }}
-        className="text-sm text-neutral-300"
-      >
-        {image.description}
-      </motion.p>
-    </div>
-    {isActive && (
-      <div
-        className="fixed inset-0 z-40 sm:hidden"
-        style={{ cursor: "pointer" }}
-        onClick={(e) => {
-          e.stopPropagation();
-          if (typeof window !== "undefined" && window.innerWidth < 640) {
-            onClick();
-          }
-        }}
-      />
-    )}
-  </motion.div>
-);
-
-const ChapterGallery = ({ title, description, images }) => {
-  const [activeIndex, setActiveIndex] = useState(null);
-
-  const isMobile = () =>
-    typeof window !== "undefined" && window.innerWidth < 640;
-
+// Lightweight ChapterCard without framer-motion unless visible
+function ChapterCard({ chapter }) {
   return (
-    <motion.div variants={itemVariants} className="mb-16 last:mb-0">
-      <div className="max-w-3xl mx-auto text-center mb-8 px-4">
-        <h3 className="text-2xl sm:text-3xl font-bold text-pink-400 mb-3">
+    <Suspense fallback={<div className="bg-neutral-900 rounded-2xl h-64" />}>
+      <MotionDiv
+        variants={itemVariants}
+        whileHover={{ scale: 1.03 }}
+        transition={{ type: "spring", stiffness: 250 }}
+        className="bg-neutral-900 rounded-2xl border border-neutral-800 shadow-md hover:shadow-pink-600/20 transition-shadow duration-300 overflow-hidden"
+      >
+        <div className="relative w-full aspect-[4/3] bg-black">
+          <Image
+            src={toWebpIfJpg(chapter.img)}
+            alt={`View of ${chapter.name}`}
+            fill
+            className="object-contain"
+            style={{ objectFit: "contain" }}
+            sizes="(max-width: 768px) 100vw, 100vw"
+            priority={false}
+          />
+        </div>
+        <div className="p-5 sm:p-6 flex flex-col h-full">
+          <h3 className="text-xl sm:text-2xl font-semibold text-pink-400 mb-2">
+            {chapter.name}
+          </h3>
+          <p className="text-neutral-400 mb-4 text-sm sm:text-base">
+            {chapter.volunteers}+ Active Volunteers
+          </p>
+          <Link href="/contactus">
+            <MotionDiv
+              whileHover={{ scale: 1.05 }}
+              className="w-full mt-auto bg-gradient-to-r from-pink-600 to-violet-600 hover:from-pink-500 hover:to-violet-500 text-white font-semibold py-2.5 sm:py-3 rounded-lg text-sm sm:text-base transition-all duration-300"
+              as="button"
+            >
+              Contact Chapter
+            </MotionDiv>
+          </Link>
+        </div>
+      </MotionDiv>
+    </Suspense>
+  );
+}
+
+function ContentItem({ title, description, isFaq = false }) {
+  return (
+    <Suspense
+      fallback={<div className="border-t border-neutral-800 py-5 sm:py-6" />}
+    >
+      <MotionDiv
+        variants={itemVariants}
+        className="border-t border-neutral-800 py-5 sm:py-6"
+      >
+        <h3
+          className={`font-semibold mb-2 ${
+            isFaq ? "text-white" : "text-pink-400"
+          } text-base sm:text-lg`}
+        >
           {title}
         </h3>
-        <p className="text-neutral-300 text-base sm:text-lg">{description}</p>
-      </div>
-      <div className="custom-scrollbar flex overflow-x-auto space-x-4 md:space-x-6 py-4 pl-4 pr-4 sm:pl-8 sm:pr-8">
-        {images.map((image, index) => (
-          <div key={index} className="flex-shrink-0 w-72 sm:w-80">
-            <GalleryCard
-              image={image}
-              index={index}
-              isActive={activeIndex === index}
-              onClick={() => {
-                if (typeof window !== "undefined" && window.innerWidth < 640) {
-                  setActiveIndex(activeIndex === index ? null : index);
-                }
-              }}
-            />
-          </div>
-        ))}
-      </div>
-      <style jsx global>{`
-        @media (max-width: 639px) {
-          .mobile-gallery-active {
-            z-index: 50;
-            box-shadow: 0 8px 32px 0 rgba(236, 72, 153, 0.25),
-              0 1.5px 8px 0 rgba(236, 72, 153, 0.15);
-          }
-          .mobile-gallery-scale {
-            transform: scale(1.05);
-            transition: transform 0.3s;
-          }
-          .mobile-gallery-opacity {
-            opacity: 1 !important;
-            transition: opacity 0.3s;
-          }
-        }
-      `}</style>
-    </motion.div>
+        <p className="text-neutral-400 text-sm sm:text-base leading-relaxed">
+          {description}
+        </p>
+      </MotionDiv>
+    </Suspense>
   );
-};
+}
+
+// GalleryCard with framer-motion only loaded when visible
+function GalleryCard({ image, isActive, onClick, index }) {
+  return (
+    <Suspense
+      fallback={<div className="aspect-square rounded-2xl bg-neutral-900" />}
+    >
+      <MotionDiv
+        variants={itemVariants}
+        whileHover="hover"
+        transition={{ type: "spring", stiffness: 250 }}
+        className={`group relative aspect-square rounded-2xl overflow-hidden shadow-lg hover:shadow-pink-600/30 transition-shadow duration-300
+          ${isActive ? "mobile-gallery-active" : ""}
+        `}
+        onClick={onClick}
+        tabIndex={0}
+        role="button"
+        aria-pressed={isActive}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") onClick();
+        }}
+        style={{ touchAction: "manipulation" }}
+      >
+        <Image
+          src={toWebpIfJpg(image.src)}
+          alt={image.alt}
+          fill
+          className={`object-cover transition-transform duration-300 group-hover:scale-105
+            ${isActive ? "mobile-gallery-scale" : ""}
+          `}
+          style={{ objectFit: "cover" }}
+          draggable={false}
+          sizes="(max-width: 640px) 288px, 320px"
+          priority={false}
+        />
+        <div
+          className={`
+            absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300
+            ${isActive ? "mobile-gallery-opacity" : ""}
+          `}
+        />
+        <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 text-white pointer-events-none">
+          <MotionDiv
+            initial={{ y: 10, opacity: 0 }}
+            variants={{ hover: { y: 0, opacity: 1 } }}
+            animate={isActive ? "hover" : undefined}
+            transition={{ delay: 0.1, ease: "easeOut" }}
+            className="font-bold text-lg sm:text-xl"
+            as="h3"
+          >
+            {image.title}
+          </MotionDiv>
+          <MotionDiv
+            initial={{ y: 10, opacity: 0 }}
+            variants={{ hover: { y: 0, opacity: 1 } }}
+            animate={isActive ? "hover" : undefined}
+            transition={{ delay: 0.15, ease: "easeOut" }}
+            className="text-sm text-neutral-300"
+            as="p"
+          >
+            {image.description}
+          </MotionDiv>
+        </div>
+        {isActive && (
+          <div
+            className="fixed inset-0 z-40 sm:hidden"
+            style={{ cursor: "pointer" }}
+            onClick={(e) => {
+              e.stopPropagation();
+              if (typeof window !== "undefined" && window.innerWidth < 640) {
+                onClick();
+              }
+            }}
+          />
+        )}
+      </MotionDiv>
+    </Suspense>
+  );
+}
+
+function ChapterGallery({ title, description, images }) {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  return (
+    <Suspense fallback={<div className="mb-16 last:mb-0" />}>
+      <MotionDiv variants={itemVariants} className="mb-16 last:mb-0">
+        <div className="max-w-3xl mx-auto text-center mb-8 px-4">
+          <h3 className="text-2xl sm:text-3xl font-bold text-pink-400 mb-3">
+            {title}
+          </h3>
+          <p className="text-neutral-300 text-base sm:text-lg">{description}</p>
+        </div>
+        <div className="custom-scrollbar flex overflow-x-auto space-x-4 md:space-x-6 py-4 pl-4 pr-4 sm:pl-8 sm:pr-8">
+          {images.map((image, index) => (
+            <div key={index} className="flex-shrink-0 w-72 sm:w-80">
+              <GalleryCard
+                image={image}
+                index={index}
+                isActive={activeIndex === index}
+                onClick={() => {
+                  if (
+                    typeof window !== "undefined" &&
+                    window.innerWidth < 640
+                  ) {
+                    setActiveIndex(activeIndex === index ? null : index);
+                  }
+                }}
+              />
+            </div>
+          ))}
+        </div>
+        <style jsx global>{`
+          @media (max-width: 639px) {
+            .mobile-gallery-active {
+              z-index: 50;
+              box-shadow: 0 8px 32px 0 rgba(236, 72, 153, 0.25),
+                0 1.5px 8px 0 rgba(236, 72, 153, 0.15);
+            }
+            .mobile-gallery-scale {
+              transform: scale(1.05);
+              transition: transform 0.3s;
+            }
+            .mobile-gallery-opacity {
+              opacity: 1 !important;
+              transition: opacity 0.3s;
+            }
+          }
+        `}</style>
+      </MotionDiv>
+    </Suspense>
+  );
+}
 
 export default function OurChaptersPage() {
   const [hoveredChapterId, setHoveredChapterId] = useState(null);
@@ -321,38 +353,46 @@ export default function OurChaptersPage() {
     <main className="bg-black text-white">
       <div className="overflow-hidden">
         <div className="relative flex flex-col md:flex-row items-center justify-center px-4 min-h-[100vh] sm:min-h-[80vh] md:min-h-[100vh]">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants}
-            className="relative z-20 max-w-2xl w-full text-center md:text-left md:w-1/2 py-16 md:py-0"
+          <Suspense
+            fallback={
+              <div className="relative z-20 max-w-2xl w-full text-center md:text-left md:w-1/2 py-16 md:py-0" />
+            }
           >
-            <motion.h1
-              variants={itemVariants}
-              className="text-4xl md:text-6xl font-bold mb-4"
+            <MotionDiv
+              initial="hidden"
+              animate="visible"
+              variants={containerVariants}
+              className="relative z-20 max-w-2xl w-full text-center md:text-left md:w-1/2 py-16 md:py-0"
             >
-              Our Roots, <span className="text-pink-500">Your Community</span>
-            </motion.h1>
-            <motion.p
-              variants={itemVariants}
-              className="text-lg text-neutral-300 mb-6 sm:mb-10"
-            >
-              From bustling metros to local neighborhoods, our mission is
-              powered by dedicated chapters across India. Find yours today.
-            </motion.p>
-            <motion.div
-              variants={itemVariants}
-              className="flex justify-center md:justify-start"
-            >
-              <button
-                onClick={handleSmoothScroll}
-                className="bg-pink-600 hover:bg-pink-700 px-6 py-3 rounded-full text-white text-base sm:text-lg font-semibold transition"
-                type="button"
+              <MotionDiv
+                variants={itemVariants}
+                className="text-4xl md:text-6xl font-bold mb-4 mt-8"
+                as="h1"
               >
-                Explore Our Chapters
-              </button>
-            </motion.div>
-          </motion.div>
+                Our Roots, <span className="text-pink-500">Your Community</span>
+              </MotionDiv>
+              <MotionDiv
+                variants={itemVariants}
+                className="text-lg text-neutral-300 mb-6 sm:mb-10"
+                as="p"
+              >
+                From bustling metros to local neighborhoods, our mission is
+                powered by dedicated chapters across India. Find yours today.
+              </MotionDiv>
+              <MotionDiv
+                variants={itemVariants}
+                className="flex justify-center md:justify-start"
+              >
+                <button
+                  onClick={handleSmoothScroll}
+                  className="bg-pink-600 hover:bg-pink-700 px-6 py-3 rounded-full text-white text-base sm:text-lg font-semibold transition"
+                  type="button"
+                >
+                  Explore Our Chapters
+                </button>
+              </MotionDiv>
+            </MotionDiv>
+          </Suspense>
           <div className="relative w-full md:w-1/2 flex justify-center items-center h-[380px] sm:h-[480px] md:h-[620px] lg:h-[700px]">
             <div
               id="map"
@@ -402,23 +442,25 @@ export default function OurChaptersPage() {
                   </div>
                 </div>
               ))}
-              <AnimatePresence>
-                {chapterToShow && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 p-3 sm:p-5 bg-black/80 backdrop-blur-lg rounded-xl border border-pink-500/30 text-left z-40"
-                  >
-                    <h3 className="text-pink-400 font-semibold text-base sm:text-lg md:text-xl">
-                      {chapterToShow.name}
-                    </h3>
-                    <p className="text-neutral-200 text-xs sm:text-sm">
-                      {chapterToShow.volunteers}+ Volunteers
-                    </p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <Suspense fallback={null}>
+                <AnimatePresence>
+                  {chapterToShow && (
+                    <MotionDiv
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 p-3 sm:p-5 bg-black/80 backdrop-blur-lg rounded-xl border border-pink-500/30 text-left z-40"
+                    >
+                      <h3 className="text-pink-400 font-semibold text-base sm:text-lg md:text-xl">
+                        {chapterToShow.name}
+                      </h3>
+                      <p className="text-neutral-200 text-xs sm:text-sm">
+                        {chapterToShow.volunteers}+ Volunteers
+                      </p>
+                    </MotionDiv>
+                  )}
+                </AnimatePresence>
+              </Suspense>
             </div>
           </div>
           {/* Responsive background image and overlay for desktop and mobile */}
@@ -443,7 +485,6 @@ export default function OurChaptersPage() {
               }
             `}</style>
           </div>
-          {/* <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10 pointer-events-none" /> */}
         </div>
 
         <div
@@ -455,19 +496,25 @@ export default function OurChaptersPage() {
             <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-pink-500 mb-8 sm:mb-12 text-center">
               Our Chapters
             </h2>
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              variants={containerVariants}
-              viewport={{ once: true, amount: 0.2 }}
-              className="grid grid-cols-1 gap-8 md:grid-cols-2"
+            <Suspense
+              fallback={
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2" />
+              }
             >
-              {chapters.map((chapter) => (
-                <div key={chapter.id} className="w-full max-w-sm mx-auto">
-                  <ChapterCard chapter={chapter} />
-                </div>
-              ))}
-            </motion.div>
+              <MotionDiv
+                initial="hidden"
+                whileInView="visible"
+                variants={containerVariants}
+                viewport={{ once: true, amount: 0.2 }}
+                className="grid grid-cols-1 gap-8 md:grid-cols-2"
+              >
+                {chapters.map((chapter) => (
+                  <div key={chapter.id} className="w-full max-w-sm mx-auto">
+                    <ChapterCard chapter={chapter} />
+                  </div>
+                ))}
+              </MotionDiv>
+            </Suspense>
           </div>
         </div>
 
@@ -482,21 +529,23 @@ export default function OurChaptersPage() {
                 and smiles from our chapters nationwide.
               </p>
             </div>
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              variants={containerVariants}
-              viewport={{ once: true, amount: 0.1 }}
-            >
-              {galleryContent.map((chapter) => (
-                <ChapterGallery
-                  key={chapter.id}
-                  title={chapter.title}
-                  description={chapter.description}
-                  images={chapter.images}
-                />
-              ))}
-            </motion.div>
+            <Suspense fallback={<div />}>
+              <MotionDiv
+                initial="hidden"
+                whileInView="visible"
+                variants={containerVariants}
+                viewport={{ once: true, amount: 0.1 }}
+              >
+                {galleryContent.map((chapter) => (
+                  <ChapterGallery
+                    key={chapter.id}
+                    title={chapter.title}
+                    description={chapter.description}
+                    images={chapter.images}
+                  />
+                ))}
+              </MotionDiv>
+            </Suspense>
           </div>
         </div>
 
@@ -505,34 +554,36 @@ export default function OurChaptersPage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-pink-500 mb-10 text-center">
               Starting a Chapter: FAQs
             </h2>
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              variants={containerVariants}
-              viewport={{ once: true, amount: 0.1 }}
-              className="space-y-5"
-            >
-              <ContentItem
-                title="What's the impact of Avasa Foundation's Hyderabad and Jaipur chapters?
+            <Suspense fallback={<div className="space-y-5" />}>
+              <MotionDiv
+                initial="hidden"
+                whileInView="visible"
+                variants={containerVariants}
+                viewport={{ once: true, amount: 0.1 }}
+                className="space-y-5"
+              >
+                <ContentItem
+                  title="What's the impact of Avasa Foundation's Hyderabad and Jaipur chapters?
 "
-                description="Our Hyderabad and Jaipur chapters are making a tangible difference by empowering disadvantaged people in the society .We work in three areas mainly: Love and Care, Seasonal and Awareness Drives and Development and Support 
+                  description="Our Hyderabad and Jaipur chapters are making a tangible difference by empowering disadvantaged people in the society .We work in three areas mainly: Love and Care, Seasonal and Awareness Drives and Development and Support 
 ."
-                isFaq
-              />
-              <ContentItem
-                title="How can I start a new Avasa Foundation chapter in my city?
+                  isFaq
+                />
+                <ContentItem
+                  title="How can I start a new Avasa Foundation chapter in my city?
 "
-                description="If you're passionate about our mission, please contact us! We have specific guidelines and a process for establishing new chapters, ensuring alignment with our vision and values.
+                  description="If you're passionate about our mission, please contact us! We have specific guidelines and a process for establishing new chapters, ensuring alignment with our vision and values.
 "
-                isFaq
-              />
-              <ContentItem
-                title="How many people are required to start a new Avasa Foundation chapter?
+                  isFaq
+                />
+                <ContentItem
+                  title="How many people are required to start a new Avasa Foundation chapter?
 "
-                description="Generally, it can range from 5-7 people along with a committed core team. We'll provide detailed requirements during the application process."
-                isFaq
-              />
-            </motion.div>
+                  description="Generally, it can range from 5-7 people along with a committed core team. We'll provide detailed requirements during the application process."
+                  isFaq
+                />
+              </MotionDiv>
+            </Suspense>
           </div>
         </div>
 
@@ -546,12 +597,21 @@ export default function OurChaptersPage() {
               the way to launch your chapter.
             </p>
             <Link href="/contactus">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                className="bg-gradient-to-r from-pink-600 to-violet-600 hover:from-pink-500 hover:to-violet-500 text-white font-bold py-3 px-8 rounded-full text-base sm:text-lg transition"
+              <Suspense
+                fallback={
+                  <button className="bg-gradient-to-r from-pink-600 to-violet-600 text-white font-bold py-3 px-8 rounded-full text-base sm:text-lg transition">
+                    Start a Chapter
+                  </button>
+                }
               >
-                Start a Chapter
-              </motion.button>
+                <MotionDiv
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-gradient-to-r from-pink-600 to-violet-600 hover:from-pink-500 hover:to-violet-500 text-white font-bold py-3 px-8 rounded-full text-base sm:text-lg transition"
+                  as="button"
+                >
+                  Start a Chapter
+                </MotionDiv>
+              </Suspense>
             </Link>
           </div>
         </div>
