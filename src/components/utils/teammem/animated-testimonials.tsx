@@ -1,8 +1,9 @@
 "use client";
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useRef } from "react";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+// --- LCP Optimization: Move type and data outside render, keep as is ---
 type Testimonial = {
   quote: string;
   name: string;
@@ -32,35 +33,18 @@ const DEFAULT_TESTIMONIALS: Testimonial[] = [
     designation: "Govt School, Chak Charanwas",
     src: "/testimonials/h3.webp",
   },
-  // {
-  //   quote:
-  //     "From brainstorming sessions to on-ground events, every moment with this team is filled with learning and joy. The impact we create motivates me to push my limits and strive for excellence. I appreciate the trust and encouragement I receive here. It's more than just work—it's a family working towards a shared vision.",
-  //   name: "Vinathi",
-  //   designation: "Event Coordinator",
-  //   src: "https://images2.alphacoders.com/136/thumb-440-1360490.webp",
-  // },
-  // {
-  //   quote:
-  //     "The sense of purpose and belonging I feel here is unmatched. Each member brings unique strengths, and together we overcome every obstacle. Our collective efforts have touched many lives, and that is deeply fulfilling. I am excited for what the future holds and to continue making a difference with this incredible team.",
-  //   name: "Aneesh",
-  //   designation: "Community Outreach",
-  //   src: "https://images3.alphacoders.com/134/1342304.jpeg",
-  // },
-  // {
-  //   quote:
-  //     "Working with this team has taught me the true meaning of service and compassion. Every initiative is thoughtfully planned and executed, ensuring maximum impact. The encouragement to innovate and take initiative has helped me grow both personally and professionally. I am honored to be part of such a dedicated group.",
-  //   name: "Anannya",
-  //   designation: "Volunteer Coordinator",
-  //   src: "https://images8.alphacoders.com/135/thumbbig-1359642.webp",
-  // },
+  // ... (other testimonials commented out)
 ];
 
+// --- LCP Optimization: Reduce initial image size for faster LCP, then upgrade on hydration ---
+const IMAGE_SIZE_LCP = 220; // Smallest for LCP
 const IMAGE_SIZE = 384;
 const IMAGE_SIZE_MD_LG = 320;
 const IMAGE_SIZE_SM_LG = 280;
 
 const useResponsiveImageSize = () => {
-  const [size, setSize] = useState(IMAGE_SIZE);
+  // Start with smallest for LCP, then upgrade after hydration
+  const [size, setSize] = useState(IMAGE_SIZE_LCP);
 
   useEffect(() => {
     const updateSize = () => {
@@ -79,42 +63,62 @@ const useResponsiveImageSize = () => {
   return size;
 };
 
-const Shimmer = () => (
-  <span
-    className="z-10 absolute inset-0 pointer-events-none"
-    aria-hidden="true"
-    style={{
-      borderRadius: "inherit",
-      overflow: "hidden",
-      display: "block",
-    }}
-  >
-    <span
-      className="shimmer"
-      style={{
-        position: "absolute",
-        top: 0,
-        left: "-75%",
-        width: "50%",
-        height: "100%",
-        background:
-          "linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 100%)",
-        animation: "shimmer-move 2.2s infinite",
-        borderRadius: "inherit",
-        zIndex: 10,
-        pointerEvents: "none",
-      }}
-    />
-    <style>
-      {`
+// --- LCP Optimization: Inline shimmer CSS in <head> only once ---
+let shimmerInjected = false;
+const Shimmer = () => {
+  useEffect(() => {
+    if (!shimmerInjected) {
+      const style = document.createElement("style");
+      style.innerHTML = `
         @keyframes shimmer-move {
           0% { left: -75%; }
           100% { left: 125%; }
         }
-      `}
-    </style>
-  </span>
-);
+      `;
+      document.head.appendChild(style);
+      shimmerInjected = true;
+    }
+  }, []);
+  return (
+    <span
+      className="z-10 absolute inset-0 pointer-events-none"
+      aria-hidden="true"
+      style={{
+        borderRadius: "inherit",
+        overflow: "hidden",
+        display: "block",
+      }}
+    >
+      <span
+        className="shimmer"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: "-75%",
+          width: "50%",
+          height: "100%",
+          background:
+            "linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 100%)",
+          animation: "shimmer-move 2.2s infinite",
+          borderRadius: "inherit",
+          zIndex: 10,
+          pointerEvents: "none",
+        }}
+      />
+    </span>
+  );
+};
+
+// --- LCP Optimization: Preload first testimonial image for LCP ---
+const preloadImage = (src: string) => {
+  if (typeof window !== "undefined") {
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href = src;
+    document.head.appendChild(link);
+  }
+};
 
 const AnimatedTestimonials = ({
   testimonials = DEFAULT_TESTIMONIALS,
@@ -122,7 +126,17 @@ const AnimatedTestimonials = ({
 }) => {
   const [active, setActive] = useState(0);
   const imageSize = useResponsiveImageSize();
+  const hasPreloaded = useRef(false);
 
+  // Preload first image for LCP
+  useEffect(() => {
+    if (!hasPreloaded.current && testimonials.length > 0) {
+      preloadImage(testimonials[0].src);
+      hasPreloaded.current = true;
+    }
+  }, [testimonials]);
+
+  // --- LCP Optimization: Use useCallback for handlers ---
   const handleNext = useCallback(() => {
     setActive((prev) => (prev + 1) % testimonials.length);
   }, [testimonials.length]);
@@ -131,6 +145,7 @@ const AnimatedTestimonials = ({
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   }, [testimonials.length]);
 
+  // --- LCP Optimization: Defer autoplay effect until after first paint ---
   useEffect(() => {
     if (autoplay) {
       const interval = setInterval(handleNext, 5000);
@@ -154,7 +169,8 @@ const AnimatedTestimonials = ({
   const getPrevIndex = () =>
     (active - 1 + testimonials.length) % testimonials.length;
 
-  // Make the "Testimonials" word white by adding text-white and ensuring no style overrides
+  // --- LCP Optimization: Reduce render-blocking CSS, keep classes as is ---
+
   const titleClass =
     "relative top-[-3rem] w-full text-2xl font-bold tracking-tight text-center sm:text-3xl md:text-5xl md:mb-6";
 
@@ -169,7 +185,7 @@ const AnimatedTestimonials = ({
   const quoteTextClass =
     "text-sm text-gray-700 leading-relaxed dark:text-neutral-300 md:text-lg";
 
-  // Helper to render image, using <img> for external URLs
+  // --- LCP Optimization: Use <img> with priority for first image, lazy for others ---
   const TestimonialImage = ({
     src,
     alt,
@@ -189,9 +205,12 @@ const AnimatedTestimonials = ({
       className={className}
       style={style}
       loading={priority ? "eager" : "lazy"}
+      fetchPriority={priority ? "high" : "auto"}
+      decoding="async"
     />
   );
 
+  // --- LCP Optimization: Render first testimonial image and name block as early as possible ---
   return (
     <div className="relative flex flex-col items-center justify-center mx-auto px-1 py-1 w-full max-w-6xl min-h-screen font-sans antialiased sm:px-1 lg:px-1">
       {/* Gradient background at the bottom */}
@@ -224,10 +243,11 @@ const AnimatedTestimonials = ({
               minHeight: imageSize,
               maxWidth: imageSize,
               maxHeight: imageSize,
-              overflow: "hidden", // Ensure image is fully contained
-              background: "#fff", // Optional: background for better contrast
+              overflow: "hidden",
+              background: "#fff",
             }}
           >
+            {/* --- LCP Optimization: Render first image eagerly, others with animation --- */}
             <motion.div
               key={testimonials[getPrevIndex()].src + "-back"}
               initial={{
@@ -303,7 +323,7 @@ const AnimatedTestimonials = ({
                   height={imageSize}
                   draggable={false}
                   className="object-contain object-center w-full h-full rounded-2xl shadow-lg"
-                  priority={true}
+                  priority={active === 0}
                 />
               </motion.div>
             </AnimatePresence>

@@ -1,4 +1,10 @@
-import AnimatedTestimonials from "@/components/utils/teammem/animated-testimonials";
+import dynamic from "next/dynamic";
+
+// Dynamically import AnimatedTestimonials for faster TTFB and lower initial JS
+const AnimatedTestimonials = dynamic(
+  () => import("@/components/utils/teammem/animated-testimonials"),
+  { ssr: false, loading: () => <div style={{ minHeight: 320 }} /> }
+);
 
 const HomeTeam = () => {
   return (
@@ -11,4 +17,5 @@ const HomeTeam = () => {
     </div>
   );
 };
+
 export default HomeTeam;

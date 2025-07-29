@@ -16,25 +16,6 @@ const dropInTiming = {
   fill: "forwards",
 };
 
-const arrowStyle = {
-  position: "absolute",
-  top: "50%",
-  transform: "translateY(-50%)",
-  zIndex: 30,
-  background: "rgba(0,0,0,0.4)",
-  border: "none",
-  color: "#fff",
-  fontSize: "2.5rem",
-  width: "3.5rem",
-  height: "3.5rem",
-  borderRadius: "50%",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  transition: "background 0.2s",
-  userSelect: "none",
-};
-
 const BG_FADE_DURATION = 500;
 const BG_AUTO_INTERVAL = 2000;
 
@@ -60,12 +41,14 @@ const HomeOther = () => {
 
   const isMobile = useIsMobile();
 
+  // Animate the main text in
   useEffect(() => {
     if (textRef.current) {
       textRef.current.animate(dropInKeyframes, dropInTiming);
     }
   }, []);
 
+  // Animate the marquee
   useEffect(() => {
     if (marqueeRef.current) {
       const marquee = marqueeRef.current;
@@ -88,11 +71,11 @@ const HomeOther = () => {
     }
   }, []);
 
-  // Fix: Only auto-advance if not fading, and always use the latest index
+  // Auto-advance background images
   useEffect(() => {
     if (isFading) return;
     const interval = setInterval(() => {
-      setPrevIndex((prev) => currentIndex);
+      setPrevIndex(currentIndex);
       setIsFading(true);
       setTimeout(() => {
         setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -103,6 +86,7 @@ const HomeOther = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex, isFading]);
 
+  // Click to advance background
   const handleBgClick = (e) => {
     if (
       e.target.closest(".carousel-arrow") ||
@@ -119,6 +103,7 @@ const HomeOther = () => {
     }, BG_FADE_DURATION);
   };
 
+  // Touch swipe to change background
   useEffect(() => {
     const bg = bgRef.current;
     if (!bg) return;
@@ -173,6 +158,7 @@ const HomeOther = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex, isFading]);
 
+  // Keyboard navigation for background
   useEffect(() => {
     const onKeyDown = (e) => {
       if (isFading) return;
@@ -199,9 +185,9 @@ const HomeOther = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex, isFading]);
 
+  // Helper for background style
   const getBgStyle = (img, fadeOverlay = 0.4) => {
     if (isMobile) {
-      //for mobile guys
       return {
         backgroundImage: `linear-gradient(rgba(0,0,0,${fadeOverlay}), rgba(0,0,0,${fadeOverlay})), url('${img}')`,
         backgroundSize: "cover",
@@ -209,7 +195,6 @@ const HomeOther = () => {
         backgroundRepeat: "no-repeat",
       };
     }
-    //desktop
     return {
       backgroundImage: `linear-gradient(rgba(0,0,0,${fadeOverlay}), rgba(0,0,0,${fadeOverlay})), url('${img}')`,
       backgroundSize: "100%",
@@ -218,6 +203,7 @@ const HomeOther = () => {
     };
   };
 
+  // --- Render ---
   return (
     <div className="overflow-x-hidden relative h-dvh w-screen">
       <div
@@ -227,7 +213,6 @@ const HomeOther = () => {
           position: "relative",
           width: "100vw",
           minHeight: "100dvh",
-
           ...(isMobile
             ? {
                 height: "100dvh",
@@ -241,7 +226,7 @@ const HomeOther = () => {
         onClick={handleBgClick}
         tabIndex={-1}
       >
-        {/* Transparent light black overlay */}
+        {/* Overlay */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -249,7 +234,7 @@ const HomeOther = () => {
             zIndex: 3,
           }}
         />
-        {/* Crossfade: Only show prev bg if fading, otherwise don't render it at all */}
+        {/* Crossfade backgrounds */}
         {isFading && prevIndex !== null && (
           <div
             className="absolute inset-0 transition-opacity"
@@ -293,6 +278,7 @@ const HomeOther = () => {
             </p>
           </div>
         </div>
+        {/* Marquee */}
         <div
           className="select-none"
           style={{
@@ -303,7 +289,6 @@ const HomeOther = () => {
             overflow: "hidden",
             zIndex: 20,
             height: isMobile ? "44px" : "60px",
-            position: "absolute",
             background: "rgba(0,0,0,0.0)",
             pointerEvents: "auto",
           }}

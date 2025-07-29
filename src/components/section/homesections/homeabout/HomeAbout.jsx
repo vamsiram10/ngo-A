@@ -1,16 +1,17 @@
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef, useLayoutEffect } from "react";
 
+// Mission and Vision statements
 const missionStatement =
   "Avasa Foundation is dedicated to holistic outreach, creating sustainable positive impact in the lives of the most vulnerable. From nurturing emotional well-being in care homes to providing lifeline resources for the homeless and needy, and fostering educational empowerment in government schools, slums, and rural communities, we are committed to building a more equitable and caring world.";
 const visionStatement =
   "To see a world where dignity, deep care, and the opportunity to flourish are universal rights, not privileges, for all individuals, regardless of their situation.";
 
+// Inline CSS for shiny effect
 const shinyStyle = `
   .shiny-block {
     position: relative;
     overflow: hidden;
-    /* background and border color changes removed */
     box-shadow: 0 0 24px 0 #818cf855, 0 2px 24px 0 #a21caf33;
     transition: box-shadow 0.3s;
   }
@@ -51,19 +52,17 @@ const shinyStyle = `
 export default function AboutMatter() {
   const aboutRef = useRef(null);
 
-  useEffect(() => {
+  // Use useLayoutEffect for faster paint (improves LCP/Render Delay)
+  useLayoutEffect(() => {
     if (aboutRef.current) {
-      aboutRef.current.animate(
-        [
-          { opacity: 0, transform: "translateY(60px)" },
-          { opacity: 1, transform: "translateY(0)" },
-        ],
-        {
-          duration: 1000,
-          easing: "ease-out",
-          fill: "forwards",
-        }
-      );
+      aboutRef.current.style.opacity = 0;
+      aboutRef.current.style.transform = "translateY(60px)";
+      requestAnimationFrame(() => {
+        aboutRef.current.style.transition =
+          "opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1)";
+        aboutRef.current.style.opacity = 1;
+        aboutRef.current.style.transform = "translateY(0)";
+      });
     }
   }, []);
 
@@ -71,12 +70,15 @@ export default function AboutMatter() {
     <>
       <style dangerouslySetInnerHTML={{ __html: shinyStyle }} />
 
+      {/* Background gradient */}
       <div className="z-0 absolute inset-0 bg-gradient-to-b from-zinc-900/30 via-black to-black pointer-events-none"></div>
 
+      {/* About header */}
       <div
         ref={aboutRef}
         id="about"
         className="z-10 relative px-4 py-10 w-full text-center"
+        style={{ willChange: "opacity, transform" }}
       >
         <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
           About Us
@@ -84,6 +86,7 @@ export default function AboutMatter() {
         <div className="mx-auto mt-2 w-24 h-1 bg-pink-500 rounded-full shadow-md"></div>
       </div>
 
+      {/* About description */}
       <div className="z-10 relative mt-2 p-4 mx-auto w-full max-w-3xl bg-black/80 rounded-lg shadow-lg sm:mt-4 md:mt-6">
         <p className="text-gray-200 leading-relaxed text-justify text-sm sm:text-base">
           Founded in 2022 by{" "}
@@ -103,6 +106,7 @@ export default function AboutMatter() {
         </p>
       </div>
 
+      {/* Mission and Vision blocks */}
       <div className="z-10 relative flex flex-col gap-4 mt-8 mx-auto w-full max-w-3xl">
         {/* Mission Block */}
         <div className="flex flex-col items-center p-4 w-full text-left rounded-xl border-pink-500 shadow-md shiny-block border">
