@@ -3,11 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 // Images for HomeOther section
-const images = [
-  "/homeother/maindesk.jpeg",
-  "/homeother/maindesk3.webp",
-  "/homeother/main.webp",
-];
+const images = ["/maindesk.jpeg", "/maindesk3.jpg", "/main.jpg"];
 
 const dropInKeyframes = [
   { transform: "translateY(-200px)", opacity: 0 },

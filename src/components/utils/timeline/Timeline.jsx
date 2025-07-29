@@ -12,7 +12,7 @@ const timelineData = [
   {
     year: "2022",
     title: "The Beginning of Avasa",
-    images: ["/timelinephotos/2022.JPG"],
+    images: ["/timelinephotos/2022.webp"],
     content: (
       <div className="text-justify">
         Avasa was founded by{" "}
@@ -30,7 +30,7 @@ const timelineData = [
   {
     year: "2023",
     title: "A New Chapter in Jaipur",
-    images: ["/timelinephotos/2023.JPG"],
+    images: ["/timelinephotos/2023.webp"],
     content: (
       <div className="text-justify">
         In 2023, Avasa was reborn in{" "}
@@ -64,7 +64,7 @@ const timelineData = [
   {
     year: "2024",
     title: "A Year of Recognition & Formal Milestone",
-    images: ["/timelinephotos/2024.JPG"],
+    images: ["/timelinephotos/2024.webp"],
     content: (
       <div className="text-justify">
         In 2024, Avasa Foundation was officially registered under the{" "}
@@ -104,7 +104,7 @@ const timelineData = [
   {
     year: "2025",
     title: "Innovation, Expansion & Continued Commitment",
-    images: ["/timelinephotos/2025.JPG"],
+    images: ["/timelinephotos/2025.webp"],
     content: (
       <div className="text-justify">
         In 2025, Avasa Foundation continued its mission with renewed energy and

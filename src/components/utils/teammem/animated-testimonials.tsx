@@ -16,21 +16,21 @@ const DEFAULT_TESTIMONIALS: Testimonial[] = [
       "With the support of Avasa Foundation, I was able to continue my education and complete my 10th standard. They helped me with the resources I needed for school. I’m thankful for their support and hope to continue my studies further.",
     name: "Mr.Rasool Ahmed",
     designation: "10th standard pursued",
-    src: "/testimonials/rasool.jpg",
+    src: "/testimonials/rasool.webp",
   },
   {
     quote:
       "Avasa Foundation has been regularly visiting our children’s shelter and old-age home, providing meals and spending time with the residents. They have also supported the construction of our new old-age home through their kind donations. We sincerely appreciate their continued support and care.",
     name: "Mr.Akhilesh Maheshwari",
     designation: "Founder (Naya Sawera NGO)",
-    src: "/testimonials/Mr.Akhilesh Maheshwari.jpg",
+    src: "/testimonials/Mr.Akhilesh Maheshwari.webp",
   },
   {
     quote:
       "Avasa Foundation has been actively involved in our school activities, regularly participating in events and annual functions. They often engage with our students, sharing knowledge and encouragement. Their support in promoting digital education— gifting a projector— has made a meaningful impact on our classrooms. We truly value their contribution to our students’ growth.",
     name: "Head Master",
     designation: "Govt School, Chak Charanwas",
-    src: "/testimonials/h3.jpg",
+    src: "/testimonials/h3.webp",
   },
   // {
   //   quote:
