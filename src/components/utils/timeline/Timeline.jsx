@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, Suspense, lazy } from "react";
 import {
   motion,
   AnimatePresence,
@@ -8,11 +8,17 @@ import {
   useTransform,
 } from "framer-motion";
 
+// Use next-gen image formats and lazy loading for images
 const timelineData = [
   {
     year: "2022",
     title: "The Beginning of Avasa",
-    images: ["/timelinephotos/2022.webp"],
+    images: [
+      {
+        src: "/timelinephotos/2022.webp",
+        type: "image/webp",
+      },
+    ],
     content: (
       <div className="text-justify">
         Avasa was founded by{" "}
@@ -30,7 +36,12 @@ const timelineData = [
   {
     year: "2023",
     title: "A New Chapter in Jaipur",
-    images: ["/timelinephotos/2023.webp"],
+    images: [
+      {
+        src: "/timelinephotos/2023.webp",
+        type: "image/webp",
+      },
+    ],
     content: (
       <div className="text-justify">
         In 2023, Avasa was reborn in{" "}
@@ -64,7 +75,12 @@ const timelineData = [
   {
     year: "2024",
     title: "A Year of Recognition & Formal Milestone",
-    images: ["/timelinephotos/2024.webp"],
+    images: [
+      {
+        src: "/timelinephotos/2024.webp",
+        type: "image/webp",
+      },
+    ],
     content: (
       <div className="text-justify">
         In 2024, Avasa Foundation was officially registered under the{" "}
@@ -104,7 +120,12 @@ const timelineData = [
   {
     year: "2025",
     title: "Innovation, Expansion & Continued Commitment",
-    images: ["/timelinephotos/2025.webp"],
+    images: [
+      {
+        src: "/timelinephotos/2025.webp",
+        type: "image/webp",
+      },
+    ],
     content: (
       <div className="text-justify">
         In 2025, Avasa Foundation continued its mission with renewed energy and
@@ -298,7 +319,30 @@ const AvasaLogoSVG = (props) => (
   </svg>
 );
 
-// MODIFIED: Make images square and use object-fit: contain for full image
+// Use <picture> for next-gen formats, lazy loading, and proper sizing
+const TimelineImage = ({ image, alt, ...props }) => (
+  <picture>
+    <source srcSet={image.src} type={image.type || "image/webp"} />
+    <img
+      src={image.src}
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "contain",
+        objectPosition: "center",
+        display: "block",
+        background: "#fff",
+        borderRadius: "0px",
+      }}
+      {...props}
+    />
+  </picture>
+);
+
+// MODIFIED: Make images square, use object-fit: contain, lazy load, and use <picture>
 const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
   const [active, setActive] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -308,7 +352,6 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
   if (!images || images.length === 0) return null;
 
   if (images.length === 1) {
-    // Make the image fill the available place, square, and fully visible (contain)
     return (
       <div
         className={`relative ${imageSize || ""}`}
@@ -325,27 +368,13 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          borderRadius: "0px", // square
+          borderRadius: "0px",
         }}
       >
-        <img
-          src={images[0]}
+        <TimelineImage
+          image={images[0]}
           alt={altTexts[0] || "Gallery image"}
           className={`object-contain object-center absolute inset-0 w-full h-full border-neutral-200 border dark:border-neutral-700 shadow`}
-          style={{
-            aspectRatio: "1 / 1",
-            background: "#fff",
-            width: "100%",
-            height: "100%",
-            maxWidth: "100%",
-            maxHeight: "100%",
-            display: "block",
-            objectFit: "contain",
-            objectPosition: "center",
-            position: "absolute",
-            inset: 0,
-            borderRadius: "0px", // square
-          }}
           draggable={false}
         />
       </div>
@@ -380,7 +409,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
         maxHeight: "320px",
         width: "100%",
         height: "auto",
-        borderRadius: "0px", // square
+        borderRadius: "0px",
         overflow: "hidden",
       }}
     >
@@ -393,7 +422,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
           zIndex: 0,
           display: "block",
           opacity: 1,
-          borderRadius: "0px", // square
+          borderRadius: "0px",
         }}
         aria-hidden="true"
       >
@@ -413,10 +442,12 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
               inset: 0,
               zIndex: 0,
               pointerEvents: "none",
-              borderRadius: "0px", // square
+              borderRadius: "0px",
             }}
             draggable={false}
             aria-hidden="true"
+            loading="lazy"
+            decoding="async"
             onError={() => setShowFallbackLogo(true)}
           />
         ) : (
@@ -429,14 +460,14 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
               position: "absolute",
               inset: 0,
               zIndex: 0,
-              borderRadius: "0px", // square
+              borderRadius: "0px",
             }}
             className="w-full h-full"
           />
         )}
       </span>
       <motion.div
-        key={images[(active - 1 + images.length) % images.length] + "-back"}
+        key={images[(active - 1 + images.length) % images.length].src + "-back"}
         initial={{
           opacity: 0,
           scale: 0.8,
@@ -465,11 +496,11 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
           height: "100%",
           width: "100%",
           overflow: "hidden",
-          borderRadius: "0px", // square
+          borderRadius: "0px",
         }}
       >
-        <img
-          src={images[(active - 1 + images.length) % images.length]}
+        <TimelineImage
+          image={images[(active - 1 + images.length) % images.length]}
           alt={
             altTexts[(active - 1 + images.length) % images.length] ||
             "Gallery image"
@@ -488,14 +519,14 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
             display: "block",
             objectFit: "contain",
             objectPosition: "center",
-            borderRadius: "0px", // square
+            borderRadius: "0px",
             background: "#fff",
           }}
         />
       </motion.div>
       <AnimatePresence initial={false} mode="wait" custom={direction}>
         <motion.div
-          key={images[active] + "-" + variantIndex}
+          key={images[active].src + "-" + variantIndex}
           custom={direction}
           initial={transitionVariants[variantIndex].initial(direction)}
           animate={transitionVariants[variantIndex].animate}
@@ -514,11 +545,11 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            borderRadius: "0px", // square
+            borderRadius: "0px",
           }}
         >
-          <img
-            src={images[active]}
+          <TimelineImage
+            image={images[active]}
             alt={altTexts[active] || "Gallery image"}
             width={500}
             height={500}
@@ -536,7 +567,7 @@ const AnimatedImageGallery = ({ images, altTexts = [], imageSize }) => {
               display: "block",
               objectFit: "contain",
               objectPosition: "center",
-              borderRadius: "0px", // square
+              borderRadius: "0px",
             }}
           />
         </motion.div>
@@ -616,9 +647,12 @@ export function Timeline({ data }) {
 
   return (
     <div
-      className="pt-16 w-full font-sans text-white bg-black sm:pt-20 md:px-10"
+      className="relative pt-16 w-full font-sans text-white bg-black sm:pt-20 md:px-10"
       ref={containerRef}
+      style={{ position: "relative" }} // Ensure non-static position for scroll offset calculation
     >
+      {/* Preload AVASA.svg as an image for better browser hinting */}
+      <link rel="preload" as="image" href="/svg/AVASA.svg" />
       <div className="relative mx-auto py-4 px-2 px-4 mt-6 max-w-7xl sm:py-8 md:px-8 lg:px-10">
         <h1 className="mb-1 max-w-4xl text-white text-4xl sm:mb-2 md:text-4xl lg:text-7xl xl:text-4xl 2xl:text-4xl">
           OUR JOURNEY
