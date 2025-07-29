@@ -2,7 +2,12 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
-const images = ["/maindesk.jpeg", "/maindesk3.jpg", "/main.jpg"];
+// Images for HomeOther section
+const images = [
+  "/homeother/maindesk.jpeg",
+  "/homeother/maindesk3.jpg",
+  "/homeother/main.jpg",
+];
 
 const dropInKeyframes = [
   { transform: "translateY(-200px)", opacity: 0 },
