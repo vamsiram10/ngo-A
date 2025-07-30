@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef, Suspense, lazy } from "react";
+import { useState, useRef, Suspense } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import Image from "next/image";
@@ -345,12 +345,11 @@ export default function OurChaptersPage() {
     }
   };
 
-  const indiaMapWidth = 1200;
-  const indiaMapHeight = 900;
-
+  // Remove overflow-hidden from the wrapper div to allow natural scrolling
+  // Also, ensure the main element takes min-h-screen for full page scroll
   return (
-    <main className="bg-black text-white">
-      <div className="overflow-hidden">
+    <main className="bg-black text-white min-h-screen w-full">
+      <div>
         <div className="relative flex flex-col md:flex-row items-center justify-center px-4 min-h-[100vh] sm:min-h-[80vh] md:min-h-[100vh]">
           <Suspense
             fallback={

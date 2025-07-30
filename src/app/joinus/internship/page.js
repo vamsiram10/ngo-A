@@ -463,7 +463,7 @@ const DynamicInternshipPrograms = dynamic(
 // --- Main Page Component ---
 export default function InternshipPage() {
   return (
-    <main className="bg-black text-white">
+    <div className="min-h-screen flex flex-col bg-black text-white">
       {/* --- HERO SECTION (loads immediately for fast LCP) --- */}
       <section className="relative min-h-[90vh] flex items-center justify-center text-center p-4 pb-32">
         <div className="absolute inset-0 w-full h-full">
@@ -511,12 +511,12 @@ export default function InternshipPage() {
       </section>
 
       {/* --- LAZY-LOADED SECTIONS --- */}
-      <div className="relative z-20 ">
+      <div className="relative z-20 flex flex-col flex-1">
         <DynamicTestimonials />
         <DynamicWhyJoin />
         <br />
         <DynamicInternshipPrograms />
       </div>
-    </main>
+    </div>
   );
 }
