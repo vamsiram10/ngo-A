@@ -85,7 +85,7 @@ const Navbar = () => {
             </TransitionLink>
           </div>
           <span className="absolute left-17.5 w-45 text-black text-base text-lg sm:left-22 md:text-xl">
-            vasa Foundation
+            Avasa Foundation
           </span>
           <div className="absolute right-30 hidden items-center gap-6 font-medium md:flex">
             {navLinks.middle.map((link) => (
