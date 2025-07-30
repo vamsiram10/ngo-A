@@ -157,7 +157,7 @@ function ChapterCard({ chapter }) {
           <Link href="/contactus">
             <MotionDiv
               whileHover={{ scale: 1.05 }}
-              className="mt-auto py-2.5 w-full text-white font-semibold text-sm bg-gradient-to-r from-pink-600 to-violet-600 rounded-lg transition-all duration-300 hover:from-pink-500 hover:to-violet-500 sm:py-3 text-base"
+              className="mt-auto py-2.5 w-full text-white font-semibold text-sm text-base bg-gradient-to-r from-pink-600 to-violet-600 rounded-lg transition-all duration-300 hover:from-pink-500 hover:to-violet-500 sm:py-3"
               as="button"
             >
               Contact Chapter
@@ -283,7 +283,7 @@ function ChapterGallery({ title, description, images }) {
           </h3>
           <p className="text-neutral-300 text-base sm:text-lg">{description}</p>
         </div>
-        <div className="overflow-x-auto flex py-4 pl-4 pr-4 custom-scrollbar space-x-4 sm:pl-8 pr-8 md:space-x-6">
+        <div className="overflow-x-auto flex py-4 pl-4 pr-4 pr-8 custom-scrollbar space-x-4 sm:pl-8 md:space-x-6">
           {images.map((image, index) => (
             <div key={index} className="flex-shrink-0 w-72 sm:w-80">
               <GalleryCard
@@ -351,17 +351,17 @@ function Ourchapter() {
   return (
     <main className="min-h-screen w-full text-white bg-black">
       <div>
-        <div className="relative flex flex-col items-center justify-center px-4 min-h-[100vh] sm:min-h-[80vh] md:flex-row min-h-[100vh]">
+        <div className="relative flex flex-col items-center justify-center px-4 min-h-[100vh] sm:min-h-[80vh] md:flex-row">
           <Suspense
             fallback={
-              <div className="z-20 relative py-16 max-w-2xl w-full text-center md:py-0 w-1/2 text-left" />
+              <div className="z-20 relative py-16 max-w-2xl w-full w-1/2 text-center text-left md:py-0" />
             }
           >
             <MotionDiv
               initial="hidden"
               animate="visible"
               variants={containerVariants}
-              className="z-20 relative py-16 max-w-2xl w-full text-center md:py-0 w-1/2 text-left"
+              className="z-20 relative py-16 max-w-2xl w-full w-1/2 text-center text-left md:py-0"
             >
               <MotionDiv
                 variants={itemVariants}
@@ -392,10 +392,10 @@ function Ourchapter() {
               </MotionDiv>
             </MotionDiv>
           </Suspense>
-          <div className="relative flex justify-center items-center w-full h-[380px] sm:h-[480px] md:w-1/2 h-[700px] lg:h-[850px]">
+          <div className="relative flex justify-center items-center w-full h-[200px] sm:h-[480px] md:w-1/2 lg:h-[850px]">
             <div
               id="map"
-              className="overflow-hidden z-20 relative w-full max-w-2xl bg-neutral-900/90 border-2 border-pink-500 rounded-2xl shadow-2xl aspect-[4/3] backdrop-blur-lg md:max-w-4xl aspect-[16/9]"
+              className="overflow-hidden z-20 relative w-full max-w-2xl bg-neutral-900/90 border-2 border-pink-500 rounded-2xl shadow-2xl aspect-[4/3] backdrop-blur-lg aspect-[16/9] md:max-w-4xl"
               style={{
                 minWidth: 0,
                 minHeight: 0,
@@ -445,7 +445,7 @@ function Ourchapter() {
                         alt="AVASA Logo"
                         width={32}
                         height={32}
-                        className="object-contain w-8 h-8 bg-white rounded-full animate-blink-signal sm:w-10 h-10"
+                        className="object-contain w-8 h-8 h-10 bg-white rounded-full animate-blink-signal sm:w-10"
                         style={{ objectFit: "contain" }}
                         priority={false}
                       />
@@ -459,7 +459,7 @@ function Ourchapter() {
                         initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 8 }}
-                        className="z-40 absolute bottom-4 left-4 p-3 text-left bg-black/80 rounded-xl border-pink-500/30 backdrop-blur-lg border sm:bottom-6 left-6 p-5"
+                        className="z-40 absolute bottom-4 left-4 left-6 p-3 p-5 text-left bg-black/80 rounded-xl border-pink-500/30 backdrop-blur-lg border sm:bottom-6"
                       >
                         <h3 className="text-pink-400 font-semibold text-base sm:text-lg md:text-xl">
                           {chapterToShow.name}
@@ -503,7 +503,7 @@ function Ourchapter() {
           className="py-16 bg-black border-y border-neutral-800 md:py-24"
         >
           <div className="mx-auto px-4 max-w-5xl">
-            <h2 className="mb-8 text-2xl font-bold text-pink-500 text-center xs:text-3xl sm:mb-12 text-4xl">
+            <h2 className="mb-8 text-2xl font-bold text-pink-500 text-center text-4xl xs:text-3xl sm:mb-12">
               Our Chapters
             </h2>
             <Suspense
