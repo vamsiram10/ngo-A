@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef, useState } from "react";
 // 1. Import emailjs
 import emailjs from "@emailjs/browser";
@@ -11,7 +12,7 @@ const ContactUsSection = () => {
 
     // Get form values directly
     const form = formRef.current;
-    const nameInput = form["name"]?.value || "";
+    const nameInput = form["user_name"]?.value || "";
     const emailInput = form["user_email"]?.value || "";
     const subjectInput = form["subject"]?.value || "";
     const messageInput = form["message"]?.value || "";

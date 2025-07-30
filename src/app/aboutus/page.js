@@ -3,7 +3,9 @@ import AboutUsContent from "@/components/section/aboutussection/AboutUsContent";
 const AboutUsPage = () => {
   return (
     <>
-      <AboutUsContent />
+      <a href="/aboutus">
+        <AboutUsContent />
+      </a>
     </>
   );
 };
