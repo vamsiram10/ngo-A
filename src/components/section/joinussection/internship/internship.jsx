@@ -61,7 +61,7 @@ const InternshipTestimonials = memo(function InternshipTestimonials() {
     {
       id: 4,
       quote:
-        "This internship allowed me to discover my graphic design skills. I&apos;m truly grateful to be a part of Avasa.",
+        "This internship allowed me to discover my graphic design skills. I'm truly grateful to be a part of Avasa.",
       name: "Manthan jain",
       role: "Former Social Media Intern",
       avatar: "/images/avatar4.webp",
@@ -85,7 +85,7 @@ const InternshipTestimonials = memo(function InternshipTestimonials() {
     {
       id: 7,
       quote:
-        "A great learning experience as a content writing intern. Analyzing Avasa&apos;s past work was both challenging and memorable.",
+        "A great learning experience as a content writing intern. Analyzing Avasa's past work was both challenging and memorable.",
       name: "Drishti Wacchani",
       role: "Former Content Writing Intern",
       avatar: "/images/avatar7.jpeg",
