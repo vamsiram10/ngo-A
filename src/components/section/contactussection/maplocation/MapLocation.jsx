@@ -105,7 +105,7 @@ const OTHER_LOCATIONS = [
   {
     id: "vivekananda-seva-sangham",
     name: "Vivekananda Seva Sangham",
-    coords: [17.385, 78.4867],
+    coords: [17.4101, 78.4983],
     iconUrl: AVASA_ICON_URL,
     popup: "<b>Vivekananda Seva Sangham</b>",
   },
@@ -137,7 +137,100 @@ const OTHER_LOCATIONS = [
     iconUrl: AVASA_ICON_URL,
     popup: "<b>Matra Chaya Bal Grah</b>",
   },
+  {
+    id: "govt_school_chak_charnwas",
+    name: "Govt. School (Chak Charanwas)",
+    coords: [27.0564, 75.9725],
+    iconUrl: AVASA_ICON_URL,
+    popup: "<b>Govt. School (Chak Charanwas)</b>",
+  },
+
+  {
+    id: "jaipur_junction_railway_station",
+    name: "Jaipur Junction Railway Station",
+    coords: [26.92079, 75.78665],
+    iconUrl: AVASA_ICON_URL,
+    popup: "<b>Jaipur Junction Railway Station</b>",
+  },
+  {
+    id: "second_chance_foundation",
+    name: "Second Chance Foundation",
+    coords: [17.5031, 78.5408],
+    iconUrl: AVASA_ICON_URL,
+    popup: "<b>Second Chance Foundation</b>",
+  },
+  {
+    id: "chanda_nagar_hyderabad",
+    name: "Chanda Nagar, Hyderabad",
+    coords: [17.4952, 78.32285],
+    iconUrl: AVASA_ICON_URL,
+    popup: "<b>Chanda Nagar, Hyderabad</b>",
+  },
+  {
+    id: "new_life_foundation",
+    name: "New Life Foundation",
+    coords: [17.493, 78.302],
+    iconUrl: AVASA_ICON_URL,
+    popup: "<b>New Life Foundation</b>",
+  },
+  {
+    id: "sindhi_camp_bus_stand",
+    name: "Sindhi Camp Bus Stand, Jaipur",
+    coords: [26.8998, 75.8129],
+    iconUrl: AVASA_ICON_URL,
+    popup: "<b>Sindhi Camp Bus Stand, Jaipur</b>",
+  },
+  {
+    id: "bais_godam_jaipur",
+    name: "Bais Godam, Jaipur",
+    coords: [26.89802, 75.78767],
+    iconUrl: AVASA_ICON_URL,
+    popup: "<b>Bais Godam, Jaipur</b>",
+  },
+  {
+    id: "gopalpura_bypass_vivek_vihar",
+    name: "Gopalpura Bypass Rd, Vivek Vihar, Bajaj Nagar, Jaipur",
+    coords: [26.8698, 75.8078],
+    iconUrl: AVASA_ICON_URL,
+    popup: "<b>Gopalpura Bypass Rd, Vivek Vihar, Bajaj Nagar, Jaipur</b>",
+  },
+  {
+    id: "jntu_metro_station_hyderabad",
+    name: "JNTU Metro Station, Kukatpally, Hyderabad",
+    coords: [17.4986, 78.3889],
+    iconUrl: AVASA_ICON_URL,
+    popup: "<b>JNTU Metro Station, Kukatpally, Hyderabad</b>",
+  },
+  {
+    id: "vaishali_nagar_jaipur",
+    name: "Vaishali Nagar, Jaipur",
+    coords: [26.9361, 75.7618],
+    iconUrl: AVASA_ICON_URL,
+    popup: "<b>Vaishali Nagar, Jaipur</b>",
+  },
+  {
+    id: "nandpuri_colony_jagatpura",
+    name: "Nandpuri Colony, Jagatpura, Jaipur",
+    coords: [26.9, 75.82],
+    iconUrl: AVASA_ICON_URL,
+    popup: "<b>Nandpuri Colony, Jagatpura, Jaipur</b>",
+  },
+  {
+    id: "nampally_station_road_hyderabad",
+    name: "Nampally Station Road, Hyderabad",
+    coords: [17.385, 78.4867],
+    iconUrl: AVASA_ICON_URL,
+    popup: "<b>Nampally Station Road, Hyderabad</b>",
+  },
+  {
+    id: "mathru_abhaya_orphanage_medipally",
+    name: "Mathru Abhaya Orphanage for Girls, Medipally, Hyderabad",
+    coords: [17.559, 78.63],
+    iconUrl: AVASA_ICON_URL,
+    popup: "<b>Mathru Abhaya Orphanage for Girls, Medipally</b>",
+  },
 ];
+
 const FIXED_ICON_SIZE = [50, 50];
 const FIXED_ICON_ANCHOR = [32, 64];
 const FIXED_POPUP_ANCHOR = [0, -50];

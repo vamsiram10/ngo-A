@@ -33,13 +33,12 @@ export default function AboutUsContent() {
       name: "Ananya Pandey",
       role: "General Secretary",
       desc: "Manages administrative affairs, ensures clear communication, and upholds governance with integrity.",
-      // img: "/team/priyanka.webp",
     },
     {
       name: "M.V. Nageswara Rao",
       role: "Joint Secretary",
       desc: "Supports administrative functions and streamlines coordination to ensure operational efficiency.",
-      // img: "/team/ajay.webp",
+      img: "/meet/mvnag1.webp",
     },
     {
       name: "V. Lakshmi Prasanna",
@@ -69,7 +68,6 @@ export default function AboutUsContent() {
       name: "R.V.R. Vamsi",
       role: "Head of Social Media",
       desc: "Leads the organization's digital presence by strategizing, creating, and managing content to amplify outreach and engagement.",
-      // img: "",
     },
   ];
 
@@ -143,7 +141,6 @@ export default function AboutUsContent() {
           What We Do
         </h2>
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {/* Love and Care */}
           <div className="flex flex-col items-center p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
             <div className="overflow-hidden flex items-center justify-center mb-4 w-40 h-40 bg-neutral-800 border-2 border-pink-400">
               <Image
@@ -163,7 +160,6 @@ export default function AboutUsContent() {
             </p>
           </div>
 
-          {/* Seasonal & Awareness Drives */}
           <div className="flex flex-col items-center p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
             <div className="overflow-hidden flex items-center justify-center mb-4 w-40 h-40 bg-neutral-800 border-2 border-pink-400">
               <Image
@@ -191,7 +187,6 @@ export default function AboutUsContent() {
             </ul>
           </div>
 
-          {/* Development Support */}
           <div className="flex flex-col items-center p-6 bg-neutral-900 rounded-xl shadow-md lg:p-8">
             <div className="overflow-hidden flex items-center justify-center mb-4 w-40 h-40 bg-neutral-800 border-2 border-pink-400">
               <Image
