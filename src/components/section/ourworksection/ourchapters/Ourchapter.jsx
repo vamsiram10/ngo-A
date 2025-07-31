@@ -157,7 +157,7 @@ function ChapterCard({ chapter }) {
           <Link href="/contactus">
             <MotionDiv
               whileHover={{ scale: 1.05 }}
-              className="mt-auto py-2.5 w-full text-white font-semibold text-sm text-base bg-gradient-to-r from-pink-600 to-violet-600 rounded-lg transition-all duration-300 hover:from-pink-500 hover:to-violet-500 sm:py-3"
+              className="mt-auto py-2.5 w-full text-white font-semibold text-sm text-base text-center bg-gradient-to-r from-pink-600 to-violet-600 rounded-lg transition-all duration-300 hover:from-pink-500 hover:to-violet-500 sm:py-3"
               as="button"
             >
               Contact Chapter

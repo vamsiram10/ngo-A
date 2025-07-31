@@ -33,6 +33,7 @@ export default function AboutUsContent() {
       name: "Ananya Pandey",
       role: "General Secretary",
       desc: "Manages administrative affairs, ensures clear communication, and upholds governance with integrity.",
+      img: "/meet/ananya.webp",
     },
     {
       name: "M.V. Nageswara Rao",
