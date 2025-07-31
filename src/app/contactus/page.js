@@ -3,9 +3,7 @@ import ContactUsSection from "@/components/section/contactussection/ContactUsSec
 const ContactUsPage = () => {
   return (
     <>
-      <a href="/contactus">
-        <ContactUsSection />
-      </a>
+      <ContactUsSection />
     </>
   );
 };

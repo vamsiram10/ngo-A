@@ -1,40 +1,76 @@
 "use client";
 import React, { useRef, useState } from "react";
-// 1. Import emailjs
 import emailjs from "@emailjs/browser";
 
 const ContactUsSection = () => {
-  const formRef = useRef();
+  // Use controlled components for form fields
+  const [formData, setFormData] = useState({
+    user_name: "",
+    user_email: "",
+    subject: "",
+    message: "",
+  });
   const [status, setStatus] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef();
 
+  // Refs for each input to allow select-on-click
+  const nameInputRef = useRef();
+  const emailInputRef = useRef();
+  const subjectInputRef = useRef();
+  const messageInputRef = useRef();
+
+  // Handle input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  // Select all text on single click
+  const handleSelectAll = (ref) => (e) => {
+    // Only select if not already focused (to allow normal typing)
+    if (document.activeElement !== ref.current) {
+      ref.current.select();
+    }
+  };
+
+  // Handle form submission
   const sendEmail = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent page reload
 
-    // Get form values directly
-    const form = formRef.current;
-    const nameInput = form["user_name"]?.value || "";
-    const emailInput = form["user_email"]?.value || "";
-    const subjectInput = form["subject"]?.value || "";
-    const messageInput = form["message"]?.value || "";
+    // Prevent double submit
+    if (isSubmitting) return;
+    setIsSubmitting(true);
 
     try {
       await emailjs.send(
         "service_klcih5m",
         "template_jor4rbo",
         {
-          name: nameInput,
-          user_email: emailInput,
-          subject: subjectInput,
-          message: messageInput,
+          name: formData.user_name,
+          user_email: formData.user_email,
+          subject: formData.subject,
+          message: formData.message,
         },
         "3myaa1CZDznu2Nkdu"
       );
       setStatus("success");
-      formRef.current.reset();
-      alert("Message sent successfully!");
+      setFormData({
+        user_name: "",
+        user_email: "",
+        subject: "",
+        message: "",
+      });
+      // Optionally, you can remove alert here if you want a less intrusive UX
+      // alert("Message sent successfully!");
     } catch (error) {
       setStatus("error");
-      alert("Failed to send message. Please try again later.");
+      // alert("Failed to send message. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -163,40 +199,70 @@ const ContactUsSection = () => {
             className="relative top-15 p-8 w-full min-h-[500px] bg-[#1f1f1f] rounded-lg shadow-lg lg:w-1/2 xl:w-5/12"
             style={{ top: "0.1rem" }}
           >
-            <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
+            <form
+              ref={formRef}
+              onSubmit={sendEmail}
+              className="space-y-6"
+              autoComplete="off"
+            >
               <input
+                ref={nameInputRef}
                 type="text"
                 name="user_name"
-                placeholder="Full Name "
+                placeholder="Full Name"
                 className="p-4 placeholder-gray-400 w-full text-sm font-normal text-white bg-[#2b2b2b] rounded-lg border-gray-700 shadow-sm border focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
                 required
+                value={formData.user_name}
+                onChange={handleChange}
+                onClick={handleSelectAll(nameInputRef)}
+                autoComplete="off"
+                tabIndex={1}
               />
               <input
+                ref={emailInputRef}
                 type="email"
                 name="user_email"
                 placeholder="Email Address (e.g. you@email.com)"
                 className="p-4 placeholder-gray-400 w-full text-sm font-normal text-white bg-[#2b2b2b] rounded-lg border-gray-700 shadow-sm border focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
                 required
+                value={formData.user_email}
+                onChange={handleChange}
+                onClick={handleSelectAll(emailInputRef)}
+                autoComplete="off"
+                tabIndex={2}
               />
               <input
+                ref={subjectInputRef}
                 type="text"
                 name="subject"
                 placeholder="Subject"
                 className="p-4 placeholder-gray-400 w-full text-sm font-normal text-white bg-[#2b2b2b] rounded-lg border-gray-700 shadow-sm border focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
                 required
+                value={formData.subject}
+                onChange={handleChange}
+                onClick={handleSelectAll(subjectInputRef)}
+                autoComplete="off"
+                tabIndex={3}
               />
               <textarea
-                rows="7"
+                ref={messageInputRef}
+                rows={7}
                 name="message"
                 placeholder="Type your message here (at least 20 characters)..."
-                className="p-4 placeholder-gray-400 w-full text-sm font-normal text-white bg-[#2b2b2b] rounded-lg border-gray-700 shadow-sm resize-none border focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
+                className="p-4 placeholder-gray-400 w-full text-sm font-normal text-white bg-[#2b2b2b] rounded-lg border-gray-700 shadow-sm resize-y border focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
                 required
+                value={formData.message}
+                onChange={handleChange}
+                onClick={handleSelectAll(messageInputRef)}
+                autoComplete="off"
+                tabIndex={4}
               ></textarea>
               <button
                 type="submit"
                 className="px-6 py-3 w-full text-center text-white text-sm font-medium tracking-wide bg-pink-600 rounded-lg duration-300 uppercase transition hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500"
+                disabled={isSubmitting}
               >
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </form>
             {status === "success" && (
