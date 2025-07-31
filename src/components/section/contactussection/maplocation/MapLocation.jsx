@@ -5,13 +5,13 @@ import { cn } from "@/lib/utils";
 import React from "react";
 
 const EVENTS = [
-  {
-    id: "event-location-2025", // aneesh make a change here raaa or else contact laya
-    name: "Event 1", // aneesh make a change here raaa or else contact laya
-    date: "2024-08-10", // aneesh make a change here raaa or else contact laya
-    coords: [26.2978, 73.0386], // aneesh make a change here raaa or else contact laya
-    address: "Sardarpura, Jodhpur, Rajasthan 342003", // aneesh make a change here raaa or else contact laya
-  }, // aneesh make a change here raaa or else contact laya
+  // {
+  //   id: "event-location-2025", // aneesh make a change here raaa or else contact laya
+  //   name: "Event 1", // aneesh make a change here raaa or else contact laya
+  //   date: "2024-08-10", // aneesh make a change here raaa or else contact laya
+  //   coords: [26.2978, 73.0386], // aneesh make a change here raaa or else contact laya
+  //   address: "Sardarpura, Jodhpur, Rajasthan 342003", // aneesh make a change here raaa or else contact laya
+  // }, // aneesh make a change here raaa or else contact laya
   // {
   //   id: "event-location-2026", // aneesh make a change here raaa or else contact laya
   //   name: "Event 2", // aneesh make a change here raaa or else contact laya
@@ -103,18 +103,39 @@ const FIXED_LOCATION = {
 };
 const OTHER_LOCATIONS = [
   {
-    id: "random-location-1",
-    name: "Random Location 1",
-    coords: [27.1769, 75.9597],
+    id: "vivekananda-seva-sangham",
+    name: "Vivekananda Seva Sangham",
+    coords: [17.385, 78.4867],
     iconUrl: AVASA_ICON_URL,
-    popup: "<b>Random Location 1</b>",
+    popup: "<b>Vivekananda Seva Sangham</b>",
   },
   {
-    id: "random-location-2",
-    name: "Random Location 2",
-    coords: [26.32, 73.03],
+    id: "mathru-foundation",
+    name: "Mathru Foundation",
+    coords: [17.5043, 78.5426],
     iconUrl: AVASA_ICON_URL,
-    popup: "<b>Random Location 2</b>",
+    popup: "<b>Mathru Foundation</b>",
+  },
+  {
+    id: "abhita-foundation",
+    name: "Abhita Foundation",
+    coords: [17.385, 78.4867],
+    iconUrl: AVASA_ICON_URL,
+    popup: "<b>Abhita Foundation</b>",
+  },
+  {
+    id: "naya-sawera-ngo",
+    name: "Naya Sawera NGO",
+    coords: [26.8877, 75.768],
+    iconUrl: AVASA_ICON_URL,
+    popup: "<b>Naya Sawera NGO</b>",
+  },
+  {
+    id: "matra-chaya-bal-grah",
+    name: "Matra Chaya Bal Grah",
+    coords: [26.9361, 75.7618],
+    iconUrl: AVASA_ICON_URL,
+    popup: "<b>Matra Chaya Bal Grah</b>",
   },
 ];
 const FIXED_ICON_SIZE = [50, 50];
