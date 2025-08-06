@@ -43,7 +43,7 @@ const ADDRESS = (
     <br />
     near matrika hospital, Thyagaraja nagar,
     <br />
-    Somajiguda, Hyderabad -500080.
+    Somajiguda, Hyderabad -500082.
   </span>
 );
 
@@ -148,7 +148,7 @@ const Footer = () => {
           <span>Registered NGO: AVASA FOUNDATION, Reg. No. 1108</span>
           <span className="max-w-xs break-words sm:max-w-none">
             H.no.6-3-1100/A-1, ground floor, near matrika hospital, Thyagaraja
-            nagar, Somajiguda, Hyderabad -500080.
+            nagar, Somajiguda, Hyderabad -500082.
           </span>
         </div>
       </div>

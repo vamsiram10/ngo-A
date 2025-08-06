@@ -79,7 +79,7 @@ const Navbar = () => {
                 alt="logo"
                 width={38}
                 height={40}
-                className="w-[40px] h-[43px] h-[58.5px] sm:w-[54px]"
+                className="w-[10px] h-[43px] h-[58.5px] sm:w-[54px]"
                 priority
               />
             </TransitionLink>
