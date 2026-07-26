@@ -20,3 +20,4 @@ export default function BlogsComingSoon() {
     <PaymentPage />
   );
 }
+//Interns working on blogs section
